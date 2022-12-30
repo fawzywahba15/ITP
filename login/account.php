@@ -205,7 +205,7 @@ if (isset( $_SESSION["username"])){
         <label for="passwort_value" class="account_label">Passwort:</label>
         <p class="label_value" id="passwort_value">
             <?php
-            echo "**************";
+            echo "*************";
             ?>
         </p>
         <button onclick="showForm_passwort()" id="show_form_passwort" class="button px-5 py-1 my-1">Passwort ändern</button>
