@@ -45,8 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         changne_data($_POST["Nachname_input"], "username");
         session_unset();
         session_destroy();
-        header("Refresh:0");
-
     }
     //vorname ändern
     if(isset($_POST["vorname_input"])){
@@ -58,16 +56,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         changne_data($_POST["geburtstag_input"], "birthday");
     }
 
+    if(isset($_POST["mail_input"])){
+        changne_data($_POST["mail_input"], "usermail");
+    }
+
 }
 
 
-
+// wegen username änderung
 if (isset($_SESSION)){
-
     include_once "account.php";
-
 }else{
-    echo "bin in";
-
-    header("Refresh:5");
+    header("Refresh:0");
 }

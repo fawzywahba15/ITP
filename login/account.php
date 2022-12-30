@@ -126,7 +126,7 @@ if (isset( $_SESSION["username"])){
             ?>
         </p>
         <button onclick="showForm_nachname()" id="show_form_nachname" class="button px-5 py-1 my-1">Nachname ändern</button>
-        <form id="nachname" style="display: none;" method="post" class="my-1">
+        <form id="nachname" action="change_database.php" style="display: none;" method="post" class="my-1">
             <div>
             <label for="Nachname_input" class="my-0">Neuer Nachname:</label>
             <input type="text" id="Nachname_input" name="Nachname_input" class="input">
@@ -145,7 +145,7 @@ if (isset( $_SESSION["username"])){
             ?>
         </p>
         <button onclick="showForm_vorname()" id="show_form_vorname" class="button px-5 py-1 my-1">Vorname ändern</button>
-            <form id="vorname" style="display: none;" method="post" class="my-1">
+            <form id="vorname"  action="change_database.php" style="display: none;" method="post" class="my-1">
                 <div>
                 <label for="vorname_input">Neuer Vorname:</label>
                 <input type="text" id="vorname_input" class="input my-1">
@@ -158,7 +158,7 @@ if (isset( $_SESSION["username"])){
 
     <!--    Geburtstag ändern-->
     <div>
-        <label for="geburtstag_value" class="account_label">Geburtstag:</label>
+        <label for="geburtstag_value"  class="account_label">Geburtstag:</label>
         <p class="label_value" id="geburtstag_value">
             <?php
             get_data("birthday");
@@ -166,7 +166,7 @@ if (isset( $_SESSION["username"])){
 
         </p>
         <button onclick="showForm_geburtstag()" id="show_form_geburtstag" class="button px-5 py-1 my-1">Geburtstag ändern</button>
-        <form id="geburtstag" style="display: none;" method="post" class="my-1" action="change_database.php">
+        <form id="geburtstag"  action="change_database.php" style="display: none;" method="post" class="my-1" action="change_database.php">
             <div>
             <label for="geburtstag_input">Neuer Geburtstag:</label>
             <input type="text" id="geburtstag_input" name="geburtstag_input" class="input my-1">
@@ -187,7 +187,7 @@ if (isset( $_SESSION["username"])){
             ?>
         </p>
         <button onclick="showForm_mail()" id="show_form_mail" class="button px-5 py-1 my-1">E-mail ändern</button>
-        <form id="mail" style="display: none;" method="post" class="my-1">
+        <form id="mail"  action="change_database.php" style="display: none;" method="post" class="my-1">
             <div>
             <label for="mail_input">Neue E-mail:</label>
             <input type="text" id="mail_input" class="input my-1">
@@ -260,7 +260,7 @@ if (isset( $_SESSION["username"])){
 <?php
 
 
-include_once "change_database.php";
+//include_once "change_database.php";
 ?>
 
 </body>
