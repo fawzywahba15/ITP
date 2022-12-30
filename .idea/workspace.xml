@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../php/PEAR" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2HcxoMYwHcJtRfJ3wIv0K4covK3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/webtechnologien/2_übung&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.PHP&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;hive&quot;,
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webtechnologien\2_übung" />
+      <recent name="C:\xampp\htdocs\webtechnologien\file_upload\thumbnails" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webtechnologien\gang\Hotel_Himalaya_Martin_Mohsan\Hotel_Himalaya_Martin_Mohsan\includes" />
+      <recent name="C:\xampp\htdocs\webtechnologien\login" />
+      <recent name="C:\xampp\htdocs\webtechnologien\1.übung" />
+      <recent name="C:\xampp\htdocs\webtechnologien\2_übung" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="" />
+      <created>1668598351452</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668598351452</updated>
+      <workItem from="1668598355585" duration="1132000" />
+      <workItem from="1668612115801" duration="1290000" />
+      <workItem from="1668775770419" duration="4156000" />
+      <workItem from="1668780320974" duration="1529000" />
+      <workItem from="1668781915929" duration="5440000" />
+      <workItem from="1668809045220" duration="10892000" />
+      <workItem from="1668878376681" duration="8401000" />
+      <workItem from="1668888876030" duration="14341000" />
+      <workItem from="1668911676739" duration="1288000" />
+      <workItem from="1668951392285" duration="13893000" />
+      <workItem from="1668977881448" duration="3244000" />
+      <workItem from="1669027682276" duration="9525000" />
+      <workItem from="1669038498502" duration="6659000" />
+      <workItem from="1669045199084" duration="12184000" />
+      <workItem from="1669064579427" duration="1262000" />
+      <workItem from="1669100727168" duration="6000" />
+      <workItem from="1669113886137" duration="884000" />
+      <workItem from="1669194154238" duration="9272000" />
+      <workItem from="1669232598224" duration="8000" />
+      <workItem from="1669561515780" duration="12000" />
+      <workItem from="1669714289701" duration="646000" />
+      <workItem from="1670167612255" duration="2014000" />
+      <workItem from="1671548929046" duration="399000" />
+      <workItem from="1671797696018" duration="14380000" />
+      <workItem from="1672307515762" duration="9051000" />
+      <workItem from="1672395538407" duration="5849000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

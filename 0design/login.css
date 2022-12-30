@@ -1,0 +1,85 @@
+body {background-color: black;
+    color: white;}
+
+
+.text_zentriert{text-align: center;}
+
+.label_mail{
+/*    text-align: center;*/
+    margin-top: 30px;
+    margin-left: 50%;
+    margin-bottom: 0 ;
+        transform: translate(-50%,-50%);
+}
+
+.input_mail{
+    text-align: center ;
+    border: 3px #3498db solid ;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 25px;
+    transition-duration: 0.4s;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.input_mail:focus{
+      width: 280px;
+      border-color: #2ecc71;
+}
+
+
+.input_pw{
+
+    margin-top: 30px;
+/*    margin-bottom: 30px;*/
+    margin-left: 50%;
+
+    transform: translate(-50%,-50%);
+    text-align: center ;
+    border: 3px #3498db solid ;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 25px;
+    transition-duration: 0.4s;
+}
+.input_pw:focus{
+        width: 280px;
+        border-color: #2ecc71;
+}
+      
+
+
+
+  
+
+.label_pw{
+    display: grid;
+    text-align: center;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.button{
+    margin-top: 30px;
+
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: black;
+    color: white;
+    border: 2px solid #4CAF50;
+    padding: 14px 40px;
+    border-radius: 25px;
+    transition-duration: 0.25s;
+
+
+}
+
+.button:hover{
+    background-color: #4CAF50; /* Green */
+    color: white;
+
+}

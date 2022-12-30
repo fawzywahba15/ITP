@@ -1,0 +1,104 @@
+/* allgemein */
+body {background-color: black;
+color: white;}
+
+
+/* ------------------class -------------------------*/
+.text_zentriert{text-align: center;}
+
+
+.button{
+  background-color: black;
+  color: white;
+  border: 2px solid #4CAF50; 
+  padding: 14px 40px;
+  border-radius: 5px;
+  transition-duration: 0.25s;
+
+
+}
+
+.button:hover{
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.button_2{
+  background-color: #824caf;
+  color: white;
+  border: 2px solid #824caf;
+  padding: 14px 40px;
+  border-radius: 5px;
+  transition-duration: 0.25s;
+
+
+}
+
+.button_2:hover{
+  background-color: black; /* Green */
+  color: white;
+}
+  
+
+
+
+/* faq */
+.li{font-weight: bold;}
+
+
+
+/*-------------------- link------------------------------*/
+a:link{color: #2ecc71;}
+a:hover{color: #824caf;}
+a:visited{color: #2ecc71;}
+a:active{color: #824caf
+}
+
+
+/* Bild */
+img{border: 5px solid white;
+    border-radius: 50px;}
+
+
+/* reg. formular */
+.input{
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: 50%;
+  margin-top: 30px;
+  margin-left: 50%;
+
+  transform: translate(-50%,-50%);
+  text-align: center ;
+
+  border: 3px #3498db solid ;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  border-radius: 25px;
+  transition-duration: 0.4s;
+}
+.input:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}
+.label_reg{
+  display: grid;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.navbar_login{
+  background-color: black;
+  color: white;
+  border: 2px solid #4CAF50;
+  padding: 14px 40px;
+  border-radius: 5px;
+  transition-duration: 0.25s;
+}
+.navbar_login:hover{
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
