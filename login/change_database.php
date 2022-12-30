@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         changne_data($_POST["geburtstag_input"], "birthday");
     }
 
+    //mail ändern
     if(isset($_POST["mail_input"])){
         changne_data($_POST["mail_input"], "usermail");
     }
