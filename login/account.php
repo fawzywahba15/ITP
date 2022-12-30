@@ -148,7 +148,7 @@ if (isset( $_SESSION["username"])){
             <form id="vorname"  action="change_database.php" style="display: none;" method="post" class="my-1">
                 <div>
                 <label for="vorname_input">Neuer Vorname:</label>
-                <input type="text" id="vorname_input" class="input my-1">
+                <input type="text" id="vorname_input" name ="vorname_input" class="input my-1">
                 </div>
                 <button onclick="" class="button_2 px-3 py-1">Ändern!</button>
             </form>
@@ -190,7 +190,7 @@ if (isset( $_SESSION["username"])){
         <form id="mail"  action="change_database.php" style="display: none;" method="post" class="my-1">
             <div>
             <label for="mail_input">Neue E-mail:</label>
-            <input type="text" id="mail_input" class="input my-1">
+            <input type="text" id="mail_input" name ="mail_input" class="input my-1">
             </div>
             <button onclick="" class="button_2 px-3 py-1">Ändern!</button>
 

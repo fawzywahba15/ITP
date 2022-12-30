@@ -60,13 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["mail_input"])){
         changne_data($_POST["mail_input"], "usermail");
     }
-
 }
 
 
 // wegen username änderung
 if (isset($_SESSION)){
     include_once "account.php";
+
 }else{
     header("Refresh:0");
 }
