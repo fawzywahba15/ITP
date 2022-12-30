@@ -31,38 +31,7 @@ if(!isset($_SESSION)) {
 
 }
 
-//code unten funktioniert
-/*
-if (isset( $_SESSION["username"])){
 
-
-    $host = 'localhost';
-    $user = 'fawzy';
-    $password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($host, $user, $password, $database);
-    $sql = "select * from `login`";
-    $user_coun = 0;
-    $current_user = $_SESSION["username"];
-    $second_sql = "update `login` Set `birthday` = '01.01.0000' where `username` = '$current_user' ";
-    $stmt = $db_obj->prepare($second_sql);
-
-    $result = $db_obj->query($sql);
-
-
-    if ($result->num_rows > 0) {
-        //iteriert alle datensätz in der Datenbank
-        while($row = $result->fetch_assoc()) {
-            if ($current_user == $row["username"] ){
-                $stmt->execute();
-            }else{
-                $user_coun ++;
-            }
-        }
-    }
-
-
-}*/
 
 ?>
 <!doctype html>
