@@ -33,6 +33,10 @@ if(!isset($_SESSION)) {
 
 
 
+
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -86,6 +90,7 @@ if(!isset($_SESSION)) {
 <div class="container my-5">
 
     <?php if(isset($_SESSION["username"])) : ?>
+    <?php   echo $error; ?>
     <!--    Nachname ändern-->
     <div>
         <label for="show_form_nachname" class="account_label my-0">Nachname:</label>
@@ -162,7 +167,6 @@ if(!isset($_SESSION)) {
             <input type="text" id="mail_input" name ="mail_input" class="input my-1">
             </div>
             <button onclick="" class="button_2 px-3 py-1">Ändern!</button>
-
         </form>
     </div>
 
@@ -172,25 +176,23 @@ if(!isset($_SESSION)) {
     <!--    passwort ändern-->
     <div>
         <label for="passwort_value" class="account_label">Passwort:</label>
-        <p class="label_value" id="passwort_value">
-            <?php
-            echo "*************";
-            ?>
+        <p class="label_value" id="passwort_value">*************
         </p>
         <button onclick="showForm_passwort()" id="show_form_passwort" class="button px-5 py-1 my-1">Passwort ändern</button>
-        <form id="passwort" style="display: none;" method="post" class="my-1">
+        <form id="passwort" action="change_database.php" style="display: none;" method="post" class="my-1">
             <div>
             <label for="altes_passwort_input" >Altes Passwort:</label>
-            <input type="text" id="altes_passwort_input" class="input my-1 ms-6">
+            <input type="password" id="altes_passwort_input" name="altes_passwort_input" class="input my-1 ms-6">
             </div>
             <div>
             <label for="neues_passwort_input">Neues Passwort:</label>
-            <input type="text" id="neues_passwort_input" class="input my-1 ms-6">
-
-            <label for="neues_passwort_confirmation_input">Neues Passwort wiederholen:</label>
-            <input type="text" id="neues_passwort_confirmation_input" class="input my-1">
+            <input type="password" id="neues_passwort_input" name="neues_passwort_input" class="input my-1 ms-6">
             </div>
-            <button onclick= class="button_2 px-3 py-1">Ändern!</button>
+            <div>
+            <label for="neues_passwort_confirmation_input">Neues Passwort wiederholen:</label>
+            <input type="password" id="neues_passwort_confirmation_input" name="neues_passwort_confirmation_input" class="input my-1">
+            </div>
+            <button onclick="" class="button_2 px-3 py-1 my-2">Ändern!</button>
 
         </form>
     </div>
@@ -219,18 +221,8 @@ if(!isset($_SESSION)) {
     function showForm_mail() {
         document.getElementById('mail').style.display = 'block';
     }
-
-
-
-
-
-
 </script>
-<?php
 
-
-//include_once "change_database.php";
-?>
 
 </body>
 <script

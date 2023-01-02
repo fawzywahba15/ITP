@@ -38,6 +38,81 @@ function changne_data($data_to_change, $spalten_name){
 
 }
 }
+function pw_verify($pw){
+    if (strlen($pw) < 8) {
+        $error = "Password must be at least 8 characters!";
+
+    }
+
+    elseif ( ! preg_match("/[a-z]/i", $pw)) {
+        $error = "Password must contain at least one letter!";
+
+
+    }
+
+    elseif ( ! preg_match("/[0-9]/", $pw)) {
+        $error = "Password must contain at least one number!";
+
+    }
+
+    else{
+        include "./account.php.php";
+        die();
+        /*        header("location: new_reg_success.php");*/
+        /*            header("refresh:3;url=new_reg_success.php");*/
+    }
+
+}
+
+
+//change pw
+function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
+
+    if (isset( $_SESSION["username"])){
+        if (pw_verify($new_pw)){
+
+
+
+
+        $host = 'localhost';
+        $user = 'fawzy';
+        $password = 'mypassword';
+        $database = 'regestrieren';
+        $db_obj = new mysqli($host, $user, $password, $database);
+        $hashed_pw =  password_hash($new_pw, PASSWORD_DEFAULT);
+
+        $sql = "select * from `login`";
+        $user_coun = 0;
+        $current_user = $_SESSION["username"];
+        $second_sql = "update `login` Set `$spalten_name` = '$hashed_pw' where `username` = '$current_user' ";
+        $stmt = $db_obj->prepare($second_sql);
+
+        $result = $db_obj->query($sql);
+
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if ($current_user == $row["username"] ){
+
+                    if (password_verify($_POST["altes_passwort_input"], $row["password"]) && $new_pw == $new_pw_confirmation){
+                        $stmt->execute();
+                    }else{
+                        $error = "Password or Email dont match";
+                    }
+                }else{
+                    $user_coun ++;
+                }
+            }
+        }
+
+
+    }
+}
+}
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     //username ändern da muss man dann session destroyen und neustarten
@@ -59,6 +134,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     //mail ändern
     if(isset($_POST["mail_input"])){
         changne_data($_POST["mail_input"], "usermail");
+    }
+    //passwort ändern
+    if(isset($_POST["altes_passwort_input"])){
+        change_pw($_POST["altes_passwort_input"],$_POST["neues_passwort_input"],$_POST["neues_passwort_confirmation_input"], "password");
     }
 }
 

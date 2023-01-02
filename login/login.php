@@ -30,9 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $redirect = True;
                     include "./login_proccess.php";
                     exit();
-
                 }else{
-
                     $error = "Password or Email dont match";
                 }
             }else{
