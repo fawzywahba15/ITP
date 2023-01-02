@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     session_start();
                     if ($row["admin"] == 1){
                         $_SESSION["admin"] = true;
+                    }else{
+                        $_SESSION["admin"] = false;
                     }
                     $redirect = True;
                     include "./login_proccess.php";
