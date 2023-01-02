@@ -1,8 +1,6 @@
 <?php
 function show_all(){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
 //zu databaser comparen
         $db_host = 'localhost';
         $db_user = 'fawzy';
@@ -35,7 +33,8 @@ function show_all(){
                         }else{
                             $error = "Password or Email dont match";
                         }*/
-                echo $row["usermail"];
+                echo "usremail: "; echo $row["usermail"];
+
                 var_dump($row);
             }
         }
@@ -45,3 +44,5 @@ function show_all(){
 
     }
 }
+
+show_all();

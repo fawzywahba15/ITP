@@ -32,7 +32,7 @@ if(!isset($_SESSION)) {
 <body>
 
 
-<form action="admin_handler.php">
+<form method="post" action="admin_handler.php">
 <button> liste anzeigen:</button>
 </form>
 
