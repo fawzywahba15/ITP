@@ -8,8 +8,6 @@ if(!isset($_SESSION)) {
 
 function changne_data($data_to_change, $spalten_name){
     if (isset( $_SESSION["username"])){
-
-
     $host = 'localhost';
     $user = 'fawzy';
     $password = 'mypassword';
@@ -114,6 +112,8 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
         }
 
 
+    }else{
+        return 0;
     }
 }
 

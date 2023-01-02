@@ -78,6 +78,9 @@
                 <li class="nav-item">
                     <a class="nav-link"  href="../file_upload/upload.php">file upload</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="../admin/admin.php">admin shit </a>
+                </li>
 
 <!--                <li class="nav-item">
                     <a class="nav-link " href="../0fusszeile/01datenschutz.php">Datenschutz</a>

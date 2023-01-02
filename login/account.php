@@ -1,7 +1,10 @@
 <?php
 
 //daten ändern code vom anderen laptop kopieren
+if(!isset($_SESSION)) {
+    session_start();
 
+}
 
 function get_data($output){
     $host = 'localhost';
@@ -26,10 +29,7 @@ function get_data($output){
 }
 
 
-if(!isset($_SESSION)) {
-    session_start();
 
-}
 
 
 

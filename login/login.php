@@ -3,10 +3,6 @@
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-
-
     $email = $_POST["email"];
     $password = $_POST["password"];
 //zu databaser comparen
@@ -27,6 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // überprüft passwort
                 if (password_verify($_POST["password"], $row["password"])){
+                    session_start();
+                    if ($row["admin"] == 1){
+                        $_SESSION["admin"] = true;
+                    }
                     $redirect = True;
                     include "./login_proccess.php";
                     exit();
