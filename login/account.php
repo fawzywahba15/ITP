@@ -100,8 +100,15 @@ if(!isset($_SESSION)) {
 <div class="container my-5">
 
     <?php if(isset($_SESSION["username"])) : ?>
-        <h5 class="login_error"><?php echo $error;?></h5>
-        <h5 class="login_success"><?php echo $success;?></h5>
+
+        <h5 class="login_error"><?php
+            if (isset($error)){
+                echo $error;}
+        ?></h5>
+        <h5 class="login_success"><?php
+            if (isset($success)) {
+                echo $success;
+            }?></h5>
     <!--    Nachname ändern-->
     <div>
         <label for="show_form_nachname" class="account_label my-0">Nachname:</label>
@@ -154,7 +161,7 @@ if(!isset($_SESSION)) {
         <form id="geburtstag"  action="change_database.php" style="display: none;" method="post" class="my-1" action="change_database.php">
             <div>
             <label for="geburtstag_input">Neuer Geburtstag:</label>
-            <input type="text" id="geburtstag_input" name="geburtstag_input" class="input my-1">
+            <input type="date" id="geburtstag_input" name="geburtstag_input" class="input my-1">
             </div>
             <button onclick="" class="button_2 px-3 py-1">Ändern!</button>
         </form>
