@@ -38,42 +38,37 @@ function changne_data($data_to_change, $spalten_name){
 
 }
 }
-function pw_verify($pw){
-    if (strlen($pw) < 8) {
-        $error = "Password must be at least 8 characters!";
+
+$error = "";
+$success = "";
+
+    function pw_verify($pw)
+    {
+        global $error;
+        if (strlen($pw) < 8) {
+
+            $error = "Password must be at least 8 characters!";
+            return 0;
+        } elseif (!preg_match("/[a-z]/i", $pw)) {
+            $error = "Password must contain at least one letter!";
+            return 0;
+
+        } elseif (!preg_match("/[0-9]/", $pw)) {
+            $error = "Password must contain at least one number!";
+            return 0;
+        } else {
+            return 1;
+            /*        header("location: new_reg_success.php");*/
+            /*            header("refresh:3;url=new_reg_success.php");*/
+        }
 
     }
-
-    elseif ( ! preg_match("/[a-z]/i", $pw)) {
-        $error = "Password must contain at least one letter!";
-
-
-    }
-
-    elseif ( ! preg_match("/[0-9]/", $pw)) {
-        $error = "Password must contain at least one number!";
-
-    }
-
-    else{
-        include "./account.php.php";
-        die();
-        /*        header("location: new_reg_success.php");*/
-        /*            header("refresh:3;url=new_reg_success.php");*/
-    }
-
-}
-
 
 //change pw
 function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
+    global $error, $success;
 
     if (isset( $_SESSION["username"])){
-        if (pw_verify($new_pw)){
-
-
-
-
         $host = 'localhost';
         $user = 'fawzy';
         $password = 'mypassword';
@@ -93,22 +88,37 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 if ($current_user == $row["username"] ){
+                    // altes pw mit datenbank vergleichem
+                    if (password_verify($old_pw, $row["password"])){
+                        // neue pw vergleichen
+                        if($new_pw == $new_pw_confirmation){
+                            $stmt->execute();
+                            $success = "passwort erfolgreich geändert !";
 
-                    if (password_verify($_POST["altes_passwort_input"], $row["password"]) && $new_pw == $new_pw_confirmation){
-                        $stmt->execute();
+                            return 1;
+                        }else{
+                            $error = "Die neuen Passwörter stimmt nicht überein";
+                            return 0;
+                        }
+
                     }else{
-                        $error = "Password or Email dont match";
+                        $error = "Das alte Passwort stimmt nicht";
+                        return 0;
                     }
                 }else{
                     $user_coun ++;
                 }
             }
+        }else{
+            return 0;
         }
 
 
     }
 }
-}
+
+
+
 
 
 
@@ -137,7 +147,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     //passwort ändern
     if(isset($_POST["altes_passwort_input"])){
-        change_pw($_POST["altes_passwort_input"],$_POST["neues_passwort_input"],$_POST["neues_passwort_confirmation_input"], "password");
+        if (pw_verify($_POST["neues_passwort_input"])){
+            change_pw($_POST["altes_passwort_input"],$_POST["neues_passwort_input"],$_POST["neues_passwort_confirmation_input"], "password");
+        }
     }
 }
 

@@ -32,106 +32,6 @@ if(!isset($_SESSION)) {
 }
 
 
-$error = "";
-$success = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-
-
-
-function pw_verify($pw){
-    global $error;
-    if (strlen($pw) < 8) {
-
-         $error = "Password must be at least 8 characters!";
-        return 0;
-    }
-
-    elseif ( ! preg_match("/[a-z]/i", $pw)) {
-        $error = "Password must contain at least one letter!";
-        return 0;
-
-    }
-
-    elseif ( ! preg_match("/[0-9]/", $pw)) {
-        $error = "Password must contain at least one number!";
-        return 0;
-    }
-
-    else{
-        return 1;
-        /*        header("location: new_reg_success.php");*/
-        /*            header("refresh:3;url=new_reg_success.php");*/
-    }
-
-}
-
-
-//change pw
-function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
-    global $error, $success;
-
-    if (isset( $_SESSION["username"])){
-            $host = 'localhost';
-            $user = 'fawzy';
-            $password = 'mypassword';
-            $database = 'regestrieren';
-            $db_obj = new mysqli($host, $user, $password, $database);
-            $hashed_pw =  password_hash($new_pw, PASSWORD_DEFAULT);
-
-            $sql = "select * from `login`";
-            $user_coun = 0;
-            $current_user = $_SESSION["username"];
-            $second_sql = "update `login` Set `$spalten_name` = '$hashed_pw' where `username` = '$current_user' ";
-            $stmt = $db_obj->prepare($second_sql);
-
-            $result = $db_obj->query($sql);
-
-
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    if ($current_user == $row["username"] ){
-                        // altes pw mit datenbank vergleichem
-                        if (password_verify($old_pw, $row["password"])){
-                            // neue pw vergleichen
-                            if($new_pw == $new_pw_confirmation){
-                                $stmt->execute();
-                                $success = "passwort erfolgreich geändert !";
-
-                                return 1;
-                            }else{
-                                $error = "Die neuen Passwörter stimmt nicht überein";
-                                return 0;
-                            }
-
-                        }else{
-                            $error = "Das alte Passwort stimmt nicht";
-                            return 0;
-                        }
-                    }else{
-                        $user_coun ++;
-                    }
-                }
-            }else{
-                return 0;
-            }
-
-
-        }
-    }
-
-
-
-
-    //passwort ändern
-    if(isset($_POST["altes_passwort_input"])){
-        if (pw_verify($_POST["neues_passwort_input"])){
-            change_pw($_POST["altes_passwort_input"],$_POST["neues_passwort_input"],$_POST["neues_passwort_confirmation_input"], "password");
-        }
-    }
-}
-
-
 
 ?>
 <!doctype html>
@@ -290,7 +190,7 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
         <p class="label_value" id="passwort_value">*************
         </p>
         <button onclick="showForm_passwort()" id="show_form_passwort" class="button px-5 py-1 my-1">Passwort ändern</button>
-        <form id="passwort" style="display: none;" method="post" class="my-1">
+        <form id="passwort" action="change_database.php" style="display: none;" method="post" class="my-1">
             <div>
             <label for="altes_passwort_input" >Altes Passwort:</label>
             <input type="password" id="altes_passwort_input" name="altes_passwort_input" class="input my-1 ms-6">
