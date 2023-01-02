@@ -35,9 +35,9 @@
             echo "<td>" . $row["usermail"] . "</td>";
             echo "<td>";
             echo "<form>";
-            echo "<input type='text' name='username' value='" . $row["username"] . "'>";
-            echo "<input type='text' name='first_name' value='" . $row["first_name"] . "'>";
-            echo "<input type='text' name='usermail' value='" . $row["usermail"] . "'>";
+            echo "<input type='text' name='username' id= 'username' value='" . $row["username"] . "'>";
+            echo "<input type='text' name='first_name' id = 'first_name' value='" . $row["first_name"] . "'>";
+            echo "<input type='text' name='usermail' id= 'usermail' value='" . $row["usermail"] . "'>";
             echo "<button type='button' onclick='updateRow(this)'>Update</button>";
             echo "</form>";
             echo "</td>";
@@ -47,12 +47,23 @@
     mysqli_close($conn);
     ?>
 </table>
+
+<button onclick="redirect()" >google</button>
+
 </body>
 
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous">
+</script>
+
+<script>
+    function redirect(button) {
+        window.location.assign("https://www.google.at/");
+
+    }
+
     function updateRow(button) {
         // Get the parent form element of the button
         var form = button.parentNode;
@@ -64,9 +75,12 @@
 
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "update_data.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("column1=" + username + "&column2=" + first_name + "&column3=" + usermail);
+        var url= "update_data.php"
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhttp.send("username=" + username + "&first_name=" + first_name + "&usermail=" + usermail);
+
     }
 
 </script>
