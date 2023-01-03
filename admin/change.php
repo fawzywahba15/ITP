@@ -12,15 +12,62 @@
     <link rel="stylesheet" href="../0design/my_design.css">
 
     <?php include "../0include/navbar.php";?>
+    <style>
+        .admin_label{
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+        .button_2{
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .input{
+            display: inline;
+            margin-left: 0;
+            padding: 0;
+            width: 100px;
+            transform: none;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            border-color: #824caf;
+        }
+        .input:focus{
+            width: 110px;
+        }
+        .input_mail{
 
+            display: inline;
+            grid-auto-rows: auto;
+            grid-template-columns: 50%;
+            margin-top: 10px;
+            margin-left: 0;
+            text-align: center ;
+            border: 3px #824caf solid ;
+            padding: 0;
+            width: 140px;
+            outline: none;
+            border-radius: 25px;
+            transition-duration: 0.4s;
+            margin-bottom: 5px;
+        }
+        .input_mail:focus{
+             width: 200px;
+            border: 3px #2ecc71 solid ;
+         }
+    </style>
 </head>
 <body>
-<table>
+<table class="container mx-3">
     <tr>
+        <th>user id</th>
         <th>username</th>
         <th>first_name</th>
         <th>usermail</th>
-        <th>Action</th>
+        <th>Ändern</th>
     </tr>
     <?php
     // Connect to the database and retrieve the data
@@ -29,22 +76,31 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
+
             echo "<tr>";
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["username"] . "</td>";
             echo "<td>" . $row["first_name"] . "</td>";
             echo "<td>" . $row["usermail"] . "</td>";
+            echo "</div>";
+
+
             echo "<td>";
             echo "<form>";
-            echo "<input type='text' name='id' id= 'id' value='" . $row["id"] . "'>";
-            $userid = $row["id"];
-            echo "<input type='text' name='username' id= 'username' value='" . $row["username"] . "'>";
-            echo "<input type='text' name='first_name' id = 'first_name' value='" . $row["first_name"] . "'>";
-            echo "<input type='text' name='usermail' id= 'usermail' value='" . $row["usermail"] . "'>";
-            echo "<button type='button' onclick='updateRow(this)'>Update</button>";
+            echo "<label for='id' class='admin_label'>ID: </label>";
+            echo "<input type='text' name='id' id= 'id' class='input' value='" . $row["id"] . "'>";
+            echo "<label for='username' class='admin_label'>Username: </label>";
+            echo "<input type='text' name='username' id= 'username' class='input' value='" . $row["username"] . "'>";
+            echo "<label for='vorname' class='admin_label'>Vorname: </label>";
+            echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["first_name"] . "'>";
+            echo "<label for='usermail' class='admin_label'>Usermail: </label>";
+            echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
+            echo "<button type='button' class='button_2' onclick='updateRow(this)'>Update</button>";
             echo "</form>";
+
             echo "</td>";
             echo "</tr>";
+
         }
     }
     mysqli_close($conn);

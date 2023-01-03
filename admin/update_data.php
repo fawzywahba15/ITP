@@ -9,7 +9,7 @@ echo $usermail;
 
 // Connect to the database and update the data
 $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
-$sql = "UPDATE login SET username = '$username', `first_name` = '$first_name', usermail = '$usermail' WHERE id = '$id'";
+$sql = "UPDATE login SET username = '$username', `first_name` = '$first_name', usermail = '$usermail', id = '$id' WHERE id = '$id'";
 mysqli_query($conn, $sql);
 
 // Close the connection
