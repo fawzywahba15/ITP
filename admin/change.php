@@ -30,11 +30,14 @@
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
+            echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["username"] . "</td>";
             echo "<td>" . $row["first_name"] . "</td>";
             echo "<td>" . $row["usermail"] . "</td>";
             echo "<td>";
             echo "<form>";
+            echo "<input type='text' name='id' id= 'id' value='" . $row["id"] . "'>";
+            $userid = $row["id"];
             echo "<input type='text' name='username' id= 'username' value='" . $row["username"] . "'>";
             echo "<input type='text' name='first_name' id = 'first_name' value='" . $row["first_name"] . "'>";
             echo "<input type='text' name='usermail' id= 'usermail' value='" . $row["usermail"] . "'>";
@@ -48,7 +51,7 @@
     ?>
 </table>
 
-<button onclick="redirect()" >google</button>
+
 
 </body>
 
@@ -59,19 +62,17 @@
 </script>
 
 <script>
-    function redirect(button) {
-        window.location.assign("https://www.google.at/");
-
-    }
 
     function updateRow(button) {
         // Get the parent form element of the button
+        window.alert("Erfolgreich geändert!");
         var form = button.parentNode;
 
         // Get the values of the form elements
         var username = form.elements["username"].value;
         var first_name = form.elements["first_name"].value;
         var usermail = form.elements["usermail"].value;
+        var id = form.elements["id"].value;
 
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
@@ -79,8 +80,7 @@
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        xhttp.send("username=" + username + "&first_name=" + first_name + "&usermail=" + usermail);
-
+        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail);
     }
 
 </script>
