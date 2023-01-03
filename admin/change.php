@@ -13,37 +13,52 @@
 
     <?php include "../0include/navbar.php";?>
     <style>
+        .th{
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+            font-size: large;
+        }
+        .ka{
+            margin-top: 100px;
+            width: 100px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
         .admin_label{
-            margin-left: 10px;
-            margin-right: 5px;
+            margin-top: 10px;
+            margin-bottom: 75px;
+            margin-right: 10px;
         }
         .button_2{
+            margin: 0;
+            margin-bottom: 50px;
             padding: 5px;
             padding-left: 20px;
             padding-right: 20px;
             border-radius: 50px;
-            margin-left: 20px;
-            margin-right: 20px;
         }
         .input{
-            display: inline;
+            margin-top: 0;
+            margin-bottom: 50px;
+            display: inline-block;
             margin-left: 0;
             padding: 0;
             width: 100px;
             transform: none;
-            margin-bottom: 5px;
-            margin-top: 10px;
+
             border-color: #824caf;
         }
         .input:focus{
             width: 110px;
         }
         .input_mail{
-
-            display: inline;
+            margin-top: 0;
+            margin-bottom: 50px;
+            display: inline-block;
             grid-auto-rows: auto;
             grid-template-columns: 50%;
-            margin-top: 10px;
+
             margin-left: 0;
             text-align: center ;
             border: 3px #824caf solid ;
@@ -52,7 +67,6 @@
             outline: none;
             border-radius: 25px;
             transition-duration: 0.4s;
-            margin-bottom: 5px;
         }
         .input_mail:focus{
              width: 200px;
@@ -61,14 +75,15 @@
     </style>
 </head>
 <body>
-<table class="container mx-3">
+<table class="mx-3">
     <tr>
-        <th>user id</th>
-        <th>username</th>
-        <th>first_name</th>
-        <th>usermail</th>
-        <th>Ändern</th>
+        <th class="th">user id</th>
+        <th class="th">username</th>
+        <th class="th">first_name</th>
+        <th class="th">usermail</th>
+        <th class="th">Ändern</th>
     </tr>
+
     <?php
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
@@ -77,28 +92,41 @@
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
 
+            echo "<tr class='my_tr'>";
+            echo "<td class='ka'>" . $row["id"] . "</td>";
+            echo "<td class='ka'>" . $row["username"] . "</td>";
+            echo "<td class='ka'>" . $row["first_name"] . "</td>";
+            echo "<td class='ka'>" . $row["usermail"] . "</td>";
+            echo "</tr>";
+
+
+
             echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
-            echo "<td>" . $row["username"] . "</td>";
-            echo "<td>" . $row["first_name"] . "</td>";
-            echo "<td>" . $row["usermail"] . "</td>";
-            echo "</div>";
 
 
             echo "<td>";
-            echo "<form>";
-            echo "<label for='id' class='admin_label'>ID: </label>";
+            echo "<form class='my-0 py-0 mx-0 px-0 my_form'>";
+            echo "<label for='id'>ID: </label>";
             echo "<input type='text' name='id' id= 'id' class='input' value='" . $row["id"] . "'>";
-            echo "<label for='username' class='admin_label'>Username: </label>";
+            echo "</td>";
+            echo "<td>";
+            echo "<label for='username'>Username: </label>";
             echo "<input type='text' name='username' id= 'username' class='input' value='" . $row["username"] . "'>";
-            echo "<label for='vorname' class='admin_label'>Vorname: </label>";
+            echo "</td>";
+            echo "<td>";
+            echo "<label for='vorname'>Vorname: </label>";
             echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["first_name"] . "'>";
-            echo "<label for='usermail' class='admin_label'>Usermail: </label>";
+            echo "</td>";
+            echo "<td>";
+            echo "<label for='usermail'>Usermail: </label>";
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
+            echo "</td>";
+            echo "<td>";
             echo "<button type='button' class='button_2' onclick='updateRow(this)'>Update</button>";
             echo "</form>";
-
             echo "</td>";
+
+
             echo "</tr>";
 
         }
