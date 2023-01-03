@@ -4,10 +4,6 @@ if(!isset($_SESSION)) {
 }
 
 
-
-
-
-
 ?>
 
 
@@ -32,8 +28,8 @@ if(!isset($_SESSION)) {
 <body>
 
 
-<form method="post" action="admin_handler.php">
-<button> liste anzeigen:</button>
+<form method="post" action="show_all_user.php">
+<button class="button"> Alle Benutzer anzeigen:</button>
 </form>
 
 </body>

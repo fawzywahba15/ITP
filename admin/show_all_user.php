@@ -69,9 +69,9 @@
             transition-duration: 0.4s;
         }
         .input_mail:focus{
-             width: 200px;
+            width: 200px;
             border: 3px #2ecc71 solid ;
-         }
+        }
     </style>
 </head>
 <body>
