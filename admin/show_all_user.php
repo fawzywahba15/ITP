@@ -81,6 +81,7 @@
         <th class="th">username</th>
         <th class="th">first_name</th>
         <th class="th">usermail</th>
+        <th class="th">password</th>
         <th class="th">Ändern</th>
     </tr>
 
@@ -97,15 +98,16 @@
             echo "<td class='ka'>" . $row["username"] . "</td>";
             echo "<td class='ka'>" . $row["first_name"] . "</td>";
             echo "<td class='ka'>" . $row["usermail"] . "</td>";
+            echo "<td class='ka'>" . ' ' . "</td>";
             echo "</tr>";
 
 
 
             echo "<tr>";
 
-
-            echo "<td>";
             echo "<form class='my-0 py-0 mx-0 px-0 my_form'>";
+            echo "<td>";
+
             echo "<label for='id'>ID: </label>";
             echo "<input type='text' name='id' id= 'id' class='input' value='" . $row["id"] . "'>";
             echo "</td>";
@@ -120,6 +122,10 @@
             echo "<td>";
             echo "<label for='usermail'>Usermail: </label>";
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
+            echo "</td>";
+            echo "<td>";
+            echo "<label for='password'>password: </label>";
+            echo "<input type='text' name='password' id= 'password' class='input_mail' value='" . $row["password"] . "'>";
             echo "</td>";
             echo "<td>";
             echo "<button type='button' class='button_2' onclick='updateRow(this)'>Update</button>";
@@ -149,22 +155,25 @@
 
     function updateRow(button) {
         // Get the parent form element of the button
-        window.alert("Erfolgreich geändert!");
-        var form = button.parentNode;
+
+/*        window.alert(button.parentNode.parentNode.firstElementChild.nodeName);*/
+        var form = button.parentNode.parentNode.firstElementChild;
 
         // Get the values of the form elements
         var username = form.elements["username"].value;
         var first_name = form.elements["first_name"].value;
         var usermail = form.elements["usermail"].value;
         var id = form.elements["id"].value;
-
+        var password = form.elements["password"].value;
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
         var url= "update_data.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail);
+        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
+        window.alert("Erfolgreich geändert!");
+        window.location.reload();
     }
 
 </script>
