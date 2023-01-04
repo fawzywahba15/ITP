@@ -1,3 +1,10 @@
+<?php
+
+if (!isset($_SESSION)){
+    session_start();
+}
+
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -125,7 +132,7 @@
             echo "</td>";
             echo "<td>";
             echo "<label for='password'>password: </label>";
-            echo "<input type='text' name='password' id= 'password' class='input_mail' value='" . $row["password"] . "'>";
+            echo "<input type='text' name='password' id= 'password' class='input_mail' placeholder='new pw'>";
             echo "</td>";
             echo "<td>";
             echo "<button type='button' class='button_2' onclick='updateRow(this)'>Update</button>";
@@ -173,7 +180,7 @@
 
         xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
         window.alert("Erfolgreich geändert!");
-        window.location.reload();
+        //window.location.reload();
     }
 
 </script>
