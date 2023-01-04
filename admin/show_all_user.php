@@ -180,7 +180,7 @@ if (!isset($_SESSION)){
 
         xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
         window.alert("Erfolgreich geändert!");
-        //window.location.reload();
+        window.location.reload();
     }
 
 </script>
