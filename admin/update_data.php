@@ -23,10 +23,10 @@ if (empty($password)){
     mysqli_query($conn, $sql);
 
 // Close the connection
-    mysqli_close($conn);
+
 }
 
-
+mysqli_close($conn);
 
 
 
