@@ -112,7 +112,7 @@ if (!isset($_SESSION)){
 
             echo "<tr>";
 
-            echo "<form class='my-0 py-0 mx-0 px-0 my_form'>";
+            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form' action='update_data.php'>";
             echo "<td>";
 
             echo "<label for='id'>ID: </label>";
@@ -135,11 +135,11 @@ if (!isset($_SESSION)){
             echo "<input type='text' name='password' id= 'password' class='input_mail' placeholder='new pw'>";
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2' onclick='updateRow(this)'>Update</button>";
+            echo "<button type='button' class='button_2''>Update</button>";
             echo "</form>";
             echo "</td>";
 
-
+// onclick='updateRow(this)
             echo "</tr>";
 
         }
