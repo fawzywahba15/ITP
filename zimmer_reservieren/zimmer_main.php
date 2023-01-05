@@ -28,6 +28,7 @@ if(!isset($_SESSION))
             margin-left: 50%;
             transform: translate(-50%, 50%);
             border: #2ecc71 2px solid;
+            border-radius: 20px;
         }
         .drop{
             margin-top: 200px;
@@ -37,7 +38,9 @@ if(!isset($_SESSION))
 
 </head>
 <body>
+
 <div class="container ">
+
     <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <?php if(basename($_SERVER['PHP_SELF']) == 'zimmer_main.php')  : ?>
         Auswahl:
@@ -47,6 +50,7 @@ if(!isset($_SESSION))
         Zimmer reservieren:
         <?php endif; ?>
     </a>
+
     <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="../zimmer_reservieren/buchen.php">Zimmer reservieren</a></li>
         <li ><a class="dropdown-item" href="../zimmer_reservieren/buchungen_anzeigen.php">Meine Buchungen</a></li>
