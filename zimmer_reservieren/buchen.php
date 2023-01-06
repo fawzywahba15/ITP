@@ -12,6 +12,7 @@ include "zimmer_main.php";
     <title>Zimmer reservieren</title>
     <style>
         .check {
+
             appearance: none;
             width: 20px;
             height: 20px;
@@ -74,25 +75,7 @@ $success ="";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $arrival_date = $_POST['arrival_date'];
-    $departure_date = $_POST['departure_date'];
-    $room_type = $_POST['room_type'];
-    $breakfast = isset($_POST['breakfast']) ? "yes" : "no";
-    $cancellation = isset($_POST['cancellation']) ? "yes" : "no";
-    $car_rental = isset($_POST['car_rental']) ? "yes" : "no";
-
-    if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($arrival_date) || empty($departure_date) || empty($room_type)) {
-        $error = "Error: All fields are required.";
-    }else if ($arrival_date > $departure_date){
-        $error = "Abreise Datum muss nach dem Anreise Datum sein!";
-    }else{
-        $success = "Buchung erfolgreich!";
-    }
-
+    include_once "buchung_into_db.php";
 }
 ?>
 
@@ -108,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" class="input" id="last_name" name="last_name"><br>
 
     <label for="email"  class="label_reg">Email:</label><br>
-    <input type="email" class="input" id="email" name="email"><br>
+    <input type="email" class="input" id="email" name="email" value="<?php echo $_SESSION["email"]; ?>" ><br>
 
     <label for="phone" class="label_reg">Phone:</label><br>
     <input type="text" class="input" id="phone" name="phone"><br>
@@ -129,13 +112,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="ich">
     <input type="checkbox" class="check" id="breakfast" name="breakfast" value="yes">
     <label for="breakfast" class="checkbox-label">Include breakfast</label><br>
+    <h6>10€ pro Person</h6>
+        <br>
+    <input type="checkbox" class="check" id="Parkplatz" name="Parkplatz" value="yes">
+    <label for="Parkplatz" class="checkbox-label">Parkplatz</label><br>
+    <h6>36€ für 24 Stunden</h6>
+        <br>
 
-
-    <input type="checkbox" class="check" id="cancellation" name="cancellation" value="yes">
-    <label for="cancellation" class="checkbox-label">Include cancellation insurance</label><br>
-
-    <input type="checkbox" class="check" id="car_rental" name="car_rental" value="yes">
-    <label for="car_rental" class="checkbox-label">Include car rental</label><br>
+    <input type="checkbox" class="check" id="Haustier" name="Haustier" value="yes">
+    <label for="Haustier" class="checkbox-label">Haustier</label><br>
+    <h6>10€ Pro Haustier</h6>
     </div>
     <input type="submit" class="button_2" value="Reserve Room">
 </form>

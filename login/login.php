@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // überprüft passwort
                 if (password_verify($_POST["password"], $row["password"])){
                     session_start();
+                    $_SESSION["email"] = $email;
+                    //admin
                     if ($row["admin"] == 1){
                         $_SESSION["admin"] = true;
                     }else{
