@@ -17,7 +17,7 @@ VALUES (?, ?, ?, ?, ?)";
     $stmt-> bind_param("sssss"
         , $username, $mail, $pass, $first_name, $birthday);
     $username = $_POST["lname"];
-    $mail = $_POST["email"];
+    $mail = strtolower( $_POST["email"]);
     $pass = $_POST["password"];
     $first_name = $_POST["fname"];
     $birthday = $_POST["birthdate"];

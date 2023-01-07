@@ -1,7 +1,7 @@
 <?php
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
-$email = $_POST['email'];
+$email = strtolower( $_POST['email']);
 $phone = $_POST['phone'];
 $arrival_date = $_POST['arrival_date'];
 $departure_date = $_POST['departure_date'];
@@ -22,11 +22,11 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     $database = 'regestrieren';
     $db_obj = new mysqli($host, $user, $password, $database);
     $sql =
-        "INSERT INTO `reservierungen` (`usermail`, `anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`)
-VALUES (?, ?, ?, ?, ?, ?, ?)";
+        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db_obj->prepare($sql);
-    $stmt-> bind_param("sssssss"
-        , $email,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status);
+    $stmt-> bind_param("ssssssss"
+        , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status);
     if ($stmt->execute()) {
         echo ""; }
     else {
@@ -35,4 +35,3 @@ VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt->close(); $db_obj->close();
 }
 
-//db conn

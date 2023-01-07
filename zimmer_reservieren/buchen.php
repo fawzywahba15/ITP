@@ -31,7 +31,7 @@ include "zimmer_main.php";
             /* style the label for the checkbox */
             font-size: 16px;
             font-weight: bold;
-            margin-left: 10px;
+            margin-left: 5px;
         }
 
         .ich{
@@ -104,14 +104,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <label for="room_type" class="label_reg">Room Type:</label><br>
     <select class="input" id="room_type" name="room_type">
-        <option value="single">Single</option>
-        <option value="double">Double</option>
+        <option value="single room">Single Bedroom</option>
+        <option value="double room">Double Bedroom</option>
         <option value="suite">Suite</option>
     </select><br>
 
     <div class="ich">
     <input type="checkbox" class="check" id="breakfast" name="breakfast" value="yes">
     <label for="breakfast" class="checkbox-label">Include breakfast</label><br>
+
     <h6>10€ pro Person</h6>
         <br>
     <input type="checkbox" class="check" id="Parkplatz" name="Parkplatz" value="yes">
