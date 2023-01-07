@@ -12,7 +12,12 @@ include "zimmer_main.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meine Buchungen</title>
     <style>
-
+        .th{
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+            font-size: large;
+        }
     </style>
 </head>
 <body>
@@ -44,12 +49,12 @@ include "zimmer_main.php";
 
 /*            echo "<h6 id='buchungsnummer' class='hidden'>" . $row["id"] . "</h6>";*/
             echo"<td id='buchungsnummer'>" . $row["id"] . "</td>";
-            echo "<td class=''>" . $row["usermail"] . "</td>";
+            echo "<td class='überschriften'>" . $row["usermail"] . "</td>";
             echo "<td class=''>" . $row["anreise_datum"] . "</td>";
             echo "<td class=''>" . $row["abreise_datum"] . "</td>";
             echo "<td class=''>" . $row["room_type"] . "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row(this) '>Stornieren!</button>";
+            echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row() '>Stornieren!</button>";
             echo "</form>";
             echo "</td>";
 
@@ -66,7 +71,7 @@ include "zimmer_main.php";
 </body>
 <script>
 
-    function delete_row(button) {
+    function delete_row() {
         // Get the values of the form elements
 
         //var form = button.parentNode.parentNode.firstElementChild
@@ -79,6 +84,8 @@ include "zimmer_main.php";
         xhttp.send("id=" + id);
 
         window.location.reload();
+        window.location.reload();
+        <?php header("Refresh:0");?>
     }
 
 
