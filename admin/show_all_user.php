@@ -116,8 +116,8 @@ if (!isset($_SESSION)){
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
             echo "<td>";
 //todo id daten posten ohne label sondern mit h3 oder so
-            echo "<label for='id'>ID: </label>";
-            echo "<input type='text' name='id' id= 'id' class='input' value='" . $row["id"] . "'>";
+            echo "<label for='person_id'>ID: </label>";
+            echo "<input type='text' name='person_id' id= 'person_id' class='input' value='" . $row["id"] . "'>";
             echo "</td>";
             echo "<td>";
             echo "<label for='username'>Username: </label>";
@@ -169,13 +169,15 @@ if (!isset($_SESSION)){
 
 
         var form = button.parentNode.parentNode.firstElementChild;
-
         // Get the values of the form elements
         var username = form.elements["username"].value;
+
         var first_name = form.elements["first_name"].value;
         var usermail = form.elements["usermail"].value;
-        var id = form.elements["id"].value;
+
+        var id = form.elements["person_id"].value;
         var password = form.elements["password"].value;
+
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
         var url= "update_data.php"
@@ -188,23 +190,21 @@ if (!isset($_SESSION)){
     }
 
     function show_all_res(button) {
-/*
-        // Get the parent form element of the button
+/*        // Get the parent form element of the button
 
         var form = button.parentNode.parentNode.firstElementChild;
 
 
-        var id = form.elements["id"].value;
+        var id = form.elements["person_id"].value;
 
         var xhttp = new XMLHttpRequest();
         var url= "show_user_res.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        xhttp.send("id=" + id );
-*/
+        xhttp.send("person_id=" + id );
 
-        window.alert("Erfolgreich geändert!")
+        window.alert("Erfolgreich geändert!")*/
         window.location.assign("./show_user_res.php");
     }
 

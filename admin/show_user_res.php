@@ -77,38 +77,34 @@ if (!isset($_SESSION)){
     </tr>
 
     <?php
-    $current_user_id = $_POST["id"];
+
+    $user_id = $_POST["person_id"];
+
+
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
-    $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$current_user_id'";
+    $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$user_id'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
 
             echo "<tr class='my_tr'>";
+
+
+
+
+
+            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
             echo "<td class='ka'>" . $row["id"] . "</td>";
             echo "<td class='ka'>" . $row["usermail"] . "</td>";
             echo "<td class='ka'>" . $row["room_type"] . "</td>";
             echo "<td class='ka'>" . $row["anreise_datum"] . "</td>";
             echo "<td class='ka'>" . $row["abreise_datum"] . "</td>";
-            echo "</tr>";
 
 
 
-            echo "<tr>";
-
-            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
             echo "<td>";
-
-            echo "</td>";
-            echo "<td>";
-
-            echo "</td>";
-            echo "<td>";
-
-            echo "</td>";
-            echo "<td>";
-            echo "<label for='usermail'>Anreise: </label>";
+            echo "<label id='buchungsnummer'  for='usermail'>Anreise: </label>";
             echo "<input type='date' name='Anreise' id= 'Anreise' class='input' value='" . $row["anreise_datum"] . "'>";
             echo "</td>";
             echo "<td>";
@@ -118,11 +114,12 @@ if (!isset($_SESSION)){
 
             echo "<td>";
             echo "<button type='button' class='button_2' onclick='confirm_res(this)'>bestätigen</button>";
-            echo "</form>";
+
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2' onclick='cancel_res(this)'>Stornieren</button>";
+            echo "<button type='submit' class='button_2' onclick='cancel_res(this)'>Stornieren</button>";
             echo "</td>";
+            echo "</form>";
             echo "</tr>";
 
         }
@@ -141,6 +138,32 @@ if (!isset($_SESSION)){
     crossorigin="anonymous">
 </script>
 
+<script>
+    function confirm_res(button) {
+        var form = button.parentNode.parentNode.firstElementChild;
+        var id = form.nextSibling.textContent;
+        var xhttp = new XMLHttpRequest();
+        var url= "confirm_user_res.php"
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id );
+        window.alert("Buchung bestätigt!")
+    }
 
+
+</script>
+<script>
+    function cancel_res(button) {
+        var form = button.parentNode.parentNode.firstElementChild;
+        var id = form.nextSibling.textContent;
+        window.alert(id)
+        var xhttp = new XMLHttpRequest();
+        var url= "cancel_user_res.php"
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id );
+        window.alert("Buchung storniert!")
+    }
+</script>
 </html>
 
