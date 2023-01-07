@@ -140,7 +140,7 @@ if (!isset($_SESSION)){
             echo "</form>";
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2' onclick='show_all_res(this)'>buchungen anzeigen</button>";
+            echo "<button type='button' class='button_2' onclick='show_all_res()'>buchungen anzeigen</button>";
             echo "</td>";
             echo "</tr>";
 
@@ -184,27 +184,8 @@ if (!isset($_SESSION)){
         window.alert("Erfolgreich geändert!");
         window.location.reload();
     }
-    function show_all_res(button) {
-        // Get the parent form element of the button
-
-        /*        window.alert(button.parentNode.parentNode.firstElementChild.nodeName);*/
-        var form = button.parentNode.parentNode.firstElementChild;
-
-        // Get the values of the form elements
-        var username = form.elements["username"].value;
-        var first_name = form.elements["first_name"].value;
-        var usermail = form.elements["usermail"].value;
-        var id = form.elements["id"].value;
-        var password = form.elements["password"].value;
-        // Send an HTTP request to the server to update the data in the database
-        var xhttp = new XMLHttpRequest();
-        var url= "update_data.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
-        window.alert("Erfolgreich geändert!");
-        window.location.reload();
+    function show_all_res() {
+        <?php include_once "show_user_res.php"?>
     }
 
 </script>
