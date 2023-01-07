@@ -167,6 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <div class="my-5">
+    <hr>
     <h3>Kontaktdaten:</h3>
     Telefonnummer: +436767029823 <br>
     E-mail: <a href="mailto: info@Viennapalace.at">info@viennapalace.at</a>
