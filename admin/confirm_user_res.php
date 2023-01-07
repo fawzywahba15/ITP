@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+
 // Connect to the database
 $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
 

@@ -10,6 +10,11 @@ if (isset($_POST['id'])) {
     $result = mysqli_query($conn, $sql);
 
 }
+if ($result) {
+    echo "success";
+} else {
+    echo "error";
+}
 
 // Close the database connection
 mysqli_close($conn);
