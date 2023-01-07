@@ -4,7 +4,7 @@ if (!isset($_SESSION)){
     session_start();
 }
 
-
+var_dump($_POST);
 ?>
 
 <html>
@@ -117,7 +117,7 @@ if (!isset($_SESSION)){
 
             echo "</td>";
             echo "<td>";
-            echo "<button type='submit' class='button_2' onclick='cancel_res(this)'>Stornieren</button>";
+            echo "<button type='button' class='button_2' onclick='cancel_res(this)'>Stornieren</button>";
             echo "</td>";
             echo "</form>";
             echo "</tr>";
@@ -150,9 +150,6 @@ if (!isset($_SESSION)){
         window.alert("Buchung bestätigt!")
     }
 
-
-</script>
-<script>
     function cancel_res(button) {
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
@@ -165,5 +162,6 @@ if (!isset($_SESSION)){
         window.alert("Buchung storniert!")
     }
 </script>
+
 </html>
 
