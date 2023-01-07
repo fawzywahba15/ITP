@@ -5,9 +5,10 @@ $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
 
 // Check if the 'id' parameter was passed to the script
 if (isset($_POST['id'])) {
-    $id = $_POST['id'];
+    $buchungsnummer = $_POST['id'];
     // Delete the reservation with the specified id from the database
-    $sql = "DELETE FROM reservierungen WHERE id='$id'";
+    //"update `login` Set `$spalten_name` = '$data_to_change' where `username` = '$current_user' ";
+    $sql = "update reservierungen Set status = 'storniert'  WHERE id='$buchungsnummer'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         // The delete was successful, return a success message to the client

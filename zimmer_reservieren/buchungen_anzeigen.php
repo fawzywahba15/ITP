@@ -59,8 +59,9 @@ include "zimmer_main.php";
 
 
             echo "<tr class='tr'>";
-
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
+            echo "<input type='text' name='buchungsnummer' id= 'buchungsnummer' class='hidden' value='" . $row["id"] . "'>";
+
 
 /*            echo "<h6 id='buchungsnummer' class='hidden'>" . $row["id"] . "</h6>";*/
             echo"<td id='buchungsnummer' class='meins'>" . $row["id"] . "</td>";
@@ -70,10 +71,10 @@ include "zimmer_main.php";
             echo "<td class='meins px-2'>" . $row["room_type"] . "</td>";
             echo "<td class=' px-2'>" . $row["status"] . "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row() '>Stornieren!</button>";
-            echo "</form>";
-            echo "</td>";
+            echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row(this) '>Stornieren!</button>";
 
+            echo "</td>";
+            echo "</form>";
             echo "</tr>";
 
         }
@@ -87,20 +88,25 @@ include "zimmer_main.php";
 </body>
 <script>
 
-    function delete_row() {
+    function delete_row(button) {
         // Get the values of the form elements
 
-        //var form = button.parentNode.parentNode.firstElementChild
-        var id = document.getElementById("buchungsnummer").textContent;
+        var form = button.parentNode.parentNode.firstElementChild;
+        var id = form.nextSibling.textContent;
+
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
         var url = "cancel_reservation.php";
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhttp.send("id=" + id);
-
-        window.location.reload();
-
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Refresh the page after the delete request has been processed
+                window.alert("Erfolgreich storniert!")
+                window.location.reload();
+            }
+        };
     }
 
 

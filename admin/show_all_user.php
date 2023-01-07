@@ -140,7 +140,7 @@ if (!isset($_SESSION)){
             echo "</form>";
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2' onclick='show_all_res()'>buchungen anzeigen</button>";
+            echo "<button type='button' class='button_2' onclick='show_all_res(this)'>buchungen anzeigen</button>";
             echo "</td>";
             echo "</tr>";
 
@@ -181,12 +181,13 @@ if (!isset($_SESSION)){
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
-        window.alert("Erfolgreich geändert!");
-        window.location.reload();
+        if (this.readyState == 4 && this.status == 200) {
+            // Refresh the page after the delete request has been processed
+            window.alert("Erfolgreich storniert!")
+            window.location.reload();
+        }
     }
-    function show_all_res() {
-        <?php include_once "show_user_res.php"?>
-    }
+
 
 </script>
 </html>
