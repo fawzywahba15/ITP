@@ -22,11 +22,11 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     $database = 'regestrieren';
     $db_obj = new mysqli($host, $user, $password, $database);
     $sql =
-        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`,`fk_person_id`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $db_obj->prepare($sql);
-    $stmt-> bind_param("ssssssss"
-        , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status);
+    $stmt-> bind_param("ssssssssi"
+        , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status, $_SESSION["user_id"]);
     if ($stmt->execute()) {
         echo ""; }
     else {

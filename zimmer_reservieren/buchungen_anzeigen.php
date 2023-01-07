@@ -17,6 +17,20 @@ include "zimmer_main.php";
             margin-left: 50px;
             margin-right: 50px;
             font-size: large;
+
+        }
+        .tr{
+            border: 2px #824caf40 solid;
+            border-radius: 20px;
+        }
+        .tr:hover{
+            background-color: #824caf40;
+        }
+        .meins{
+            border-right: #824caf40 solid;
+        }
+        .button_2:hover{
+            border: #2ecc71 2px solid;
         }
     </style>
 </head>
@@ -31,6 +45,7 @@ include "zimmer_main.php";
         <th class="th">Abreise Datum</th>
         <th class="th">Zimmer Kategorie</th>
         <th class="th">Status</th>
+        <th class="th">Stornieren</th>
     </tr>
 
     <?php
@@ -43,16 +58,17 @@ include "zimmer_main.php";
         while($row = mysqli_fetch_assoc($result)) {
 
 
-            echo "<tr>";
+            echo "<tr class='tr'>";
 
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
 
 /*            echo "<h6 id='buchungsnummer' class='hidden'>" . $row["id"] . "</h6>";*/
-            echo"<td id='buchungsnummer'>" . $row["id"] . "</td>";
-            echo "<td class='überschriften'>" . $row["usermail"] . "</td>";
-            echo "<td class=''>" . $row["anreise_datum"] . "</td>";
-            echo "<td class=''>" . $row["abreise_datum"] . "</td>";
-            echo "<td class=''>" . $row["room_type"] . "</td>";
+            echo"<td id='buchungsnummer' class='meins'>" . $row["id"] . "</td>";
+            echo "<td class='meins px-2'>" . $row["usermail"] . "</td>";
+            echo "<td class='meins px-2'>" . $row["anreise_datum"] . "</td>";
+            echo "<td class='meins px-2'>" . $row["abreise_datum"] . "</td>";
+            echo "<td class='meins px-2'>" . $row["room_type"] . "</td>";
+            echo "<td class=' px-2'>" . $row["status"] . "</td>";
             echo "<td>";
             echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row() '>Stornieren!</button>";
             echo "</form>";
@@ -84,8 +100,7 @@ include "zimmer_main.php";
         xhttp.send("id=" + id);
 
         window.location.reload();
-        window.location.reload();
-        <?php header("Refresh:0");?>
+
     }
 
 
