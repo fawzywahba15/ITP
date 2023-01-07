@@ -115,7 +115,7 @@ if (!isset($_SESSION)){
 
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
             echo "<td>";
-
+//todo id daten posten ohne label sondern mit h3 oder so
             echo "<label for='id'>ID: </label>";
             echo "<input type='text' name='id' id= 'id' class='input' value='" . $row["id"] . "'>";
             echo "</td>";
@@ -135,12 +135,14 @@ if (!isset($_SESSION)){
             echo "<label for='password'>password: </label>";
             echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
             echo "</td>";
+
             echo "<td>";
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
-            echo "</form>";
+
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='button_2' onclick='show_all_res(this)'>buchungen anzeigen</button>";
+            echo "<button type='submit' class='button_2' formaction='./show_user_res.php'>buchungen anzeigen</button>";
+            echo "</form>";
             echo "</td>";
             echo "</tr>";
 
@@ -165,7 +167,7 @@ if (!isset($_SESSION)){
     function updateRow(button) {
         // Get the parent form element of the button
 
-/*        window.alert(button.parentNode.parentNode.firstElementChild.nodeName);*/
+
         var form = button.parentNode.parentNode.firstElementChild;
 
         // Get the values of the form elements
@@ -181,11 +183,29 @@ if (!isset($_SESSION)){
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
-        if (this.readyState == 4 && this.status == 200) {
-            // Refresh the page after the delete request has been processed
-            window.alert("Erfolgreich storniert!")
-            window.location.reload();
-        }
+        window.alert("Erfolgreich geändert!")
+        window.location.reload();
+    }
+
+    function show_all_res(button) {
+/*
+        // Get the parent form element of the button
+
+        var form = button.parentNode.parentNode.firstElementChild;
+
+
+        var id = form.elements["id"].value;
+
+        var xhttp = new XMLHttpRequest();
+        var url= "show_user_res.php"
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhttp.send("id=" + id );
+*/
+
+        window.alert("Erfolgreich geändert!")
+        window.location.assign("./show_user_res.php");
     }
 
 

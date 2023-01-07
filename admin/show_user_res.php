@@ -77,7 +77,7 @@ if (!isset($_SESSION)){
     </tr>
 
     <?php
-    $current_user_id = $_SESSION["user_id"];
+    $current_user_id = $_POST["id"];
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
     $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$current_user_id'";

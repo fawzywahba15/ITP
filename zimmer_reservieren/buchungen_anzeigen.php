@@ -60,7 +60,6 @@ include "zimmer_main.php";
 
             echo "<tr class='tr'>";
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
-            echo "<input type='text' name='buchungsnummer' id= 'buchungsnummer' class='hidden' value='" . $row["id"] . "'>";
 
 
 /*            echo "<h6 id='buchungsnummer' class='hidden'>" . $row["id"] . "</h6>";*/
