@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_COOKIE["name_cookie"] ="$lname";
 
     }else{
+        //erstellt einen cookie für die begrüßung
         setcookie("name_cookie", $lname, time() + 600);
     }
 
@@ -34,13 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h3>
     <?php
     if (isset($_COOKIE["name_cookie"])){
+        //bei erfolg:
         echo "Hallo " . $_COOKIE["name_cookie"] . ", ";
         echo "<h4>Sie haben sich erfolgreich registriert und können sich nun 
             <a href='../login/login.php'>anmelden</a>!</h4>";
+        //speichert die daten in der db ein
+        include "./reg_into_db.php";
     }else{
-        echo "Leider ist etwas schiefgelaufen. <a href='./registrierformular.php'>Erneut registrieren</a> ";
+        // wenn es schief läuft
+        echo "Leider ist etwas schiefgelaufen. <a href='./new_reg.php'>Erneut registrieren</a> ";
     }
-    include "./exercise_2.php";
+
 
 
     ?>

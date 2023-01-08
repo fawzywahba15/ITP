@@ -1,5 +1,5 @@
 <?php
-
+//startet session
 if (!isset($_SESSION)){
     session_start();
 }
@@ -7,7 +7,6 @@ if (!isset($_SESSION)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +22,9 @@ if (!isset($_SESSION)){
         .login_error{
             color: red;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             margin-top: 50px;
-
         }
-
     </style>
 </head>
 
@@ -38,12 +35,12 @@ if (!isset($_SESSION)){
 <?php
 
 
-
+// erstelle variablen um später auszugeben
 $error = "";
 $success ="";
 
 
-
+//error handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["fname"])) {
         $error = "First name is required!";
@@ -77,10 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Passwords must match!";
     }
     else{
+        // wenn reg erfolgreich ist dann zeigt es die success seite
         include "./new_reg_success.php";
         die();
-        /*        header("location: new_reg_success.php");*/
-/*            header("refresh:3;url=new_reg_success.php");*/
     }
 
 
@@ -98,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form action="" method="POST" >
-
+<!--    error oder success ausgeben-->
     <h5 class="login_error"><?php echo $error; ?></h5>
     <div>
         <label for="anrede" class="label_reg">Anrede</label> <br>
@@ -129,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div>
-        <label for="password_2" class="label_reg">Password</label>
+        <label for="password_2" class="label_reg">Repeat Password</label>
         <input type="password" name="password_2" placeholder="confirm password" id="password_2" class="input" required>
     </div>
 
@@ -145,14 +141,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <br>
-    <input type="checkbox" name="Datenschutz" id="Datenschutz" class="mx-1" required>
-    <label for="Datenschutz" class="mx-3">Ich stimme den folgenden Bedingungen zu: Vienna-Palace-Hotel-Nutzungsvertrag: </label>
-    <br>
-    <input type="checkbox" name="Newsletter" id="Newsletter" class="mx-1">
-    <label for="Newsletter" class="mx-3">Ich möchte regelmäßig Benachrichtigungen in der Form eines Newsletters erhalten.
-    </label>
+    <div class="mx-3">
+        <input type="checkbox" name="Datenschutz" id="Datenschutz" class="mx-1" required>
+        <label for="Datenschutz" class="mx-3">Ich stimme den folgenden Bedingungen zu: Vienna-Palace-Hotel-Nutzungsvertrag: </label>
+        <br>
+        <input type="checkbox" name="Newsletter" id="Newsletter" class="mx-1">
+        <label for="Newsletter" class="mx-3">Ich möchte regelmäßig Benachrichtigungen in der Form eines Newsletters erhalten.</label>
 
-    <h5><strong class="mx-0">Einwilligung:</strong></h5>
+    </div>
+
+    <h5><strong class="mx-3">Einwilligung:</strong></h5>
     <h6 class="mx-4">Ich willige ein, per E-Mail personalisierte Angebote und Services zu erhalten. Dazu darf Vienna Palace GmbH
         meine Kundendaten sowie mein bisheriges und künftiges Kauf- und Klickverhalten auswerten.
         Die Abbestellung des Newsletters und ein Widerruf der Einwilligung in die Personalisierung sind jederzeit
@@ -160,13 +158,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ab 18 Jahren. Mehr zu Datenschutz <a href="../0fusszeile/01datenschutz.php">hier</a></h6>
 
 
-
-
     <input type="submit" name="Submit" id="submitButton" value="Konto erstellen" class="button mx-3" formaction="">
 </form>
 
 
-<div class="my-5">
+<div class="my-5 mx-3">
     <hr>
     <h3>Kontaktdaten:</h3>
     Telefonnummer: +436767029823 <br>

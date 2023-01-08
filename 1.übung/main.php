@@ -36,6 +36,7 @@ if(!isset($_SESSION))
 
 <h5 class="my-5">
     <?php
+    //holt das SESSION SUPERGLOBAL und begrüßt den angemeldeten user mit nachnamen
     if (isset($_SESSION["username"] )) {
         echo "Welcome back " .  $_SESSION["username"]  . "!";
     }
@@ -45,6 +46,7 @@ if(!isset($_SESSION))
     ?>
 </h5>
 
+<!--hotel bild-->
 <div class="text_zentriert">
     <img
     class="img-fluid"
@@ -52,20 +54,21 @@ if(!isset($_SESSION))
     alt="Hotel"
     width="800" height="500"></div>
 
+
+
 <div class="container my-5 mx-3">
     <h4>Über uns:</h4>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus asperiores autem blanditiis consequuntur culpa cupiditate deserunt doloribus ducimus earum, eligendi est eveniet facere fugiat ipsam itaque laboriosam magnam maiores natus nemo odit officia omnis placeat possimus praesentium quam quasi repellat repellendus sapiente sed sequi sint sunt tempora tenetur ullam vel voluptates. Autem cumque doloremque numquam odio? Beatae corporis, debitis dicta eaque error est eveniet id impedit minus molestiae nam neque numquam odit omnis pariatur qui, quia, sed tempore tenetur!
 </div>
 
 
+<!--die 3 hotelkategorien mit bild-->
 <div class="container my-5 mx-3">
     <h3>Unsere Zimmer:</h3>
     <div class="text_zentriert">
         <ul>
-
             <li>
                 <h6 class="my-3">Unsere Doppelzimmer:</h6>
-
                 <img
                         class="img-fluid"
                         src="../0fusszeile/img/hotelzimmer.jpg"
@@ -76,7 +79,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus asperiore
 
             <li>
                 <h6 class="my-3">Unsere einzelzimmer</h6>
-
                 <img
                         class="img-fluid"
                         src="../0fusszeile/img/einzelzimmer.jpg"
@@ -84,9 +86,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus asperiore
                         width="800" height="500">
             </li>
 
+
             <li>
                 <h6 class="my-3">Unsere Familienzimmer</h6>
-
                 <img
                         class="img-fluid"
                         src="../0fusszeile/img/familienzimmer.jpg"
