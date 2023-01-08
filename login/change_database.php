@@ -5,30 +5,32 @@ if(!isset($_SESSION)) {
 }
 
 
-
+// ändert die Daten in der Datenbank
 function changne_data($data_to_change, $spalten_name){
     if (isset( $_SESSION["username"])){
-    $host = 'localhost';
-    $user = 'fawzy';
-    $password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($host, $user, $password, $database);
-    $sql = "select * from `login`";
-    $user_coun = 0;
-    $current_user = $_SESSION["username"];
-    $second_sql = "update `login` Set `$spalten_name` = '$data_to_change' where `username` = '$current_user' ";
-    $stmt = $db_obj->prepare($second_sql);
+        //sql conn
+    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
 
+    //1. befehl: alle durchiterieren
+    $sql = "select * from `login`";
+    $current_user = $_SESSION["username"];
+
+    //2.befehl: updated die Datenbank
+    $second_sql = "update `login` Set `$spalten_name` = '$data_to_change' where `username` = '$current_user' ";
+
+    //führt den 1. befehl aus
+    $stmt = $db_obj->prepare($second_sql);
     $result = $db_obj->query($sql);
 
 
     if ($result->num_rows > 0) {
         //iteriert alle datensätz in der Datenbank
+
         while($row = $result->fetch_assoc()) {
+            //wenn es den nutzer in der Datenbank findet:
             if ($current_user == $row["username"] ){
+                //dann soll es den 2. befehl ausführen (updaten)
                 $stmt->execute();
-            }else{
-                $user_coun ++;
             }
         }
     }
@@ -40,7 +42,8 @@ function changne_data($data_to_change, $spalten_name){
 $error = "";
 $success = "";
 
-    function pw_verify($pw)
+// hier überprüft die funktion ob bei der Passwortänderung trotzdem die vorgesehenen maßnahmen erhalten bleiben
+function pw_verify($pw)
     {
         global $error;
         if (strlen($pw) < 8) {
@@ -67,33 +70,37 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
     global $error, $success;
 
     if (isset( $_SESSION["username"])){
-        $host = 'localhost';
-        $user = 'fawzy';
-        $password = 'mypassword';
-        $database = 'regestrieren';
-        $db_obj = new mysqli($host, $user, $password, $database);
         $hashed_pw =  password_hash($new_pw, PASSWORD_DEFAULT);
-
-        $sql = "select * from `login`";
-        $user_coun = 0;
         $current_user = $_SESSION["username"];
+
+        //db conn
+        $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+
+        //1. befehl: alle datensätze
+        $sql = "select * from `login`";
+
+
+        //2- befehl: updated die Datenbank
         $second_sql = "update `login` Set `$spalten_name` = '$hashed_pw' where `username` = '$current_user' ";
         $stmt = $db_obj->prepare($second_sql);
-
         $result = $db_obj->query($sql);
 
 
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
+
+                //wenn es beim richtigen Datensatz ist:
                 if ($current_user == $row["username"] ){
+
                     // altes pw mit datenbank vergleichem
                     if (password_verify($old_pw, $row["password"])){
-                        // neue pw vergleichen
+
+                        // neues passwort und pw-repeat vergleichen
                         if($new_pw == $new_pw_confirmation){
                             $stmt->execute();
                             $success = "passwort erfolgreich geändert !";
-
                             return 1;
+
                         }else{
                             $error = "Die neuen Passwörter stimmt nicht überein";
                             return 0;
@@ -103,8 +110,6 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
                         $error = "Das alte Passwort stimmt nicht";
                         return 0;
                     }
-                }else{
-                    $user_coun ++;
                 }
             }
         }else{
@@ -116,8 +121,6 @@ function change_pw($old_pw, $new_pw, $new_pw_confirmation,  $spalten_name){
         return 0;
     }
 }
-
-
 
 
 
@@ -155,9 +158,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 // wegen username änderung
+//wenn es noch die session gibt:
+//todo iwas besser nachdem der username sich ändert
 if (isset($_SESSION)){
+    //dann normal weiter
     include_once "account.php";
 
 }else{
+    //sonst seite refreshen um sich erneut anzumelden
     header("Refresh:0");
+
 }

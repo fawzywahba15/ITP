@@ -18,6 +18,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+//todo vllt alles hier weg
 
 ?>
 
@@ -46,7 +47,7 @@ if (!isset($_SESSION)) {
 
 <div class="container ms-0">
 <h4 >
-    Sie haben sich erfolgreich abgemeldet!
+    Sie haben sich abgemeldet!
 </h4>
 <br>
 

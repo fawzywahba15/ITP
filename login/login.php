@@ -3,21 +3,19 @@
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $email = strtolower($_POST["email"]);
     $password = $_POST["password"];
-//zu databaser comparen
-    $db_host = 'localhost';
-    $db_user = 'fawzy';
-    $db_password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($db_host, $db_user, $db_password, $database);
-    $sql =
-        "SELECT * FROM `login`";
+    //db con
+    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+    $sql = "SELECT * FROM `login`";
     $result = $db_obj->query($sql);
-    $redirect = False;
+
     if ($result->num_rows > 0) {
+
         //iteriert alle datensätz in der Datenbank
         while($row = $result->fetch_assoc()) {
+
             // sucht email
             if ($email == $row["usermail"] ){
 
@@ -26,15 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     session_start();
                     $_SESSION["email"] = $email;
                     $_SESSION["user_id"] = $row["id"];
-                    //admin
+                    //falls man ein admin ist dann in der SESSION speichern
                     if ($row["admin"] == 1){
                         $_SESSION["admin"] = true;
-                    }else{
-                        $_SESSION["admin"] = false;
                     }
-                    $redirect = True;
+                    //wenn alles passt dann weiter zu process
                     include "./login_proccess.php";
                     exit();
+
                 }else{
                     $error = "Password or Email dont match";
                 }
@@ -87,12 +84,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 <body>
-    <!-- <h1 class="text_zentriert">Vienna Palace Hotel</h1> -->
-
 
     <div class="container">
-
         <form method="post" class="container"> <!--action="./login_proccess.php"-->
+            <!--falls es einen fehler gab, dann wird $error ausgegeben-->
             <h5 class="login_error"><?php echo $error; ?></h5>
 
             <label for="email" class="label_mail">E-mail</label>
@@ -110,8 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
     </div>
-
-
 
 </body>
 <script

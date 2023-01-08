@@ -5,42 +5,33 @@ if(!isset($_SESSION)) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtolower($_POST["email"]);
     $password = $_POST["password"];
-    //zu databaser comparen
-    $db_host = 'localhost';
-    $db_user = 'fawzy';
-    $db_password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($db_host, $db_user, $db_password, $database);
+
+    //db conn
+    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
     $sql = "SELECT * FROM `login`";
     $result = $db_obj->query($sql);
+
+    //ka was das ist
     $password_stimmt = False;
     $mail_found = False;
+
     if ($result->num_rows > 0) {
         //iteriert alle datensätz in der Datenbank
         while($row = $result->fetch_assoc()) {
-            // sucht email
+            // sucht eingegebene mail
             if ($email == $row["usermail"] ){
-                $mail_found = True;
 
-
-                $_SESSION["username"] = $row["username"];
-                $_SESSION["vorname"] = $row["first_name"];
-
+                //falls sie gefunden wird:
                 // überprüft passwort
                 if (password_verify($_POST["password"], $row["password"])){
-                    $password_stimmt = True;
 
-
-                        $_SESSION["username"] = $row["username"];
-
+                    //ein paar sachen in der SESSION speichern
+                    $_SESSION["username"] = $row["username"];
+                    $_SESSION["vorname"] = $row["first_name"];
+                    include "../1.übung/main.php";
                 }
             }
         }
-    }
-
-    if ($password_stimmt && $mail_found){
-
-    include "../1.übung/main.php";
     }
 }
 
