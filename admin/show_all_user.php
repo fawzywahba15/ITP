@@ -17,14 +17,17 @@ if (!isset($_SESSION)){
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="../0design/my_design.css">
+    <?php
+    include_once "admin.php"
+    ?>
 
-    <?php include "../0include/navbar.php";?>
     <style>
         .th{
             width: 400px;
             margin-left: 50px;
             margin-right: 50px;
             font-size: large;
+            text-align: center;
         }
         .ka{
             margin-top: 100px;
@@ -53,7 +56,7 @@ if (!isset($_SESSION)){
             padding: 0;
             width: 100px;
             transform: none;
-
+            alignment: center;
             border-color: #824caf;
         }
         .input:focus{
@@ -63,19 +66,16 @@ if (!isset($_SESSION)){
             margin-top: 0;
             margin-bottom: 50px;
             display: inline-block;
-            grid-auto-rows: auto;
-            grid-template-columns: 50%;
-
-            margin-left: 0;
-            text-align: center ;
-            border: 3px #824caf solid ;
             padding: 0;
-            width: 140px;
-            outline: none;
-            border-radius: 25px;
-            transition-duration: 0.4s;
+            margin-left: 0;
+            alignment: center;
+            width: 100px;
+            transform: none;
+
+            border-color: #824caf;
         }
         .input_mail:focus{
+
             width: 200px;
             border: 3px #2ecc71 solid ;
         }
@@ -85,7 +85,7 @@ if (!isset($_SESSION)){
 <table class="mx-3">
     <tr>
         <th class="th">user id</th>
-        <th class="th">username</th>
+        <th class="th">Nachname</th>
         <th class="th">first_name</th>
         <th class="th">usermail</th>
         <th class="th">password</th>
@@ -102,11 +102,11 @@ if (!isset($_SESSION)){
         while($row = mysqli_fetch_assoc($result)) {
 
             echo "<tr class='my_tr'>";
-            echo "<td class='ka'>" . $row["id"] . "</td>";
-            echo "<td class='ka'>" . $row["username"] . "</td>";
-            echo "<td class='ka'>" . $row["first_name"] . "</td>";
-            echo "<td class='ka'>" . $row["usermail"] . "</td>";
-            echo "<td class='ka'>" . ' ' . "</td>";
+            echo "<td class='ka text-center'>" . $row["id"] . "</td>";
+            echo "<td class='ka text-center'>" . $row["username"] . "</td>";
+            echo "<td class='ka text-center'>" . $row["first_name"] . "</td>";
+            echo "<td class='ka text-center'>" . $row["usermail"] . "</td>";
+            echo "<td class='ka text-center'>" . ' ' . "</td>";
             echo "</tr>";
 
 
@@ -114,33 +114,36 @@ if (!isset($_SESSION)){
             echo "<tr>";
 
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
-            echo "<td>";
+
 //todo id daten posten ohne label sondern mit h3 oder so
-            echo "<label for='person_id'>ID: </label>";
-            echo "<input type='text' name='person_id' id= 'person_id' class='input' value='" . $row["id"] . "'>";
+            echo "<td class='text-center'>";
+            echo "<input type='text' name='person_id' id= 'person_id' class='input ' value='" . $row["id"] . "'>";
             echo "</td>";
-            echo "<td>";
-            echo "<label for='username'>Username: </label>";
+
+            echo "<td class='text-center'>";
             echo "<input type='text' name='username' id= 'username' class='input' value='" . $row["username"] . "'>";
             echo "</td>";
-            echo "<td>";
-            echo "<label for='vorname'>Vorname: </label>";
+
+            echo "<td class='text-center'>";
+/*            echo "<label for='vorname'>Vorname: </label>";*/
+
             echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["first_name"] . "'>";
             echo "</td>";
-            echo "<td>";
-            echo "<label for='usermail'>Usermail: </label>";
+
+            echo "<td class='text-center'>";
+/*            echo "<label for='usermail'>Usermail: </label>";*/
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
             echo "</td>";
-            echo "<td>";
-            echo "<label for='password'>password: </label>";
+            echo "<td class='text-center'>";
+/*            echo "<label for='password'>password: </label>";*/
             echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
             echo "</td>";
 
-            echo "<td>";
+            echo "<td class='text-center'>";
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
 
             echo "</td>";
-            echo "<td>";
+            echo "<td class='text-center'>";
             echo "<button type='submit' class='button_2' formaction='./show_user_res.php'>buchungen anzeigen</button>";
             echo "</form>";
             echo "</td>";

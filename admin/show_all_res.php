@@ -48,7 +48,6 @@ if (!isset($_SESSION)){
         }
         .button_2{
             margin: 0;
-            margin-left: 25%;
             margin-bottom: 50px;
             padding: 5px;
             padding-left: 20px;
@@ -61,7 +60,7 @@ if (!isset($_SESSION)){
             display: inline-block;
             padding: 0;
             width: 100px;
-            margin-left: 25%;
+            margin-left: 0;
             transform: none;
 
             border-color: #824caf;
@@ -86,12 +85,12 @@ if (!isset($_SESSION)){
 
     <?php
 
-    $user_id = $_POST["person_id"];
+
 
 
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
-    $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$user_id'";
+    $sql = "SELECT * FROM reservierungen";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -113,20 +112,20 @@ if (!isset($_SESSION)){
 
 
 
-            echo "<td class='ka'>";
+            echo "<td class='text-center'>";
 
             echo "<input type='date' name='Anreise'  id= 'Anreise' class='input my-4' value='" . $row["anreise_datum"] . "'>";
             echo "</td>";
-            echo "<td>";
 
+            echo "<td class='text-center'>";
             echo "<input type='date' name='Abreise' id= 'Abreise' class='input my-4' value='" . $row["abreise_datum"] . "'>";
             echo "</td>";
 
-            echo "<td>";
+            echo "<td class='text-center'>";
             echo "<button type='button' class='button_2 my-4' onclick='confirm_res(this)'>bestätigen</button>";
 
             echo "</td>";
-            echo "<td>";
+            echo "<td class='text-center'>";
             echo "<button type='button' class='button_2 my-4' onclick='cancel_res(this)'>Stornieren</button>";
             echo "</td>";
             echo "</form>";

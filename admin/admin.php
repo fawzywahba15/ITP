@@ -22,26 +22,54 @@ if(!isset($_SESSION)) {
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/login.css">
     <?php include '../0include/navbar.php'; ?>
+    <style>
+        .aussuch_btn{
+            display: flex;
+            width: min-content;
+            padding: 20px;
+            margin-bottom: 75px;
+            margin-left: 50%;
+            transform: translate(-50%, 50%);
+            border: #2ecc71 2px solid;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 
 <?php if (isset($_SESSION["admin"] ) && $_SESSION["admin"]) : ?>
 <body>
 
 
-<form method="post" action="show_all_user.php">
+<!--<form method="post" action="show_all_user.php">
 <button class="button"> Alle Benutzer anzeigen:</button>
-</form>
+</form>-->
+
+<div class="container ">
+
+    <a class="nav-link dropdown-toggle button aussuch_btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <?php if(basename($_SERVER['PHP_SELF']) == 'admin.php')  : ?>
+            Auswahl:
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_user.php'): ?>
+            Benutzer anzeigen
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_res.php'): ?>
+            Alle reservierungen anzeigen:
+        <?php endif; ?>
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="./show_all_user.php">Benutzer anzeigen</a></li>
+        <li ><a class="dropdown-item" href="./show_all_res.php">Buchungen anzeigen</a></li>
+    </ul>
+
+</div>
+
+
+
+
+
+
 
 </body>
-
-
-
-
-
-
-
-
-
 
 
 <!--falls man kein admin ist-->
