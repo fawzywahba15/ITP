@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" class="input" id="last_name" name="last_name"><br>
 
     <label for="email"  class="label_reg">Email:</label><br>
-    <input type="email" class="input" id="email" name="email" value="<?php echo $_SESSION["email"]; ?>" ><br>
+    <input type="email" class="input" id="email" name="email" value="<?php echo $_SESSION["email"]?>" ><br>
 
     <label for="phone" class="label_reg">Phone:</label><br>
     <input type="text" class="input" id="phone" name="phone"><br>
@@ -130,7 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </body>
-<footer>
 
-</footer>
+<?php
+include_once "../0include/footer.php"
+?>
+
 </html>

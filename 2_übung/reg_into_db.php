@@ -25,7 +25,8 @@ VALUES (?, ?, ?, ?, ?)";
 
 
     if ($stmt->execute()) {
-        echo "erfolgreich in die datenbank eingespeichert"; }
+        echo "";
+    }
     else {
         echo "Error";
     }

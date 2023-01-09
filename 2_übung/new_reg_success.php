@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href='../login/login.php'>anmelden</a>!</h4>";
         //speichert die daten in der db ein
         include "./reg_into_db.php";
+
+
+        include_once "../0include/footer.php";
+
+
     }else{
         // wenn es schief läuft
         echo "Leider ist etwas schiefgelaufen. <a href='./new_reg.php'>Erneut registrieren</a> ";
@@ -50,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     ?>
 </h3>
+
 
 
 

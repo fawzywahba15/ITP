@@ -10,16 +10,10 @@ if (isset($_POST['id'])) {
     //"update `login` Set `$spalten_name` = '$data_to_change' where `username` = '$current_user' ";
     $sql = "update reservierungen Set status = 'bestätigt'  WHERE id='$buchungsnummer'";
     $result = mysqli_query($conn, $sql);
-    if ($result) {
-        // The delete was successful, return a success message to the client
-        echo "success";
-    } else {
-        // The delete was not successful, return an error message to the client
-        echo "error";
-    }
+
 }
 
-// Close the database connection
+
 mysqli_close($conn);
 
 ?>

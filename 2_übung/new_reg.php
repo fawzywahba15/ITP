@@ -162,16 +162,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 
-<div class="my-5 mx-3">
-    <hr>
-    <h3>Kontaktdaten:</h3>
-    Telefonnummer: +436767029823 <br>
-    E-mail: <a href="mailto: info@Viennapalace.at">info@viennapalace.at</a>
-</div>
-
-
 
 </body>
+
+
+<?php
+include_once "../0include/footer.php"
+?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>

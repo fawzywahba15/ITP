@@ -40,27 +40,34 @@ if(!isset($_SESSION)) {
 <body>
 
 
-<!--<form method="post" action="show_all_user.php">
-<button class="button"> Alle Benutzer anzeigen:</button>
-</form>-->
+
 
 <div class="container ">
 
     <a class="nav-link dropdown-toggle button aussuch_btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
         <?php if(basename($_SERVER['PHP_SELF']) == 'admin.php')  : ?>
             Auswahl:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_user.php'): ?>
-            Benutzer anzeigen
+            Alle Benutzer:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_res.php'): ?>
-            Alle reservierungen anzeigen:
+            Alle reservierungen:
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_user_res.php'): ?>
+
+            <?php
+
+                $benutzer = $_POST["username"];
+                echo "Benutzer " . $benutzer ." reservierungen:";
+            ?>
         <?php endif; ?>
+
     </a>
-
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./show_all_user.php">Benutzer anzeigen</a></li>
-        <li ><a class="dropdown-item" href="./show_all_res.php">Buchungen anzeigen</a></li>
-    </ul>
-
+    <div class="text-left">
+        <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="./show_all_user.php">Benutzer anzeigen</a></li>
+            <li ><a class="dropdown-item" href="./show_all_res.php">Buchungen anzeigen</a></li>
+        </ul>
+    </div>
 </div>
 
 
@@ -72,7 +79,7 @@ if(!isset($_SESSION)) {
 </body>
 
 
-<!--falls man kein admin ist-->
+    <!--falls man kein admin ist-->
 <?php else: ?>
 <body>
 <h1> Sie sind kein admin!</h1>
@@ -83,9 +90,7 @@ if(!isset($_SESSION)) {
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous">
-
-</script>
+    crossorigin="anonymous"></script>
 
 </html>
 

@@ -39,13 +39,13 @@ include "zimmer_main.php";
 
 <table class="mx-3">
     <tr>
-        <th class="th">Buchungnummer</th>
-        <th class="th">E-mail</th>
-        <th class="th">Anreise Datum</th>
-        <th class="th">Abreise Datum</th>
-        <th class="th">Zimmer Kategorie</th>
-        <th class="th">Status</th>
-        <th class="th">Stornieren</th>
+        <th class="th text-center">Buchungnummer</th>
+        <th class="th text-center">E-mail</th>
+        <th class="th text-center">Anreise Datum</th>
+        <th class="th text-center">Abreise Datum</th>
+        <th class="th text-center">Zimmer Kategorie</th>
+        <th class="th text-center">Status</th>
+        <th class="th text-center">Stornieren</th>
     </tr>
 
     <?php
@@ -64,12 +64,12 @@ include "zimmer_main.php";
 
 /*            echo "<h6 id='buchungsnummer' class='hidden'>" . $row["id"] . "</h6>";*/
             echo"<td id='buchungsnummer' class='meins'>" . $row["id"] . "</td>";
-            echo "<td class='meins px-2'>" . $row["usermail"] . "</td>";
-            echo "<td class='meins px-2'>" . $row["anreise_datum"] . "</td>";
-            echo "<td class='meins px-2'>" . $row["abreise_datum"] . "</td>";
-            echo "<td class='meins px-2'>" . $row["room_type"] . "</td>";
-            echo "<td class=' px-2'>" . $row["status"] . "</td>";
-            echo "<td>";
+            echo "<td class='text-center meins'>" . $row["usermail"] . "</td>";
+            echo "<td class='text-center meins'>" . $row["anreise_datum"] . "</td>";
+            echo "<td class='text-center meins'>" . $row["abreise_datum"] . "</td>";
+            echo "<td class='text-center meins'>" . $row["room_type"] . "</td>";
+            echo "<td class='text-center meins'>" . $row["status"] . "</td>";
+            echo "<td class='text-center meins'>";
             echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row(this) '>Stornieren!</button>";
 
             echo "</td>";
@@ -85,6 +85,11 @@ include "zimmer_main.php";
 
 
 </body>
+
+<?php
+include_once "../0include/footer.php"
+?>
+
 <script>
 
     function delete_row(button) {
