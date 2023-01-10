@@ -22,9 +22,19 @@ function get_all_news()
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<article>';
+            echo '<p class="time_stamp">' . $row['timestamp'] . '</p>';
+
             echo '<h2>' . $row['title'] . '</h2>';
+            echo '<div class="text_zentriert">';
+            echo  ' <img
+                class="img-fluid"
+                src=" ' . $row["file_path"] . ' " 
+                alt="News Bild"
+                width="800" height="500"></div>';
+
             echo '<p>' . $row['text'] . '</p>';
-            echo '<p>' . $row['timestamp'] . '</p>';
+
+            echo "<hr>";
             echo '</article>';
         }
     } else {
@@ -49,12 +59,19 @@ function get_all_news()
           rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
 <?php include '../0include/navbar.php'; ?>
+    <style>
+        .time_stamp{
+            color: white;
+            margin-left: 90%;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container text-center">
     <?php
     get_all_news();
+
     ?>
 </div>
 
