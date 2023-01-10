@@ -97,7 +97,7 @@ if (isset($_FILES["userfile"])){
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        include_once "upload.php";
+
         /*include_once "news_beiträge.php";*/
 
 
@@ -108,7 +108,7 @@ if (isset($_FILES["userfile"])){
 
 
 
-
+include_once "upload.php";
 
 
 

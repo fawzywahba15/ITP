@@ -74,14 +74,20 @@
                     <a class="nav-link"  href="../0fusszeile/02faq.php">faq</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link"  href="../file_upload/news_beiträge.php">News Beiträge</a>
+                </li>
 
+
+                <?php if (isset($_SESSION["admin"] ) && $_SESSION["admin"]) : ?>
                 <li class="nav-item">
                     <a class="nav-link"  href="../file_upload/upload.php">file upload</a>
                 </li>
-                <?php if (isset($_SESSION["admin"] ) && $_SESSION["admin"]) : ?>
-                <li class="nav-item">
-                    <a class="nav-link"  href="../admin/admin.php">admin shit </a>
-                </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"  href="../admin/admin.php">admin</a>
+                    </li>
+
                 <?php endif; ?>
 
 
