@@ -20,6 +20,32 @@ if(!isset($_SESSION))
     <?php include '../0include/navbar.php'; ?>
 
     <style>
+        ::placeholder{
+            color: white;
+        }
+        .article_title_input{
+            color: white;
+            outline: none;
+            background-color: #824caf;
+            border: solid 3px #824caf;
+            border-radius: 20px;
+        }
+        .article_title_input:focus{
+            border: solid 3px #4CAF50;
+
+        }
+        .article_text_input{
+            color: white;
+            outline: none;
+            background-color: #824caf;
+            border: solid 3px #824caf;
+            border-radius: 20px;
+            width: 700px;
+            height: 400px;
+        }
+        .article_text_input:focus{
+            border: solid 3px #4CAF50;
+        }
         .form-control-lg{
             background-color: #824caf;
             color: white;
@@ -141,12 +167,22 @@ if (isset($_FILES["userfile"])){
 ?>
 
 <h2 class="text_zentriert">Bitte laden sie Ihr Bild hoch:</h2>
-<form action="" method="post" enctype="multipart/form-data">
+<form action="./news_beiträge.php" method="post" enctype="multipart/form-data">
     <!--    <input type="file" name="userfile"  class="button_2">
         <input type="submit" value="upload"  class="button" >-->
     <div class="container">
         <input class="form-control form-control-lg" id="formFileLg" name="userfile" type="file">
-        <input type="submit" value="upload"  class="button my-4" >
+        <br>
+        <div class="text-center">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" class="article_title_input" placeholder="Titel hier eingeben:"><br>
+            <br>
+            <label for="text">Text:</label><br>
+            <textarea id="text" name="text" class="article_text_input" placeholder="Text hier eingeben:"></textarea>
+            <br><br>
+            <input type="submit" value="upload"  class="button my-4" >
+            </div>
+
     </div>
 
 

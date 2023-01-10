@@ -1,53 +1,44 @@
-<table>
-    <tr>
-        <th>Buchungnummer</th>
-        <th>E-mail</th>
-        <th>Anreise Datum</th>
-        <th>Abreise Datum</th>
-        <th>Zimmer Kategorie</th>
-        <th>Status</th>
-    </tr>
-    <?php
-    // Connect to the database and retrieve the data
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
-    $sql = "SELECT * FROM reservierungen";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<form method='post' class='my-0 py-0 mx-0 px-0'>";
-            echo "<h6 class='hidden'>" . $row["id"] . "</h6>";
-            echo "<td>" . $row["id"] . "</td>";
-            echo "<td>" . $row["usermail"] . "</td>";
-            echo "<td>" . $row["anreise_datum"] . "</td>";
-            echo "<td>" . $row["abreise_datum"] . "</td>";
-            echo "<td>" . $row["room_type"] . "</td>";
-            echo "<td>";
-            echo "<button type='button' class='button_2 py-2 my-3' onclick='cancelReservation(this)'>Stornieren!</button>";
-            echo "</form>";
-            echo "</td>";
-            echo "</tr>";
-        }
-    }
-    mysqli_close($conn);
-    ?>
-</table>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>file upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+</head>
+<body>
 
-<script>
-    function cancelReservation(button) {
-        // Get the form element containing the cancel button
-        var form = button.parentNode.parentNode.firstChild;
-        window.alert(form.nodeName);
-        // Get the reservation ID from the form
-        var id = form.firstElementChild.textContent;
-        window.alert(id);
-        // Send an HTTP request to the server to cancel the reservation
-        var xhttp = new XMLHttpRequest();
-        var url = "cancel_reservation.php";
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id);
-        // Update the table to reflect the cancelled reservation
-        form.parentNode.parentNode.removeChild(form.parentNode);
-    }
-</script>
+
+
+<form id="articleForm" action="exercise_2.php" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <br>
+    <label for="text">Text:</label><br>
+    <textarea id="text" name="text"></textarea>
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+
+
+</html>

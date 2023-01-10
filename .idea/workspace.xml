@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
-      <change afterPath="$PROJECT_DIR$/zimmer_reservieren/cancel_reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a00ba9ce-dcdc-4f58-852a-0f8bf8ab10ad.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a00ba9ce-dcdc-4f58-852a-0f8bf8ab10ad.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file_upload/artikel_to_db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_übung/exercise_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/2_übung/exercise_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/show_user_res.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/show_user_res.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercise.php" beforeDir="false" afterPath="$PROJECT_DIR$/exercise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login_proccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login_proccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/buchen.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/buchen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/buchung_into_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/buchung_into_db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/buchungen_anzeigen.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/buchungen_anzeigen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_upload/thumbnail.php" beforeDir="false" afterPath="$PROJECT_DIR$/file_upload/news_beiträge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_upload/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/file_upload/upload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +41,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="2HcxoMYwHcJtRfJ3wIv0K4covK3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -127,7 +127,11 @@
       <workItem from="1672873593768" duration="6394000" />
       <workItem from="1673005804842" duration="3821000" />
       <workItem from="1673025209869" duration="1154000" />
-      <workItem from="1673044618749" duration="9016000" />
+      <workItem from="1673044618749" duration="10355000" />
+      <workItem from="1673258655736" duration="3343000" />
+      <workItem from="1673262053778" duration="10222000" />
+      <workItem from="1673347323896" duration="121000" />
+      <workItem from="1673349529436" duration="154000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
@@ -161,6 +165,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="paar" />
     <option name="LAST_COMMIT_MESSAGE" value="paar" />
   </component>

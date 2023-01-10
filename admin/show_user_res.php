@@ -132,6 +132,7 @@ if (!isset($_SESSION)){
         }
     }
     mysqli_close($conn);
+    //todo datum änderung übertragen
     ?>
 </table>
 
