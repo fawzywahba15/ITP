@@ -132,7 +132,7 @@ if (!isset($_SESSION)){
 
 
             echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
-            
+
             //damit das richtige room type selected wird in der dropdown menu
             echo "<td class='text-center right_border'>";
             echo '<select id="room_drop" name="room_drop" class="input my-4 mx-1" >';
@@ -209,8 +209,8 @@ if (!isset($_SESSION)){
     function change_res_data(button){
 
         var form = button.parentNode.parentNode.firstElementChild;
-/*        var buchungsnummer = form.nextSibling.textContent;*/
-        var id = form.elements["buchungsnummer"].value;
+        var id = form.nextSibling.textContent;
+/*        var id = form.elements["buchungsnummer"].value;*/
         var anreise = form.elements["Anreise"].value;
         var abreise = form.elements["Abreise"].value;
         var room_type = form.elements["room_drop"].value;

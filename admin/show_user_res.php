@@ -84,6 +84,7 @@ if (!isset($_SESSION)){
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
         <th class="th">Status</th>
+        <th class="th">ändern!</th>
         <th class="th">Bestätigen</th>
         <th class="th">Stornieren</th>
     </tr>
@@ -112,7 +113,28 @@ if (!isset($_SESSION)){
             echo "</div>";
             echo "</td>";
             echo "<td class='text-center'>" . $row["usermail"] . "</td>";
-            echo "<td class='text-center'>" . $row["room_type"] . "</td>";
+
+            echo "<td class='text-center right_border'>";
+            echo '<select id="room_drop" name="room_drop" class="input my-4 mx-1" >';
+            $options = ["single room", "double room", "suite"];
+            $selected = array();
+            switch ($row["room_type"]) {
+                case "single room":
+                    $selected[0] = ' selected';
+                    break;
+                case "double room":
+                    $selected[1] = ' selected';
+                    break;
+                default:
+                    $selected[2] = ' selected';
+                    break;
+            }
+            foreach ($options as $key => $option) {
+                echo "<option value='$option' {$selected[$key]}>$option</option>";
+            }
+            echo '</select>';
+            echo "</td>";
+
 
 
 
@@ -127,6 +149,10 @@ if (!isset($_SESSION)){
             echo "</td>";
             echo "<td class='text-center right_border'>";
             echo $row["status"];
+            echo "</td>";
+
+            echo "<td class='text-center right_border'>";
+            echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
 
             echo "<td class='text-center'>";
@@ -166,6 +192,35 @@ if (!isset($_SESSION)){
 </script>-->
 
 <script>
+    function change_res_data(button){
+
+        var form = button.parentNode.parentNode.firstElementChild;
+
+        var id = form.nextSibling.textContent;
+        var anreise = form.elements["Anreise"].value;
+        var abreise = form.elements["Abreise"].value;
+        var room_type = form.elements["room_drop"].value;
+        if (anreise > abreise){
+            window.location.reload();
+            window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
+        }else{
+            var xhttp = new XMLHttpRequest();
+            var url= "change_res.php"
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Refresh the page after the delete request has been processed
+                    window.alert("Buchung geändert!")
+                    window.location.reload();
+                }
+            };
+        }
+
+
+
+    }
     function confirm_res(button) {
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
