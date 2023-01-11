@@ -145,6 +145,8 @@ if (!isset($_SESSION)){
             echo "</tr>";
 
         }
+    }else {
+        echo "Es gibt keine buchungen!";
     }
     mysqli_close($conn);
     ?>

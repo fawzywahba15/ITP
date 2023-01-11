@@ -65,10 +65,11 @@
                 </li>
 
 
-
+                <?php if (isset($_SESSION["username"] )) : ?>
                 <li class="nav-item">
                     <a class="nav-link " href="../login/account.php">Konto</a>
                 </li>
+                <?php endif; ?>
 
                 <li class="nav-item">
                     <a class="nav-link"  href="../0fusszeile/02faq.php">faq</a>

@@ -59,6 +59,19 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
+        .warnung{
+            border-radius: 20px;
+            text-align: center;
+            width: 300px;
+            border: 2px red solid;
+            margin-bottom: 50px;
+            margin-left: 50%;
+            transform: translate(-50%, 0%);
+            transition-duration: 0.4s;
+        }
+        .warnung:hover{
+            background-color: #FF000080;
+        }
 
     </style>
 </head>
@@ -127,6 +140,15 @@ if (!isset($_SESSION)){
             echo "</tr>";
 
         }
+    }else {
+
+        echo "<div class='warnung py-3'>";
+        echo "Keine Buchungen vom Benutzer: " . $_POST["username"];
+        echo "</div>";
+
+
+
+
     }
     mysqli_close($conn);
     //todo datum änderung übertragen

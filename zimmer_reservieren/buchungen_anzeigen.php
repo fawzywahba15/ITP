@@ -77,6 +77,8 @@ include "zimmer_main.php";
             echo "</tr>";
 
         }
+    }else {
+        echo "Keine Buchungen gefunden!";
     }
     mysqli_close($conn);
     ?>

@@ -5,6 +5,12 @@ if(!isset($_SESSION))
 }
 
 ?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +44,7 @@ if(!isset($_SESSION))
 
 </head>
 <body>
-
+<?php if (isset($_SESSION["username"] )) : ?>
 <div class="container ">
 
     <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,7 +64,10 @@ if(!isset($_SESSION))
 
 </div>
 
+<?php else: ?>
+    <div class="container"><h3>Bitte <a href="../login/login.php">anmelden</a> oder <a href="../2_übung/new_reg.php">registrieren</a> um ein Zimmer zu buchen!</h3></div>
 
+<?php endif; ?>
 
 
 </body>
@@ -67,4 +76,5 @@ if(!isset($_SESSION))
         crossorigin="anonymous"></script>
 
 </html>
+
 
