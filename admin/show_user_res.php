@@ -83,7 +83,16 @@ if (!isset($_SESSION)){
         <th class="th">Zimmer Kategorie</th>
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
-        <th class="th">Status</th>
+        <th class="th">Status
+            <form method="post" action="">
+                <select name="status_filter" id="status_filter">
+                    <option value="" selected>All</option>
+                    <option value="neu">neu</option>
+                    <option value="bestätigt">bestätigt</option>
+                    <option value="storniert">storniert</option>
+                </select>
+                <input type="submit" value="Filter">
+        </th>
         <th class="th">ändern!</th>
 <!--        <th class="th">Bestätigen</th>
         <th class="th">Stornieren</th>-->
@@ -91,12 +100,27 @@ if (!isset($_SESSION)){
 
     <?php
 
-    $user_id = $_POST["person_id"];
 
 
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+    if (isset($_POST["person_id"])){
+        $_SESSION["person_res"] = $_POST["person_id"];
+        $_SESSION["person_name"] = $_POST["username"];
+    }
+
+    $user_id = $_SESSION["person_res"];
+
     $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$user_id'";
+
+
+
+    if(isset($_POST['status_filter']) && $_POST['status_filter']!='')
+    {
+        $status_filter = $_POST['status_filter'];
+        $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$user_id' && status='$status_filter'";
+    }
+
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -173,9 +197,9 @@ if (!isset($_SESSION)){
 
         }
     }else {
-
-        echo "<div class='warnung py-3'>";
-        echo "Keine Buchungen vom Benutzer: " . $_POST["username"];
+        echo "</table>";
+        echo "<div class='warnung py-3 my-3'>";
+        echo "Keine Buchungen gefunden!";
         echo "</div>";
 
 
@@ -228,43 +252,6 @@ if (!isset($_SESSION)){
 
 
     }
-    /*
-    function confirm_res(button) {
-        var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-        var xhttp = new XMLHttpRequest();
-        var url= "confirm_user_res.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id );
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Buchung bestätigt!")
-                window.location.reload();
-            }
-        };
-
-    }
-    //todo funktion geht aber keine window.alert?
-    function cancel_res(button) {
-        var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-        var xhttp = new XMLHttpRequest();
-        var url= "cancel_user_res.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id );
-
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Buchung storniert!")
-                window.location.reload();
-            }
-        };
-
-    }*/
 </script>
 
 </html>

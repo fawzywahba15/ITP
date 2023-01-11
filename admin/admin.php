@@ -55,9 +55,15 @@ if(!isset($_SESSION)) {
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_user_res.php'): ?>
 
             <?php
+                if (!isset($_POST["username"])){
+                    $benutzer = $_SESSION["person_name"];
+                    echo "Benutzer ' " . $benutzer ." ' reservierungen:";
+                }else{
 
                 $benutzer = $_POST["username"];
-                echo "Benutzer " . $benutzer ." reservierungen:";
+                echo "Benutzer ' " . $benutzer ." ' reservierungen:";
+
+                }
             ?>
         <?php endif; ?>
 

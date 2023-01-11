@@ -74,11 +74,20 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
-        .error{
-            font-size: larger;
-            border: 2px solid red;
+        .warnung{
             border-radius: 20px;
+            text-align: center;
+            width: 300px;
+            border: 2px red solid;
+            margin-bottom: 50px;
+            margin-left: 50%;
+            transform: translate(-50%, 0%);
+            transition-duration: 0.4s;
         }
+        .warnung:hover{
+            background-color: #FF000080;
+        }
+
 
     </style>
 </head>
@@ -205,9 +214,10 @@ if (!isset($_SESSION)){
     }else {
 
         echo "</table>";
-        echo "<p class='text-center error'>";
+        echo "<div class='warnung py-3 my-3'>";
         echo "Keine Buchungen gefunden!";
-        echo "</p>";
+        echo "</div>";
+
     }
     mysqli_close($conn);
 
