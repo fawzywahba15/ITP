@@ -21,18 +21,18 @@ function get_all_news()
 // Display the articles
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '<article>';
-            echo '<p class="time_stamp">' . $row['timestamp'] . '</p>';
+            echo '<article class="container">';
+            echo '<p class="time_stamp">' . date("d.m.Y", strtotime($row['timestamp'])) . '</p>';
 
-            echo '<h2>' . $row['title'] . '</h2>';
+            echo '<h2 class="news_title">' . $row['title'] . '</h2>';
             echo '<div class="text_zentriert">';
             echo  ' <img
-                class="img-fluid"
+                class="img-fluid news_image my-5"
                 src=" ' . $row["file_path"] . ' " 
                 alt="News Bild"
                 width="800" height="500"></div>';
 
-            echo '<p>' . $row['text'] . '</p>';
+            echo '<p class="news_text">' . $row['text'] . '</p>';
 
             echo "<hr>";
             echo '</article>';
@@ -63,6 +63,24 @@ function get_all_news()
         .time_stamp{
             color: white;
             margin-left: 90%;
+            background-color: #4CAF50;
+            border: 2px solid #4CAF5060;
+            border-radius: 20px;
+            margin-bottom: 0;
+        }
+        .news_image{
+            border-color: #824caf;
+        }
+        .news_title{
+            width: max-content;
+            margin-left: 50%;
+            margin-top: 0;
+            transform: translate(-50%, 0);
+            border-bottom: 5px solid #824caf60;
+        }
+        .news_text{
+            font-size: large;
+            border: 5px solid #824caf60;
         }
     </style>
 </head>

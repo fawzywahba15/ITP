@@ -177,7 +177,7 @@ if (!isset($_SESSION)){
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // Refresh the page after the delete request has been processed
-                window.alert("Buchung storniert!")
+                window.alert("Buchung bestätigt!")
                 window.location.reload();
             }
         };

@@ -27,11 +27,16 @@ if (!isset($_SESSION)){
             border-bottom: 0;
 
         }
-
+        .my_tr:hover {
+            background-color: #824caf60;
+        }
 
         .my_seconde_tr {
             border: 2px solid #824caf60;
-            border-top: 0;
+
+        }
+        .my_seconde_tr:hover{
+            background-color: #824caf60;
         }
         .th{
             width: 400px;
@@ -49,15 +54,17 @@ if (!isset($_SESSION)){
         }
         .button_2{
             margin: 0;
-            margin-bottom: 50px;
+            margin-bottom: 15px;
+            margin-top: 15px;
             padding: 5px;
             padding-left: 20px;
             padding-right: 20px;
             border-radius: 50px;
         }
         .input{
-            margin-top: 0;
-            margin-bottom: 50px;
+
+            margin-bottom: 15px;
+            margin-top: 15px;
             display: inline-block;
             margin-left: 0;
             padding: 0;
@@ -70,8 +77,9 @@ if (!isset($_SESSION)){
             width: 110px;
         }
         .input_mail{
-            margin-top: 0;
-            margin-bottom: 50px;
+
+            margin-bottom: 15px;
+            margin-top: 15px;
             display: inline-block;
             padding: 0;
             margin-left: 0;
@@ -90,10 +98,10 @@ if (!isset($_SESSION)){
             border-right: #824caf60 2px solid;
         }
 
+
     </style>
 </head>
-<body>
-<table class="mx-3">
+<table class="mx-3 my-5">
     <tr>
         <th class="th">user id</th>
         <th class="th">Nachname</th>
@@ -112,16 +120,16 @@ if (!isset($_SESSION)){
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
 
-            echo "<tr class='my_tr'>";
+                echo "<tr class='my_tr'>";
 
-            echo "<td class='text-center py-1 right_border'>" . $row["id"] . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . $row["username"] . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . $row["first_name"] . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . $row["usermail"] . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-            echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-            echo "</tr>";
+                echo "<td class='text-center py-1 right_border '>" . $row["id"] . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . $row["username"] . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . $row["first_name"] . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . $row["usermail"] . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
+                echo "</tr>";
 
 
 
@@ -130,7 +138,7 @@ if (!isset($_SESSION)){
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
 
 //todo id daten posten ohne label sondern mit h3 oder so
-            echo "<td class='text-center right_border'>";
+            echo "<td class='text-center right_border my_block'>";
             echo "<input type='text' name='person_id' id= 'person_id' class='input ' value='" . $row["id"] . "'>";
             echo "</td>";
 
