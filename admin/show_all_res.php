@@ -74,6 +74,9 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
+        .hidden{
+            display: none;
+        }
 
     </style>
 </head>
@@ -86,6 +89,7 @@ if (!isset($_SESSION)){
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
         <th class="th">Status</th>
+        <th class="th">Buchung ändern</th>
         <th class="th">Bestätigen</th>
         <th class="th">Stornieren</th>
     </tr>
@@ -107,16 +111,49 @@ if (!isset($_SESSION)){
 
 
 
-
+// action='change_res.php'
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
-            echo "<td class='ka right_border'> 
+
+/*            echo "<td class='ka right_border'>
             <div class='text-center '>";
             echo  $row["id"] ;
             echo "</div>";
-            echo "</td>";
-            echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
-            echo "<td class='text-center right_border'>" . $row["room_type"] . "</td>";
+            echo "</td>";*/
+//todo error msg ausgeben bei date falls anreise > abreise
+            echo "<td class='text-center right_border'>";
 
+            echo "<input type='text' name='buchungsnummer'  id= 'buchungsnummer' class='hidden' value='" . $row["id"] . "'>";
+            echo"<div class='text-center '>";
+            echo  $row["id"] ;
+
+            echo "</div>";
+            
+            echo "</td>";
+
+
+            echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
+            
+            //damit das richtige room type selected wird in der dropdown menu
+            echo "<td class='text-center right_border'>";
+            echo '<select id="room_drop" name="room_drop" class="input my-4 mx-1" >';
+            $options = ["single room", "double room", "suite"];
+            $selected = array();
+            switch ($row["room_type"]) {
+                case "single room":
+                    $selected[0] = ' selected';
+                    break;
+                case "double room":
+                    $selected[1] = ' selected';
+                    break;
+                default:
+                    $selected[2] = ' selected';
+                    break;
+            }
+            foreach ($options as $key => $option) {
+                echo "<option value='$option' {$selected[$key]}>$option</option>";
+            }
+            echo '</select>';
+            echo "</td>";
 
 
 
@@ -129,8 +166,14 @@ if (!isset($_SESSION)){
             echo "<input type='date' name='Abreise' id= 'Abreise' class='input my-4' value='" . $row["abreise_datum"] . "'>";
             echo "</td>";
 
+
+
             echo "<td class='text-center right_border'>";
             echo $row["status"];
+            echo "</td>";
+
+            echo "<td class='text-center right_border'>";
+            echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
 
             echo "<td class='text-center right_border'>";
@@ -163,6 +206,37 @@ if (!isset($_SESSION)){
 </script>-->
 
 <script>
+    function change_res_data(button){
+
+        var form = button.parentNode.parentNode.firstElementChild;
+/*        var buchungsnummer = form.nextSibling.textContent;*/
+        var id = form.elements["buchungsnummer"].value;
+        var anreise = form.elements["Anreise"].value;
+        var abreise = form.elements["Abreise"].value;
+        var room_type = form.elements["room_drop"].value;
+        if (anreise > abreise){
+            window.location.reload();
+            window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
+        }else{
+            var xhttp = new XMLHttpRequest();
+            var url= "change_res.php"
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Refresh the page after the delete request has been processed
+                    window.alert("Buchung geändert!")
+                    window.location.reload();
+                }
+            };
+        }
+
+
+
+    }
+
+
     function confirm_res(button) {
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
