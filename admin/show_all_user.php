@@ -108,6 +108,7 @@ if (!isset($_SESSION)){
         <th class="th">first_name</th>
         <th class="th">usermail</th>
         <th class="th">password</th>
+        <th class="th">Status</th>
         <th class="th">Ändern</th>
         <th class="th">Alle Buchungen</th>
     </tr>
@@ -127,7 +128,7 @@ if (!isset($_SESSION)){
                 echo "<td class='text-center py-1 right_border'>" . $row["first_name"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["usermail"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
+                echo "<td class='text-center py-1 right_border'>" .  $row ["status"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
                 echo "</tr>";
 
@@ -156,10 +157,19 @@ if (!isset($_SESSION)){
 /*            echo "<label for='usermail'>Usermail: </label>";*/
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
             echo "</td>";
+
             echo "<td class='text-center right_border'>";
 /*            echo "<label for='password'>password: </label>";*/
             echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
             echo "</td>";
+
+            echo "<td class='text-center right_border'>";
+            echo "<select name='status' id='status' class='input'>";
+            echo "<option value='aktiv' " . ($row["status"] == "aktiv" ? "selected" : "") . ">aktiv</option>";
+            echo "<option value='inaktiv' " . ($row["status"] == "inaktiv" ? "selected" : "") . ">inaktiv</option>";
+            echo "</select>";
+            echo "</td>";
+
 
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
@@ -202,14 +212,14 @@ if (!isset($_SESSION)){
 
         var id = form.elements["person_id"].value;
         var password = form.elements["password"].value;
-
+        var user_status = form.elements["status"].value;
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
         var url= "update_data.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password);
+        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password + "&status=" + user_status);
         window.alert("Erfolgreich geändert!")
         window.location.reload();
     }
