@@ -215,7 +215,6 @@ if (!isset($_SESSION)){
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
 
-/*        var id = form.elements["buchungsnummer"].value;*/
         var anreise = form.elements["Anreise"].value;
         var abreise = form.elements["Abreise"].value;
         var room_type = form.elements["room_drop"].value;
