@@ -74,9 +74,7 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
-        .hidden{
-            display: none;
-        }
+
 
     </style>
 </head>
@@ -119,10 +117,8 @@ if (!isset($_SESSION)){
             echo  $row["id"] ;
             echo "</div>";
             echo "</td>";*/
-//todo error msg ausgeben bei date falls anreise > abreise
-            echo "<td class='text-center right_border'>";
 
-            echo "<input type='text' name='buchungsnummer'  id= 'buchungsnummer' class='hidden' value='" . $row["id"] . "'>";
+            echo "<td class='text-center right_border'>";
             echo"<div class='text-center '>";
             echo  $row["id"] ;
 
@@ -196,6 +192,10 @@ if (!isset($_SESSION)){
         echo "Es gibt keine buchungen!";
     }
     mysqli_close($conn);
+
+
+
+    //todo buchungen nach status filtern
     ?>
 </table>
 
@@ -203,11 +203,7 @@ if (!isset($_SESSION)){
 
 </body>
 
-<!--<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous">
-</script>-->
+
 
 <script>
     function change_res_data(button){

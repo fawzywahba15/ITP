@@ -12,10 +12,6 @@ if (!isset($_SESSION)){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Update Data</title>
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous">-->
-
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php
     include "admin.php";
@@ -130,6 +126,7 @@ if (!isset($_SESSION)){
                 echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
                 echo "<td class='text-center py-1 right_border'>" .  $row ["status"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
                 echo "</tr>";
 
 
@@ -148,18 +145,18 @@ if (!isset($_SESSION)){
             echo "</td>";
 
             echo "<td class='text-center right_border'>";
-/*            echo "<label for='vorname'>Vorname: </label>";*/
+
 
             echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["first_name"] . "'>";
             echo "</td>";
 
             echo "<td class='text-center right_border'>";
-/*            echo "<label for='usermail'>Usermail: </label>";*/
+
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
             echo "</td>";
 
             echo "<td class='text-center right_border'>";
-/*            echo "<label for='password'>password: </label>";*/
+
             echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
             echo "</td>";
 
@@ -190,56 +187,34 @@ if (!isset($_SESSION)){
 
 
 </body>
-
-<!--<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous">
-</script>
--->
 <script>
 
     function updateRow(button) {
-        // Get the parent form element of the button
-
-
         var form = button.parentNode.parentNode.firstElementChild;
-        // Get the values of the form elements
         var username = form.elements["username"].value;
-
         var first_name = form.elements["first_name"].value;
         var usermail = form.elements["usermail"].value;
-
         var id = form.elements["person_id"].value;
         var password = form.elements["password"].value;
         var user_status = form.elements["status"].value;
-        // Send an HTTP request to the server to update the data in the database
+        // http request schicken um daten zu verarbeiten
         var xhttp = new XMLHttpRequest();
         var url= "update_data.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password + "&status=" + user_status);
-        window.alert("Erfolgreich geändert!")
-        window.location.reload();
+        //bei erfolg -> msg und refresh
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Refresh the page after the delete request has been processed
+                window.alert("Erfolgreich geändert!")
+                window.location.reload();
+            }
+        };
     }
 
     function show_all_res(button) {
-/*        // Get the parent form element of the button
-
-        var form = button.parentNode.parentNode.firstElementChild;
-
-
-        var id = form.elements["person_id"].value;
-
-        var xhttp = new XMLHttpRequest();
-        var url= "show_user_res.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-        xhttp.send("person_id=" + id );
-
-        window.alert("Erfolgreich geändert!")*/
         window.location.assign("./show_user_res.php");
     }
 

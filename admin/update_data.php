@@ -14,8 +14,6 @@ if (empty($password)){
     $result = mysqli_query($conn, $sql);
 
 
-
-
 }else{
     // Connect to the database and update the data
     //$new_password = hash($password,PASSWORD_DEFAULT);
