@@ -11,7 +11,8 @@ if (isset($_POST['id'])) {
     $anreise = $_POST["anreise_datum"];
     $abreise = $_POST["abreise_datum"];
     $room_type = $_POST["room_type"];
-    $sql = "UPDATE reservierungen SET room_type = '$room_type', `anreise_datum` = '$anreise', abreise_datum = '$abreise' WHERE id = '$buchungsnummer'";
+    $status = $_POST["status"];
+    $sql = "UPDATE reservierungen SET room_type = '$room_type', `anreise_datum` = '$anreise', abreise_datum = '$abreise', `status` = '$status' WHERE id = '$buchungsnummer'";
 
     $result = mysqli_query($conn, $sql);
 

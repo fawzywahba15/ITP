@@ -90,8 +90,8 @@ if (!isset($_SESSION)){
         <th class="th">Abreise</th>
         <th class="th">Status</th>
         <th class="th">Buchung ändern</th>
-        <th class="th">Bestätigen</th>
-        <th class="th">Stornieren</th>
+<!--        <th class="th">Bestätigen</th>
+        <th class="th">Stornieren</th>-->
     </tr>
 
     <?php
@@ -169,20 +169,24 @@ if (!isset($_SESSION)){
 
 
             echo "<td class='text-center right_border'>";
-            echo $row["status"];
+            echo "<select name='status' id='status' class='input my-4'>";
+            echo "<option value='neu' " . ($row["status"] == "neu" ? "selected" : "") . ">neu</option>";
+            echo "<option value='bestätigt' " . ($row["status"] == "bestätigt" ? "selected" : "") . ">bestätigt</option>";
+            echo "<option value='storniert' " . ($row["status"] == "storniert" ? "selected" : "") . ">storniert</option>";
+            echo "</select>";
             echo "</td>";
 
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
 
-            echo "<td class='text-center right_border'>";
+/*            echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2 my-4' onclick='confirm_res(this)'>bestätigen</button>";
 
             echo "</td>";
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2 my-4' onclick='cancel_res(this)'>Stornieren</button>";
-            echo "</td>";
+            echo "</td>";*/
 
             echo "</form>";
             echo "</tr>";
@@ -210,10 +214,12 @@ if (!isset($_SESSION)){
 
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
+
 /*        var id = form.elements["buchungsnummer"].value;*/
         var anreise = form.elements["Anreise"].value;
         var abreise = form.elements["Abreise"].value;
         var room_type = form.elements["room_drop"].value;
+        var status = form.elements["status"].value;
         if (anreise > abreise){
             window.location.reload();
             window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
@@ -222,7 +228,7 @@ if (!isset($_SESSION)){
             var url= "change_res.php"
             xhttp.open("POST", url, true);
             xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type);
+            xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type + "&status=" + status);
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     // Refresh the page after the delete request has been processed
@@ -237,6 +243,7 @@ if (!isset($_SESSION)){
     }
 
 
+/*
     function confirm_res(button) {
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
@@ -270,8 +277,10 @@ if (!isset($_SESSION)){
                 window.location.reload();
             }
         };
+            }
+*/
 
-    }
+
 </script>
 
 </html>
