@@ -74,7 +74,11 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
-
+        .error{
+            font-size: larger;
+            border: 2px solid red;
+            border-radius: 20px;
+        }
 
     </style>
 </head>
@@ -86,7 +90,18 @@ if (!isset($_SESSION)){
         <th class="th">Zimmer Kategorie</th>
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
-        <th class="th">Status</th>
+        <th class="th">Status
+            <form method="post" action="">
+                <select name="status_filter" id="status_filter">
+                    <option value="" selected>All</option>
+                    <option value="neu">neu</option>
+                    <option value="bestätigt">bestätigt</option>
+                    <option value="storniert">storniert</option>
+                </select>
+                <input type="submit" value="Filter">
+            </form>
+
+        </th>
         <th class="th">Buchung ändern</th>
 <!--        <th class="th">Bestätigen</th>
         <th class="th">Stornieren</th>-->
@@ -100,6 +115,12 @@ if (!isset($_SESSION)){
     // Connect to the database and retrieve the data
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
     $sql = "SELECT * FROM reservierungen";
+    if(isset($_POST['status_filter']) && $_POST['status_filter']!='')
+    {
+        $status_filter = $_POST['status_filter'];
+        $sql = "SELECT * FROM reservierungen WHERE status='$status_filter'";
+    }
+
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -176,20 +197,17 @@ if (!isset($_SESSION)){
             echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
 
-/*            echo "<td class='text-center right_border'>";
-            echo "<button type='button' class='button_2 my-4' onclick='confirm_res(this)'>bestätigen</button>";
-
-            echo "</td>";
-            echo "<td class='text-center right_border'>";
-            echo "<button type='button' class='button_2 my-4' onclick='cancel_res(this)'>Stornieren</button>";
-            echo "</td>";*/
 
             echo "</form>";
             echo "</tr>";
 
         }
     }else {
-        echo "Es gibt keine buchungen!";
+
+        echo "</table>";
+        echo "<p class='text-center error'>";
+        echo "Keine Buchungen gefunden!";
+        echo "</p>";
     }
     mysqli_close($conn);
 
