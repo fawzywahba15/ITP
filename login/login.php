@@ -18,24 +18,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // sucht email
             if ($email == $row["usermail"] ){
-
                 // überprüft passwort
                 if (password_verify($_POST["password"], $row["password"])){
+
+                    if ($row["status"] == "aktiv"){
                     session_start();
                     $_SESSION["email"] = $email;
                     $_SESSION["user_id"] = $row["id"];
                     //falls man ein admin ist dann in der SESSION speichern
-                    if ($row["admin"] == 1){
-                        $_SESSION["admin"] = true;
-                    }
+                        if ($row["admin"] == 1){
+                            $_SESSION["admin"] = true;
+                        }
                     //wenn alles passt dann weiter zu process
                     include "./login_proccess.php";
                     exit();
-
+                    }else{
+                        $error = "Ihr Konto ist gesperrt bitte kontaktieren Sie uns!";
+                        break;
+                    }
+                //wenn das passwort falsch ist
                 }else{
                     $error = "Password or Email dont match";
                 }
-            }else{
+            // wenn es den Benutzer nicht gibt
+            } else{
                 $error = "Password or Email dont match";
             }
         }
