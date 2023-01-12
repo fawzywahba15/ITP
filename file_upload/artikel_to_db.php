@@ -1,5 +1,9 @@
 <?php
 
+if(!isset($_SESSION))
+{
+    session_start();
+}
 if (isset($_FILES["userfile"])){
 
     $php_file_upload_error = array(
@@ -78,7 +82,7 @@ if (isset($_FILES["userfile"])){
 // Get the values of the title and text inputs
         $title = $_POST['title'];
         $text = $_POST['text'];
-        $fk_admin_id = 30;
+        $fk_admin_id =   $_SESSION["user_id"];
 
 // Insert the article into the database
         if (isset($final_resized_path)){
