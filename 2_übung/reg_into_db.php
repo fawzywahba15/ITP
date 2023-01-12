@@ -4,6 +4,8 @@ require_once ('new_reg.php');
 if(isset($_POST["lname"]) && !empty($_POST["lname"])
     && isset($_POST["password"]) && !empty($_POST["password"])
     && isset($_POST["email"]) && !empty($_POST["email"])) {
+
+    //pw wird gehasht
     $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     // db connection
@@ -17,6 +19,7 @@ VALUES (?, ?, ?, ?, ?)";
     $stmt-> bind_param("sssss"
         , $username, $mail, $pass, $first_name, $birthday);
 
+    //alles ausser pw wird klein geschrieben in der DB gespeichert
     $username = strtolower($_POST["lname"]);
     $mail = strtolower( $_POST["email"]);
     $pass = $_POST["password"];

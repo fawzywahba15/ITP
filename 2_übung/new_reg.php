@@ -53,18 +53,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     elseif ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $error = "Valid E-mail is required!";
     }
-
+    // pw mind. 8 zeichen
     elseif (strlen($_POST["password"]) < 8) {
         $error = "Password must be at least 8 characters!";
 
     }
-
+    // mindestens einen buchstaben
     elseif ( ! preg_match("/[a-z]/i", $_POST["password"])) {
         $error = "Password must contain at least one letter!";
 
 
     }
-
+    // mindestens eine zahl
     elseif ( ! preg_match("/[0-9]/", $_POST["password"])) {
         $error = "Password must contain at least one number!";
 
@@ -81,14 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-
-
-
-
-
-
-
-
 
 
 ?>

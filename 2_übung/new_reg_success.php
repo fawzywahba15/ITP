@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bday = $_POST["birthdate"];
     $password = $_POST["password"];
     $password_2 = $_POST["password_2"];
+    //cookie zur begrüßung
     if (!isset($_COOKIE["name_cookie"])){
         $_COOKIE["name_cookie"] ="$lname";
 

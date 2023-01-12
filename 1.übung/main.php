@@ -1,5 +1,6 @@
 <!--ist responsive-->
 <?php
+//session start
 if(!isset($_SESSION))
 {
     session_start();
