@@ -67,6 +67,8 @@ include "zimmer_main.php";
 
 <?php
 
+$preis = 100;
+
 
 
 $error = "";
@@ -75,15 +77,16 @@ $success ="";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include_once "buchung_into_db.php";
+
+/*    include_once "checkout.php";*/
 }
 ?>
 
 
 
-<form action="" method="post">
+<form action="./checkout.php" method="post">
     <h5 class="res_error"><?php echo $error; ?></h5>
-    <h5 class="res_success"><?php echo $success; ?></h5>
+    <h5 class="res_success"><?php echo $success;?></h5>
     <label for="first_name" class="label_reg">First Name:</label><br>
     <input type="text" class="input" id="first_name" name="first_name"><br>
 
@@ -124,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="Haustier" class="checkbox-label">Haustier</label><br>
     <h6>10€ Pro Haustier</h6>
     </div>
+    <h1> Preis: <?php echo $preis?></h1>
     <input type="submit" class="button_2" value="Reserve Room">
 </form>
 
