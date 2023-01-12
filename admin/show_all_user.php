@@ -97,8 +97,10 @@ if (!isset($_SESSION)){
 
     </style>
 </head>
+<body>
 <table class="mx-3 my-5">
     <tr>
+<!--        table header -->
         <th class="th">user id</th>
         <th class="th">Nachname</th>
         <th class="th">first_name</th>
@@ -110,15 +112,15 @@ if (!isset($_SESSION)){
     </tr>
 
     <?php
-    // Connect to the database and retrieve the data
+    // Datenbank verbinden
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
     $sql = "SELECT * FROM login";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-
+                // table row erstellen
                 echo "<tr class='my_tr'>";
-
+                //zellen ausgeben mit den Innformationen der Datenbank
                 echo "<td class='text-center py-1 right_border '>" . $row["id"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["username"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["first_name"] . "</td>";
@@ -130,36 +132,36 @@ if (!isset($_SESSION)){
                 echo "</tr>";
 
 
-
+            // 2. table row erstellen
             echo "<tr class='my_seconde_tr'>";
-
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
 
-//todo id daten posten ohne label sondern mit h3 oder so
+            // zelle für id als input
             echo "<td class='text-center right_border my_block'>";
             echo "<input type='text' name='person_id' id= 'person_id' class='input ' value='" . $row["id"] . "'>";
             echo "</td>";
 
+            // zelle für nachname als input
             echo "<td class='text-center right_border'>";
             echo "<input type='text' name='username' id= 'username' class='input' value='" . $row["username"] . "'>";
             echo "</td>";
 
+            // zelle für vorname als input
             echo "<td class='text-center right_border'>";
-
-
             echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["first_name"] . "'>";
             echo "</td>";
 
+            // zelle für mail als input
             echo "<td class='text-center right_border'>";
-
             echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["usermail"] . "'>";
             echo "</td>";
 
+            // zelle für passwort als input (leeres feld)
             echo "<td class='text-center right_border'>";
-
             echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
             echo "</td>";
 
+            // zelle für Status als dropdown
             echo "<td class='text-center right_border'>";
             echo "<select name='status' id='status' class='input'>";
             echo "<option value='aktiv' " . ($row["status"] == "aktiv" ? "selected" : "") . ">aktiv</option>";
@@ -167,11 +169,12 @@ if (!isset($_SESSION)){
             echo "</select>";
             echo "</td>";
 
-
+            //button zum ändern der stammdaten
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
-
             echo "</td>";
+
+            //button um die buchungen von bestimmten benutzer anzeigen
             echo "<td class='text-center right_border'>";
             echo "<button type='submit' class='button_2' formaction='./show_user_res.php'>buchungen anzeigen</button>";
             echo "</form>";
@@ -188,7 +191,7 @@ if (!isset($_SESSION)){
 
 </body>
 <script>
-
+    //funktion um stammdaten zu ändern
     function updateRow(button) {
         var form = button.parentNode.parentNode.firstElementChild;
         var username = form.elements["username"].value;
@@ -213,7 +216,7 @@ if (!isset($_SESSION)){
             }
         };
     }
-
+    //funktion um die buchungen von den jeweiligen benutzer anzuschauen
     function show_all_res(button) {
         window.location.assign("./show_user_res.php");
     }

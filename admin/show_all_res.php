@@ -99,6 +99,7 @@ if (!isset($_SESSION)){
         <th class="th">Zimmer Kategorie</th>
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
+<!--        status dropdown als table header-->
         <th class="th">Status
             <form method="post" action="">
                 <select name="status_filter" id="status_filter">
@@ -109,11 +110,9 @@ if (!isset($_SESSION)){
                 </select>
                 <input type="submit" value="Filter">
             </form>
-
         </th>
         <th class="th">Buchung ändern</th>
-<!--        <th class="th">Bestätigen</th>
-        <th class="th">Stornieren</th>-->
+
     </tr>
 
     <?php
@@ -121,49 +120,43 @@ if (!isset($_SESSION)){
 
 
 
-    // Connect to the database and retrieve the data
+    // Datenbank verbinden und rows holen
     $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
     $sql = "SELECT * FROM reservierungen";
     if(isset($_POST['status_filter']) && $_POST['status_filter']!='')
     {
+        //bestimmte rows holen bei filter
         $status_filter = $_POST['status_filter'];
         $sql = "SELECT * FROM reservierungen WHERE status='$status_filter'";
     }
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
+
+        //rows in der datenbank durch iterieren
         while($row = mysqli_fetch_assoc($result)) {
 
             echo "<tr class='my_tr'>";
 
-
-
-
-// action='change_res.php'
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
 
-/*            echo "<td class='ka right_border'>
-            <div class='text-center '>";
-            echo  $row["id"] ;
-            echo "</div>";
-            echo "</td>";*/
-
+            //zelle mit der Buchungsnummer
             echo "<td class='text-center right_border'>";
             echo"<div class='text-center '>";
             echo  $row["id"] ;
-
             echo "</div>";
-            
             echo "</td>";
 
-
+            //zelle mit mail addresse
             echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
 
-            //damit das richtige room type selected wird in der dropdown menu
+
+            //zelle mit room type
             echo "<td class='text-center right_border'>";
             echo '<select id="room_drop" name="room_drop" class="input my-4 mx-1" >';
             $options = ["single room", "double room", "suite"];
             $selected = array();
+            //damit das richtige room type selected wird in der dropdown menu
             switch ($row["room_type"]) {
                 case "single room":
                     $selected[0] = ' selected';
@@ -182,18 +175,18 @@ if (!isset($_SESSION)){
             echo "</td>";
 
 
-
+            //zelle für anreise als input
             echo "<td class='text-center right_border'>";
-
             echo "<input type='date' name='Anreise'  id= 'Anreise' class='input my-4' value='" . $row["anreise_datum"] . "'>";
             echo "</td>";
 
+            //zelle für abreise als input
             echo "<td class='text-center right_border'>";
             echo "<input type='date' name='Abreise' id= 'Abreise' class='input my-4' value='" . $row["abreise_datum"] . "'>";
             echo "</td>";
 
 
-
+            //zelle für Status als dropdown
             echo "<td class='text-center right_border'>";
             echo "<select name='status' id='status' class='input my-4'>";
             echo "<option value='neu' " . ($row["status"] == "neu" ? "selected" : "") . ">neu</option>";
@@ -202,6 +195,7 @@ if (!isset($_SESSION)){
             echo "</select>";
             echo "</td>";
 
+            //zelle für button
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
@@ -212,30 +206,22 @@ if (!isset($_SESSION)){
 
         }
     }else {
-
         echo "</table>";
         echo "<div class='warnung py-3 my-3'>";
         echo "Keine Buchungen gefunden!";
         echo "</div>";
-
     }
     mysqli_close($conn);
 
-
-
-    //todo buchungen nach status filtern
     ?>
 </table>
-
-
-
 </body>
 
 
 
 <script>
+    //funktion schickt einen http request an 'change_res.php' und ändert die datenbank
     function change_res_data(button){
-
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
 
@@ -245,13 +231,16 @@ if (!isset($_SESSION)){
         var status = form.elements["status"].value;
         if (anreise > abreise){
             window.location.reload();
+            //falls das neue anreisedatum > abreisedatum
             window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
         }else{
+            //sonst http request senden
             var xhttp = new XMLHttpRequest();
             var url= "change_res.php"
             xhttp.open("POST", url, true);
             xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type + "&status=" + status);
+            //falls http request erfolgreich ist dann message ausgeben und reloaden
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     // Refresh the page after the delete request has been processed
@@ -261,48 +250,7 @@ if (!isset($_SESSION)){
             };
         }
 
-
-
     }
-
-
-/*
-    function confirm_res(button) {
-        var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-        var xhttp = new XMLHttpRequest();
-        var url= "confirm_user_res.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id );
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Buchung bestätigt!")
-                window.location.reload();
-            }
-        };
-
-    }
-
-    function cancel_res(button) {
-        var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-        var xhttp = new XMLHttpRequest();
-        var url= "cancel_user_res.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id );
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Buchung storniert!")
-                window.location.reload();
-            }
-        };
-            }
-*/
-
 
 </script>
 

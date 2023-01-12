@@ -1,12 +1,10 @@
 <?php
+
 if(!isset($_SESSION)) {
     session_start();
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,16 +34,15 @@ if(!isset($_SESSION)) {
     </style>
 </head>
 
+<!--falls man einen admin ist, dann wird die website angezeigt sonst -> error-->
 <?php if (isset($_SESSION["admin"] ) && $_SESSION["admin"]) : ?>
 <body>
-
-
-
 
 <div class="container ">
 
     <a class="nav-link dropdown-toggle button aussuch_btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
+<!--        drop down menüm auswahl-->
         <?php if(basename($_SERVER['PHP_SELF']) == 'admin.php')  : ?>
             Auswahl:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_user.php'): ?>
@@ -55,6 +52,7 @@ if(!isset($_SESSION)) {
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_user_res.php'): ?>
 
             <?php
+                //falls man die res von einem bestimmten benutzer sehen will, dann soll der name ausgegeben werden
                 if (!isset($_POST["username"])){
                     $benutzer = $_SESSION["person_name"];
                     echo "Benutzer ' " . $benutzer ." ' reservierungen:";

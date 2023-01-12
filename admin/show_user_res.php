@@ -208,6 +208,7 @@ if (!isset($_SESSION)){
     }
     mysqli_close($conn);
     //todo datum änderung übertragen
+    //todo srarus änderung übertragen
     ?>
 </table>
 
@@ -223,16 +224,19 @@ if (!isset($_SESSION)){
 
 <script>
     function change_res_data(button){
-
-        var form = button.parentNode.parentNode.firstElementChild;
+        //todo form kriegen
+        var form = button.parentNode.parentNode.parentNode;
+        window.alert(form.nodeName)
         var id = form.nextSibling.textContent;
-
+        window.alert(id);
         var anreise = form.elements["Anreise"].value;
         var abreise = form.elements["Abreise"].value;
         var room_type = form.elements["room_drop"].value;
         var status = form.elements["status"].value;
+
         if (anreise > abreise){
             window.location.reload();
+            //falls das neue anreisedatum > abreisedatum
             window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
         }else{
             var xhttp = new XMLHttpRequest();
@@ -248,6 +252,7 @@ if (!isset($_SESSION)){
                 }
             };
         }
+
 
 
 

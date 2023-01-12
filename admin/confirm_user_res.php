@@ -1,5 +1,5 @@
 <?php
-
+/*
 // Connect to the database
 $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
 
@@ -16,4 +16,4 @@ if (isset($_POST['id'])) {
 
 mysqli_close($conn);
 
-?>
+*/?>

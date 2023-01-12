@@ -1,5 +1,5 @@
 <?php
-
+/*
 // Connect to the database
 $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
 
@@ -19,4 +19,4 @@ if ($result) {
 // Close the database connection
 mysqli_close($conn);
 
-?>
+*/?>

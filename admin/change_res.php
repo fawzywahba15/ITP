@@ -1,9 +1,6 @@
 <?php
-/*var_dump($_POST);*/
-/*$buchungsnummer = $_POST["buchungsnummer"];
-$anreise = $_POST["Anreise"];*/
-/*$abreise = $_POST["Abreise"];*/
-/*$room_type = $_POST["dropdown"];*/
+
+//aktualisiert die reservierung in der datenbank
 $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
 
 if (isset($_POST['id'])) {
@@ -17,12 +14,6 @@ if (isset($_POST['id'])) {
     $result = mysqli_query($conn, $sql);
 
 }
-
-
-
-
-
-
 
 mysqli_close($conn);
 
