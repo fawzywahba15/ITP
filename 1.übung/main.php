@@ -32,7 +32,7 @@ if(!isset($_SESSION))
 <body>
 
 
-
+<div class="container">
 
 <h5 class="my-5">
     <?php
@@ -63,7 +63,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus asperiore
 
 
 <!--die 3 hotelkategorien mit bild-->
-<div class="container my-5 mx-3">
+<div class="text_zentriert">
     <h3>Unsere Zimmer:</h3>
     <div class="text_zentriert">
         <ul>
@@ -103,11 +103,12 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus asperiore
 
 
 
+</div>
+
+
 <?php
 include_once "../0include/footer.php"
 ?>
-
-
 
 
 
