@@ -1,4 +1,5 @@
 <?php
+//update datenbank
 $userid = $_POST["id"];
 $username = $_POST["username"];
 $first_name = $_POST["first_name"];
