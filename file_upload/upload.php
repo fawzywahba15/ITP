@@ -1,5 +1,4 @@
 <?php
-
 if(!isset($_SESSION))
 {
     session_start();
@@ -88,10 +87,11 @@ if(!isset($_SESSION))
 </head>
 <body>
 <?php
-
+// falls es fehlermeldungen gibt
 if (isset($php_file_upload_error) && $_FILES["userfile"]["error"] != 0){
     ?>
     <div class="alert alert-danger"> <?php
+        //alert pop up ausgeben
         echo $php_file_upload_error[$_FILES["userfile"]["error"]];
         ?>
     </div> <?php
@@ -99,12 +99,14 @@ if (isset($php_file_upload_error) && $_FILES["userfile"]["error"] != 0){
 elseif (isset($extensions_error) && $extensions_error == True){
     ?>
     <div class="alert alert-danger"> <?php
+    //bei falsche extension error ausgeben
     echo "falscher Datentyp"; ?>
     </div><?php
 
 }elseif (isset($pop_up_erfolg) && $pop_up_erfolg){
 ?>
 <div class="alert alert-success"> <?php
+    //bei erfolg
     echo "bild erfolgreich hochgeladen";
     }
     ?></div>

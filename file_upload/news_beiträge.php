@@ -3,6 +3,7 @@ if(!isset($_SESSION)) {
     session_start();
 }
 
+//funktion um die artikel zu displayen
 function get_all_news()
 {
 
@@ -14,11 +15,11 @@ function get_all_news()
     $conn = mysqli_connect($host, $user, $password, $dbname);
 
 
-// Select the articles from the database
+// alle artikel auswählen
     $sql = "SELECT * FROM `news_beiträge` ORDER BY timestamp DESC";
     $result = mysqli_query($conn, $sql);
 
-// Display the articles
+// News formatieren und ausgeben
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<article class="container">';
@@ -38,10 +39,11 @@ function get_all_news()
             echo '</article>';
         }
     } else {
+        //falls es keine news gibt
         echo "No articles found.";
     }
 
-// Close the connection
+// Close connection
     mysqli_close($conn);
 }
 ?>
@@ -89,7 +91,6 @@ function get_all_news()
 <div class="container text-center">
     <?php
     get_all_news();
-
     ?>
 </div>
 

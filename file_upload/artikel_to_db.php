@@ -4,8 +4,8 @@ if(!isset($_SESSION))
 {
     session_start();
 }
+// errors beim file upload?
 if (isset($_FILES["userfile"])){
-
     $php_file_upload_error = array(
         0 => "Datei erfolgreich hochgelande",
         1 => "Datei größe überschreitet die maximal erlaubte Dateigröße",
@@ -20,26 +20,35 @@ if (isset($_FILES["userfile"])){
 
 
     $extensions_error = false;
+    //erlaubte extensions
     $extensions = array("gif", "jpeg", "png", "jpg");
+
+    //extension vom file trennen
     $file_extension = explode(".", $_FILES["userfile"]["name"]);
     $file_extension = end($file_extension);
+
     if (!in_array($file_extension ,$extensions)){
+        //falls die hochgeladene extension nicht im array ist -> error
         !$extensions_error = true;
     }
 
 
 
     if ($_FILES["userfile"]["error"]) {
+        //falls es einen error gibt, dann nicht in der db speichern
         echo "";
     }
     elseif ($extensions_error){
+        //falls es einen error gibt, dann nicht in der db speichern
         echo "";
 
     }else{
-
+        //falls es keine errors gibt dann in der db speichern
+        //eine unique id erstellen für das bild
         $jetziges_id = uniqid();
         $upload= move_uploaded_file($_FILES["userfile"]["tmp_name"], "news_beiträge/" .  $jetziges_id .".".$file_extension);
         $picture_path = "news_beiträge/" . $jetziges_id ."." . $file_extension;
+        //bei verschiedene extensions -> verschiedene funktionen
         if ($file_extension == "png"){
             $original_img = imagecreatefrompng($picture_path);
         }elseif ($file_extension == "jpeg") {
@@ -58,10 +67,12 @@ if (isset($_FILES["userfile"])){
         $thumb_width = 720;
         $thumb_height = 480;
         $thumbnail = imagecreatetruecolor($thumb_width, $thumb_height);
+        // bild resize
         imagecopyresampled($thumbnail, $original_img, 0, 0, 0, 0,$thumb_width, $thumb_height, $width, $height );
 
         imagejpeg($thumbnail,"thumbnails/"."resized_". $jetziges_id . "." . $file_extension);
         $final_resized_path = "thumbnails/"."resized_". $jetziges_id . "." . $file_extension;
+        // resized bild speichern
         $pop_up_erfolg = True;
 
 
@@ -102,7 +113,6 @@ if (isset($_FILES["userfile"])){
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        /*include_once "news_beiträge.php";*/
 
 
     }

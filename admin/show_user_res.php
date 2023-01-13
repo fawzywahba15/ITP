@@ -11,9 +11,6 @@ if (!isset($_SESSION)){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Update Data</title>
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php
@@ -184,14 +181,7 @@ if (!isset($_SESSION)){
             echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
             echo "</td>";
 
-/*
-            echo "<td class='text-center'>";
-            echo "<button type='button' class='button_2 my-4' onclick='confirm_res(this)'>bestätigen</button>";
 
-            echo "</td>";
-            echo "<td class='text-center'>";
-            echo "<button type='button' class='button_2 my-4' onclick='cancel_res(this)'>Stornieren</button>";
-            echo "</td>";*/
             echo "</form>";
             echo "</tr>";
 
@@ -215,17 +205,11 @@ if (!isset($_SESSION)){
 
 
 </body>
-<!--
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous">
-</script>-->
 
 <script>
     function change_res_data(button){
         //todo form kriegen
-        var form = button.parentNode.parentNode.parentNode;
+        var form = button.parentNode.parentNode.firstElementChild.firstChild;
         window.alert(form.nodeName)
         var id = form.nextSibling.textContent;
         window.alert(id);
