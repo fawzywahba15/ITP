@@ -1,52 +1,25 @@
 <?php
-// Connect to the database
-$host = "localhost";
-$user = "fawzy";
-$password = "mypassword";
-$dbname = "regestrieren";
+// wenn ich diesen check immer bei den buchungen habe dann muss ich nicht immer minus machen bei buchungen
+$checkin = "2023-01-13";
+$checkout = "2023-01-15";
 
-$conn = mysqli_connect($host, $user, $password, $dbname);
+$conn = mysqli_connect('localhost', 'fawzy', 'mypassword', 'regestrieren');
+$query = "SELECT COUNT(*) as total FROM reservierungen WHERE (anreise_datum >= '$checkin' AND abreise_datum <= '$checkout') 
+                                                OR (anreise_datum <= '$checkin' AND abreise_datum >= '$checkout') ";
+$result = mysqli_query($conn, $query);
+$data = mysqli_fetch_assoc($result);
+$reserved = $data['total'];
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$query = "SELECT anzahl FROM `zimmer` WHERE id = 1";
+$result = mysqli_query($conn, $query);
+$data = mysqli_fetch_assoc($result);
+$rooms = $data['anzahl'];
 
-// Get the values of the title and text inputs
-$title = $_POST['title'];
-$text = $_POST['text'];
-$fk_admin_id = 30;
-
-// Insert the article into the database
-$sql = "INSERT INTO news_beiträge (title, text, `timestamp`, fk_admin_id) VALUES ('$title', '$text', current_timestamp, '$fk_admin_id')";
-mysqli_query($conn, $sql);
-
-
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Select the articles from the database
-$sql = "SELECT * FROM `news_beiträge` ORDER BY timestamp DESC";
-$result = mysqli_query($conn, $sql);
-
-// Display the articles
-if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        echo '<article>';
-        echo '<h2>' . $row['title'] . '</h2>';
-        echo '<p>' . $row['text'] . '</p>';
-        echo '<p>' . $row['timestamp'] . '</p>';
-        echo '</article>';
-    }
+if ($reserved < $rooms) {
+    echo "Rooms are available";
 } else {
-    echo "No articles found.";
+    echo "Sorry, all rooms are reserved for that date range.";
 }
 
-// Close the connection
 mysqli_close($conn);
 ?>
-
-

@@ -3,13 +3,29 @@ if(!isset($_SESSION))
 {
     session_start();
 }
+function check_if_room_free($checkin, $checkout, $room_type){
+    $conn = mysqli_connect('localhost', 'fawzy', 'mypassword', 'regestrieren');
+    $query = "SELECT COUNT(*) as total FROM reservierungen WHERE (anreise_datum >= '$checkin' AND abreise_datum <= '$checkout' AND room_type = '$room_type') 
+                                                OR (anreise_datum <= '$checkin' AND abreise_datum >= '$checkout' AND room_type = '$room_type') ";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
+    $reserved = $data['total'];
 
+    $query = "SELECT anzahl FROM `zimmer` WHERE zimmer_kategorie = '$room_type'";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
+    $rooms = $data['anzahl'];
+    mysqli_close($conn);
+    if ($reserved < $rooms) {
+        return True;
+    } else {
+        return false;
+    }
+}
 
 if (isset($_SESSION['formData'])){
     $_POST = $_SESSION['formData'];
 }
-
-
 $preis = $_POST["gesamtpreis"];
 $anzahl_nights=$_POST["anzahl_nights"];
 $first_name = $_POST['first_name'];
@@ -23,11 +39,19 @@ $breakfast = isset($_POST['breakfast']) ? "ja" : "nein";
 $Parkplatz = isset($_POST['Parkplatz']) ? "ja" : "nein";
 $haustier = isset($_POST['Haustier']) ? "ja" : "nein";
 $status = "neu";
+
+
+
+
+
 if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($arrival_date) || empty($departure_date) || empty($room_type)) {
     $error = "Error: All fields are required.";
 }else if ($arrival_date > $departure_date){
     $error = "Abreise Datum muss nach dem Anreise Datum sein!";
 }else{
+    if (check_if_room_free($arrival_date, $departure_date, $room_type)){
+
+
     $success = "Buchung erfolgreich!";
     $host = 'localhost';
     $user = 'fawzy';
@@ -46,5 +70,9 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         echo "Error";
     }
     $stmt->close(); $db_obj->close();
+    }else{
+        include_once "zimmer_fehler.php";
+    }
+
 }
 
