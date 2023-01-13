@@ -59,8 +59,8 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     $database = 'regestrieren';
     $db_obj = new mysqli($host, $user, $password, $database);
     $sql =
-        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`, `preis`, `anzahl_nights`,`fk_person_id`)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`, `preis`, `anzahl_nights`,`fk_person_id`, `timestamp`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)";
     $stmt = $db_obj->prepare($sql);
     $stmt-> bind_param("ssssssssiii"
         , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status, $preis, $anzahl_nights,$_SESSION["user_id"]);

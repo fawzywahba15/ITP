@@ -100,10 +100,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" class="input" id="phone" name="phone"><br>
 
     <label for="arrival_date" class="label_reg">Arrival Date:</label><br>
-    <input type="date" class="input py-2" id="arrival_date" name="arrival_date"><br>
+    <input type="date" class="input py-2" id="arrival_date"  min="<?= date('Y-m-d'); ?>" name="arrival_date"><br>
 
     <label for="departure_date" class="label_reg">Departure Date:</label><br>
-    <input type="date" class="input py-2" id="departure_date" name="departure_date"><br>
+    <input type="date" class="input py-2" id="departure_date" min="<?= date('Y-m-d', strtotime(' +1 day')); ?>" name="departure_date"><br>
 
     <label for="room_type" class="label_reg">Room Type:</label><br>
     <select class="input" id="room_type" name="room_type">
