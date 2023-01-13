@@ -2,6 +2,11 @@
 if (!isset($_SESSION)){
     session_start();
 }
+
+if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'bestätigt'){
+    $_SESSION['status_filter'] = $_POST['status_filter'];
+}
+
 ?>
 
 <html>
