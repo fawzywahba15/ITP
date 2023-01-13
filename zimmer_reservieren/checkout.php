@@ -3,7 +3,7 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-var_dump($_POST);
+
 
 $host = 'localhost';
 $user = 'fawzy';
@@ -21,6 +21,16 @@ if (mysqli_num_rows($result) > 0) {
         }
     }
 }
+/*var_dump($_POST);*/
+
+$arrival = date_create_from_format("Y-m-d" ,$_POST["arrival_date"]);
+$departure = date_create_from_format("Y-m-d" ,$_POST["departure_date"]);
+$interval = $departure->diff($arrival);
+$anzahl_nights = $interval->format("%d");
+$_POST["anzahl_nights"] = $anzahl_nights;
+$new_preis =$new_preis * $anzahl_nights;
+
+
 if (isset($_POST["Haustier"]) && $_POST["Haustier"] == "yes") {
     $new_preis += 20;
 }
@@ -50,16 +60,18 @@ if (isset($_POST["breakfast"]) && $_POST["breakfast"] == "yes") {
     <?php include '../0include/navbar.php';?>
 </head>
 <body>
-preis: <?php
-if (isset($new_preis)){
-echo $new_preis;
-}
-if ($_SERVER["REQUEST_METHOD"] == "post"){
-    echo "ok";
-}
-?>
-<button class="button_2" onclick="redirect()">check out!</button>
+<div class="container">
+<h1 class="text-center">checkout</h1>
+    <div class="text-center">
+Ihr aufenthalt über <?php echo $anzahl_nights ?> Nächte kostet: <?php echo $new_preis; ?>
+        <br>
+<button type="button" class="button_2 my-4" onclick="redirect()">bezahlen!</button>
+    </div>
+</div>
+
 </body>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
@@ -69,8 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "post"){
     }
 </script>
 </html>
-
-
-
-
-include_once "buchung_into_db.php";
+<?php
+$_POST["gesamtpreis"] = $new_preis;
+$_POST["anzahl_nights"] = $anzahl_nights;
+$_SESSION['formData'] = $_POST;

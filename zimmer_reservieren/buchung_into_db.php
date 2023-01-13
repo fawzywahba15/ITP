@@ -1,4 +1,17 @@
 <?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
+
+if (isset($_SESSION['formData'])){
+    $_POST = $_SESSION['formData'];
+}
+
+
+$preis = $_POST["gesamtpreis"];
+$anzahl_nights=$_POST["anzahl_nights"];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = strtolower( $_POST['email']);
@@ -22,13 +35,13 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     $database = 'regestrieren';
     $db_obj = new mysqli($host, $user, $password, $database);
     $sql =
-        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`,`fk_person_id`)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+        "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`, `preis`, `anzahl_nights`,`fk_person_id`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db_obj->prepare($sql);
-    $stmt-> bind_param("ssssssssi"
-        , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status, $_SESSION["user_id"]);
+    $stmt-> bind_param("ssssssssiii"
+        , $email, $room_type,$arrival_date, $departure_date, $Parkplatz, $breakfast, $haustier, $status, $preis, $anzahl_nights,$_SESSION["user_id"]);
     if ($stmt->execute()) {
-        echo ""; }
+        include_once "zimmer_erfolg.php"; }
     else {
         echo "Error";
     }
