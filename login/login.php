@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" placeholder="password" id="password" class="input_pw" required>
 
             <div class="container ka">
-            Sie haben noch keinem Konto? Hier <a href="../2_übung/new_reg.php">registrieren</a>!
+            Sie haben noch kein Konto? Hier <a href="../2_übung/new_reg.php">registrieren</a>!
             </div>
 
             <input type="submit" name="Login" id="submitButton" value="Login" class="button">
