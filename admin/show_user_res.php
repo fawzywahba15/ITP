@@ -89,6 +89,7 @@ if (!isset($_SESSION)){
                     <option value="storniert">storniert</option>
                 </select>
                 <input type="submit" value="Filter">
+            </form>
         </th>
         <th class="th">ändern!</th>
 <!--        <th class="th">Bestätigen</th>
@@ -123,18 +124,22 @@ if (!isset($_SESSION)){
         while($row = mysqli_fetch_assoc($result)) {
 
             echo "<tr class='my_tr'>";
-
-
-
-
-
             echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
-            echo "<td> <div class='text-center'>";
+
+
+
+            //zelle mit der buchungsnummer
+            echo "<td class='text-center right_border'>";
+            echo"<div class='text-center '>";
             echo  $row["id"] ;
             echo "</div>";
             echo "</td>";
+
+
+            // zelle mit der mail
             echo "<td class='text-center'>" . $row["usermail"] . "</td>";
 
+            //zelle mi room type
             echo "<td class='text-center right_border'>";
             echo '<select id="room_drop" name="room_drop" class="input my-4 mx-1" >';
             $options = ["single room", "double room", "suite"];
@@ -161,13 +166,13 @@ if (!isset($_SESSION)){
 
 
             echo "<td class='text-center'>";
-
             echo "<input type='date' name='Anreise'  id= 'Anreise' class='input my-4' value='" . $row["anreise_datum"] . "'>";
             echo "</td>";
-            echo "<td class='text-center'>";
 
+            echo "<td class='text-center'>";
             echo "<input type='date' name='Abreise' id= 'Abreise' class='input my-4' value='" . $row["abreise_datum"] . "'>";
             echo "</td>";
+
 
             echo "<td class='text-center right_border'>";
             echo "<select name='status' id='status' class='input my-4'>";
@@ -176,6 +181,7 @@ if (!isset($_SESSION)){
             echo "<option value='storniert' " . ($row["status"] == "storniert" ? "selected" : "") . ">storniert</option>";
             echo "</select>";
             echo "</td>";
+
 
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2 my-4' onclick='change_res_data(this)'>Aktualisieren!</button>";
@@ -191,28 +197,19 @@ if (!isset($_SESSION)){
         echo "<div class='warnung py-3 my-3'>";
         echo "Keine Buchungen gefunden!";
         echo "</div>";
-
-
-
-
     }
     mysqli_close($conn);
-    //todo datum änderung übertragen
-    //todo srarus änderung übertragen
+    //todo änedrung der daten
     ?>
 </table>
-
-
-
 </body>
+
+
 
 <script>
     function change_res_data(button){
-        //todo form kriegen
-        var form = button.parentNode.parentNode.firstElementChild.firstChild;
-        window.alert(form.nodeName)
+        var form = button.parentNode.parentNode.firstElementChild;
         var id = form.nextSibling.textContent;
-        window.alert(id);
         var anreise = form.elements["Anreise"].value;
         var abreise = form.elements["Abreise"].value;
         var room_type = form.elements["room_drop"].value;
