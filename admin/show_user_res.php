@@ -3,7 +3,8 @@ if (!isset($_SESSION)){
     session_start();
 }
 
-if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'bestätigt'){
+
+if(isset($_POST['status_filter']) && $_POST['status_filter']){
     $_SESSION['status_filter'] = $_POST['status_filter'];
 }
 
@@ -88,17 +89,17 @@ if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'bestätigt'){
         <th class="th">Status
             <form method="post" action="">
                 <select name="status_filter" id="status_filter">
-                    <option value="" selected>All</option>
-                    <option value="neu">neu</option>
-                    <option value="bestätigt">bestätigt</option>
-                    <option value="storniert">storniert</option>
+                    <!--                    php damit das dropdown menü beim value bleibt und sich nicht immer auf "all" zurücksetzt-->
+                    <option value="" <?php if(!isset($_POST['status_filter'])) echo 'selected';?>>All</option>
+                    <option value="neu" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'neu') echo 'selected';?>>neu</option>
+                    <option value="bestätigt" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'bestätigt') echo 'selected';?>>bestätigt</option>
+                    <option value="storniert" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'storniert') echo 'selected';?>>storniert</option>
                 </select>
                 <input type="submit" value="Filter">
             </form>
         </th>
         <th class="th">ändern!</th>
-<!--        <th class="th">Bestätigen</th>
-        <th class="th">Stornieren</th>-->
+
     </tr>
 
     <?php
