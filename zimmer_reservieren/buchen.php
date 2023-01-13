@@ -127,7 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="Haustier" class="checkbox-label">Haustier</label><br>
     <h6>10€ Pro Haustier</h6>
     </div>
-    <h1> Preis: <?php echo $preis?></h1>
     <input type="submit" class="button_2" value="Reserve Room">
 </form>
 
