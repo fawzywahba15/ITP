@@ -5,8 +5,8 @@ if(!isset($_SESSION))
 }
 function check_if_room_free($checkin, $checkout, $room_type){
     $conn = mysqli_connect('localhost', 'fawzy', 'mypassword', 'regestrieren');
-    $query = "SELECT COUNT(*) as total FROM reservierungen WHERE (anreise_datum >= '$checkin' AND abreise_datum <= '$checkout' AND room_type = '$room_type') 
-                                                OR (anreise_datum <= '$checkin' AND abreise_datum >= '$checkout' AND room_type = '$room_type') ";
+    $query = "SELECT COUNT(*) as total FROM reservierungen WHERE (anreise_datum >= '$checkin' AND abreise_datum <= '$checkout' AND room_type = '$room_type' AND `status` != 'storniert') 
+                                                OR (anreise_datum <= '$checkin' AND abreise_datum >= '$checkout' AND room_type = '$room_type' AND `status` != 'storniert') ";
     $result = mysqli_query($conn, $query);
     $data = mysqli_fetch_assoc($result);
     $reserved = $data['total'];
