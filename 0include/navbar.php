@@ -61,7 +61,7 @@
                 </li>
 
                 <li class="nav-item" >
-                    <a class="nav-link active" aria-current="page"  href="../2_übung/new_reg.php">reg formular</a>
+                    <a class="nav-link active" aria-current="page"  href="../2_übung/new_reg.php">Registrierung</a>
                 </li>
 
 
@@ -72,7 +72,7 @@
                 <?php endif; ?>
 
                 <li class="nav-item">
-                    <a class="nav-link"  href="../0fusszeile/02faq.php">faq</a>
+                    <a class="nav-link"  href="../0fusszeile/02faq.php">FAQ</a>
                 </li>
 
                 <li class="nav-item">
