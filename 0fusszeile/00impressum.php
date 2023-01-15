@@ -20,10 +20,6 @@ if (!isset($_SESSION)){
     <?php include '../0include/navbar.php';?>
 
 
-
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -57,11 +53,18 @@ if (!isset($_SESSION)){
 </p>
     <div class="container">
         <p class=" impressum_pic_label my-5"> Sheldon Cooper </p>
-        <p class=" impressum_pic_label"> Leonard Hofstädter </p>
+        <p class=" impressum_pic_label my-5 "> Leonard Hofstädter </p>
     </div>
+
     <div class="container">
-        <img class=" impressum_pic" src="img/sheldon.jpg" alt="Hotel" width="400" height="200">
+        <div class="text-center impressum_pic_div">
+            <img class=" impressum_pic" src="img/sheldon.jpg" alt="Hotel" width="400" height="200">
+        </div>
+
+        <div class="text-center impressum_pic_div">
         <img class=" impressum_pic" src="img/leonard.jpg" alt="Hotel" width="400" height="200">
+        </div>
+
     </div>
     <br>
     <br>
