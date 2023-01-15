@@ -123,6 +123,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         <th class="th">Zimmer Kategorie</th>
         <th class="th">Anreise</th>
         <th class="th">Abreise</th>
+        <th class="th">extras</th>
 <!--        status dropdown als table header-->
         <th class="th">Status
             <form method="post" action="">
@@ -211,6 +212,15 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
             echo "<input type='date' name='Abreise' id= 'Abreise' class='input my-4' value='" . $row["abreise_datum"] . "'>";
             echo "</td>";
 
+
+            //zelle für extras
+            echo "<td class='text-center right_border'>";
+            echo"<div class='text-center '>";
+            echo  "garage: " .$row["garage"] . "<br>" ;
+            echo  "breakfast: " .$row["frühstück"] . "<br>"  ;
+            echo  "Hausier: " .$row["Tier"] . "<br>"  ;
+            echo "</div>";
+            echo "</td>";
 
             //zelle für Status als dropdown
             echo "<td class='text-center right_border'>";

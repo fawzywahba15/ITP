@@ -57,7 +57,7 @@
 
 
                 <li class="nav-item" >
-                    <a class="nav-link active" aria-current="page"  href="../zimmer_reservieren/zimmer_main.php">Zimmer reservieren</a>
+                    <a class="nav-link active" aria-current="page"  href="../zimmer_reservieren/zimmer_main.php">Zimmer</a>
                 </li>
 
                 <li class="nav-item" >

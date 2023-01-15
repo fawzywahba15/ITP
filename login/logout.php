@@ -30,10 +30,10 @@ header("refresh:0");
 </head>
 <body>
 
-<form action="../index/main.php" >
-<h1> Sie werden in 3 sekunden weitergeleitet, falls etwas schiefläuft bitte
-    <button>Hier</button> klicken!</h1>  
-</form>
+
+<h3> Sie werden in 3 sekunden weitergeleitet, falls etwas schiefläuft bitte
+        <a href="../index/main.php">Hier</a> klicken!</h3>  
+
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

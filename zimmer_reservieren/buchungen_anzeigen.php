@@ -44,6 +44,7 @@ include "zimmer_main.php";
         <th class="th text-center">Anreise Datum</th>
         <th class="th text-center">Abreise Datum</th>
         <th class="th text-center">Zimmer Kategorie</th>
+        <th class="th">extras</th>
         <th class="th text-center">Status</th>
         <th class="th text-center">Stornieren</th>
     </tr>
@@ -68,6 +69,15 @@ include "zimmer_main.php";
             echo "<td class='text-center meins'>" . $row["anreise_datum"] . "</td>";
             echo "<td class='text-center meins'>" . $row["abreise_datum"] . "</td>";
             echo "<td class='text-center meins'>" . $row["room_type"] . "</td>";
+            //zelle für extras
+            echo "<td class='text-center right_border'>";
+            echo"<div class='text-center '>";
+            echo  "garage: " .$row["garage"] . "<br>" ;
+            echo  "breakfast: " .$row["frühstück"] . "<br>"  ;
+            echo  "Hausier: " .$row["Tier"] . "<br>"  ;
+            echo "</div>";
+            echo "</td>";
+
             echo "<td class='text-center meins'>" . $row["status"] . "</td>";
             echo "<td class='text-center meins'>";
             echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row(this) '>Stornieren!</button>";
