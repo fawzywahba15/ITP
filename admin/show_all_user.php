@@ -113,9 +113,10 @@ if (!isset($_SESSION)){
 
     <?php
     // Datenbank verbinden
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+
+    include_once "../0include/dbaccess.php";
     $sql = "SELECT * FROM login";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
                 // table row erstellen
@@ -183,7 +184,7 @@ if (!isset($_SESSION)){
 
         }
     }
-    mysqli_close($conn);
+    mysqli_close($db_obj);
     ?>
 </table>
 

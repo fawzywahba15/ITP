@@ -129,7 +129,8 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
 
     // Connect to the database and retrieve the data
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+/*    $db_obj = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");*/
+    include_once "../0include/dbaccess.php";
     if (isset($_POST["person_id"])){
         $_SESSION["person_res"] = $_POST["person_id"];
         $_SESSION["person_name"] = $_POST["username"];
@@ -147,7 +148,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         $sql = "SELECT * FROM reservierungen WHERE fk_person_id = '$user_id' && status='$status_filter'";
     }
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
 
@@ -226,8 +227,8 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         echo "Keine Buchungen gefunden!";
         echo "</div>";
     }
-    mysqli_close($conn);
-    //todo änedrung der daten
+    mysqli_close($db_obj);
+
     ?>
 </table>
 </body>

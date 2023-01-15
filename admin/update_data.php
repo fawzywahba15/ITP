@@ -8,25 +8,27 @@ $user_status = $_POST["status"];
 $password = $_POST["password"];
 $hashed_pw = password_hash($password, PASSWORD_DEFAULT);
 
+
+include_once "../0include/dbaccess.php";
 if (empty($password)){
     // Connect to the database and update the data
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+
     $sql = "UPDATE login SET username = '$username', `first_name` = '$first_name', usermail = '$usermail', status = '$user_status' WHERE id = '$userid'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
 
 
 }else{
     // Connect to the database and update the data
     //$new_password = hash($password,PASSWORD_DEFAULT);
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+
     $sql = "UPDATE login SET username = '$username', `first_name` = '$first_name', usermail = '$usermail', password = '$hashed_pw', status = '$user_status'  WHERE id = '$userid'";
-    mysqli_query($conn, $sql);
+    mysqli_query($db_obj, $sql);
 
 // Close the connection
 
 }
 
-mysqli_close($conn);
+mysqli_close($db_obj);
 
 
 

@@ -1,7 +1,8 @@
 <?php
 
 //aktualisiert die reservierung in der datenbank
-$conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+/*$db_obj = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");*/
+include_once "../0include/dbaccess.php";
 
 if (isset($_POST['id'])) {
     $buchungsnummer = $_POST['id'];
@@ -11,10 +12,10 @@ if (isset($_POST['id'])) {
     $status = $_POST["status"];
     $sql = "UPDATE reservierungen SET room_type = '$room_type', `anreise_datum` = '$anreise', abreise_datum = '$abreise', `status` = '$status' WHERE id = '$buchungsnummer'";
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
 
 }
 
-mysqli_close($conn);
+mysqli_close($db_obj);
 
 ?>

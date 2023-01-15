@@ -146,7 +146,8 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
 
     // Datenbank verbinden und rows holen
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+
+    include_once "../0include/dbaccess.php";
     $sql = "SELECT * FROM reservierungen";
     if(isset($_POST['status_filter']) && $_POST['status_filter']!='')
     {
@@ -155,7 +156,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         $sql = "SELECT * FROM reservierungen WHERE status='$status_filter'";
     }
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
     if (mysqli_num_rows($result) > 0) {
 
         //rows in der datenbank durch iterieren
@@ -236,7 +237,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         echo "Keine Buchungen gefunden!";
         echo "</div>";
     }
-    mysqli_close($conn);
+    mysqli_close($db_obj);
 
     ?>
 </table>
