@@ -113,3 +113,16 @@ img{border: 5px solid white;
   text-align: center;
   font-size: larger;
 }
+.warnung{
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  border: 2px red solid;
+  margin-bottom: 50px;
+  margin-left: 50%;
+  transform: translate(-50%, 0%);
+  transition-duration: 0.4s;
+}
+.warnung:hover{
+  background-color: #FF000080;
+}

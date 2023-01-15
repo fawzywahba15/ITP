@@ -77,19 +77,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         .input:focus{
             width: 110px;
         }
-        .warnung{
-            border-radius: 20px;
-            text-align: center;
-            width: 300px;
-            border: 2px red solid;
-            margin-bottom: 50px;
-            margin-left: 50%;
-            transform: translate(-50%, 0%);
-            transition-duration: 0.4s;
-        }
-        .warnung:hover{
-            background-color: #FF000080;
-        }
+
         .dropdown_filter{
             outline: none;
             color: white;

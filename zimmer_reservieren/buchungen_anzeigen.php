@@ -88,11 +88,10 @@ include "zimmer_main.php";
 
         }
     }else {
-        echo "<tr class='tr'>";
-        echo "<td>" ;
+        echo "</table>";
+        echo "<div class='warnung py-3 my-3'>";
         echo "Keine Buchungen gefunden!";
-        echo "</td>";
-        echo "</tr>";
+        echo "</div>";
     }
     mysqli_close($db_obj);
     ?>
