@@ -55,14 +55,11 @@ if (!isset($_SESSION)){
         richten.
 
 </p>
-<!--    <div class=" impressum_pic">
-        <img class="img-fluid" src="img/sheldon.jpg" alt="Hotel" width="400" height="300">
+    <div>
+        <img class="img-fluid impressum_pic" src="img/sheldon.jpg" alt="Hotel" width="400" height="200">
+        <img class="img-fluid impressum_pic" src="img/leonard.jpg" alt="Hotel" width="400" height="200">
     </div>
 
-    <div class="img-fluid impressum_pic">
-        <img class="img-fluid" src="img/leonard.jpg" alt="Hotel" width="400" height="300">
-    </div>
--->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
