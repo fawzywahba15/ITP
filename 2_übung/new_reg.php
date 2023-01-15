@@ -4,6 +4,7 @@ if (!isset($_SESSION)){
     session_start();
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,24 +34,6 @@ if (!isset($_SESSION)){
 
 
 <?php
-//
-$email = strtolower($_POST["email"]);
-$password = $_POST["password"];
-
-//db conn
-$db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
-$sql = "SELECT * FROM `login`";
-$result = $db_obj->query($sql);
-
-if ($result->num_rows > 0) {
-    //iteriert alle datensätz in der Datenbank
-    while($row = $result->fetch_assoc()) {
-        // sucht eingegebene mail
-        if ($email == $row["usermail"] ){
-            $mail_already_exist = True;
-        }
-    }
-}
 
 // erstelle variablen um später auszugeben
 $error = "";
@@ -59,6 +42,29 @@ $success ="";
 
 //error handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    //verbindet mit der datenbank und überprüft ob die email schon existiert
+
+    $email = strtolower($_POST["email"]);
+    $password = $_POST["password"];
+
+//db conn
+    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+    $sql = "SELECT * FROM `login`";
+    $result = $db_obj->query($sql);
+
+    if ($result->num_rows > 0) {
+        //iteriert alle datensätz in der Datenbank
+        while($row = $result->fetch_assoc()) {
+            // sucht eingegebene mail
+            if ($email == $row["usermail"] ){
+                $mail_already_exist = True;
+            }
+        }
+    }
+
+
     if (empty($_POST["fname"])) {
         $error = "First name is required!";
 
