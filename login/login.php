@@ -1,12 +1,9 @@
-
 <?php
 include_once "./login_proccess.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +22,6 @@ include_once "./login_proccess.php";
             margin-left: 50%;
             transform: translate(-50%,-50%);
         }
-        .button{
-            margin-top:;
-        }
         .login_error{
             color: red;
             text-align: center;
@@ -35,6 +29,7 @@ include_once "./login_proccess.php";
             margin-top: 50px;
 
         }
+
     </style>
 
 
@@ -48,7 +43,6 @@ include_once "./login_proccess.php";
 
             <label for="email" class="label_mail">E-mail</label>
             <input type="email" name="email" placeholder="email" id="email" class="input_mail" required>
-
 
             <label for="password" class="label_pw">Password</label>
             <input type="password" name="password" placeholder="password" id="password" class="input_pw" required>

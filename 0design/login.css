@@ -5,7 +5,6 @@ body {background-color: black;
 .text_zentriert{text-align: center;}
 
 .label_mail{
-/*    text-align: center;*/
     margin-top: 30px;
     margin-left: 50%;
     margin-bottom: 0 ;
@@ -14,7 +13,7 @@ body {background-color: black;
 
 .input_mail{
     text-align: center ;
-    border: 3px #824caf solid ;
+    border: 3px #00ff6f solid ;
     padding: 14px 10px;
     width: 200px;
     outline: none;

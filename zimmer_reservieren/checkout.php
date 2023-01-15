@@ -45,11 +45,7 @@ if(!isset($_SESSION))
 <?php
 
 //mit der db verbinden und zimmerpreise holen
-$host = 'localhost';
-$user = 'fawzy';
-$password = 'mypassword';
-$database = 'regestrieren';
-$db_obj = new mysqli($host, $user, $password, $database);
+include "../0include/dbaccess.php";
 $room_type = $_POST['room_type'];
 $sql = "SELECT * from `zimmer`";
 $result = mysqli_query($db_obj, $sql);
