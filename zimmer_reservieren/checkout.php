@@ -20,6 +20,23 @@ if(!isset($_SESSION))
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
+    <style>
+        .kosten_label{
+            display: inline-block;
+        }
+        .kosten_label_2{
+            display: inline-block;
+            margin-left: 50%;
+        }
+        .kosten_label_breakfast{
+            display: inline-block;
+            margin-left: 26%;
+        }
+        .kosten_label_gesamt{
+            display: inline-block;
+            margin-left: 23%;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -27,6 +44,7 @@ if(!isset($_SESSION))
     <div class="text-center">
 <?php
 
+//mit der db verbinden und zimmerpreise holen
 $host = 'localhost';
 $user = 'fawzy';
 $password = 'mypassword';
@@ -35,7 +53,6 @@ $db_obj = new mysqli($host, $user, $password, $database);
 $room_type = $_POST['room_type'];
 $sql = "SELECT * from `zimmer`";
 $result = mysqli_query($db_obj, $sql);
-
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         if ($row["zimmer_kategorie"] == $room_type){
@@ -43,55 +60,83 @@ if (mysqli_num_rows($result) > 0) {
         }
     }
 }
-/*var_dump($_POST);*/
 
+//anzahl der nächte berechnen
 $arrival = date_create_from_format("Y-m-d" ,$_POST["arrival_date"]);
 $departure = date_create_from_format("Y-m-d" ,$_POST["departure_date"]);
 $interval = $departure->diff($arrival);
 $anzahl_nights = $interval->format("%d");
+
+//wenn es eine nacht ist dann soll es nacht ausgeben sonst nächte
 if ($anzahl_nights == 1){
     $nächtelabel = "Nacht";
 }else{
     $nächtelabel = "Nächte";
 }
+//als post variable speichern um dann in der db einzuspeichern
 $_POST["anzahl_nights"] = $anzahl_nights;
 
+// ausgeben wieviel euro die übernachtungen alleine kosten
+echo "<h1 class='kosten_label'>";
 echo $new_preis . " * " . $anzahl_nights . " ".$nächtelabel . ": ";
+echo "</h1>";
 $new_preis =$new_preis * $anzahl_nights;
+echo "<h1 class='kosten_label_2'>";
 echo $new_preis . "€";
+echo "</h1>";
 echo "<br>";
 
 
 
-
-
-
-
-
-
+//wenn es haustier gibt, dann berechnen wieviel es extra kosten würde
 if (isset($_POST["Haustier"]) && $_POST["Haustier"] == "yes") {
     $new_preis += 10 * $anzahl_nights;
     $haustier_kosten = 10 * $anzahl_nights;
-    echo "Haustier " . $anzahl_nights. " " . $nächtelabel ." " . $haustier_kosten . "€";
+    echo "<h1 class='kosten_label'>";
+    echo "Haustier " . $anzahl_nights. " " . $nächtelabel;
+    echo "</h1>";
+    echo "<h1 class='kosten_label_2'>";
+    echo " " . $haustier_kosten . "€";
+    echo "</h1>";
     echo "<br>";
 }
 
+//wenn es Parkplatz gibt, dann berechnen wieviel es extra kosten würde
 if (isset($_POST["Parkplatz"]) && $_POST["Parkplatz"] == "yes") {
     $new_preis += 36 * $anzahl_nights;
     $garage_kosten = 36 * $anzahl_nights;
-    echo "Garage " . $anzahl_nights. " " . $nächtelabel ." " . $garage_kosten . "€";
+    echo "<h1 class='kosten_label'>";
+    echo "Garage " . $anzahl_nights. " " . $nächtelabel ." " ;
+    echo "</h1>";
+
+    echo "<h1 class='kosten_label_2'>";
+    echo  " " . $garage_kosten . "€";
+    echo "</h1>";
     echo "<br>";
 }
 
+//wenn es frühstück gibt, dann berechnen wieviel es extra kosten würde
 if (isset($_POST["breakfast"]) && $_POST["breakfast"] == "yes") {
+    //wenn es single room ist, dann für eine person berechnen
     if ($_POST["room_type"] == "single room"){
         $new_preis += 10 * $anzahl_nights;
-        echo "Frühstück " . $anzahl_nights. " " . $nächtelabel ." " . $new_preis . "€";
+        echo "<h1 class='kosten_label'>";
+        echo "Frühstück " . $anzahl_nights. " " . $nächtelabel;
+        echo "</h1>";
+        echo "<h1 class='kosten_label_2'>";
+        echo  " " . $new_preis . "€";
+        echo "</h1>";
         echo "<br>";
     }else{
+        //sonst für 2 personen
         $new_preis += 20 * $anzahl_nights;
         $breakfast_kosten = 20 * $anzahl_nights;
-        echo "Frühstück " . $anzahl_nights. " ". "für 2 Personen " . $nächtelabel ." " . $breakfast_kosten . "€";
+        echo "<h1 class='kosten_label'>";
+        echo "Frühstück " . "für 2 Personen " . $anzahl_nights. " " . $nächtelabel;
+        echo "</h1>";
+        echo "<h1 class='kosten_label_breakfast'>";
+        echo " " . $breakfast_kosten . "€";
+        echo "</h1>";
         echo "<br>";
     }
 }
@@ -101,8 +146,20 @@ if (isset($_POST["breakfast"]) && $_POST["breakfast"] == "yes") {
 ?>
 
 
-Ihr aufenthalt über <?php echo $anzahl_nights . " " . $nächtelabel ?>  kostet: <?php echo $new_preis; ?>
-        <br>
+ <?php
+ //ausgeben wieviel alles insgeasmt kosten würde
+        echo "<hr>";
+        echo "<h1 class='kosten_label'>";
+        echo "Ihr aufenthalt über ";
+        echo $anzahl_nights . " " . $nächtelabel;
+        echo " kostet:";
+        echo "</h1>";
+
+        echo "<h1 class='kosten_label_gesamt'>";
+        echo $new_preis . "€";
+        echo "</h1>";
+        echo "<br>";
+ ?>
 <button type="button" class="button_2 my-4" onclick="redirect()">bezahlen!</button>
     </div>
 </div>
