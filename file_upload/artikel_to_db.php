@@ -78,24 +78,19 @@ if (isset($_FILES["userfile"])){
 
 //----------------------------------------------------------------------------------------------------------------
         // Connect to the database
-        $host = "localhost";
-        $user = "fawzy";
-        $password = "mypassword";
-        $dbname = "regestrieren";
-
-        $conn = mysqli_connect($host, $user, $password, $dbname);
+include_once "../0include/dbaccess.php";
 
 // Check connection
-        if (!$conn) {
+        if (!$db_obj) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-// Get the values of the title and text inputs
+// Get values of title and text inputs
         $title = $_POST['title'];
         $text = $_POST['text'];
         $fk_admin_id =   $_SESSION["user_id"];
 
-// Insert the article into the database
+// Insert article into the database
         if (isset($final_resized_path)){
             $sql = "INSERT INTO `news_beiträge` (title, `text`, `timestamp`, file_path,fk_admin_id) 
                 VALUES ('$title', '$text', current_timestamp, '$final_resized_path','$fk_admin_id')";
@@ -105,11 +100,11 @@ if (isset($_FILES["userfile"])){
 
         }
 
-        mysqli_query($conn, $sql);
+        mysqli_query($db_obj, $sql);
 
 
 // Check connection
-        if (!$conn) {
+        if (!$db_obj) {
             die("Connection failed: " . mysqli_connect_error());
         }
 

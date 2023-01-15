@@ -7,17 +7,13 @@ if(!isset($_SESSION)) {
 function get_all_news()
 {
 
-    $host = "localhost";
-    $user = "fawzy";
-    $password = "mypassword";
-    $dbname = "regestrieren";
+    include_once "../0include/dbaccess.php";
 
-    $conn = mysqli_connect($host, $user, $password, $dbname);
 
 
 // alle artikel auswählen
     $sql = "SELECT * FROM `news_beiträge` ORDER BY timestamp DESC";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
 
 // News formatieren und ausgeben
     if (mysqli_num_rows($result) > 0) {
@@ -44,7 +40,7 @@ function get_all_news()
     }
 
 // Close connection
-    mysqli_close($conn);
+    mysqli_close($db_obj);
 }
 ?>
 
