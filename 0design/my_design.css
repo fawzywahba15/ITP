@@ -100,3 +100,7 @@ img{border: 5px solid white;
   background-color: #4CAF50; /* Green */
   color: white;
 }
+.impressum_pic{
+  display: inline-block;
+  border: 2px solid red;
+}
