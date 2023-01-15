@@ -4,18 +4,18 @@ if(!isset($_SESSION))
     session_start();
 }
 function check_if_room_free($checkin, $checkout, $room_type){
-    $conn = mysqli_connect('localhost', 'fawzy', 'mypassword', 'regestrieren');
+    $db_obj = mysqli_connect('localhost', 'fawzy', 'mypassword', 'regestrieren');
     $query = "SELECT COUNT(*) as total FROM reservierungen WHERE (anreise_datum >= '$checkin' AND abreise_datum <= '$checkout' AND room_type = '$room_type' AND `status` != 'storniert') 
                                                 OR (anreise_datum <= '$checkin' AND abreise_datum >= '$checkout' AND room_type = '$room_type' AND `status` != 'storniert') ";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($db_obj, $query);
     $data = mysqli_fetch_assoc($result);
     $reserved = $data['total'];
 
     $query = "SELECT anzahl FROM `zimmer` WHERE zimmer_kategorie = '$room_type'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($db_obj, $query);
     $data = mysqli_fetch_assoc($result);
     $rooms = $data['anzahl'];
-    mysqli_close($conn);
+    mysqli_close($db_obj);
     if ($reserved < $rooms) {
         return True;
     } else {
@@ -53,11 +53,7 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
 
 
     $success = "Buchung erfolgreich!";
-    $host = 'localhost';
-    $user = 'fawzy';
-    $password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($host, $user, $password, $database);
+    include "../0include/dbaccess.php";
     $sql =
         "INSERT INTO `reservierungen` (`usermail`, `room_type`,`anreise_datum`, `abreise_datum`,`garage`, `frühstück`, `Tier`, `status`, `preis`, `anzahl_nights`,`fk_person_id`, `timestamp`)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)";

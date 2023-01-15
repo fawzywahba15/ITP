@@ -51,9 +51,9 @@ include "zimmer_main.php";
     <?php
     $current_user = $_SESSION["email"];
     // Connect to the database and retrieve the data
-    $conn = mysqli_connect("localhost", "fawzy", "mypassword", "regestrieren");
+    include "../0include/dbaccess.php";
     $sql = "SELECT * FROM reservierungen WHERE usermail = '$current_user'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db_obj, $sql);
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
 
@@ -84,7 +84,7 @@ include "zimmer_main.php";
         echo "</td>";
         echo "</tr>";
     }
-    mysqli_close($conn);
+    mysqli_close($db_obj);
     ?>
 </table>
 
