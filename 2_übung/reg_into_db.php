@@ -10,7 +10,8 @@ if(isset($_POST["lname"]) && !empty($_POST["lname"])
 
 
     // db connection
-    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+/*    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');*/
+    include_once "../0include/dbaccess.php";
     //sql befehl
     $sql =
         "INSERT INTO `login` (`username`, `usermail`,`password`, `first_name`, `birthday`)

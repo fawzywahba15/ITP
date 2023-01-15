@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
 //db conn
-    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+    include_once "../0include/dbaccess.php";
     $sql = "SELECT * FROM `login`";
     $result = $db_obj->query($sql);
 
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     elseif ($_POST["password"] !== $_POST["password_2"]) {
         $error = "Passwords must match!";
     }
-    elseif ($mail_already_exist){
+    elseif (isset($mail_already_exist)){
         $error = "Email already exists!";
     }
     else{
