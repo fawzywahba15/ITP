@@ -96,8 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="email"  class="label_reg">Email:</label><br>
     <input type="email" class="input" id="email" name="email" value="<?php echo $_SESSION["email"]?>" ><br>
 
-    <label for="phone" class="label_reg">Phone:</label><br>
-    <input type="text" class="input" id="phone" name="phone"><br>
+<!--    <label for="phone" class="label_reg">Phone:</label><br>
+    <input type="text" class="input" id="phone" name="phone"><br>-->
 
     <label for="arrival_date" class="label_reg">Arrival Date:</label><br>
     <input type="date" class="input py-2" id="arrival_date"  min="<?= date('Y-m-d'); ?>" name="arrival_date"><br>

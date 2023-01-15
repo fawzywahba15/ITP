@@ -102,5 +102,13 @@ img{border: 5px solid white;
 }
 .impressum_pic{
   display: inline-block;
-  border: 2px solid red;
+  margin-right: 8%;
+  margin-left: 10%;
+  border: 5px solid #824caf;
+}
+.impressum_pic_label{
+  display: inline-block;
+  margin-right: 16%;
+  margin-left: 22%;
+
 }

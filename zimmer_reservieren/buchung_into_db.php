@@ -31,7 +31,6 @@ $anzahl_nights=$_POST["anzahl_nights"];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = strtolower( $_POST['email']);
-$phone = $_POST['phone'];
 $arrival_date = $_POST['arrival_date'];
 $departure_date = $_POST['departure_date'];
 $room_type = $_POST['room_type'];
@@ -44,7 +43,7 @@ $status = "neu";
 
 
 
-if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($arrival_date) || empty($departure_date) || empty($room_type)) {
+if (empty($first_name) || empty($last_name) || empty($email) || empty($arrival_date) || empty($departure_date) || empty($room_type)) {
     $error = "Error: All fields are required.";
 }else if ($arrival_date > $departure_date){
     $error = "Abreise Datum muss nach dem Anreise Datum sein!";
