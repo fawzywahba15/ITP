@@ -8,6 +8,7 @@ if(isset($_POST["lname"]) && !empty($_POST["lname"])
     //pw wird gehasht
     $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
+
     // db connection
     $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
     //sql befehl
@@ -31,6 +32,7 @@ VALUES (?, ?, ?, ?, ?)";
         echo "";
     }
     else {
+        echo "bin jz da";
         echo "Error";
     }
     $stmt->close(); $db_obj->close();

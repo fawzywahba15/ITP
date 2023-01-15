@@ -75,6 +75,28 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         .warnung:hover{
             background-color: #FF000080;
         }
+        .dropdown_filter{
+            outline: none;
+            color: white;
+            border: 2px #824caf solid;
+            background-color: #824caf;
+            border-radius: 10px;
+        }
+        .dropdown_filter:hover{
+            border: 2px #4CAF50 solid;
+        }
+        .dropdown_submit{
+            color: white;
+            border: 2px #824caf solid;
+            background-color: #824caf;
+            border-radius: 10px;
+        }
+        .dropdown_submit:hover{
+            border: 2px #4CAF50 solid;
+        }
+        .dropdown_submit:active{
+            background-color: #4CAF50;
+        }
 
     </style>
 </head>
@@ -88,14 +110,14 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         <th class="th">Abreise</th>
         <th class="th">Status
             <form method="post" action="">
-                <select name="status_filter" id="status_filter">
+                <select name="status_filter" class="dropdown_filter" id="status_filter">
                     <!--                    php damit das dropdown menü beim value bleibt und sich nicht immer auf "all" zurücksetzt-->
                     <option value="" <?php if(!isset($_POST['status_filter'])) echo 'selected';?>>All</option>
                     <option value="neu" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'neu') echo 'selected';?>>neu</option>
                     <option value="bestätigt" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'bestätigt') echo 'selected';?>>bestätigt</option>
                     <option value="storniert" <?php if(isset($_POST['status_filter']) && $_POST['status_filter'] == 'storniert') echo 'selected';?>>storniert</option>
                 </select>
-                <input type="submit" value="Filter">
+                <input type="submit" class="dropdown_submit" value="Filter">
             </form>
         </th>
         <th class="th">ändern!</th>

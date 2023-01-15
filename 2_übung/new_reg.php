@@ -33,7 +33,24 @@ if (!isset($_SESSION)){
 
 
 <?php
+//
+$email = strtolower($_POST["email"]);
+$password = $_POST["password"];
 
+//db conn
+$db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
+$sql = "SELECT * FROM `login`";
+$result = $db_obj->query($sql);
+
+if ($result->num_rows > 0) {
+    //iteriert alle datensätz in der Datenbank
+    while($row = $result->fetch_assoc()) {
+        // sucht eingegebene mail
+        if ($email == $row["usermail"] ){
+            $mail_already_exist = True;
+        }
+    }
+}
 
 // erstelle variablen um später auszugeben
 $error = "";
@@ -72,6 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     elseif ($_POST["password"] !== $_POST["password_2"]) {
         $error = "Passwords must match!";
+    }
+    elseif ($mail_already_exist){
+        $error = "Email already exists!";
     }
     else{
         // wenn reg erfolgreich ist dann zeigt es die success seite
@@ -126,10 +146,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" class="input" required>
     </div>
 
-    <div>
-        <label for="telefonnnummer" class="label_reg">telefonnnummer</label>
-        <input type="tel" id="telefonnnummer" name="telefonnnummer" class="input" placeholder="+43 676 000000" required>
-    </div>
 
 
     <br>

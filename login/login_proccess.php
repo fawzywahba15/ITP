@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $db_obj->query($sql);
 
     //ka was das ist
-    $password_stimmt = False;
-    $mail_found = False;
+/*    $password_stimmt = False;
+    $mail_found = False;*/
 
     if ($result->num_rows > 0) {
         //iteriert alle datensätz in der Datenbank

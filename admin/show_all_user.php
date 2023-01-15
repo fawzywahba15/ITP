@@ -225,3 +225,5 @@ if (!isset($_SESSION)){
 </script>
 
 </html>
+<?php
+include_once "../0include/footer.php";
