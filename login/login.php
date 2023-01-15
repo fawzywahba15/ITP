@@ -1,56 +1,6 @@
-<!--bissi responsive-->
+
 <?php
-$error = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $email = strtolower($_POST["email"]);
-    $password = $_POST["password"];
-    //db con
-    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
-    $sql = "SELECT * FROM `login`";
-    $result = $db_obj->query($sql);
-
-    if ($result->num_rows > 0) {
-
-        //iteriert alle datensätz in der Datenbank
-        while($row = $result->fetch_assoc()) {
-
-            // sucht email
-            if ($email == $row["usermail"] ){
-                // überprüft passwort
-                if (password_verify($_POST["password"], $row["password"])){
-
-                    if ($row["status"] == "aktiv"){
-                    session_start();
-                    $_SESSION["email"] = $email;
-                    $_SESSION["user_id"] = $row["id"];
-                    //falls man ein admin ist dann in der SESSION speichern
-                        if ($row["admin"] == 1){
-                            $_SESSION["admin"] = true;
-                        }
-                    //wenn alles passt dann weiter zu process
-                    include "./login_proccess.php";
-                    exit();
-                    }else{
-                        $error = "Ihr Konto ist gesperrt bitte kontaktieren Sie uns!";
-                        break;
-                    }
-                //wenn das passwort falsch ist
-                }else{
-                    $error = "Password or Email dont match";
-                }
-            // wenn es den Benutzer nicht gibt
-            } else{
-                $error = "Password or Email dont match";
-            }
-        }
-    }
-
-
-
-    $db_obj->close();
-}
+include_once "./login_proccess.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <div class="container">
-        <form method="post" class="container"> <!--action="./login_proccess.php"-->
+        <form method="post" class="container">
             <!--falls es einen fehler gab, dann wird $error ausgegeben-->
             <h5 class="login_error"><?php echo $error; ?></h5>
 

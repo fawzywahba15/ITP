@@ -8,11 +8,7 @@ if(!isset($_SESSION)) {
 
 //funktion um eine spalte von der datenbank zu holen
 function get_data($output){
-    $host = 'localhost';
-    $user = 'fawzy';
-    $password = 'mypassword';
-    $database = 'regestrieren';
-    $db_obj = new mysqli($host, $user, $password, $database);
+    $db_obj = new mysqli("localhost", "fawzy", "mypassword", "regestrieren");
     $sql = "select * from `login`";
     $result = $db_obj->query($sql);
     $current_user = $_SESSION["username"];

@@ -47,7 +47,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid " >
-        <a class="navbar-brand"  href="../1.übung/main.php">Vienna Palace Hotel</a> <!--hotel name in grün-->
+        <a class="navbar-brand"  href="../index/main.php">Vienna Palace Hotel</a> <!--hotel name in grün-->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -111,7 +111,6 @@
               <button class='navbar_login'>anmelden</button>
                   </form>
         <?php else: ?>
-
                 <form action='../login/logout.php' >
                 <button class='navbar_login'>abmelden</button>
                 </form>

@@ -14,7 +14,7 @@ body {background-color: black;
 
 .input_mail{
     text-align: center ;
-    border: 3px #3498db solid ;
+    border: 3px #824caf solid ;
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -39,7 +39,7 @@ body {background-color: black;
 
     transform: translate(-50%,-50%);
     text-align: center ;
-    border: 3px #3498db solid ;
+    border: 3px #824caf solid ;
     padding: 14px 10px;
     width: 200px;
     outline: none;
