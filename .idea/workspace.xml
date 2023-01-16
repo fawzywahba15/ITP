@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0include/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/0include/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/show_all_res.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/show_all_res.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/show_user_res.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/show_user_res.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/buchungen_anzeigen.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/buchungen_anzeigen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/zimmer_main.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/zimmer_main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0fusszeile/00impressum.php" beforeDir="false" afterPath="$PROJECT_DIR$/0fusszeile/00impressum.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +73,11 @@
       <recent name="C:\xampp\htdocs\webtechnologien\file_upload\thumbnails" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webtechnologien\0_old_files" />
       <recent name="C:\xampp\htdocs\webtechnologien\admin" />
       <recent name="C:\xampp\htdocs\webtechnologien\gang\Hotel_Himalaya_Martin_Mohsan\Hotel_Himalaya_Martin_Mohsan\includes" />
       <recent name="C:\xampp\htdocs\webtechnologien\login" />
       <recent name="C:\xampp\htdocs\webtechnologien\1.übung" />
-      <recent name="C:\xampp\htdocs\webtechnologien\2_übung" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -132,7 +128,18 @@
       <workItem from="1673347323896" duration="121000" />
       <workItem from="1673349529436" duration="154000" />
       <workItem from="1673384386324" duration="5022000" />
-      <workItem from="1673433070900" duration="660000" />
+      <workItem from="1673433070900" duration="13710000" />
+      <workItem from="1673462326971" duration="94000" />
+      <workItem from="1673525853956" duration="5474000" />
+      <workItem from="1673560882475" duration="2971000" />
+      <workItem from="1673563889841" duration="766000" />
+      <workItem from="1673604628522" duration="17863000" />
+      <workItem from="1673688715996" duration="411000" />
+      <workItem from="1673689184405" duration="2276000" />
+      <workItem from="1673775249987" duration="5923000" />
+      <workItem from="1673787748011" duration="1307000" />
+      <workItem from="1673789103916" duration="373000" />
+      <workItem from="1673789497507" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
