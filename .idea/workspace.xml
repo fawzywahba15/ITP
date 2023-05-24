@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
+      <change afterPath="$PROJECT_DIR$/add_product_to_db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/Download_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/download_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/download_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/download_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/download_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/images/download_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zzz/pull_from_db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00_datenbank_export_file/regestrieren.sql" beforeDir="false" afterPath="$PROJECT_DIR$/00_datenbank_export_file/regestrieren.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/alte_navbar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/cancel_user_res.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/confirm_user_res.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/exercise.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/exercise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/exercise_2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/reg_proccess.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/reg_success.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/registrierformular.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0_old_files_just_ignore/reservieren.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0design/my_design.css" beforeDir="false" afterPath="$PROJECT_DIR$/0design/my_design.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/0include/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/index/main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +73,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/webtechnologien/2_übung&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/webtechnologien&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -142,6 +166,15 @@
       <workItem from="1673880998339" duration="222000" />
       <workItem from="1673881729911" duration="198000" />
       <workItem from="1674046268330" duration="209000" />
+      <workItem from="1676985965294" duration="147000" />
+      <workItem from="1676986166590" duration="89000" />
+      <workItem from="1677226428952" duration="12000" />
+      <workItem from="1677226653552" duration="20000" />
+      <workItem from="1677660877607" duration="3530000" />
+      <workItem from="1677829457193" duration="6000" />
+      <workItem from="1683115359822" duration="5578000" />
+      <workItem from="1683279471914" duration="4000" />
+      <workItem from="1684923291029" duration="391000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
