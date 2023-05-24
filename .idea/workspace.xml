@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/00impressum.php" beforeDir="false" afterPath="$PROJECT_DIR$/0fusszeile/00impressum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/einzelzimmer.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/familienzimmer.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/hotelzimmer.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/leonard.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/pertschy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/img/sheldon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0include/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/0include/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/bestellen.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/warenkorb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/bestellung_into_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/bestellung_into_db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/bestellungen_main.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/bestellungen_main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +154,7 @@
       <workItem from="1683115359822" duration="5578000" />
       <workItem from="1683279471914" duration="4000" />
       <workItem from="1684923291029" duration="14070000" />
+      <workItem from="1684952325067" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>

@@ -58,7 +58,7 @@ if(!isset($_SESSION))
     </a>
 
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="bestellen.php">Sales reservieren</a></li>
+        <li><a class="dropdown-item" href="warenkorb.php">Sales reservieren</a></li>
         <li ><a class="dropdown-item" href="../zimmer_reservieren/sales_anzeigen.php">Meine Bestellungen</a></li>
     </ul>
 

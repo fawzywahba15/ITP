@@ -25,9 +25,16 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
         $stmt->bind_param("siisi", $email, $user_id, $produkt_ids[$i], $produkt_names[$i], $produkt_preise[$i]);
         if (!$stmt->execute()) {
             echo "Error";
-            break; // Exit the loop if there's an error
+            break;
         }else{
             include_once "bestellung_erfolg.php";
+            //von warenkorb löschen
+            $sql_2 = "DELETE FROM warenkorb WHERE `fk_produkt_id` = ? AND `fk_person_id` = ?";
+            $stmt_2 = $db_obj->prepare($sql_2);
+            $stmt_2->bind_param("ii", $produkt_ids[$i], $user_id);
+            $stmt_2->execute();
+            $stmt_2->close();
+
         }
     }
 
