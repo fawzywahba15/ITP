@@ -48,17 +48,20 @@ include "bestellungen_main.php";
             margin-top: 0;
         }
         .res_error{
-            color: red;
+            color: #ffffff;
             text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
+            border: 2px solid red;
+            margin 20px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-left: 50%;
+            transform: translate(-50%, 50%);
+            width: max-content;
         }
-        .res_success{
-            color: #2ecc71;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
+        .res_error:hover{
+            background-color: #FF000040;
         }
+
         .button_2{
             margin-left: 50%;
             transform: translate(-50%,+50%);
@@ -90,6 +93,8 @@ $success ="";
 
                 if (mysqli_num_rows($second_result) > 0) {
                     $second_row = mysqli_fetch_assoc($second_result);
+                    //todo design ändern von den cards, ein produkt in einem table row
+
                     ?>
                     <div class="col-md-4 mt-2">
                         <div class="card">
@@ -98,6 +103,8 @@ $success ="";
                                     <img src='<?php echo $second_row["pfad"] ?>' id='<?php echo $second_row["id"] ?>' class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
                             </div>
+
+
                             <div class="card-body bg-light text-center">
                                 <div class="mb-2">
                                     <h6 class="font-weight-semibold mb-2">
@@ -114,6 +121,8 @@ $success ="";
                     <?php
                 }
             }
+        }else{
+            echo "<p class='res_error'>Du hast noch nichts zum Warenkorb hinzugefügt</p>";
         }
         ?>
     </div>
@@ -133,11 +142,14 @@ $success ="";
                 <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
                 <input type="hidden" name="product_price[]" value="<?php echo $second_row["preis"]; ?>">
                 <input type="hidden" name="product_id[]" value="<?php echo $second_row["id"]; ?>">
+                <input type="submit" class="button_2" value="Bestellung aufgeben!">
                 <?php
             }
         }
+
         ?>
-        <input type="submit" class="button_2" value="Bestellung aufgeben!">
+
+<!--        <input type="submit" class="button_2" value="Bestellung aufgeben!">-->
     </form>
 </div>
 

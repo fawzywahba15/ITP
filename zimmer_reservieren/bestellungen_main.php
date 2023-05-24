@@ -53,12 +53,12 @@ if(!isset($_SESSION))
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'sales_anzeigen.php'): ?>
         Meine Bestellungen
         <?php else: ?>
-        Sale reservieren:
+        Warenkorb:
         <?php endif; ?>
     </a>
 
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="warenkorb.php">Sales reservieren</a></li>
+        <li><a class="dropdown-item" href="warenkorb.php">Warenkorb</a></li>
         <li ><a class="dropdown-item" href="../zimmer_reservieren/sales_anzeigen.php">Meine Bestellungen</a></li>
     </ul>
 
