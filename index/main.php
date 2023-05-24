@@ -120,7 +120,7 @@ if(!isset($_SESSION))
 <script>
     function add_to_cart(id, preis, produkt_name) {
         var xhttp = new XMLHttpRequest();
-        var url = "../zimmer_reservieren/bestellung_into_db.php";
+        var url = "../zimmer_reservieren/artikel_into_warenkorb.php";
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhttp.onreadystatechange = function() {

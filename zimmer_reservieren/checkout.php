@@ -49,13 +49,13 @@ var_dump($_POST);
     <div class="text-center">
 <?php
 
-//mit der db verbinden und zimmerpreise holen
 include "../0include/dbaccess.php";
-
+//gesamtpreis
 $preis = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productNames = $_POST["product_name"];
     $productPrices = $_POST["product_price"];
+    $productIds = $_POST["product_id"];
 
     // Output the product names with their prices
     echo "<h1>Order Summary</h1>";
@@ -75,9 +75,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
         <hr>
-        <h4>Gesamtpreis: <?php echo $preis?></h4>
-        <br>
-        <button type="button" class="button_2 my-4" onclick="redirect()">bezahlen!</button>
+<?php
+
+echo "<form action='bestellung_into_db.php' method='post'>";
+for ($i = 0; $i < count($productNames); $i++) {
+    echo "<input type='hidden' name='product_id[]' value='" . $productIds[$i] . "'>";
+    echo "<input type='hidden' name='product_name[]' value='" . $productNames[$i] . "'>";
+    echo "<input type='hidden' name='product_price[]' value='" . $productPrices[$i] . "'>";
+}
+echo "<button type='submit' class='button_2 my-4'>Bezahlen!</button>";
+echo "</form>";
+?>
     </div>
 </div>
 
@@ -88,10 +96,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-<script>
-    function redirect(){
-        //todo bestellung logik implementieren
-        window.location.assign("./bestellung_into_db.php");
-    }
-</script>
+
 </html>
