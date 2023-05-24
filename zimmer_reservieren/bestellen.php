@@ -1,5 +1,5 @@
 <?php
-include "zimmer_main.php";
+include "bestellungen_main.php";
 ?>
 
 <!doctype html>
@@ -21,6 +21,9 @@ include "zimmer_main.php";
             border: 1px solid #ccc;
             outline: none;
             box-shadow: 0 1px 2px #2ecc71;
+        }
+        .blcok{
+            display: block;
         }
         .check:checked{
             background-color: #2ecc71;
@@ -63,13 +66,9 @@ include "zimmer_main.php";
         }
     </style>
 </head>
-<body>
+<body class="block">
 
 <?php
-
-$preis = 100;
-
-
 
 $error = "";
 $success ="";
@@ -81,44 +80,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     /*    include_once "checkout.php";*/
 }
 ?>
+<div class="container block justify-content-center mt-50 mb-50">
+    <div class="row">
+        <?php
+        include "../0include/dbaccess.php";
+        $user_id = $_SESSION["user_id"];
+        $sql = "SELECT * FROM warenkorb where `fk_person_id` = '$user_id'";
+        $result = mysqli_query($db_obj, $sql);
 
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $produkt_id = $row["fk_produkt_id"];
+                $second_sql = "SELECT * FROM produkte where `id` = '$produkt_id'";
+                $second_result = mysqli_query($db_obj, $second_sql);
 
+                if (mysqli_num_rows($second_result) > 0) {
+                    $second_row = mysqli_fetch_assoc($second_result);
+                    ?>
+                    <div class="col-md-4 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-img-actions">
+                                    <img src='<?php echo $second_row["pfad"] ?>' id='<?php echo $second_row["id"] ?>' class="card-img img-fluid" width="96" height="350" alt="">
+                                </div>
+                            </div>
+                            <div class="card-body bg-light text-center">
+                                <div class="mb-2">
+                                    <h6 class="font-weight-semibold mb-2">
+                                        <a href="#" class="text-default mb-2" data-abc="true"><?php echo $second_row["name"] ?></a>
+                                    </h6>
+                                </div>
+                                <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
+                            </div>
+                        </div>
+                        <!-- Add hidden input fields for each product -->
+                        <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
+                        <input type="hidden" name="product_price[]" value="<?php echo $second_row["preis"]; ?>">
+                        <input type="hidden" name="product_id[]" value="<?php echo $second_row["id"]; ?>">
+                    </div>
+                    <?php
+                }
+            }
+        }
+        ?>
+    </div>
 
-<form action="./checkout.php" method="post">
-    <h5 class="res_error"><?php echo $error; ?></h5>
-    <h5 class="res_success"><?php echo $success;?></h5>
-    <label for="first_name" class="label_reg">First Name:</label><br>
-    <input type="text" class="input" id="first_name" name="first_name"><br>
+    <!-- Add the form outside the while loop -->
+    <form action="./checkout.php" method="post">
+        <?php
+        // Reset the mysqli_data_seek to rewind the result set
+        mysqli_data_seek($result, 0);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $produkt_id = $row["fk_produkt_id"];
+            $second_sql = "SELECT * FROM produkte where `id` = '$produkt_id'";
+            $second_result = mysqli_query($db_obj, $second_sql);
 
-    <label for="last_name" class="label_reg">Last Name:</label><br>
-    <input type="text" class="input" id="last_name" name="last_name"><br>
-
-    <label for="email"  class="label_reg">Email:</label><br>
-    <input type="email" class="input" id="email" name="email" value="<?php echo $_SESSION["email"]?>" ><br>
-
-
-    <label for="arrival_date" class="label_reg">Arrival Date:</label><br>
-    <input type="date" class="input py-2" id="arrival_date"  min="<?= date('Y-m-d'); ?>" value="<?= date('Y-m-d'); ?>" name="arrival_date"><br>
-
-    <label for="departure_date" class="label_reg">Departure Date:</label><br>
-    <input type="date" class="input py-2" id="departure_date" min="<?= date('Y-m-d', strtotime(' +1 day')); ?>" name="departure_date"><br>
-
-    <label for="room_type" class="label_reg">Room Type:</label><br>
-    <select class="input" id="room_type" name="room_type">
-        <option value="single room">Single Bedroom</option>
-        <option value="double room">Double Bedroom</option>
-        <option value="suite">Suite</option>
-    </select><br>
-
-    <input type="submit" class="button_2" value="Reserve Room">
-</form>
-
+            if (mysqli_num_rows($second_result) > 0) {
+                $second_row = mysqli_fetch_assoc($second_result);
+                ?>
+                <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
+                <input type="hidden" name="product_price[]" value="<?php echo $second_row["preis"]; ?>">
+                <input type="hidden" name="product_id[]" value="<?php echo $second_row["id"]; ?>">
+                <?php
+            }
+        }
+        ?>
+        <input type="submit" class="button_2" value="Bestellung aufgeben!">
+    </form>
+</div>
 
 
 </body>
 
+
+<br>
 <?php
-include_once "../0include/footer.php"
+echo "<div class='block'>";
+include_once "../0include/footer.php";
+echo "<div>";
 ?>
 
 </html>

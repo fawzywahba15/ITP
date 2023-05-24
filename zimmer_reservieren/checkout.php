@@ -3,7 +3,7 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-
+var_dump($_POST);
 
 ?>
 
@@ -21,144 +21,67 @@ if(!isset($_SESSION))
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
     <style>
-        .kosten_label{
-            display: inline-block;
+
+        .order-summary {
+            width: 50%;
+            margin: 20px 0;
+
         }
-        .kosten_label_2{
-            display: inline-block;
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+
             margin-left: 50%;
+            transform: translate(50%, 0%);
+            margin-bottom: 10px;
         }
-        .kosten_label_breakfast{
-            display: inline-block;
-            margin-left: 26%;
+
+        .product-name {
+            text-align: right;
         }
-        .kosten_label_gesamt{
-            display: inline-block;
-            margin-left: 23%;
-        }
+
     </style>
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">checkout</h1>
+
     <div class="text-center">
 <?php
 
 //mit der db verbinden und zimmerpreise holen
 include "../0include/dbaccess.php";
-$room_type = $_POST['room_type'];
-$sql = "SELECT * from `zimmer`";
-$result = mysqli_query($db_obj, $sql);
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        if ($row["zimmer_kategorie"] == $room_type){
-            $new_preis = $row["preis"];
-        }
+
+$preis = 0;
+var_dump($_POST);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $productNames = $_POST["product_name"];
+    $productPrices = $_POST["product_price"];
+
+    // Output the product names with their prices
+    echo "<h1>Order Summary</h1>";
+
+    echo "<div class='order-summary'>";
+    for ($i = 0; $i < count($productNames); $i++) {
+        $productName = $productNames[$i];
+        $productPrice = $productPrices[$i];
+        echo "<div class='product'>";
+        echo "<span class='product-name'>$productName</span>";
+        echo "<span class='product-price'>$productPrice</span>";
+        echo "</div>";
+        $preis += $productPrice;
     }
+    echo "</div>";
+
 }
-
-//anzahl der nächte berechnen
-$arrival = date_create_from_format("Y-m-d" ,$_POST["arrival_date"]);
-$departure = date_create_from_format("Y-m-d" ,$_POST["departure_date"]);
-$interval = $departure->diff($arrival);
-$anzahl_nights = $interval->format("%d");
-
-//wenn es eine nacht ist dann soll es nacht ausgeben sonst nächte
-if ($anzahl_nights == 1){
-    $nächtelabel = "Nacht";
-}else{
-    $nächtelabel = "Nächte";
-}
-//als post variable speichern um dann in der db einzuspeichern
-$_POST["anzahl_nights"] = $anzahl_nights;
-
-// ausgeben wieviel euro die übernachtungen alleine kosten
-echo "<h1 class='kosten_label'>";
-echo $new_preis . " * " . $anzahl_nights . " ".$nächtelabel . ": ";
-echo "</h1>";
-$new_preis =$new_preis * $anzahl_nights;
-echo "<h1 class='kosten_label_2'>";
-echo $new_preis . "€";
-echo "</h1>";
-echo "<br>";
-
-
-
-//wenn es haustier gibt, dann berechnen wieviel es extra kosten würde
-if (isset($_POST["Haustier"]) && $_POST["Haustier"] == "yes") {
-    $new_preis += 10 * $anzahl_nights;
-    $haustier_kosten = 10 * $anzahl_nights;
-    echo "<h1 class='kosten_label'>";
-    echo "Haustier " . $anzahl_nights. " " . $nächtelabel;
-    echo "</h1>";
-    echo "<h1 class='kosten_label_2'>";
-    echo " " . $haustier_kosten . "€";
-    echo "</h1>";
-    echo "<br>";
-}
-
-//wenn es Parkplatz gibt, dann berechnen wieviel es extra kosten würde
-if (isset($_POST["Parkplatz"]) && $_POST["Parkplatz"] == "yes") {
-    $new_preis += 36 * $anzahl_nights;
-    $garage_kosten = 36 * $anzahl_nights;
-    echo "<h1 class='kosten_label'>";
-    echo "Garage " . $anzahl_nights. " " . $nächtelabel ." " ;
-    echo "</h1>";
-
-    echo "<h1 class='kosten_label_2'>";
-    echo  " " . $garage_kosten . "€";
-    echo "</h1>";
-    echo "<br>";
-}
-
-//wenn es frühstück gibt, dann berechnen wieviel es extra kosten würde
-if (isset($_POST["breakfast"]) && $_POST["breakfast"] == "yes") {
-    //wenn es single room ist, dann für eine person berechnen
-    if ($_POST["room_type"] == "single room"){
-        $new_preis += 10 * $anzahl_nights;
-        echo "<h1 class='kosten_label'>";
-        echo "Frühstück " . $anzahl_nights. " " . $nächtelabel;
-        echo "</h1>";
-        echo "<h1 class='kosten_label_2'>";
-        echo  " " . $new_preis . "€";
-        echo "</h1>";
-        echo "<br>";
-    }else{
-        //sonst für 2 personen
-        $new_preis += 20 * $anzahl_nights;
-        $breakfast_kosten = 20 * $anzahl_nights;
-        echo "<h1 class='kosten_label'>";
-        echo "Frühstück " . "für 2 Personen " . $anzahl_nights. " " . $nächtelabel;
-        echo "</h1>";
-        echo "<h1 class='kosten_label_breakfast'>";
-        echo " " . $breakfast_kosten . "€";
-        echo "</h1>";
-        echo "<br>";
-    }
-}
-
-
-
 ?>
-
-
- <?php
- //ausgeben wieviel alles insgeasmt kosten würde
-        echo "<hr>";
-        echo "<h1 class='kosten_label'>";
-        echo "Ihr aufenthalt über ";
-        echo $anzahl_nights . " " . $nächtelabel;
-        echo " kostet:";
-        echo "</h1>";
-
-        echo "<h1 class='kosten_label_gesamt'>";
-        echo $new_preis . "€";
-        echo "</h1>";
-        echo "<br>";
- ?>
-<button type="button" class="button_2 my-4" onclick="redirect()">bezahlen!</button>
+        <hr>
+        <h4>Gesamtpreis: <?php echo $preis?></h4>
+        <br>
+        <button type="button" class="button_2 my-4" onclick="redirect()">bezahlen!</button>
     </div>
 </div>
+
 
 </body>
 
@@ -168,11 +91,8 @@ if (isset($_POST["breakfast"]) && $_POST["breakfast"] == "yes") {
         crossorigin="anonymous"></script>
 <script>
     function redirect(){
-        window.location.assign("./buchung_into_db.php");
+        //todo bestellung logik implementieren
+        window.location.assign("./bestellung_into_db.php");
     }
 </script>
 </html>
-<?php
-$_POST["gesamtpreis"] = $new_preis;
-$_POST["anzahl_nights"] = $anzahl_nights;
-$_SESSION['formData'] = $_POST;

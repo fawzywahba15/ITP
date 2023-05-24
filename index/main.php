@@ -64,7 +64,7 @@ if(!isset($_SESSION))
                     <div class="card-body">
                         <div class="card-img-actions">
 
-                            <img src='<?php echo $row["pfad"]?>' class="card-img img-fluid" width="96" height="350" alt="">
+                            <img src='<?php echo $row["pfad"]?>' id='<?php echo $row["id"]?>' class="card-img img-fluid" width="96" height="350" alt="">
 
                         </div>
                     </div>
@@ -84,7 +84,8 @@ if(!isset($_SESSION))
                         <div class="text-muted mb-3">34 reviews</div>
                         <div class="text-muted mb-3">Beschreibung: <?php echo $row["beschreibung"]?></div>
 
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                        <button type="button" onclick="add_to_cart(<?php echo $row['id']?> , <?php echo $row['preis']?>, '<?php echo $row['name']?>')" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+
 
 
                     </div>
@@ -94,222 +95,6 @@ if(!isset($_SESSION))
                 }
             }
 ?>
-
-<!--            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_1.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_2.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_3.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-
-
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_4.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_5.png" class="card-img img-fluid" width="96" height="350" alt="">
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-
-                            <img src="../zzz/images/download_6.png" class="card-img img-fluid" width="96" height="350" alt="">
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Jordans</a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
-                        </div>
-
-                        <h3 class="mb-0 font-weight-semibold text-black">€130</h3>
-
-
-
-                        <div class="text-muted mb-3">34 reviews</div>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-
-                    </div>
-                </div>
-
-
-
-
-            </div>
-        </div>
--->
-
 
 
 
@@ -331,5 +116,29 @@ if(!isset($_SESSION))
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
          crossorigin="anonymous"></script>
+
+<script>
+    function add_to_cart(id, preis, produkt_name) {
+        var xhttp = new XMLHttpRequest();
+        var url = "../zimmer_reservieren/bestellung_into_db.php";
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    // Request was successful
+                    window.alert("Zum Warenkorb hinzugefügt!");
+                    window.location.reload();
+                } else {
+                    // Error handling
+                    window.alert("schief gelaufen");
+                }
+            }
+        };
+
+        xhttp.send("produkt_id=" + id + "&produkt_name=" + encodeURIComponent(produkt_name) + "&produkt_preis=" + encodeURIComponent(preis));
+    }
+
+</script>
 
 </html>
