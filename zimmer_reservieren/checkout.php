@@ -53,7 +53,6 @@ var_dump($_POST);
 include "../0include/dbaccess.php";
 
 $preis = 0;
-var_dump($_POST);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productNames = $_POST["product_name"];
     $productPrices = $_POST["product_price"];

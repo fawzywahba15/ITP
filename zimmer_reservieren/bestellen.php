@@ -73,12 +73,6 @@ include "bestellungen_main.php";
 $error = "";
 $success ="";
 
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    /*    include_once "checkout.php";*/
-}
 ?>
 <div class="container block justify-content-center mt-50 mb-50">
     <div class="row">
@@ -113,7 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
                             </div>
                         </div>
-                        <!-- Add hidden input fields for each product -->
                         <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
                         <input type="hidden" name="product_price[]" value="<?php echo $second_row["preis"]; ?>">
                         <input type="hidden" name="product_id[]" value="<?php echo $second_row["id"]; ?>">
@@ -125,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
     </div>
 
-    <!-- Add the form outside the while loop -->
     <form action="./checkout.php" method="post">
         <?php
         // Reset the mysqli_data_seek to rewind the result set
