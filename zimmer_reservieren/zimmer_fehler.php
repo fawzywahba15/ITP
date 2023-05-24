@@ -22,7 +22,7 @@
         Es gibt leider keine zimmer mehr zum gebuchten zeitraum!
         <br>
         Bitte
-        <a href="./buchen.php">wählen</a> Sie einen anderen Zietraum!
+        <a href="./bestellen.php">wählen</a> Sie einen anderen Zietraum!
     </h3>
 </div>
 </body>

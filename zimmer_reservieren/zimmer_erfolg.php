@@ -19,9 +19,9 @@
 <body>
 <div class="container">
 <h3>
-Ihr Zimmer wurde erfolgreich reserviert.
+Ihr Bestellung wurde erfolgreich aufgegeben.
 Nun können sie es
-    <a href="./buchungen_anzeigen.php">Hier</a> sehen!
+    <a href="./sales_anzeigen.php">Hier</a> sehen!
 </h3>
 </div>
 </body>

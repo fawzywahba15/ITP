@@ -9,7 +9,7 @@ include "zimmer_main.php";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zimmer reservieren</title>
+    <title>Sale</title>
     <style>
         .check {
 
@@ -78,7 +78,7 @@ $success ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-/*    include_once "checkout.php";*/
+    /*    include_once "checkout.php";*/
 }
 ?>
 
@@ -110,21 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <option value="suite">Suite</option>
     </select><br>
 
-    <div class="ich">
-    <input type="checkbox" class="check" id="breakfast" name="breakfast" value="yes">
-    <label for="breakfast" class="checkbox-label">Include breakfast</label><br>
-
-    <h6>10€ pro Person</h6>
-        <br>
-    <input type="checkbox" class="check" id="Parkplatz" name="Parkplatz" value="yes">
-    <label for="Parkplatz" class="checkbox-label">Parkplatz</label><br>
-    <h6>36€ für 24 Stunden</h6>
-        <br>
-
-    <input type="checkbox" class="check" id="Haustier" name="Haustier" value="yes">
-    <label for="Haustier" class="checkbox-label">Haustier</label><br>
-    <h6>10€ Pro Haustier</h6>
-    </div>
     <input type="submit" class="button_2" value="Reserve Room">
 </form>
 

@@ -50,16 +50,16 @@ if(!isset($_SESSION))
     <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <?php if(basename($_SERVER['PHP_SELF']) == 'zimmer_main.php')  : ?>
         Auswahl:
-        <?php elseif(basename($_SERVER['PHP_SELF']) == 'buchungen_anzeigen.php'): ?>
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'sales_anzeigen.php'): ?>
         Meine Buchungen
         <?php else: ?>
-        Zimmer reservieren:
+        Sale reservieren:
         <?php endif; ?>
     </a>
 
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="../zimmer_reservieren/buchen.php">Zimmer reservieren</a></li>
-        <li ><a class="dropdown-item" href="../zimmer_reservieren/buchungen_anzeigen.php">Meine Buchungen</a></li>
+        <li><a class="dropdown-item" href="bestellen.php">Zimmer reservieren</a></li>
+        <li ><a class="dropdown-item" href="../zimmer_reservieren/sales_anzeigen.php">Meine Buchungen</a></li>
     </ul>
 
 </div>
