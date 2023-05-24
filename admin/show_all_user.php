@@ -108,7 +108,7 @@ if (!isset($_SESSION)){
         <th class="th">password</th>
         <th class="th">Status</th>
         <th class="th">Ändern</th>
-        <th class="th">Alle Buchungen</th>
+        <th class="th">Alle Sales</th>
     </tr>
 
     <?php
@@ -177,7 +177,7 @@ if (!isset($_SESSION)){
 
             //button um die buchungen von bestimmten benutzer anzeigen
             echo "<td class='text-center right_border'>";
-            echo "<button type='submit' class='button_2' formaction='./show_user_res.php'>buchungen anzeigen</button>";
+            echo "<button type='submit' class='button_2' formaction='./show_user_sales.php'>Sales anzeigen</button>";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
@@ -203,7 +203,7 @@ if (!isset($_SESSION)){
         var user_status = form.elements["status"].value;
         // http request schicken um daten zu verarbeiten
         var xhttp = new XMLHttpRequest();
-        var url= "update_data.php"
+        var url= "update_user_data.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
@@ -219,7 +219,7 @@ if (!isset($_SESSION)){
     }
     //funktion um die buchungen von den jeweiligen benutzer anzuschauen
     function show_all_res(button) {
-        window.location.assign("./show_user_res.php");
+        window.location.assign("./show_user_sales.php");
     }
 
 
