@@ -34,7 +34,6 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
             $stmt_2->bind_param("ii", $produkt_ids[$i], $user_id);
             $stmt_2->execute();
             $stmt_2->close();
-
         }
     }
 
