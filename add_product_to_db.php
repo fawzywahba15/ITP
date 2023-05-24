@@ -36,7 +36,7 @@
 <?php
 var_dump($_POST);
 if (isset($_POST["name"])){
-    // db connectiona
+    // db connection
     include_once "./0include/dbaccess.php";
     $name = $_POST["name"];
     $preis = $_POST["preis"];
