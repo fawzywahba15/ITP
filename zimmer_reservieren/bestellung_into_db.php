@@ -26,6 +26,8 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
         if (!$stmt->execute()) {
             echo "Error";
             break; // Exit the loop if there's an error
+        }else{
+            include_once "bestellung_erfolg.php";
         }
     }
 
