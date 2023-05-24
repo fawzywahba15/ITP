@@ -51,21 +51,7 @@ if (!isset($_SESSION)){
         richten.
 
 </p>
-    <div class="container">
-        <p class=" impressum_pic_label my-5"> Sheldon Cooper </p>
-        <p class=" impressum_pic_label my-5 "> Leonard Hofstädter </p>
-    </div>
 
-    <div class="container">
-        <div class="text-center impressum_pic_div">
-            <img class=" impressum_pic" src="img/sheldon.jpg" alt="Hotel" width="400" height="200">
-        </div>
-
-        <div class="text-center impressum_pic_div">
-        <img class=" impressum_pic" src="img/leonard.jpg" alt="Hotel" width="400" height="200">
-        </div>
-
-    </div>
     <br>
     <br>
 </body>
