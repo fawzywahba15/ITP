@@ -47,9 +47,9 @@ if(!isset($_SESSION)) {
             Auswahl:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_user.php'): ?>
             Alle Benutzer:
-        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_res.php'): ?>
-            Alle reservierungen:
-        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_user_res.php'): ?>
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_all_sales.php'): ?>
+            Alle Sales:
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'show_user_sales.php'): ?>
 
             <?php
                 //falls man die res von einem bestimmten benutzer sehen will, dann soll der name ausgegeben werden
@@ -69,7 +69,7 @@ if(!isset($_SESSION)) {
     <div class="text-left">
         <ul class="dropdown-menu ">
             <li><a class="dropdown-item" href="./show_all_user.php">Benutzer anzeigen</a></li>
-            <li ><a class="dropdown-item" href="./show_all_res.php">Buchungen anzeigen</a></li>
+            <li ><a class="dropdown-item" href="./show_all_sales.php">Sales anzeigen</a></li>
         </ul>
     </div>
 </div>
