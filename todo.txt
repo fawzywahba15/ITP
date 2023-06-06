@@ -9,9 +9,10 @@ FAWZY:
 
 
 WILLIAM:
-    eine seite zum restocken für admin
-    eine seite für neue produkte
-    stock img machen
+    OFFEN:
+        eine seite zum restocken für admin
+        eine seite für neue produkte
+        stock img machen
 
 
 
