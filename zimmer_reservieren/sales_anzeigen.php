@@ -120,7 +120,7 @@ include "bestellungen_main.php";
     $current_user = $_SESSION["email"];
     // Connect to the database and retrieve the data
     include "../0include/dbaccess.php";
-    $sql = "SELECT * FROM verkaufte_produkte WHERE usermail = '$current_user'";
+    $sql = "SELECT * FROM verkaufte_produkte WHERE usermail = '$current_user'ORDER BY id desc";
 
 
 
@@ -128,7 +128,7 @@ include "bestellungen_main.php";
     {
         $status_filter = $_POST['status_filter'];
 
-        $sql = "SELECT * FROM verkaufte_produkte WHERE usermail = '$current_user' && status='$status_filter'";
+        $sql = "SELECT * FROM verkaufte_produkte WHERE usermail = '$current_user' && status='$status_filter' ORDER BY id desc";
     }
 
     $result = mysqli_query($db_obj, $sql);
