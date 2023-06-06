@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 24. Mai 2023 um 12:43
+-- Erstellungszeit: 06. Jun 2023 um 13:40
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -75,7 +75,8 @@ INSERT INTO `news_beiträge` (`id`, `title`, `text`, `timestamp`, `file_path`, `
 (91, 'Für Fortnite', 'für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite ', '2023-01-11 18:36:41', 'thumbnails/resized_63bf01b9cae51.jpg', 30),
 (100, 'Chris Bumstead Arnold Pose', 'This is cbum. 4x Mr Olympia!', '2023-01-13 14:07:10', 'thumbnails/resized_63c1658edc055.png', 30),
 (101, 'Ronnie Coleman', 'YEAAAAAAAH BUDDY!\r\nLIGHT WEIGHT!\r\nJUST BASIC STUFF..\r\nYOU GOT YOUR TEST DBOL', '2023-01-13 14:08:40', 'thumbnails/resized_63c165e85bd00.png', 30),
-(102, 'hotel test', 'test', '2023-01-15 10:29:29', 'thumbnails/resized_63c3d5897aa72.png', 31);
+(102, 'hotel test', 'test', '2023-01-15 10:29:29', 'thumbnails/resized_63c3d5897aa72.png', 31),
+(103, 'Travis Scott', 'Wir haben bald die Travis Scotts im Stock. Sind aber nur 5 Paare - schnell sein!', '2023-05-24 18:51:13', 'thumbnails/resized_646e5ca118721.jpeg', 47);
 
 -- --------------------------------------------------------
 
@@ -116,66 +117,44 @@ INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `reservierungen`
+-- Tabellenstruktur für Tabelle `verkaufte_produkte`
 --
 
-CREATE TABLE `reservierungen` (
-  `id` int(255) NOT NULL,
+CREATE TABLE `verkaufte_produkte` (
+  `id` int(11) NOT NULL,
   `usermail` varchar(255) NOT NULL,
-  `room_type` varchar(255) NOT NULL,
-  `anreise_datum` date NOT NULL,
-  `abreise_datum` date NOT NULL,
-  `garage` varchar(255) NOT NULL,
-  `frühstück` varchar(255) NOT NULL,
-  `Tier` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `preis` int(255) DEFAULT NULL,
-  `anzahl_nights` int(255) DEFAULT NULL,
-  `fk_person_id` int(255) NOT NULL,
-  `timestamp` timestamp NULL DEFAULT NULL
+  `fk_person_id` int(11) NOT NULL,
+  `fk_produkt_id` int(11) NOT NULL,
+  `produkt_name` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` varchar(255) NOT NULL DEFAULT 'neu',
+  `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `reservierungen`
+-- Daten für Tabelle `verkaufte_produkte`
 --
 
-INSERT INTO `reservierungen` (`id`, `usermail`, `room_type`, `anreise_datum`, `abreise_datum`, `garage`, `frühstück`, `Tier`, `status`, `preis`, `anzahl_nights`, `fk_person_id`, `timestamp`) VALUES
-(157, 'fawzi.wahba123@hotmail.com', 'single room', '2023-01-15', '2023-01-19', 'nein', 'ja', 'nein', 'neu', 440, 4, 31, '2023-01-15 10:23:32'),
-(160, 'fawzi.wahba123@hotmail.com', 'single room', '2023-01-15', '2023-01-27', 'ja', 'nein', 'nein', 'neu', 1632, 12, 31, '2023-01-15 11:03:12'),
-(164, 'fawzi.wahba123@hotmail.com', 'suite', '2023-01-15', '2023-01-20', 'nein', 'nein', 'ja', 'neu', 1050, 5, 31, '2023-01-15 13:00:52'),
-(165, 'fawzi.wahba123@hotmail.com', 'single room', '2023-01-15', '2023-01-18', 'ja', 'nein', 'nein', 'neu', 408, 3, 31, '2023-01-15 13:02:00'),
-(166, 'berkkaitan@gmail.com', 'double room', '2023-01-15', '2023-01-28', 'nein', 'nein', 'nein', 'storniert', 1820, 13, 39, '2023-01-15 20:26:57'),
-(167, 'berkkaitan@gmail.com', 'double room', '2023-01-15', '2023-01-17', 'ja', 'nein', 'ja', 'neu', 372, 2, 39, '2023-01-15 20:46:46'),
-(168, 'berkkaitan@gmail.com', 'suite', '2023-01-15', '2023-01-27', 'nein', 'ja', 'ja', 'neu', 2760, 12, 39, '2023-01-15 20:47:00'),
-(169, 'berkkaitan@gmail.com', 'double room', '2023-01-15', '2023-01-22', 'ja', 'ja', 'ja', 'neu', 1442, 7, 39, '2023-01-15 20:47:51'),
-(170, 'chris.bumstead@gmail.com', 'double room', '2023-01-15', '2023-01-22', 'ja', 'ja', 'ja', 'neu', 1442, 7, 32, '2023-01-15 20:49:25'),
-(171, 'chris.bumstead@gmail.com', 'suite', '2023-01-27', '2023-01-29', 'ja', 'ja', 'ja', 'neu', 532, 2, 32, '2023-01-15 20:49:49'),
-(172, 'chris.bumstead@gmail.com', 'suite', '2023-12-31', '2024-01-16', 'ja', 'nein', 'ja', 'neu', 3936, 16, 32, '2023-01-15 20:50:25'),
-(173, 'danijeladjokic@gmx.at', 'double room', '2023-01-15', '2023-01-18', 'ja', 'ja', 'ja', 'neu', 618, 3, 30, '2023-01-15 20:55:47'),
-(174, 'danijeladjokic@gmx.at', 'suite', '2023-01-15', '2023-01-27', 'ja', 'nein', 'ja', 'neu', 2952, 12, 30, '2023-01-15 20:55:59'),
-(175, 'danijeladjokic@gmx.at', 'double room', '2023-01-15', '2023-01-26', 'ja', 'nein', 'ja', 'neu', 2046, 11, 30, '2023-01-15 20:56:11');
+INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `timestamp`, `status`, `produkt_preis`) VALUES
+(26, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-24 18:49:36', 'storniert', 240),
+(27, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-05-27 17:35:29', 'storniert', 300),
+(28, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-27 17:35:36', 'storniert', 240),
+(29, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-05-27 17:35:33', 'storniert', 400);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `zimmer`
+-- Tabellenstruktur für Tabelle `warenkorb`
 --
 
-CREATE TABLE `zimmer` (
-  `id` int(255) NOT NULL,
-  `zimmer_kategorie` varchar(255) NOT NULL,
-  `anzahl` int(255) NOT NULL,
-  `preis` int(255) NOT NULL
+CREATE TABLE `warenkorb` (
+  `id` int(11) NOT NULL,
+  `usermail` varchar(255) NOT NULL,
+  `fk_person_id` int(11) NOT NULL,
+  `fk_produkt_id` int(11) NOT NULL,
+  `produkt_name` varchar(255) NOT NULL,
+  `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `zimmer`
---
-
-INSERT INTO `zimmer` (`id`, `zimmer_kategorie`, `anzahl`, `preis`) VALUES
-(0, 'single room', 10, 100),
-(1, 'double room', 20, 140),
-(2, 'suite', 5, 200);
 
 --
 -- Indizes der exportierten Tabellen
@@ -202,17 +181,20 @@ ALTER TABLE `produkte`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `reservierungen`
+-- Indizes für die Tabelle `verkaufte_produkte`
 --
-ALTER TABLE `reservierungen`
+ALTER TABLE `verkaufte_produkte`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_personen_id` (`fk_person_id`);
+  ADD KEY `fk_person_id` (`fk_person_id`),
+  ADD KEY `fk_produkt_id` (`fk_produkt_id`);
 
 --
--- Indizes für die Tabelle `zimmer`
+-- Indizes für die Tabelle `warenkorb`
 --
-ALTER TABLE `zimmer`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `warenkorb`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_personn_id` (`fk_person_id`),
+  ADD KEY `fk_produkt_idd` (`fk_produkt_id`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -228,7 +210,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT für Tabelle `news_beiträge`
 --
 ALTER TABLE `news_beiträge`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT für Tabelle `produkte`
@@ -237,10 +219,16 @@ ALTER TABLE `produkte`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT für Tabelle `reservierungen`
+-- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
-ALTER TABLE `reservierungen`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+ALTER TABLE `verkaufte_produkte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT für Tabelle `warenkorb`
+--
+ALTER TABLE `warenkorb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints der exportierten Tabellen
@@ -253,10 +241,18 @@ ALTER TABLE `news_beiträge`
   ADD CONSTRAINT `fk_admin_id` FOREIGN KEY (`fk_admin_id`) REFERENCES `login` (`id`);
 
 --
--- Constraints der Tabelle `reservierungen`
+-- Constraints der Tabelle `verkaufte_produkte`
 --
-ALTER TABLE `reservierungen`
-  ADD CONSTRAINT `fk_personen_id` FOREIGN KEY (`fk_person_id`) REFERENCES `login` (`id`);
+ALTER TABLE `verkaufte_produkte`
+  ADD CONSTRAINT `fk_person_id` FOREIGN KEY (`fk_person_id`) REFERENCES `login` (`id`),
+  ADD CONSTRAINT `fk_produkt_id` FOREIGN KEY (`fk_produkt_id`) REFERENCES `produkte` (`id`);
+
+--
+-- Constraints der Tabelle `warenkorb`
+--
+ALTER TABLE `warenkorb`
+  ADD CONSTRAINT `fk_personn_id` FOREIGN KEY (`fk_person_id`) REFERENCES `login` (`id`),
+  ADD CONSTRAINT `fk_produkt_idd` FOREIGN KEY (`fk_produkt_id`) REFERENCES `produkte` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
