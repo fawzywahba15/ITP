@@ -51,7 +51,7 @@ include "bestellungen_main.php";
             color: #ffffff;
             text-align: center;
             border: 2px solid red;
-            margin 20px;
+            margin: 20px;
             padding: 10px;
             border-radius: 10px;
             margin-left: 50%;
