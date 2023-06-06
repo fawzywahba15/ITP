@@ -40,7 +40,15 @@ var_dump($_POST);
         .product-name {
             text-align: right;
         }
+        .gesamtpreis_label{
+            display: inline-block;
+            margin-right: 0;
+        }
+        .gesamtpreis{
+            margin-left: 16.5%;
+            display: inline-block;
 
+        }
     </style>
 </head>
 <body>
@@ -70,11 +78,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "</div>";
         $preis += $productPrice;
     }
-    echo "</div>";
 
+
+    echo "</div>";
+    echo "<hr>";
+    echo "<div class='gesamtpreis_label'>Gesamtpreis:</div>";
+    echo "<div class='gesamtpreis'>$preis</div>";
 }
 ?>
-        <hr>
+
+
 <?php
 
 echo "<form action='bestellung_into_db.php' method='post'>";
