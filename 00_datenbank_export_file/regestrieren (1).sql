@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Jun 2023 um 13:40
+-- Erstellungszeit: 06. Jun 2023 um 14:22
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -48,7 +48,8 @@ INSERT INTO `login` (`id`, `username`, `first_name`, `usermail`, `password`, `bi
 (32, 'Bumstead', 'Chris', 'chris.bumstead@gmail.com', '$2y$10$zHAQsLs7prFy9mSmo4GTae0DzQT.tXWQbOdGUG1EXwj0.8EnqR1pu', '2022-12-29', NULL, 'aktiv'),
 (33, 'gökmen', 'can', 'can.ok@gmx.at', '$2y$10$H2eYXQyQfrSQ6UbdvTRlauXafRmcynlfmZrJUIOHPVjSh3581Krm6', '2023-01-11', NULL, 'inaktiv'),
 (39, 'kai', 'berk', 'berkkaitan@gmail.com', '$2y$10$z3l5KujmbmlLYtIqlZ7f5O.o.LoqmhFwbchY83rBLQECDl15OLoKO', '2023-01-13', 1, 'aktiv'),
-(47, 'wahba', 'fawzy', 'fawzi.wahba@yahoo.com', '$2y$10$sqLPGN.8kCml6K1OSs0Bp.TVSQFa8dOMIIBEGX4MObMVlfVhPP0Xm', '2023-05-13', 1, 'aktiv');
+(47, 'wahba', 'fawzy', 'fawzi.wahba@yahoo.com', '$2y$10$sqLPGN.8kCml6K1OSs0Bp.TVSQFa8dOMIIBEGX4MObMVlfVhPP0Xm', '2023-05-13', 1, 'aktiv'),
+(48, 'admin', 'admin', 'admin@admin.com', '$2y$10$5GsQHBVyefIyGINEbAo2quoPTNJY8G5Q1U7PC5cTN/5J9igN0PZ0m', '2023-03-15', 1, 'aktiv');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,12 @@ INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_
 (26, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-24 18:49:36', 'storniert', 240),
 (27, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-05-27 17:35:29', 'storniert', 300),
 (28, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-27 17:35:36', 'storniert', 240),
-(29, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-05-27 17:35:33', 'storniert', 400);
+(29, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-05-27 17:35:33', 'storniert', 400),
+(30, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-06 11:45:25', 'neu', 240),
+(31, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 11:45:25', 'neu', 150),
+(32, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-06 11:45:25', 'neu', 300),
+(33, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-06 12:03:03', 'neu', 240),
+(34, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 12:03:03', 'neu', 150);
 
 -- --------------------------------------------------------
 
@@ -155,6 +161,14 @@ CREATE TABLE `warenkorb` (
   `produkt_name` varchar(255) NOT NULL,
   `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `warenkorb`
+--
+
+INSERT INTO `warenkorb` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `produkt_preis`) VALUES
+(17, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', 400),
+(18, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', 300);
 
 --
 -- Indizes der exportierten Tabellen
@@ -204,7 +218,7 @@ ALTER TABLE `warenkorb`
 -- AUTO_INCREMENT für Tabelle `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT für Tabelle `news_beiträge`
@@ -222,13 +236,13 @@ ALTER TABLE `produkte`
 -- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
 ALTER TABLE `verkaufte_produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT für Tabelle `warenkorb`
 --
 ALTER TABLE `warenkorb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints der exportierten Tabellen
