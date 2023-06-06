@@ -119,6 +119,7 @@ if(!isset($_SESSION))
 
 <script>
     function add_to_cart(id, preis, produkt_name) {
+        <?php if (isset($_SESSION["username"] )) : ?>
         var xhttp = new XMLHttpRequest();
         var url = "../zimmer_reservieren/artikel_into_warenkorb.php";
         xhttp.open("POST", url, true);
@@ -137,6 +138,10 @@ if(!isset($_SESSION))
         };
 
         xhttp.send("produkt_id=" + id + "&produkt_name=" + encodeURIComponent(produkt_name) + "&produkt_preis=" + encodeURIComponent(preis));
+
+        <?php else: ?>
+        window.alert("Sie sind nicht angemeldet!");
+        <?php endif; ?>
     }
 
 </script>
