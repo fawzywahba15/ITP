@@ -1,14 +1,17 @@
-anmelden bevor "zum warenkorb hinzufügen"
-2 x bestellung aufgeben - in while schleife
-bestellung sumup
-artikel in bestellung desc anzeigen
-Person ID und produkt id in meine bestellungen ausblenden
+FAWZY:
+    DONE:
+        anmelden bevor "zum warenkorb hinzufügen"
+        2 x bestellung aufgeben - in while schleife
+    OFFEN:
+        bestellung sumup
+        artikel in bestellung desc anzeigen
+        Person ID und produkt id in meine bestellungen ausblenden
 
 
-
-eine seite zum restocken für admin
-eine seite für neue produkte
-stock img machen
+WILLIAM:
+    eine seite zum restocken für admin
+    eine seite für neue produkte
+    stock img machen
 
 
 

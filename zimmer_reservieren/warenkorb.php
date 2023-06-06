@@ -142,13 +142,12 @@ $success ="";
                 <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
                 <input type="hidden" name="product_price[]" value="<?php echo $second_row["preis"]; ?>">
                 <input type="hidden" name="product_id[]" value="<?php echo $second_row["id"]; ?>">
-                <input type="submit" class="button_2" value="Bestellung aufgeben!">
+
                 <?php
             }
         }
-
         ?>
-
+        <input type="submit" class="button_2" value="Bestellung aufgeben!">
 <!--        <input type="submit" class="button_2" value="Bestellung aufgeben!">-->
     </form>
 </div>
