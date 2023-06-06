@@ -28,7 +28,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
     <style>
         .my_tr{
-            background-color: ;
+           /*  background-color: ;*/
             border: 2px solid #824caf60;
         }
         .my_tr:hover{
