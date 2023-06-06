@@ -104,8 +104,8 @@ if (!isset($_SESSION)){
         <th class="th">id</th>
         <th class="th">name</th>
         <th class="th">preis</th>
-        <th class="th">beschreibung</th>
-        <th class="th">stock</th>
+<!--        <th class="th">beschreibung</th>
+        <th class="th">stock</th>-->
         <th class="th"></th>
         
 
@@ -120,21 +120,23 @@ if (!isset($_SESSION)){
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
                 // table row erstellen
-                echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
+
                 echo "<tr class='my_tr'>";
+            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form' id='myform'>";
                 //zellen ausgeben mit den Innformationen der Datenbank
                 echo "<td class='text-center py-1 right_border '>" . $row["id"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["name"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["preis"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["stock"] . "</td>";
-                
-                // zelle für vorname als input
-            
-           
-            
 
-           // echo "<input type='text' name='id' id= 'id' class='hidden' value='" . $row["id"] . "' hidden>";
-          
+                // zelle für vorname als input
+
+
+
+
+            echo "<td class='text-center right_border'>";
+            echo "<input type='hidden' name='id' id= 'id' class='input' value='" . $row["id"] . "' >";
+            echo "</td>";
             echo "<td class='text-center right_border'>";
             echo "<input type='text' name='stock' id = 'stock' class='input' value='" . $row["stock"] . "'>";
             echo "</td>";
@@ -143,10 +145,8 @@ if (!isset($_SESSION)){
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
             echo "</td>";
 
-            
-         
-            echo "</tr>";
             echo "</form>";
+            echo "</tr>";
             
 
         }
@@ -162,24 +162,8 @@ if (!isset($_SESSION)){
     //funktion um stammdaten zu ändern
     function updateRow(button) {
         var form = button.parentNode.parentNode.firstElementChild;
-        window.alert(form.textvalue);
-        
         var id = form.elements["id"].value;
-
-        console.log("dadaasdasd: "+id);
         var stock = form.elements["stock"].value;
-
-        console.log("13131312: "+id);
-        //var id = form.elements["id"].value;
-
-        
-        /*
-        var first_name = form.elements["first_name"].value;
-        var usermail = form.elements["usermail"].value;
-       
-        var password = form.elements["password"].value;
-        var user_status = form.elements["status"].value;
-        */
         // http request schicken um daten zu verarbeiten
         var xhttp = new XMLHttpRequest();
         var url= "update_product_stock.php"
@@ -187,7 +171,6 @@ if (!isset($_SESSION)){
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhttp.send("id=" + id +"&stock=" + stock);
-        //bei erfolg -> msg und refresh
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // Refresh the page after the delete request has been processed
@@ -196,10 +179,7 @@ if (!isset($_SESSION)){
             }
         };
     }
-    //funktion um die buchungen von den jeweiligen benutzer anzuschauen
-    function show_all_res(button) {
-        window.location.assign("./show_user_sales.php");
-    }
+
 
 
 </script>

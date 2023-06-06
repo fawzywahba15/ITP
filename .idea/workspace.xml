@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
-      <change afterPath="$PROJECT_DIR$/admin/add_new_article_to_DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zzz/images/download_11.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/zzz/images/download_11.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/restock.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/restock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/update_product_stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/update_product_stock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +154,7 @@
       <workItem from="1683279471914" duration="4000" />
       <workItem from="1684923291029" duration="14070000" />
       <workItem from="1684952325067" duration="2008000" />
-      <workItem from="1686051622072" duration="6262000" />
+      <workItem from="1686051622072" duration="7559000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
