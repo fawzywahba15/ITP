@@ -18,25 +18,44 @@ if(!isset($_SESSION))
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-
+    <style>
+        .text_zentriert_1{
+            margin-left: 50%;
+            transform: translate(-50%,0);
+        }
+        .input{
+            width: 200px;
+            height: 50px;
+        }
+        .input:focus{
+            width: 220px;
+        }
+        .input_wide{
+            width: 300px;
+        }
+        .input_wide:focus{
+            width: 330px;
+        }
+    </style>
 </head>
 <body>
 
 
 <form method="post" action="#" enctype="multipart/form-data">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
+    <label for="name" class="text_zentriert_1">Name:</label>
+    <input type="text" id="name" name="name" class="input">
 
-    <label for="preis">Preis:</label>
-    <input type="number" id="preis" name="preis">
+    <label for="preis" class="text_zentriert_1">Preis:</label>
+    <input type="number" id="preis" name="preis" class="input">
 
-    <label for="pfad">Pfad:</label>
-    <input type="file" id="pfad" name="pfad">
+    <label for="pfad" class="text_zentriert_1">Bild:</label>
+    <input type="file" id="pfad" name="pfad" class="input input_wide">
 
-    <label for="beschreibung">Beschreibung:</label>
-    <input type="text" id="beschreibung" name="beschreibung">
 
-    <button type="submit">Hinzufügen</button>
+    <label for="beschreibung" class="text_zentriert_1">Beschreibung:</label>
+    <input type="text" id="beschreibung" name="beschreibung" class="input">
+
+    <button type="submit" class="button text_zentriert_1">Hinzufügen</button>
 
 </form>
 
