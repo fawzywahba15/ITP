@@ -5,12 +5,13 @@ FAWZY:
         bestellung sumup
         artikel in bestellung desc anzeigen
         Person ID und produkt id in meine bestellungen ausblenden
-
+    offen:
+                eine seite für neue produkte
 
 WILLIAM:
     OFFEN:
         eine seite zum restocken für admin
-        eine seite für neue produkte
+
         stock img machen
 
 
