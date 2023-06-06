@@ -4,8 +4,6 @@ FAWZY:
         2 x bestellung aufgeben - in while schleife
         bestellung sumup
         artikel in bestellung desc anzeigen
-    OFFEN:
-
         Person ID und produkt id in meine bestellungen ausblenden
 
 

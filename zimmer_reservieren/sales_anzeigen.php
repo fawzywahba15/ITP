@@ -95,9 +95,9 @@ include "bestellungen_main.php";
 <table class="mx-3">
     <tr>
         <th class="th">Buchungsnr</th>
-        <th class="th">Person ID</th>
+
         <th class="th">Email</th>
-        <th class="th">Produkt ID</th>
+
         <th class="th">Produkt Name</th>
         <!--        status dropdown als table header-->
         <th class="th">Status
@@ -146,15 +146,14 @@ include "bestellungen_main.php";
             echo "</div>";
             echo "</td>";
 
-            //zelle mit mail addresse
-            echo "<td class='text-center right_border'>" . $row["fk_person_id"] . "</td>";
+
             echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
 
 
 
 
 
-            echo "<td class='text-center right_border'>" . $row["fk_produkt_id"] . "</td>";
+
 
             //zelle für abreise als input
             echo "<td class='text-center right_border'>" . $row["produkt_name"] . "</td>";
