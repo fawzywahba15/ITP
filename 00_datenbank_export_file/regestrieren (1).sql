@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Jun 2023 um 14:22
+-- Erstellungszeit: 06. Jun 2023 um 14:32
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -90,30 +90,31 @@ CREATE TABLE `produkte` (
   `name` varchar(255) NOT NULL,
   `preis` int(11) NOT NULL,
   `pfad` varchar(255) NOT NULL,
-  `beschreibung` varchar(255) DEFAULT NULL
+  `beschreibung` varchar(255) DEFAULT NULL,
+  `stock` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `produkte`
 --
 
-INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`) VALUES
-(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung'),
-(2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk'),
-(3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl'),
-(4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl'),
-(5, 'iwas', 300, 'alksdf', 'askdlf'),
-(6, 'iwas', 300, 'alksdf', 'askdlf'),
-(7, 'iwas', 300, 'alksdf', 'askdlf'),
-(8, 'iwas', 300, 'alksdf', 'askdlf'),
-(9, 'iwas', 300, 'alksdf', 'askdlf'),
-(10, 'iwas', 300, 'alksdf', 'askdlf'),
-(11, 'iwas', 300, 'alksdf', 'askdlf'),
-(12, 'iwas', 300, 'alksdf', 'askdlf'),
-(13, 'iwas', 300, 'alksdf', 'askdlf'),
-(14, 'iwas', 300, 'alksdf', 'askdlf'),
-(15, 'iwas', 300, 'alksdf', 'askdlf'),
-(16, 'iwas', 300, 'alksdf', 'askdlf');
+INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) VALUES
+(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 0),
+(2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk', 0),
+(3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl', 0),
+(4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl', 0),
+(5, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(6, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(7, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(8, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(9, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(10, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(11, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(12, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(13, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(14, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(15, 'iwas', 300, 'alksdf', 'askdlf', 0),
+(16, 'iwas', 300, 'alksdf', 'askdlf', 0);
 
 -- --------------------------------------------------------
 
