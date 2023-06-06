@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 var_dump($_POST);
 $user_id = $_SESSION['user_id'];
 $produkt_ids = $_POST['product_id'];
+
 $produkt_names = $_POST["product_name"];
 $produkt_preise = $_POST["product_price"];
 $email = strtolower($_SESSION['email']);
@@ -26,7 +27,7 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
         if (!$stmt->execute()) {
             echo "Error";
             break;
-        }else{
+        } else {
             include_once "bestellung_erfolg.php";
             //von warenkorb löschen
             $sql_2 = "DELETE FROM warenkorb WHERE `fk_produkt_id` = ? AND `fk_person_id` = ?";
@@ -41,3 +42,46 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
     $db_obj->close();
 }
 ?>
+
+<?php
+$productIds = $produkt_ids;
+$placeholders = array();
+$values = array($user_id);
+
+include "../0include/dbaccess.php";
+
+for ($i = 0; $i < count($productIds); $i++) {
+    $placeholders[] = "`produkt_" . ($i + 1) . "`";
+    $values[] = $productIds[$i];
+}
+
+$placeholderString = implode(", ", $placeholders);
+$placeholderParams = rtrim(str_repeat("?, ", count($values)), ", ");
+
+echo "Placeholder String: $placeholderString<br>";
+echo "Placeholder Params: $placeholderParams<br>";
+$ka = str_repeat("s", count(($values)) );
+echo "ka :$ka <br>";
+echo "Values: ";
+var_dump($values);
+echo "<br>";
+
+$sql_3 = "INSERT INTO `bestellung_erstellen` (`person_fk`, $placeholderString) VALUES ($placeholderParams)";
+$stmt_3 = $db_obj->prepare($sql_3);
+$stmt_3->bind_param(str_repeat("s", count(($values)) ), ...$values);
+
+if ($stmt_3->execute()) {
+    echo "Insertion successful!";
+} else {
+    echo "Insertion failed: " . $stmt_3->error;
+}
+/*$sql = "INSERT INTO `bestellung_erstellen` (`person_fk`,`produkt_1`, `produkt_2`) VALUES ('$user_id', '$produkt_1', '$produkt_2')";
+$stmt = $db_obj->prepare($sql);
+$stmt->execute();*/
+
+$sql_2 = "INSERT INTO `bestellungen` (`person_fk`, `bestellung_erstellen_fk`) VALUES ('$user_id', LAST_INSERT_ID())";
+$stmt_2 = $db_obj->prepare($sql_2);
+$stmt_2->execute();
+?>
+</body>
+</html>

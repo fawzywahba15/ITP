@@ -1,21 +1,7 @@
-FAWZY:
-    DONE:
-        anmelden bevor "zum warenkorb hinzufügen"
-        2 x bestellung aufgeben - in while schleife
-        bestellung sumup
-        artikel in bestellung desc anzeigen
-        Person ID und produkt id in meine bestellungen ausblenden
-    offen:
-        eine seite für neue produkte
 
-WILLIAM:
-    OFFEN:
-        eine seite zum restocken für admin
-        bei bestellung -1 stock
-        stock img machen
 
 checkout nicht alles vom warenkorb löschen, sondern nur gekaufte artikel
-
+vom warenkorb sachen löschen können also 1 artikel
 
 artikel in eine bestellung zusammenfassen
 
