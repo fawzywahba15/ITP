@@ -106,13 +106,9 @@ if (!isset($_SESSION)){
         <th class="th">preis</th>
         <th class="th">beschreibung</th>
         <th class="th">stock</th>
+        <th class="th"></th>
+        
 
-        <!--
-        <th class="th">password</th>
-        <th class="th">Status</th>
-        <th class="th">Ändern</th>
-        <th class="th">Alle Sales</th>
-    -->
     </tr>
 
     <?php
@@ -124,77 +120,34 @@ if (!isset($_SESSION)){
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
                 // table row erstellen
+                echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
                 echo "<tr class='my_tr'>";
                 //zellen ausgeben mit den Innformationen der Datenbank
                 echo "<td class='text-center py-1 right_border '>" . $row["id"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["name"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["preis"] . "</td>";
-                echo "<td class='text-center py-1 right_border'>" . $row["beschreibung"] . "</td>";
+                echo "<td class='text-center py-1 right_border'>" . $row["stock"] . "</td>";
+                
                 // zelle für vorname als input
+            
+           
+            
+
+           // echo "<input type='text' name='id' id= 'id' class='hidden' value='" . $row["id"] . "' hidden>";
+          
             echo "<td class='text-center right_border'>";
-            echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["preis"] . "'>";
+            echo "<input type='text' name='stock' id = 'stock' class='input' value='" . $row["stock"] . "'>";
             echo "</td>";
-
-                /*
-                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-                echo "<td class='text-center py-1 right_border'>" .  $row ["status"] . "</td>";
-                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-                echo "<td class='text-center py-1 right_border'>" . ' ' . "</td>";
-                */
-                echo "</tr>";
-
-            /*
-            // 2. table row erstellen
-            echo "<tr class='my_seconde_tr'>";
-            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
-
-            // zelle für id als input
-            echo "<td class='text-center right_border my_block'>";
-            echo "<input type='text' name='person_id' id= 'person_id' class='input ' value='" . $row["id"] . "'>";
-            echo "</td>";
-
-            // zelle für nachname als input
-            echo "<td class='text-center right_border'>";
-            echo "<input type='text' name='username' id= 'username' class='input' value='" . $row["name"] . "'>";
-            echo "</td>";
-
-            // zelle für vorname als input
-            echo "<td class='text-center right_border'>";
-            echo "<input type='text' name='first_name' id = 'first_name' class='input' value='" . $row["preis"] . "'>";
-            echo "</td>";
-
-            // zelle für mail als input
-            echo "<td class='text-center right_border'>";
-            echo "<input type='text' name='usermail' id= 'usermail' class='input_mail' value='" . $row["beschreibung"] . "'>";
-            echo "</td>";
-
-*/
-            /*
-            // zelle für passwort als input (leeres feld)
-            echo "<td class='text-center right_border'>";
-            echo "<input type='text' name='password' id= 'password' class='input' placeholder='new pw'>";
-            echo "</td>";
-
-            // zelle für Status als dropdown
-            echo "<td class='text-center right_border'>";
-            echo "<select name='status' id='status' class='input'>";
-            echo "<option value='aktiv' " . ($row["status"] == "aktiv" ? "selected" : "") . ">aktiv</option>";
-            echo "<option value='inaktiv' " . ($row["status"] == "inaktiv" ? "selected" : "") . ">inaktiv</option>";
-            echo "</select>";
-            echo "</td>";
-
-            //button zum ändern der stammdaten
+            
             echo "<td class='text-center right_border'>";
             echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
             echo "</td>";
 
-            //button um die buchungen von bestimmten benutzer anzeigen
-            echo "<td class='text-center right_border'>";
-            echo "<button type='submit' class='button_2' formaction='./show_user_sales.php'>Sales anzeigen</button>";
-            echo "</form>";
-            echo "</td>";
-            */
+            
+         
             echo "</tr>";
+            echo "</form>";
+            
 
         }
     }
@@ -209,19 +162,31 @@ if (!isset($_SESSION)){
     //funktion um stammdaten zu ändern
     function updateRow(button) {
         var form = button.parentNode.parentNode.firstElementChild;
-        var username = form.elements["username"].value;
+        window.alert(form.textvalue);
+        
+        var id = form.elements["id"].value;
+
+        console.log("dadaasdasd: "+id);
+        var stock = form.elements["stock"].value;
+
+        console.log("13131312: "+id);
+        //var id = form.elements["id"].value;
+
+        
+        /*
         var first_name = form.elements["first_name"].value;
         var usermail = form.elements["usermail"].value;
-        var id = form.elements["person_id"].value;
+       
         var password = form.elements["password"].value;
         var user_status = form.elements["status"].value;
+        */
         // http request schicken um daten zu verarbeiten
         var xhttp = new XMLHttpRequest();
-        var url= "update_user_data.php"
+        var url= "update_product_stock.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        xhttp.send("id=" + id +"&username=" + username + "&first_name=" + first_name + "&usermail=" + usermail + "&password=" + password + "&status=" + user_status);
+        xhttp.send("id=" + id +"&stock=" + stock);
         //bei erfolg -> msg und refresh
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
