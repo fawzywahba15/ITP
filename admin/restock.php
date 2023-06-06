@@ -104,9 +104,8 @@ if (!isset($_SESSION)){
         <th class="th">id</th>
         <th class="th">name</th>
         <th class="th">preis</th>
-<!--        <th class="th">beschreibung</th>
-        <th class="th">stock</th>-->
-        <th class="th"></th>
+
+        <th class="th">Stock</th>
         
 
     </tr>
@@ -122,7 +121,7 @@ if (!isset($_SESSION)){
                 // table row erstellen
 
                 echo "<tr class='my_tr'>";
-            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form' id='myform'>";
+                echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form' id='myform'>";
                 //zellen ausgeben mit den Innformationen der Datenbank
                 echo "<td class='text-center py-1 right_border '>" . $row["id"] . "</td>";
                 echo "<td class='text-center py-1 right_border'>" . $row["name"] . "</td>";
