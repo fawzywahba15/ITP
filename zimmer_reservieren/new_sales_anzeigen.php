@@ -88,10 +88,27 @@ include "bestellungen_main.php";
         .dropdown_submit:active{
             background-color: #4CAF50;
         }
-        .meins{
+        .subtable{
+            width: 90%;
+            margin: 50px;
+            border-color: #4CAF5080;
+        }
+        .subtable_td{
+            border-color: #4CAF5080;
 
+        }
+        .subtable_td:hover{
+            background-color: #4CAF5080;
+        }
+        .subtable_tr{
+            border: 2px solid #4CAF5080;
+        }
+        .subtable_tr:hover{
+            background-color: #4CAF5060;
+        }
 
-
+        .subtable-row{
+            border-left: #824caf60 2px solid;
         }
 
     </style>
@@ -103,9 +120,9 @@ include "bestellungen_main.php";
     <tr>
         <th class="th">Buchungsnr</th>
 
-        <th class="th">Email</th>
 
-        <th class="th">Produkt Name</th>
+
+        <th class="th">Produkte</th>
         <!--        status dropdown als table header-->
         <th class="th">Status
             <form method="post" action="">
@@ -119,7 +136,7 @@ include "bestellungen_main.php";
                 <input type="submit" class="dropdown_submit" value="Filter">
             </form>
         </th>
-
+        <th class="th">Stornieren</th>
 
     </tr>
 
@@ -180,60 +197,26 @@ include "bestellungen_main.php";
                 // Clean up the resources after each iteration
 
             }
-            echo "<tr class='my_tr text-center'>";
             $json = json_encode($productData);
-            echo "<td><button class='collapse-btn'>$row_bestellungen[id]</button></td>";
-
-            echo "<td class='product-details' style='display: none;' data-product-data='" . $json  . "'></td>";
-            echo $json;
+            echo "<form>";
+            echo "<tr class='my_tr text-center'>";
 
 
 
+            echo "<td><p>$row_bestellungen[id]</p></td>";
+            echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen!</button></td>";
 
 
 
-/*            echo "<tr class='my_tr'>";
 
-            echo "<form method='post' class='my-0 py-0 mx-0 px-0 my_form'>";
 
-            //zelle mit der Buchungsnummer
-            echo "<td class='text-center right_border'>";
-            echo"<div class='text-center '>";
+            echo "<td class='text-center right_border'>" . $row_bestellungen["status"] . "</td>";
 
-            echo  $row["id"] ;
-            echo "</div>";
+            echo "<td>";
+            echo "<button type='submit' class='button_2 py-2 my-3 px-5' onclick='delete_row(this) '>Stornieren!</button>";
             echo "</td>";
-
-
-            echo "<td class='text-center right_border'>" . $row["usermail"] . "</td>";
-
-            echo "<tr>";
-            echo "<td><button class='collapse-btn'>$row_bestellungen[id]</button></td>";
-            echo "<td class='product-details'>" . implode(", ", $productNames) . "</td>";
-            echo "</tr>";*/
-
-
-            echo "<td class='text-center right_border'>" . "mail" . "</td>";
-            echo "<td class='text-center right_border'>" . "name" . "</td>";
-            echo "<td class='text-center right_border'>" . "status" . "</td>";
-            echo "<td class='text-center right_border'>" . "ändern" . "</td>";
             echo "</tr>";
-//todo unten ist echter code
-/*            //zelle für abreise als input
-            echo "<td class='text-center right_border'>" . $row["produkt_name"] . "</td>";
-
-
-
-            //zelle für Status
-            echo "<td class='text-center meins'>" . $row["status"] . "</td>";
-
-            //zelle für button
-            echo "<td class='text-center meins'>";
-            echo "<button type='button' class='button_2 py-2 my-3' onclick='delete_row(this) '>Stornieren!</button>";
-            echo "</td>";
-
             echo "</form>";
-            echo "</tr>";*/
 
         }
     }else {
@@ -279,44 +262,53 @@ include_once "../0include/footer.php"
 <script>
 
     $(document).ready(function() {
-        // Add event listeners to the collapse buttons
-        $('.collapse-btn').on('click', function() {
-            var productDetails = $(this).parent().parent().find('.product-details');
-            var productData = JSON.parse(productDetails.attr('data-product-data'));
-
-            productDetails.toggle();
-
-            // Remove previously displayed product rows and subtable
+        $('.collapse-btn').on('click', function(e) {
+            e.preventDefault();
             var parentRow = $(this).closest('tr');
-            parentRow.nextAll('.product-row, .subtable-row').remove();
 
-            // Create and display new rows if productDetails is visible
-            if (productDetails.is(':visible')) {
-                // Create a new table and add the header row
-                var newTable = $("<table>").css("width", "100%");
+            // Check if details are already expanded
+            if (parentRow.next().hasClass('subtable-row')) {
+                // If details are already expanded, remove them
+                parentRow.nextUntil(':not(.subtable-row)').remove();
+            } else {
+                // If details are not expanded, add them
+                var productData = JSON.parse($(this).attr('data-product-data'));
+
+                // Create a new table, tbody and add the header row
+                var newTable = $("<table class='subtable text-center'>");
+                var newTbody = $("<tbody>");
                 var headerRow = $("<tr>");
-                var thName = $("<th class='th'>").text("Name");
-                var thPrice = $("<th class='th'>").text("Preis");
-                headerRow.append(thName, thPrice);
+                var thIndex = $("<th class='subtable_th'>").text("Index");
+                var thName = $("<th class='subtable_th'>").text("Name");
+                var thPrice = $("<th class='subtable_th'>").text("Preis");
+                headerRow.append(thIndex, thName, thPrice);
                 newTable.append(headerRow);
 
                 $.each(productData, function(index, product) {
-                    var tr = $('<tr>').addClass('product-row my_tr text-center');
-                    var tdName = $('<td>').addClass('meins').text(product.name);
-                    var tdPrice = $('<td>').addClass('meins').text(product.price);
-                    tr.append(tdName, tdPrice);
-                    newTable.append(tr);
+                    var tr = $('<tr>').addClass('product-row my_tr text-center subtable_tr');
+                    var tdIndex = $('<td>').addClass('subtable_td').text(index + 1); // +1 if you want the index to start from 1 instead of 0
+                    var tdName = $('<td>').addClass('subtable_td').text(product.name);
+                    var tdPrice = $('<td>').addClass('subtable_td').text(product.price);
+                    tr.append(tdIndex, tdName, tdPrice);
+                    newTbody.append(tr);
                 });
+
+                // Add the tbody to the table
+                newTable.append(newTbody);
 
                 // Insert the new table into a new row in the main table
                 var newRow = $("<tr>").addClass('subtable-row');
-                var newCell = $("<td>").attr("colspan", 2);
+                var newCell = $("<td>").attr("colspan", 12); // colspan adjusted to match the number of columns
                 newCell.append(newTable);
                 newRow.append(newCell);
                 newRow.insertAfter(parentRow);
             }
         });
     });
+
+
+
+
 
 
 
