@@ -123,7 +123,9 @@ include "bestellungen_main.php";
 
 
         <th class="th">Produkte</th>
+        <th class="th">Preis</th>
         <!--        status dropdown als table header-->
+
         <th class="th">Status
             <form method="post" action="">
                 <select name="status_filter" class="dropdown_filter" id="status_filter">
@@ -207,7 +209,7 @@ include "bestellungen_main.php";
             echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen!</button></td>";
 
 
-
+            echo "<td class='text-center right_border'>" . $row_bestellungen["preis"] . "</td>";
 
 
             echo "<td class='text-center right_border'>" . $row_bestellungen["status"] . "</td>";

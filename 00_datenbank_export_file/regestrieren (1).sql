@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Jun 2023 um 14:32
+-- Erstellungszeit: 07. Jun 2023 um 16:38
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -20,6 +20,59 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `regestrieren`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `bestellungen`
+--
+
+CREATE TABLE `bestellungen` (
+  `id` int(11) NOT NULL,
+  `bestellung_erstellen_fk` int(11) NOT NULL,
+  `person_fk` int(11) NOT NULL,
+  `status` text NOT NULL DEFAULT 'neu',
+  `preis` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `bestellungen`
+--
+
+INSERT INTO `bestellungen` (`id`, `bestellung_erstellen_fk`, `person_fk`, `status`, `preis`) VALUES
+(15, 48, 47, 'neu', 0),
+(16, 49, 47, 'neu', 0),
+(17, 50, 47, 'neu', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `bestellung_erstellen`
+--
+
+CREATE TABLE `bestellung_erstellen` (
+  `id` int(11) NOT NULL,
+  `person_fk` int(11) NOT NULL,
+  `produkt_1` int(11) NOT NULL,
+  `produkt_2` int(11) DEFAULT NULL,
+  `produkt_3` int(11) DEFAULT NULL,
+  `produkt_4` int(11) DEFAULT NULL,
+  `produkt_5` int(11) DEFAULT NULL,
+  `produkt_6` int(11) DEFAULT NULL,
+  `produkt_7` int(11) DEFAULT NULL,
+  `produkt_8` int(11) DEFAULT NULL,
+  `produkt_9` int(11) DEFAULT NULL,
+  `produkt_10` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `bestellung_erstellen`
+--
+
+INSERT INTO `bestellung_erstellen` (`id`, `person_fk`, `produkt_1`, `produkt_2`, `produkt_3`, `produkt_4`, `produkt_5`, `produkt_6`, `produkt_7`, `produkt_8`, `produkt_9`, `produkt_10`) VALUES
+(48, 47, 5, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(49, 47, 5, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, 47, 1, 2, 3, 4, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,22 +152,22 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) VALUES
-(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 0),
+(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 4),
 (2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk', 0),
 (3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl', 0),
 (4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl', 0),
-(5, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(6, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(7, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(8, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(9, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(10, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(11, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(12, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(13, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(14, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(15, 'iwas', 300, 'alksdf', 'askdlf', 0),
-(16, 'iwas', 300, 'alksdf', 'askdlf', 0);
+(5, 'article 5', 300, '../zzz/images/download_5.png', 'askdlf', 0),
+(6, 'article 6', 300, '../zzz/images/download_6.png', 'askdlf', 0),
+(7, 'iwas', 300, '../zzz/images/download_7.jpeg', 'askdlf', 0),
+(8, 'iwas', 300, '../zzz/images/download_8.jpeg', 'askdlf', 0),
+(9, 'iwas', 300, '../zzz/images/download_9.jpeg', 'askdlf', 0),
+(11, 'iwas', 300, '../zzz/images/download_10.jpeg', 'askdlf', 0),
+(12, 'iwas', 300, '../zzz/images/download_11.jpeg', 'askdlf', 0),
+(13, 'iwas', 300, '../zzz/images/download_12.jpeg', 'askdlf', 0),
+(14, 'iwas', 300, '../zzz/images/download_13.jpeg', 'askdlf', 0),
+(15, 'iwas', 300, '../zzz/images/download_14.jpeg', 'askdlf', 0),
+(16, 'iwas', 300, '../zzz/images/download_15.jpeg', 'askdlf', 0),
+(51, 'Fawzy wahba', 85, '../zzz/images/download_2.jpg', 'fhdf', 0);
 
 -- --------------------------------------------------------
 
@@ -146,7 +199,87 @@ INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_
 (31, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 11:45:25', 'neu', 150),
 (32, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-06 11:45:25', 'neu', 300),
 (33, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-06 12:03:03', 'neu', 240),
-(34, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 12:03:03', 'neu', 150);
+(34, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 12:03:03', 'neu', 150),
+(35, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-06-06 14:59:22', 'neu', 400),
+(36, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 14:59:22', 'neu', 300),
+(37, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-06 14:59:22', 'neu', 240),
+(38, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-06 14:59:22', 'neu', 300),
+(39, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-06 15:06:21', 'neu', 240),
+(40, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-06 15:06:21', 'neu', 150),
+(41, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:06:56', 'neu', 300),
+(42, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:06:56', 'neu', 300),
+(43, 'fawzi.wahba@yahoo.com', 47, 8, 'iwas', '2023-06-06 15:16:16', 'neu', 300),
+(44, 'fawzi.wahba@yahoo.com', 47, 9, 'iwas', '2023-06-06 15:16:17', 'neu', 300),
+(45, 'fawzi.wahba@yahoo.com', 47, 8, 'iwas', '2023-06-06 15:17:29', 'neu', 300),
+(46, 'fawzi.wahba@yahoo.com', 47, 9, 'iwas', '2023-06-06 15:17:29', 'neu', 300),
+(47, 'fawzi.wahba@yahoo.com', 47, 8, 'iwas', '2023-06-06 15:19:34', 'neu', 300),
+(48, 'fawzi.wahba@yahoo.com', 47, 9, 'iwas', '2023-06-06 15:19:34', 'neu', 300),
+(49, 'fawzi.wahba@yahoo.com', 47, 8, 'iwas', '2023-06-06 15:22:15', 'neu', 300),
+(50, 'fawzi.wahba@yahoo.com', 47, 9, 'iwas', '2023-06-06 15:22:16', 'neu', 300),
+(51, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-06-06 15:23:52', 'neu', 400),
+(52, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:23:52', 'neu', 300),
+(53, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:24:29', 'neu', 300),
+(54, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:24:29', 'neu', 300),
+(55, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:28:17', 'neu', 300),
+(56, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:28:17', 'neu', 300),
+(57, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:28:30', 'neu', 300),
+(58, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:28:30', 'neu', 300),
+(59, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:29:25', 'neu', 300),
+(60, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:29:25', 'neu', 300),
+(61, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:30:27', 'neu', 300),
+(62, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:30:27', 'neu', 300),
+(63, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:30:57', 'neu', 300),
+(64, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:30:57', 'neu', 300),
+(65, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:31:34', 'neu', 300),
+(66, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:31:34', 'neu', 300),
+(67, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:31:59', 'neu', 300),
+(68, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:31:59', 'neu', 300),
+(69, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:32:56', 'neu', 300),
+(70, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:32:56', 'neu', 300),
+(71, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:34:04', 'neu', 300),
+(72, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:34:04', 'neu', 300),
+(73, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:34:29', 'neu', 300),
+(74, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:34:29', 'neu', 300),
+(75, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:34:39', 'neu', 300),
+(76, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:34:39', 'neu', 300),
+(77, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:35:23', 'neu', 300),
+(78, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:35:23', 'neu', 300),
+(79, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:35:34', 'neu', 300),
+(80, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:35:34', 'neu', 300),
+(81, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:36:27', 'neu', 300),
+(82, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:36:27', 'neu', 300),
+(83, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:36:34', 'neu', 300),
+(84, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:36:34', 'neu', 300),
+(85, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:36:43', 'neu', 300),
+(86, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:36:43', 'neu', 300),
+(87, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:36:59', 'neu', 300),
+(88, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:36:59', 'neu', 300),
+(89, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:37:55', 'neu', 300),
+(90, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:37:55', 'neu', 300),
+(91, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:38:16', 'neu', 300),
+(92, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:38:16', 'neu', 300),
+(93, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:39:07', 'neu', 300),
+(94, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:39:07', 'neu', 300),
+(95, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:39:45', 'neu', 300),
+(96, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:39:45', 'neu', 300),
+(97, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:40:02', 'neu', 300),
+(98, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:40:02', 'neu', 300),
+(99, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:40:09', 'neu', 300),
+(100, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:40:09', 'neu', 300),
+(101, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:40:10', 'neu', 300),
+(102, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:40:10', 'neu', 300),
+(103, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:40:33', 'neu', 300),
+(104, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:40:33', 'neu', 300),
+(105, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:40:51', 'neu', 300),
+(106, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:40:51', 'neu', 300),
+(107, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:41:12', 'neu', 300),
+(108, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:41:12', 'neu', 300),
+(109, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', '2023-06-06 15:41:28', 'neu', 300),
+(110, 'fawzi.wahba@yahoo.com', 47, 6, 'iwas', '2023-06-06 15:41:28', 'neu', 300),
+(111, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-07 13:42:37', 'neu', 240),
+(112, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-07 13:42:37', 'neu', 150),
+(113, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-07 13:42:37', 'neu', 300),
+(114, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-06-07 13:42:37', 'neu', 400);
 
 -- --------------------------------------------------------
 
@@ -164,16 +297,33 @@ CREATE TABLE `warenkorb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `warenkorb`
---
-
-INSERT INTO `warenkorb` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `produkt_preis`) VALUES
-(17, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', 400),
-(18, 'fawzi.wahba@yahoo.com', 47, 5, 'iwas', 300);
-
---
 -- Indizes der exportierten Tabellen
 --
+
+--
+-- Indizes für die Tabelle `bestellungen`
+--
+ALTER TABLE `bestellungen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `person_fk` (`person_fk`),
+  ADD KEY `bestellung_erstellen_fk` (`bestellung_erstellen_fk`);
+
+--
+-- Indizes für die Tabelle `bestellung_erstellen`
+--
+ALTER TABLE `bestellung_erstellen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id_1` (`produkt_1`),
+  ADD KEY `product_id_2` (`produkt_2`),
+  ADD KEY `product_id_3` (`produkt_3`),
+  ADD KEY `product_id_4` (`produkt_4`),
+  ADD KEY `product_id_5` (`produkt_5`),
+  ADD KEY `product_id_6` (`produkt_6`),
+  ADD KEY `product_id_7` (`produkt_7`),
+  ADD KEY `product_id_8` (`produkt_8`),
+  ADD KEY `product_id_9` (`produkt_9`),
+  ADD KEY `product_id_10` (`produkt_10`),
+  ADD KEY `´person_fk` (`person_fk`);
 
 --
 -- Indizes für die Tabelle `login`
@@ -216,6 +366,18 @@ ALTER TABLE `warenkorb`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `bestellungen`
+--
+ALTER TABLE `bestellungen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT für Tabelle `bestellung_erstellen`
+--
+ALTER TABLE `bestellung_erstellen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
 -- AUTO_INCREMENT für Tabelle `login`
 --
 ALTER TABLE `login`
@@ -231,23 +393,46 @@ ALTER TABLE `news_beiträge`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
 ALTER TABLE `verkaufte_produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT für Tabelle `warenkorb`
 --
 ALTER TABLE `warenkorb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints der exportierten Tabellen
 --
+
+--
+-- Constraints der Tabelle `bestellungen`
+--
+ALTER TABLE `bestellungen`
+  ADD CONSTRAINT `bestellung_erstellen_fk` FOREIGN KEY (`bestellung_erstellen_fk`) REFERENCES `bestellung_erstellen` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `person_fk` FOREIGN KEY (`person_fk`) REFERENCES `login` (`id`);
+
+--
+-- Constraints der Tabelle `bestellung_erstellen`
+--
+ALTER TABLE `bestellung_erstellen`
+  ADD CONSTRAINT `product_id_1` FOREIGN KEY (`produkt_1`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_10` FOREIGN KEY (`produkt_10`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_2` FOREIGN KEY (`produkt_2`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_3` FOREIGN KEY (`produkt_3`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_4` FOREIGN KEY (`produkt_4`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_5` FOREIGN KEY (`produkt_5`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_6` FOREIGN KEY (`produkt_6`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_7` FOREIGN KEY (`produkt_7`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_8` FOREIGN KEY (`produkt_8`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `product_id_9` FOREIGN KEY (`produkt_9`) REFERENCES `produkte` (`id`),
+  ADD CONSTRAINT `´person_fk` FOREIGN KEY (`person_fk`) REFERENCES `login` (`id`);
 
 --
 -- Constraints der Tabelle `news_beiträge`
