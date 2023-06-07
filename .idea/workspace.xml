@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
-      <change beforePath="$PROJECT_DIR$/00_datenbank_export_file/regestrieren (1).sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +154,7 @@
       <workItem from="1684923291029" duration="14070000" />
       <workItem from="1684952325067" duration="2008000" />
       <workItem from="1686051622072" duration="14310000" />
-      <workItem from="1686139570923" duration="9122000" />
+      <workItem from="1686139570923" duration="9266000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
