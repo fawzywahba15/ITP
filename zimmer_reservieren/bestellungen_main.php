@@ -50,7 +50,7 @@ if(!isset($_SESSION))
     <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <?php if(basename($_SERVER['PHP_SELF']) == 'bestellungen_main.php')  : ?>
         Auswahl:
-        <?php elseif(basename($_SERVER['PHP_SELF']) == 'sales_anzeigen.php'): ?>
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'new_sales_anzeigen.php'): ?>
         Meine Bestellungen
         <?php else: ?>
         Warenkorb:
@@ -59,7 +59,7 @@ if(!isset($_SESSION))
 
     <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="warenkorb.php">Warenkorb</a></li>
-        <li ><a class="dropdown-item" href="../zimmer_reservieren/sales_anzeigen.php">Meine Bestellungen</a></li>
+        <li ><a class="dropdown-item" href="../zimmer_reservieren/new_sales_anzeigen.php">Meine Bestellungen</a></li>
     </ul>
 
 </div>

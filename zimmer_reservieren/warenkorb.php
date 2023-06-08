@@ -130,6 +130,7 @@ $success ="";
     <form action="./checkout.php" method="post">
         <?php
         // Reset the mysqli_data_seek to rewind the result set
+        $show_bestellung_aufgeben_button = 0;
         mysqli_data_seek($result, 0);
         while ($row = mysqli_fetch_assoc($result)) {
             $produkt_id = $row["fk_produkt_id"];
@@ -137,6 +138,7 @@ $success ="";
             $second_result = mysqli_query($db_obj, $second_sql);
 
             if (mysqli_num_rows($second_result) > 0) {
+                $show_bestellung_aufgeben_button = 1;
                 $second_row = mysqli_fetch_assoc($second_result);
                 ?>
                 <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
@@ -146,7 +148,7 @@ $success ="";
                 <?php
             }
         }
-        if (mysqli_num_rows($second_result) > 0) {
+        if ($show_bestellung_aufgeben_button) {
             echo "<input type='submit' class='button_2' value='Bestellung aufgeben!'>";
 
         }
