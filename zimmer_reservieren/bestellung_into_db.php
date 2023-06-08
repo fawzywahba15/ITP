@@ -10,6 +10,14 @@ $produkt_ids = $_POST['product_id'];
 $produkt_names = $_POST["product_name"];
 $produkt_preise = $_POST["product_price"];
 $email = strtolower($_SESSION['email']);
+var_dump($produkt_preise);
+
+$gesamtpreis = 0;
+for ($p=0; $p < count($produkt_preise); $p++){
+    $gesamtpreis += $produkt_preise[$p];
+}
+
+echo "Gesamtpreis: " . $gesamtpreis;
 
 if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($produkt_preise) || empty($email)) {
     $error = "Error: All fields are required.";
@@ -58,13 +66,8 @@ for ($i = 0; $i < count($productIds); $i++) {
 $placeholderString = implode(", ", $placeholders);
 $placeholderParams = rtrim(str_repeat("?, ", count($values)), ", ");
 
-echo "Placeholder String: $placeholderString<br>";
-echo "Placeholder Params: $placeholderParams<br>";
+
 $ka = str_repeat("s", count(($values)) );
-echo "ka :$ka <br>";
-echo "Values: ";
-var_dump($values);
-echo "<br>";
 
 $sql_3 = "INSERT INTO `bestellung_erstellen` (`person_fk`, $placeholderString) VALUES ($placeholderParams)";
 $stmt_3 = $db_obj->prepare($sql_3);
@@ -79,7 +82,7 @@ if ($stmt_3->execute()) {
 $stmt = $db_obj->prepare($sql);
 $stmt->execute();*/
 
-$sql_2 = "INSERT INTO `bestellungen` (`person_fk`, `bestellung_erstellen_fk`) VALUES ('$user_id', LAST_INSERT_ID())";
+$sql_2 = "INSERT INTO `bestellungen` (`person_fk`, `bestellung_erstellen_fk`, `preis`) VALUES ('$user_id', LAST_INSERT_ID(), '$gesamtpreis')";
 $stmt_2 = $db_obj->prepare($sql_2);
 $stmt_2->execute();
 ?>

@@ -206,7 +206,7 @@ include "bestellungen_main.php";
 
 
             echo "<td><p>$row_bestellungen[id]</p></td>";
-            echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen!</button></td>";
+            echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen</button></td>";
 
 
             echo "<td class='text-center right_border'>" . $row_bestellungen["preis"] . "</td>";
