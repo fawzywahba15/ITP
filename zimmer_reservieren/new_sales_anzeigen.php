@@ -280,7 +280,7 @@ include_once "../0include/footer.php"
                 var newTable = $("<table class='subtable text-center'>");
                 var newTbody = $("<tbody>");
                 var headerRow = $("<tr>");
-                var thIndex = $("<th class='subtable_th'>").text("Index");
+                var thIndex = $("<th class='subtable_th'>").text("Artikel");
                 var thName = $("<th class='subtable_th'>").text("Name");
                 var thPrice = $("<th class='subtable_th'>").text("Preis");
                 headerRow.append(thIndex, thName, thPrice);
