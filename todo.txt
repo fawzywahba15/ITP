@@ -1,9 +1,5 @@
-warenkorb:
-    bestellung nur aufgeben falls eines vorhanden ist!
-
 sales anzeigen:
-       gesamtpreis in db speichern
-vom warenkorb sachen löschen können also 1 artikel
+    vom warenkorb sachen löschen können also 1 artikel
 
 
 
