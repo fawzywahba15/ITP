@@ -146,9 +146,15 @@ $success ="";
                 <?php
             }
         }
+        if (mysqli_num_rows($second_result) > 0) {
+            echo "<input type='submit' class='button_2' value='Bestellung aufgeben!'>";
+
+        }
         ?>
-        <input type="submit" class="button_2" value="Bestellung aufgeben!">
-<!--        <input type="submit" class="button_2" value="Bestellung aufgeben!">-->
+
+
+
+
     </form>
 </div>
 
