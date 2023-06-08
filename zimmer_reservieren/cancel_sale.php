@@ -5,8 +5,8 @@ include_once "../0include/dbaccess.php";
 
 // Check if the 'id' parameter was passed to the script
 if (isset($_POST['id'])) {
-    $salesnummer = $_POST['id'];
-    $sql = "update verkaufte_produkte Set `status` = 'storniert'  WHERE id='$salesnummer'";
+    $bestellungsnummer = $_POST['id'];
+    $sql = "update bestellungen Set `status` = 'storniert'  WHERE id='$bestellungsnummer'";
     $result = mysqli_query($db_obj, $sql);
 
 }

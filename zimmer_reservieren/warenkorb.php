@@ -11,6 +11,7 @@ include "bestellungen_main.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale</title>
     <style>
+
         .check {
 
             appearance: none;
@@ -111,7 +112,15 @@ $success ="";
                                         <a href="#" class="text-default mb-2" data-abc="true"><?php echo $second_row["name"] ?></a>
                                     </h6>
                                 </div>
-                                <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
+                                <div class="text-center">
+                                    <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
+                                    <form action="#">
+                                        <input type="hidden" name="pic_id" id='<?php echo $second_row["id"] ?>'>
+                                        <button onclick="delete_from_warenkorb()" class="btn btn-danger my-2">Löschen</button>
+
+                                    </form>
+
+                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="product_name[]" value="<?php echo $second_row["name"]; ?>">
@@ -170,5 +179,14 @@ echo "<div class='block'>";
 include_once "../0include/footer.php";
 echo "<div>";
 ?>
+
+
+<script>
+    function delete_from_warenkorb(){
+        window.alert("hi");
+        var form = this.parentNode;
+        window.alert(form.firstElementChild)
+    }
+</script>
 
 </html>

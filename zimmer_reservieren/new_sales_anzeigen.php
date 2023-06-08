@@ -228,7 +228,7 @@ include "bestellungen_main.php";
         echo "</div>";
     }
     mysqli_close($db_obj);
-
+//todo stornieren
     ?>
 </table>
 </body>
@@ -242,8 +242,8 @@ include_once "../0include/footer.php"
         // Get the values of the form elements
 
         var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-
+        var id = form.textContent;
+        window.alert(id);
         // Send an HTTP request to the server to update the data in the database
         var xhttp = new XMLHttpRequest();
         var url = "cancel_sale.php";
@@ -260,8 +260,6 @@ include_once "../0include/footer.php"
     }
 
 
-</script>
-<script>
 
     $(document).ready(function() {
         $('.collapse-btn').on('click', function(e) {
