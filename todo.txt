@@ -1,8 +1,8 @@
 sales anzeigen:
     vom warenkorb sachen löschen können also 1 artikel
     admin bestellungen stornieren
-    stock logik implementieren :
-                sold out
+    stock logik implementieren:
+                sold out ____________done
                 -1 bei bestellung
                 etc.
 

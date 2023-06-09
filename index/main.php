@@ -83,8 +83,13 @@ if(!isset($_SESSION))
 
                         <div class="text-muted mb-3">34 reviews</div>
                         <div class="text-muted mb-3">Beschreibung: <?php echo $row["beschreibung"]?></div>
+                    <?php if ($row["stock"] > 1) : ?>
 
                         <button type="button" onclick="add_to_cart(<?php echo $row['id']?> , <?php echo $row['preis']?>, '<?php echo $row['name']?>')" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    <?php else: ?>
+                        <button type="button" onclick="sold_out_error()" class="btn btn-danger"><i class="fa fa-cart-plus mr-2"></i> Sold out!</button>
+
+                    <?php endif; ?>
 
 
 
@@ -144,6 +149,9 @@ if(!isset($_SESSION))
         <?php endif; ?>
     }
 
+    function sold_out_error(){
+        window.alert("This article is sold out!")
+    }
 </script>
 
 </html>
