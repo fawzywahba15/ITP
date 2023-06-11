@@ -1,6 +1,4 @@
-sales anzeigen:
-    admin bestellungen stornieren
-    stock logik implementieren:
+stock logik implementieren:
                 -1 bei bestellung
 
 admin:
