@@ -115,8 +115,8 @@ $success ="";
                                 <div class="text-center">
                                     <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
                                     <form action="#">
-                                        <button onclick="delete_from_warenkorb()" class="btn btn-danger my-2">Löschen</button>
-                                        <input type="hidden" name="pic_id" id='<?php echo $second_row["id"] ?>'>
+                                        <button onclick="delete_from_warenkorb(this, <?php echo $user_id?>)" id="<?php echo $second_row["id"] ?>" class="btn btn-danger my-2">Löschen</button>
+                                        <!--<input type="hidden" name="pic_id" id='<?php /*echo $second_row["id"] */?>'>-->
 
                                     </form>
 
@@ -182,12 +182,28 @@ echo "<div>";
 
 
 <script>
-    function delete_from_warenkorb(){
-        window.alert("hi");
-        window.alert(this)
-        var form = this.nextSibling;
-        window.alert(form)
+    function delete_from_warenkorb(button) {
+        var button_id = button.id;
+        var person_id = <?php echo $user_id ?>;
+
+        var xhttp = new XMLHttpRequest();
+        var url = "delete_from_warenkorb.php";
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    // Refresh the page after the delete request has been processed
+                    window.alert("Erfolgreich storniert!");
+                    window.location.reload();
+                } else {
+                    window.alert("etwas ist schiefgelaufen");
+                }
+            }
+        };
+        xhttp.send("button_id=" + button_id + "&person_id=" + person_id);
     }
+
 </script>
 
 </html>
