@@ -5,8 +5,11 @@ sales anzeigen:
                 sold out ____________done
                 -1 bei bestellung
                 etc.
+produkt hinzufügen:
+        stock setzen
+bestellungen anzeigen:
 
-
+        pic hinzufügen
 
 ______________________________________________ NICE TO HAVE ______________________________________________________
 filte bei produkte

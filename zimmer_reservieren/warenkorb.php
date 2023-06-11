@@ -115,8 +115,8 @@ $success ="";
                                 <div class="text-center">
                                     <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $second_row["preis"] ?></h3>
                                     <form action="#">
-                                        <input type="hidden" name="pic_id" id='<?php echo $second_row["id"] ?>'>
                                         <button onclick="delete_from_warenkorb()" class="btn btn-danger my-2">Löschen</button>
+                                        <input type="hidden" name="pic_id" id='<?php echo $second_row["id"] ?>'>
 
                                     </form>
 
@@ -184,8 +184,9 @@ echo "<div>";
 <script>
     function delete_from_warenkorb(){
         window.alert("hi");
-        var form = this.parentNode;
-        window.alert(form.firstElementChild)
+        window.alert(this)
+        var form = this.nextSibling;
+        window.alert(form)
     }
 </script>
 

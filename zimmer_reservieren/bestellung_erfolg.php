@@ -21,7 +21,7 @@
 <h3>
 Ihr Bestellung wurde erfolgreich aufgegeben.
 Nun können sie es
-    <a href="../0new/sales_anzeigen.php">Hier</a> sehen!
+    <a href="./new_sales_anzeigen.php">Hier</a> sehen!
 </h3>
 </div>
 </body>
