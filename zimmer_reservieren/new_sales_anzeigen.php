@@ -110,6 +110,15 @@ include "bestellungen_main.php";
         .subtable-row{
             border-left: #824caf60 2px solid;
         }
+        .product_pic{
+            max-height: 200px;
+            max-width: 300px;
+        }
+        .pic_td{
+            max-height: 200px;
+            max-width: 300px;
+            margin: 0;
+        }
 
     </style>
 </head>
@@ -188,7 +197,8 @@ include "bestellungen_main.php";
 
                 $productData[] = array(
                     'name' => $row_produkte['name'],
-                    'price' => $row_produkte['preis']
+                    'price' => $row_produkte['preis'],
+                    'pfad' => $row_produkte['pfad']
                 );
                 mysqli_free_result($result_produkte);
                 //todo das funktioniert
@@ -279,17 +289,19 @@ include_once "../0include/footer.php"
                 var newTbody = $("<tbody>");
                 var headerRow = $("<tr>");
                 var thIndex = $("<th class='subtable_th'>").text("Artikel");
+                var thPic = $("<th class='subtable_th'>").text("Bild");
                 var thName = $("<th class='subtable_th'>").text("Name");
                 var thPrice = $("<th class='subtable_th'>").text("Preis");
-                headerRow.append(thIndex, thName, thPrice);
+                headerRow.append(thIndex,thPic, thName, thPrice);
                 newTable.append(headerRow);
 
                 $.each(productData, function(index, product) {
                     var tr = $('<tr>').addClass('product-row my_tr text-center subtable_tr');
-                    var tdIndex = $('<td>').addClass('subtable_td').text(index + 1); // +1 if you want the index to start from 1 instead of 0
+                    var tdIndex = $('<td>').addClass('subtable_td').text(index + 1);
+                    var tdPic = $('<td>').addClass('subtable_td pic_td').append($('<img>').attr('src', product.pfad).addClass(" img img-fluid product_pic"));
                     var tdName = $('<td>').addClass('subtable_td').text(product.name);
                     var tdPrice = $('<td>').addClass('subtable_td').text(product.price);
-                    tr.append(tdIndex, tdName, tdPrice);
+                    tr.append(tdIndex,tdPic , tdName, tdPrice);
                     newTbody.append(tr);
                 });
 
