@@ -238,7 +238,7 @@ include "bestellungen_main.php";
         echo "</div>";
     }
     mysqli_close($db_obj);
-//todo stornieren
+
     ?>
 </table>
 </body>

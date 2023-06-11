@@ -3,7 +3,8 @@ sales anzeigen:
     stock logik implementieren:
                 -1 bei bestellung
 
-
+admin:
+    admin links anzeigen
 
 
 ______________________________________________ NICE TO HAVE ______________________________________________________
