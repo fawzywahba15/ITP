@@ -149,7 +149,7 @@ include "./admin.php";
                 <input type="submit" class="dropdown_submit" value="Filter">
             </form>
         </th>
-        <th class="th">Stornieren</th>
+        <th class="th">Aktualisieren</th>
 
     </tr>
 
@@ -213,7 +213,7 @@ include "./admin.php";
             $row_person_mail = $row_person["usermail"];
 
             $json = json_encode($productData);
-            echo "<form>";
+            echo "<form id='myform'>";
             echo "<tr class='my_tr text-center'>";
 
 
@@ -226,10 +226,16 @@ include "./admin.php";
             echo "<td class='text-center right_border'>" . $row_bestellungen["preis"] . "</td>";
 
 
-            echo "<td class='text-center right_border'>" . $row_bestellungen["status"] . "</td>";
+            echo "<td class='text-center right_border'>";
+            echo "<select name='status' id='status' class='input my-4'>";
+            echo "<option value='neu' " . ($row_bestellungen["status"] == "neu" ? "selected" : "") . ">neu</option>";
+            echo "<option value='bestätigt' " . ($row_bestellungen["status"] == "bestätigt" ? "selected" : "") . ">bestätigt</option>";
+            echo "<option value='storniert' " . ($row_bestellungen["status"] == "storniert" ? "selected" : "") . ">storniert</option>";
+            echo "</select>";
+            echo "</td>";
 
             echo "<td>";
-            echo "<button type='submit' class='button_2 py-2 my-3 px-5' onclick='delete_row(this) '>Stornieren!</button>";
+            echo "<button type='submit' class='button_2 py-2 my-3 px-5' onclick='change_bestellung_data(this)'>Aktualisieren!!</button>";
             echo "</td>";
             echo "</tr>";
             echo "</form>";
@@ -252,29 +258,6 @@ include_once "../0include/footer.php"
 ?>
 
 <script>
-    function delete_row(button) {
-        // Get the values of the form elements
-
-        var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.textContent;
-        window.alert(id);
-        // Send an HTTP request to the server to update the data in the database
-        var xhttp = new XMLHttpRequest();
-        var url = "cancel_sale.php";
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id);
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Erfolgreich storniert!")
-                window.location.reload();
-            }
-        };
-    }
-
-
-
     $(document).ready(function() {
         $('.collapse-btn').on('click', function(e) {
             e.preventDefault();
@@ -329,7 +312,29 @@ include_once "../0include/footer.php"
 
 
 
+    function change_bestellung_data(button){
+        var form = button.parentNode.parentNode.previousSibling;
+        var id = form.nextSibling.firstChild.textContent
 
+        var status = form.elements["status"].value;
+
+
+        var xhttp = new XMLHttpRequest();
+        var url= "change_verkauf.php"
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id + "&status=" + status);
+        //falls http request erfolgreich ist dann message ausgeben und reloaden
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Refresh the page after the delete request has been processed
+                window.alert("Erfolgreich geändert!")
+                window.location.reload();
+            }
+        };
+
+
+    }
 
 
 
