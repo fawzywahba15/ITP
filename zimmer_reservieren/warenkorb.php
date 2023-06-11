@@ -194,7 +194,7 @@ echo "<div>";
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     // Refresh the page after the delete request has been processed
-                    window.alert("Erfolgreich storniert!");
+                    window.alert("Vom Warenkorb gelöscht!");
                     window.location.reload();
                 } else {
                     window.alert("etwas ist schiefgelaufen");
