@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="paar">
-      <change afterPath="$PROJECT_DIR$/0new/ka.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a00ba9ce-dcdc-4f58-852a-0f8bf8ab10ad.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/0include/popup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0design/my_design.css" beforeDir="false" afterPath="$PROJECT_DIR$/0design/my_design.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/show_all_sales.php" beforeDir="false" afterPath="$PROJECT_DIR$/00old/show_all_sales.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/index/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zimmer_reservieren/warenkorb.php" beforeDir="false" afterPath="$PROJECT_DIR$/zimmer_reservieren/warenkorb.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +76,11 @@
       <recent name="C:\xampp\htdocs\webtechnologien\file_upload\thumbnails" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webtechnologien\00old" />
       <recent name="C:\xampp\htdocs\webtechnologien\0new" />
       <recent name="C:\xampp\htdocs\webtechnologien\00_datenbank_export_file" />
       <recent name="C:\xampp\htdocs\webtechnologien\0_old_files" />
       <recent name="C:\xampp\htdocs\webtechnologien\admin" />
-      <recent name="C:\xampp\htdocs\webtechnologien\gang\Hotel_Himalaya_Martin_Mohsan\Hotel_Himalaya_Martin_Mohsan\includes" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -165,7 +163,7 @@
       <workItem from="1686302825726" duration="767000" />
       <workItem from="1686500988097" duration="6690000" />
       <workItem from="1686576405899" duration="666000" />
-      <workItem from="1686599450625" duration="1324000" />
+      <workItem from="1686599450625" duration="2616000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>

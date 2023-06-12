@@ -36,18 +36,6 @@ if(!isset($_SESSION))
 
 
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h2 id="popup-header"></h2>
-            <p id="popup-content"></p>
-            <button class="ok-button" onclick="closePopup()">OK</button>
-        </div>
-    </div>
-
-
-
-
 <h5 class="my-5">
     <?php
     //holt das SESSION SUPERGLOBAL und begrüßt den angemeldeten user mit nachnamen
@@ -66,6 +54,7 @@ if(!isset($_SESSION))
         <div class="row">
 
             <?php
+            include_once "../0include/popup.html";
             include "../0include/dbaccess.php";
 
             $sql = "SELECT * FROM produkte";
@@ -171,17 +160,6 @@ if(!isset($_SESSION))
     }
 
 
-
-    function showPopup(header, content) {
-        document.getElementById("popup-header").textContent = header; // Show the pop-up
-        document.getElementById("popup-content").textContent = content; // Show the pop-up
-        document.getElementById("popup").style.display = "block"; // Show the pop-up
-
-    }
-
-    function closePopup() {
-        document.getElementById("popup").style.display = "none"; // Hide the pop-up
-    }
 
 
 </script>

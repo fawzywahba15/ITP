@@ -208,7 +208,9 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 </body>
 
 
-
+<?php
+include_once "../0include/popup.html";
+?>
 <script>
     //funktion schickt einen http request an 'change_res.php' und ändert die datenbank
     function change_res_data(button){

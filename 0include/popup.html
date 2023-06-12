@@ -1,0 +1,23 @@
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-header"></h2>
+    <p id="popup-content"></p>
+    <button class="ok-button" onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+
+<script>
+
+  function showPopup(header, content) {
+    document.getElementById("popup-header").textContent = header;
+    document.getElementById("popup-content").textContent = content;
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none"; // Hide the pop-up
+  }
+
+</script>
