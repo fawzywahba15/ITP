@@ -59,7 +59,7 @@ if(!isset($_SESSION))
 
     <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="warenkorb.php">Warenkorb</a></li>
-        <li ><a class="dropdown-item" href="../zimmer_reservieren/new_sales_anzeigen.php">Meine Bestellungen</a></li>
+        <li ><a class="dropdown-item" href="/new_sales_anzeigen.php">Meine Bestellungen</a></li>
     </ul>
 
 </div>
