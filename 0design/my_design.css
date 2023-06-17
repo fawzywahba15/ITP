@@ -6,7 +6,13 @@ color: white;}
 /* ------------------class -------------------------*/
 .text_zentriert{text-align: center;}
 
+.login_error{
+  color: red;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
 
+}
 .button{
   background-color: black;
   color: white;

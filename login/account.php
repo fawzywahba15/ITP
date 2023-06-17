@@ -76,13 +76,7 @@ function get_data($output){
         .input:focus{
             width: 140px;
         }
-        .login_error{
-            color: red;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
 
-        }
         .login_success{
             color: #2ecc71;
             text-align: center;

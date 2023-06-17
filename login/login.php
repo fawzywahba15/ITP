@@ -22,13 +22,7 @@ include_once "./login_proccess.php";
             margin-left: 50%;
             transform: translate(-50%,-50%);
         }
-        .login_error{
-            color: red;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
 
-        }
 
     </style>
 

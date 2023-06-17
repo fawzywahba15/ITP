@@ -49,9 +49,15 @@ body {background-color: black;
         width: 280px;
         border-color: #2ecc71;
 }
-      
 
 
+.login_error{
+    color: red;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}
 
   
 

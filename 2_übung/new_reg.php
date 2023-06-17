@@ -21,10 +21,7 @@ if (!isset($_SESSION)){
     <?php include '../0include/navbar.php'; ?>
     <style>
         .login_error{
-            color: red;
-            text-align: center;
             margin-bottom: 20px;
-            margin-top: 50px;
         }
     </style>
 </head>
