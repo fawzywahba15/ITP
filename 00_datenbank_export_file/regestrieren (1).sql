@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 07. Jun 2023 um 16:38
+-- Erstellungszeit: 17. Jun 2023 um 21:24
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -40,9 +40,12 @@ CREATE TABLE `bestellungen` (
 --
 
 INSERT INTO `bestellungen` (`id`, `bestellung_erstellen_fk`, `person_fk`, `status`, `preis`) VALUES
-(15, 48, 47, 'neu', 0),
-(16, 49, 47, 'neu', 0),
-(17, 50, 47, 'neu', 0);
+(16, 49, 47, 'neu', 600),
+(17, 50, 47, 'storniert', 1090),
+(22, 55, 47, 'storniert', 390),
+(23, 56, 47, 'storniert', 390),
+(24, 57, 47, 'storniert', 480),
+(25, 58, 47, 'bestätigt', 450);
 
 -- --------------------------------------------------------
 
@@ -72,7 +75,15 @@ CREATE TABLE `bestellung_erstellen` (
 INSERT INTO `bestellung_erstellen` (`id`, `person_fk`, `produkt_1`, `produkt_2`, `produkt_3`, `produkt_4`, `produkt_5`, `produkt_6`, `produkt_7`, `produkt_8`, `produkt_9`, `produkt_10`) VALUES
 (48, 47, 5, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (49, 47, 5, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(50, 47, 1, 2, 3, 4, NULL, NULL, NULL, NULL, NULL, NULL);
+(50, 47, 1, 2, 3, 4, NULL, NULL, NULL, NULL, NULL, NULL),
+(51, 47, 1, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(52, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(53, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(55, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(56, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(57, 47, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(58, 47, 3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,22 +163,21 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) VALUES
-(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 4),
-(2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk', 0),
-(3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl', 0),
-(4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl', 0),
-(5, 'article 5', 300, '../zzz/images/download_5.png', 'askdlf', 0),
-(6, 'article 6', 300, '../zzz/images/download_6.png', 'askdlf', 0),
-(7, 'iwas', 300, '../zzz/images/download_7.jpeg', 'askdlf', 0),
-(8, 'iwas', 300, '../zzz/images/download_8.jpeg', 'askdlf', 0),
-(9, 'iwas', 300, '../zzz/images/download_9.jpeg', 'askdlf', 0),
-(11, 'iwas', 300, '../zzz/images/download_10.jpeg', 'askdlf', 0),
-(12, 'iwas', 300, '../zzz/images/download_11.jpeg', 'askdlf', 0),
-(13, 'iwas', 300, '../zzz/images/download_12.jpeg', 'askdlf', 0),
-(14, 'iwas', 300, '../zzz/images/download_13.jpeg', 'askdlf', 0),
-(15, 'iwas', 300, '../zzz/images/download_14.jpeg', 'askdlf', 0),
-(16, 'iwas', 300, '../zzz/images/download_15.jpeg', 'askdlf', 0),
-(51, 'Fawzy wahba', 85, '../zzz/images/download_2.jpg', 'fhdf', 0);
+(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 1000),
+(2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk', 1000),
+(3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl', 1000),
+(4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl', 1000),
+(5, 'article 5', 300, '../zzz/images/download_5.png', 'askdlf', 1000),
+(6, 'article 6', 300, '../zzz/images/download_6.png', 'askdlf', 1000),
+(7, 'iwas', 300, '../zzz/images/download_7.jpeg', 'askdlf', 1000),
+(8, 'iwas', 300, '../zzz/images/download_8.jpeg', 'askdlf', 1000),
+(9, 'iwas', 300, '../zzz/images/download_9.jpeg', 'askdlf', 1000),
+(11, 'iwas', 300, '../zzz/images/download_10.jpeg', 'askdlf', 1000),
+(12, 'iwas', 300, '../zzz/images/download_11.jpeg', 'askdlf', 1000),
+(13, 'iwas', 300, '../zzz/images/download_12.jpeg', 'askdlf', 1000),
+(14, 'iwas', 300, '../zzz/images/download_13.jpeg', 'askdlf', 1000),
+(15, 'iwas', 300, '../zzz/images/download_14.jpeg', 'askdlf', 1000),
+(16, 'iwas', 300, '../zzz/images/download_15.jpeg', 'askdlf', 1000);
 
 -- --------------------------------------------------------
 
@@ -191,7 +201,7 @@ CREATE TABLE `verkaufte_produkte` (
 --
 
 INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `timestamp`, `status`, `produkt_preis`) VALUES
-(26, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-24 18:49:36', 'storniert', 240),
+(26, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 18:06:08', 'neu', 240),
 (27, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-05-27 17:35:29', 'storniert', 300),
 (28, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-05-27 17:35:36', 'storniert', 240),
 (29, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-05-27 17:35:33', 'storniert', 400),
@@ -279,7 +289,22 @@ INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_
 (111, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-07 13:42:37', 'neu', 240),
 (112, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-07 13:42:37', 'neu', 150),
 (113, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-07 13:42:37', 'neu', 300),
-(114, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-06-07 13:42:37', 'neu', 400);
+(114, 'fawzi.wahba@yahoo.com', 47, 4, 'jordans 4', '2023-06-07 13:42:37', 'neu', 400),
+(115, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:40:46', 'neu', 240),
+(116, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-08 13:40:46', 'neu', 150),
+(117, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:40:46', 'neu', 240),
+(118, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:43:12', 'neu', 240),
+(119, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:45:21', 'neu', 240),
+(120, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:45:43', 'neu', 240),
+(121, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-08 13:45:43', 'neu', 150),
+(122, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 13:46:47', 'neu', 240),
+(123, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-08 13:46:47', 'neu', 150),
+(124, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-08 20:07:13', 'neu', 240),
+(125, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-08 20:07:13', 'neu', 150),
+(126, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 16:33:55', 'neu', 240),
+(127, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 16:33:55', 'neu', 240),
+(128, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-12 13:28:38', 'neu', 300),
+(129, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-12 13:28:38', 'neu', 150);
 
 -- --------------------------------------------------------
 
@@ -295,6 +320,15 @@ CREATE TABLE `warenkorb` (
   `produkt_name` varchar(255) NOT NULL,
   `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `warenkorb`
+--
+
+INSERT INTO `warenkorb` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `produkt_preis`) VALUES
+(52, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', 150),
+(57, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', 150),
+(59, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', 240);
 
 --
 -- Indizes der exportierten Tabellen
@@ -369,13 +403,13 @@ ALTER TABLE `warenkorb`
 -- AUTO_INCREMENT für Tabelle `bestellungen`
 --
 ALTER TABLE `bestellungen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT für Tabelle `bestellung_erstellen`
 --
 ALTER TABLE `bestellung_erstellen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT für Tabelle `login`
@@ -393,19 +427,19 @@ ALTER TABLE `news_beiträge`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
 ALTER TABLE `verkaufte_produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT für Tabelle `warenkorb`
 --
 ALTER TABLE `warenkorb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Constraints der exportierten Tabellen
