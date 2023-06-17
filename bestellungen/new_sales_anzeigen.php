@@ -253,8 +253,7 @@ include_once "../0include/footer.php"
 
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.textContent;
-        window.alert(id);
-        // Send an HTTP request to the server to update the data in the database
+
         var xhttp = new XMLHttpRequest();
         var url = "cancel_sale.php";
         xhttp.open("POST", url, true);

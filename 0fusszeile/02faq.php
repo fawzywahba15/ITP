@@ -28,39 +28,39 @@ if (!isset($_SESSION)){
 </head>
 
 <body>
-    <div class="container mx-5">
+<div class="container mx-5">
 
-        <ul>
-            <li class="li"> Gibt es bei Ihnen Parkplätze?</li>
-                <div class="myclass">Ja, die sind Gratis für unsere Kunden.</div>
+    <ul>
+        <li class="li">Bieten Sie kostenlosen Versand an?</li>
+        <div class="myclass">Ja, wir bieten kostenlosen Versand für alle Bestellungen an.</div>
 
-            <li class="li">Gibt es bei Ihnen ein Zimmer für 6 Personen?</li>
-                <div class="myclass">Ja, unser suites können bis zu 8 Personen unterbringen.</div>
+        <li class="li">Was ist Ihre Rückgaberegelung?</li>
+        <div class="myclass">Wir akzeptieren Rücksendungen innerhalb von 30 Tagen ab dem Kaufdatum. Die Artikel müssen ungetragen und in der Originalverpackung sein.</div>
 
-            <li  class="li">Haben sie Doppelzimmer mit 2 Betten?</li>
-                <div class="myclass">ja.</div>
+        <li class="li">Welche Zahlungsmethoden akzeptieren Sie?</li>
+        <div class="myclass">Wir akzeptieren Kreditkarten (Visa, Mastercard, American Express) sowie Zahlungen über PayPal.</div>
 
-            <li  class="li">Kann man ein Hund mitnehmen?</li>
-                <div class="myclass">Ja, gegen eine Gebühr von 10€ pro Nacht.</div>
+        <li class="li">Bieten Sie internationale Lieferung an?</li>
+        <div class="myclass">Ja, wir liefern weltweit. Die Versandkosten können je nach Zielland variieren.</div>
 
-            <li  class="li">Gibt es bei Ihnen eine Bar?</li>
-                <div class="myclass"> Nein leider nicht, jedoch steht in jedem Zimmer eine Minibar zur Verfügung.</div>
+        <li class="li">Gibt es eine Größentabelle für die Schuhe?</li>
+        <div class="myclass">Ja, wir stellen eine Größentabelle zur Verfügung, um Ihnen bei der Auswahl der richtigen Größe zu helfen. Sie finden sie auf jeder Produktseite.</div>
 
-            <li  class="li">Gibt es Internet bei Ihnen?</li>
-                <div class="myclass">Ja, wir haben kostenloses W-lan im gesamten Hotel</div>
+        <li class="li">Können Schuhe umgetauscht werden, wenn sie nicht passen?</li>
+        <div class="myclass">Ja, falls die bestellten Schuhe nicht passen, können Sie diese innerhalb von 30 Tagen gegen eine andere Größe umtauschen. Die Rücksendekosten werden jedoch vom Kunden getragen.</div>
 
-            <li  class="li">Gibt es Einschränkungen im Hotel aufgrund Covid-19?</li>
-                <div class="myclass">Nein der Hotelbetrieb läuft momentan uneingeschränkt.</div>
+        <li class="li">Bieten Sie limitierte Editionen oder exklusive Sneaker an?</li>
+        <div class="myclass">Ja, wir haben regelmäßig limitierte Editionen und exklusive Sneaker im Sortiment. Schauen Sie regelmäßig auf unserer Website vorbei, um die neuesten Modelle zu entdecken.</div>
 
-            <li  class="li">Ist das Leitungswasser in den Zimmern trinkbar?</li>
-            <div class="myclass">Ja, außerdem ist das Leitungswasser in ganz Österreich von höchste Qualität!</div>
+        <li class="li">Sind Ihre Schuhe authentisch?</li>
+        <div class="myclass">Ja, wir garantieren, dass alle unsere Schuhe 100% authentisch sind. Wir beziehen sie direkt von den Herstellern und autorisierten Händlern.</div>
 
-            <li  class="li">Haben sie Klimaanlagen im Hotel??</li>
-            <div class="myclass">Ja, in jedem Zimmer ist eine funktionsfähige Klimaanlage inkludiert.</div>
-        </ul>
+        <li class="li">Bieten Sie Rabatte für Stammkunden an?</li>
+        <div class="myclass">Ja, wir bieten ein Treueprogramm an, bei dem Stammkunden exklusive Rabatte und Sonderangebote erhalten. Melden Sie sich für unseren Newsletter an, um über diese Vorteile informiert zu werden.</div>
+    </ul>
 
+</div>
 
-    </div>
 
 </body>
 
