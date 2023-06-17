@@ -12,82 +12,12 @@ if (!isset($_SESSION)){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Update Data</title>
-    <link rel="stylesheet" href="../0design/my_design.css">
+
     <?php
     include "admin.php";
     ?>
-
+    <link rel="stylesheet" href="../0design/my_design.css">
     <style>
-        .my_tr{
-            border: 2px solid #824caf60;
-            border-bottom: 0;
-
-        }
-        .my_tr:hover {
-            background-color: #824caf60;
-        }
-
-        .my_seconde_tr {
-            border: 2px solid #824caf60;
-
-        }
-        .my_seconde_tr:hover{
-            background-color: #824caf60;
-        }
-        .th{
-            width: 400px;
-            margin-left: 50px;
-            margin-right: 50px;
-            font-size: large;
-            text-align: center;
-
-        }
-
-        .button_2{
-            margin: 0;
-            margin-bottom: 15px;
-            margin-top: 15px;
-            padding: 5px;
-            padding-left: 20px;
-            padding-right: 20px;
-            border-radius: 50px;
-        }
-        .input{
-
-            margin-bottom: 15px;
-            margin-top: 15px;
-            display: inline-block;
-            margin-left: 0;
-            padding: 0;
-            width: 100px;
-            transform: none;
-            alignment: center;
-            border-color: #824caf;
-        }
-        .input:focus{
-            width: 110px;
-        }
-        .input_mail{
-
-            margin-bottom: 15px;
-            margin-top: 15px;
-            display: inline-block;
-            padding: 0;
-            margin-left: 0;
-            alignment: center;
-            width: 100px;
-            transform: none;
-
-            border-color: #824caf;
-        }
-        .input_mail:focus{
-
-            width: 200px;
-            border: 3px #2ecc71 solid ;
-        }
-        .right_border{
-            border-right: #824caf60 2px solid;
-        }
 
 
     </style>

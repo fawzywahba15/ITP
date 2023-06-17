@@ -3,6 +3,7 @@ stock logik implementieren:
 
 admin:
     artikel data ändern preis etc
+    bis admin css gemacht
 
 ______________________________________________ NICE TO HAVE ______________________________________________________
 filte bei produkte
