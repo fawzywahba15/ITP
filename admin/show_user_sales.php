@@ -22,6 +22,8 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
     <?php
     include_once "admin.php"
     ?>
+
+
     <style>
         .my_tr{
             border: 2px solid #824caf60;
@@ -134,11 +136,13 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 <table class="mx-3">
     <tr>
         <th class="th">Buchungsnr</th>
-        <th class="th">Person ID</th>
-        <th class="th">Email</th>
-        <th class="th">Produkt ID</th>
-        <th class="th">Produkt Name</th>
+
+
+
+        <th class="th">Produkte</th>
+        <th class="th">Preis</th>
         <!--        status dropdown als table header-->
+
         <th class="th">Status
             <form method="post" action="">
                 <select name="status_filter" class="dropdown_filter" id="status_filter">
@@ -151,7 +155,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
                 <input type="submit" class="dropdown_submit" value="Filter">
             </form>
         </th>
-        <th class="th">Buchung ändern</th>
+        <th class="th">Stornieren</th>
 
     </tr>
 
@@ -260,36 +264,23 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
 
 <script>
-    function change_res_data(button){
+    function delete_row(button) {
+        // Get the values of the form elements
+
         var form = button.parentNode.parentNode.firstElementChild;
-        var id = form.nextSibling.textContent;
-        var anreise = form.elements["Anreise"].value;
-        var abreise = form.elements["Abreise"].value;
-        var room_type = form.elements["room_drop"].value;
-        var status = form.elements["status"].value;
-
-        if (anreise > abreise){
-            window.location.reload();
-            //falls das neue anreisedatum > abreisedatum
-            window.alert("Anreise Datum kann nicht größer als Abreise Datum sein!");
-        }else{
-            var xhttp = new XMLHttpRequest();
-            var url= "change_verkauf.php"
-            xhttp.open("POST", url, true);
-            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhttp.send("id=" + id + "&anreise_datum=" + anreise + "&abreise_datum=" + abreise + "&room_type=" + room_type + "&status=" + status);
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Refresh the page after the delete request has been processed
-                    window.alert("Buchung geändert!")
-                    window.location.reload();
-                }
-            };
-        }
-
-
-
-
+        var id = form.textContent;
+        var xhttp = new XMLHttpRequest();
+        var url = "cancel_sale.php";
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Refresh the page after the delete request has been processed
+                window.alert("Erfolgreich storniert!")
+                window.location.reload();
+            }
+        };
     }
 
 
@@ -343,6 +334,9 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
             }
         });
     });
+
+
+
 
 
 

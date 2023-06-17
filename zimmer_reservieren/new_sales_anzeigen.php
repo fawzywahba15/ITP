@@ -175,7 +175,7 @@ include "bestellungen_main.php";
 
             $bestellung_erstellen_fk = $row_bestellungen['bestellung_erstellen_fk'];
 
-            
+
             $sql_bestellung_erstellen = "SELECT * FROM `bestellung_erstellen` WHERE `id` = $bestellung_erstellen_fk";
             $result_bestellung_erstellen = mysqli_query($db_obj, $sql_bestellung_erstellen);
             $row_bestellung_erstellen = mysqli_fetch_assoc($result_bestellung_erstellen);
