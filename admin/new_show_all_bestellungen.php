@@ -14,7 +14,7 @@ include "./admin.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Meine Bestellungen</title>
 
-    <style>
+<!--    <style>
         .my_tr{
             border: 2px solid #824caf60;
         }
@@ -120,7 +120,7 @@ include "./admin.php";
             margin: 0;
         }
 
-    </style>
+    </style>-->
 </head>
 <body>
 

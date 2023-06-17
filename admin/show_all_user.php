@@ -17,10 +17,7 @@ if (!isset($_SESSION)){
     include "admin.php";
     ?>
     <link rel="stylesheet" href="../0design/my_design.css">
-    <style>
 
-
-    </style>
 </head>
 <body>
 <table class="mx-3 my-5">

@@ -25,31 +25,30 @@ if (!isset($_SESSION)){
 <body>
 
 
-    <p class="text_zentriert container my-5">
-        <strong><u>Vienna Palace GmbH</u></strong>
-        <br>
-        Hotellerie <br>
-        UID-Nr: ATU12345678 <br>
-        FN: 00756a <br>
-        FB-Gericht: Handelsgericht Wien <br>
-        Sitz: 1220 Wien <br>
-        Wagramerstraße 151, 1220, Wien, Österreich <br>
-        <strong>Kontaktdaten: </strong><br>
-        +43 6767029823  <br>
-        +43 6767029822 (Fax)  <br>
-        <a href="mailto:Vienna@palace.at">Vienna@palace.at</a> <br>
-        Mitgliedschaften bei der Wirtschaftskammerorganisation: WKO <br>
-        Anwendbare Rechtsvorschriften: Gewerbeordnung: <a href="https://www.ris.bka.gv.at/">www.ris.bka.gv.at </a> <br>
-        Aufsichtsbehörde: Magistratisches Bezirksamt Donaustadt <br>
-        Berufsbezeichnung: Hotelier <br>
-        Verleihungsstaat: Österreich <br>
-        Angaben zur Online-Streitbeilegung: Verbraucher haben die Möglichkeit,
-        Beschwerden an die OnlineStreitbeilegungsplattform der EU zu
-        richten: <a href="http://ec.europa.eu/odr">http://ec.europa.eu/odr </a>   <br>
-        Sie können allfällige Beschwerde auch an
-        die oben angegebene E-Mail-Adresse
-        richten.
-
+<p class="text_zentriert container my-5">
+    <strong><u>Sneaker Store</u></strong>
+    <br>
+    Schuhhandel <br>
+    UID-Nr: ATU87654321 <br>
+    FN: 00987b <br>
+    FB-Gericht: Handelsgericht Wien <br>
+    Sitz: 1010 Wien <br>
+    Graben 15, 1010, Wien, Österreich <br>
+    <strong>Kontaktdaten: </strong><br>
+    +43 6767029823  <br>
+    +43 6767029822 (Fax)  <br>
+    <a href="mailto:info@sneakerstore.com">info@sneakerstore.com</a> <br>
+    Mitgliedschaften bei der Wirtschaftskammerorganisation: WKO <br>
+    Anwendbare Rechtsvorschriften: Gewerbeordnung: <a href="https://www.ris.bka.gv.at/">www.ris.bka.gv.at </a> <br>
+    Aufsichtsbehörde: Magistratisches Bezirksamt Innere Stadt <br>
+    Berufsbezeichnung: Schuhhändler <br>
+    Verleihungsstaat: Österreich <br>
+    Angaben zur Online-Streitbeilegung: Verbraucher haben die Möglichkeit,
+    Beschwerden an die Online-Streitbeilegungsplattform der EU zu
+    richten: <a href="http://ec.europa.eu/odr">http://ec.europa.eu/odr </a>   <br>
+    Sie können allfällige Beschwerden auch an
+    die oben angegebene E-Mail-Adresse
+    richten.
 </p>
 
     <br>

@@ -302,6 +302,7 @@ img{border: 5px solid white;
   transform: none;
   alignment: center;
   border-color: #824caf;
+
 }
 .input:focus{
   width: 110px;
@@ -330,6 +331,54 @@ img{border: 5px solid white;
   border-right: #824caf60 2px solid;
 }
 
+.dropdown_filter:hover{
+  border: 2px #4CAF50 solid;
+}
+.dropdown_submit{
+  color: white;
+  border: 2px #824caf solid;
+  background-color: #824caf;
+  border-radius: 10px;
+}
+.dropdown_submit:hover{
+  border: 2px #4CAF50 solid;
+}
+.dropdown_submit:active{
+  background-color: #4CAF50;
+}
+.subtable{
+  width: 90%;
+  margin: 50px;
+  border-color: #4CAF5080;
+}
+td{
+  border-right: #824caf60 2px solid;
+}
+.subtable_td{
+  border-color: #4CAF5080;
 
+}
+.subtable_td:hover{
+  background-color: #4CAF5080;
+}
+.subtable_tr{
+  border: 2px solid #4CAF5080;
+}
+.subtable_tr:hover{
+  background-color: #4CAF5060;
+}
+
+.subtable-row{
+  border-left: #824caf60 2px solid;
+}
+.product_pic{
+  max-height: 200px;
+  max-width: 300px;
+}
+.pic_td{
+  max-height: 200px;
+  max-width: 300px;
+  margin: 0;
+}
 
 

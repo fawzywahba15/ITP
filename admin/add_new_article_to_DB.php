@@ -7,12 +7,18 @@ if(!isset($_SESSION))
 
 ?>
 <head>
+    <?php
+    include_once "./admin.php";
+    ?>
+
     <style>
-        .text_zentriert_1{
-            margin-left: 50%;
-            transform: translate(-50%,0);
+        .label_reg{
+            font-size: large;
         }
+
         .input{
+            margin-left: 50%;
+            transform: translate(-50%, 0);
             width: 200px;
             height: 50px;
         }
@@ -21,36 +27,37 @@ if(!isset($_SESSION))
         }
         .input_wide{
             width: 300px;
+            padding-top: 10px;
+            padding-left: 20px;
         }
         .input_wide:focus{
             width: 330px;
         }
+        .button{
+        }
     </style>
 </head>
 <body>
-<?php
-include_once "./admin.php";
-?>
 
 
 <form method="post" action="#" enctype="multipart/form-data">
-    <label for="name" class="text_zentriert_1">Name:</label>
+    <label for="name" class="label_reg">Name:</label>
     <input type="text" id="name" name="name" class="input">
 
-    <label for="preis" class="text_zentriert_1">Preis:</label>
+    <label for="preis" class="label_reg">Preis:</label>
     <input type="number" id="preis" name="preis" class="input">
 
-    <label for="pfad" class="text_zentriert_1">Bild:</label>
+    <label for="pfad" class="label_reg">Bild:</label>
     <input type="file" id="pfad" name="pfad" class="input input_wide">
 
 
-    <label for="beschreibung" class="text_zentriert_1">Beschreibung:</label>
+    <label for="beschreibung" class="label_reg">Beschreibung:</label>
     <input type="text" id="beschreibung" name="beschreibung" class="input">
 
-    <label for="stock" class="text_zentriert_1">Stock:</label>
+    <label for="stock" class="label_reg">Stock:</label>
     <input type="number" id="stock" name="stock" class="input">
 
-    <button type="submit" class="button text_zentriert_1">Hinzufügen</button>
+    <button type="submit" class="button label_reg my-5">Hinzufügen</button>
 
 </form>
 
@@ -104,6 +111,8 @@ var_dump($_POST);
         echo "Result:" . $result;
     }
 }
+
+include_once "../0include/footer.php"
 ?>
 
 
