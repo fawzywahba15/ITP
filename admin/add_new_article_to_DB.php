@@ -6,18 +6,7 @@ if(!isset($_SESSION))
 }
 
 ?>
-<!doctype html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produkt hinzufügen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="../0design/my_design.css">
-    <?php include '../0include/navbar.php';?>
     <style>
         .text_zentriert_1{
             margin-left: 50%;
@@ -39,7 +28,9 @@ if(!isset($_SESSION))
     </style>
 </head>
 <body>
-
+<?php
+include_once "./admin.php";
+?>
 
 <form method="post" action="#" enctype="multipart/form-data">
     <label for="name" class="text_zentriert_1">Name:</label>
