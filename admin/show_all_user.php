@@ -43,11 +43,6 @@ if (!isset($_SESSION)){
 
         }
 
-        .admin_label{
-            margin-top: 10px;
-            margin-bottom: 75px;
-            margin-right: 10px;
-        }
         .button_2{
             margin: 0;
             margin-bottom: 15px;

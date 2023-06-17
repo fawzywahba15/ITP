@@ -27,13 +27,6 @@ if (!isset($_SESSION)){
             background-color: #824caf60;
         }
 
-        .my_seconde_tr {
-            border: 2px solid #824caf60;
-
-        }
-        .my_seconde_tr:hover{
-            background-color: #824caf60;
-        }
         .th{
             width: 400px;
             margin-left: 50px;
@@ -43,11 +36,6 @@ if (!isset($_SESSION)){
 
         }
 
-        .admin_label{
-            margin-top: 10px;
-            margin-bottom: 75px;
-            margin-right: 10px;
-        }
         .button_2{
             margin: 0;
             margin-bottom: 15px;
@@ -72,24 +60,7 @@ if (!isset($_SESSION)){
         .input:focus{
             width: 110px;
         }
-        .input_mail{
 
-            margin-bottom: 15px;
-            margin-top: 15px;
-            display: inline-block;
-            padding: 0;
-            margin-left: 0;
-            alignment: center;
-            width: 100px;
-            transform: none;
-
-            border-color: #824caf;
-        }
-        .input_mail:focus{
-
-            width: 200px;
-            border: 3px #2ecc71 solid ;
-        }
         .right_border{
             border-right: #824caf60 2px solid;
         }
