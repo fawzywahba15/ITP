@@ -75,7 +75,7 @@ if(!isset($_SESSION)) {
     <div class="text-left">
         <ul class="dropdown-menu ">
             <li><a class="dropdown-item" href="./show_all_user.php">Benutzer anzeigen</a></li>
-            <li ><a class="dropdown-item" href="./new_show_all_bestellungen.php">Sales anzeigen</a></li>
+            <li ><a class="dropdown-item" href="./new_show_all_bestellungen.php">Bestellungen anzeigen</a></li>
             <li ><a class="dropdown-item" href="./add_new_article_to_DB.php">Artikel hinzufügen</a></li>
             <li ><a class="dropdown-item" href="./restock.php">Stock ändern</a></li>
 

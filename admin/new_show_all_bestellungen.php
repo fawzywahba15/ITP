@@ -258,6 +258,28 @@ include_once "../0include/footer.php"
 ?>
 
 <script>
+    function change_bestellung_data(button){
+        var form = button.parentNode.parentNode.previousSibling;
+        var id = form.nextSibling.firstChild.textContent
+        var status = form.elements["status"].value;
+
+        var xhttp = new XMLHttpRequest();
+        var url= "change_verkauf.php"
+
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id + "&status=" + status);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                window.alert("Erfolgreich geändert!")
+                window.location.reload();
+            }
+        };
+
+
+    }
+
+
     $(document).ready(function() {
         $('.collapse-btn').on('click', function(e) {
             e.preventDefault();
@@ -312,29 +334,7 @@ include_once "../0include/footer.php"
 
 
 
-    function change_bestellung_data(button){
-        var form = button.parentNode.parentNode.previousSibling;
-        var id = form.nextSibling.firstChild.textContent
 
-        var status = form.elements["status"].value;
-
-
-        var xhttp = new XMLHttpRequest();
-        var url= "change_verkauf.php"
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id + "&status=" + status);
-        //falls http request erfolgreich ist dann message ausgeben und reloaden
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Erfolgreich geändert!")
-                window.location.reload();
-            }
-        };
-
-
-    }
 
 
 
