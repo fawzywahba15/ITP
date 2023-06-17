@@ -32,6 +32,7 @@ if(!isset($_SESSION))
 include_once "./admin.php";
 ?>
 
+
 <form method="post" action="#" enctype="multipart/form-data">
     <label for="name" class="text_zentriert_1">Name:</label>
     <input type="text" id="name" name="name" class="input">

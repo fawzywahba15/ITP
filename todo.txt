@@ -2,8 +2,7 @@ stock logik implementieren:
                 -1 bei bestellung
 
 admin:
-    admin links anzeigen
-
+    artikel data ändern preis etc
 
 ______________________________________________ NICE TO HAVE ______________________________________________________
 filte bei produkte
