@@ -74,7 +74,7 @@ var_dump($_POST);
     $file = $_FILES['pfad'];
     $file_name = $file['name'];
     // db connection
-    $base_dir = "../zzz/images/";
+    $base_dir = "../images/";
     $target_file = $base_dir . $file_name;
     include_once "../0include/dbaccess.php";
     $name = $_POST["name"];
