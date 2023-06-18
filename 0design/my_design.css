@@ -401,3 +401,33 @@ td{
   border: #2ecc71 2px solid;
   border-radius: 20px;
 }
+
+/*_________________CHECKOUT______________________*/
+
+.order-summary {
+  width: 50%;
+  margin: 20px 0;
+
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+
+  margin-left: 50%;
+  transform: translate(50%, 0%);
+  margin-bottom: 10px;
+}
+
+.product-name {
+  text-align: right;
+}
+.gesamtpreis_label{
+  display: inline-block;
+  margin-right: 0;
+}
+.gesamtpreis{
+  margin-left: 16.5%;
+  display: inline-block;
+
+}

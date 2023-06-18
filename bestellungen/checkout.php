@@ -22,33 +22,7 @@ var_dump($_POST);
     <?php include '../0include/navbar.php';?>
     <style>
 
-        .order-summary {
-            width: 50%;
-            margin: 20px 0;
 
-        }
-
-        .product {
-            display: flex;
-            justify-content: space-between;
-
-            margin-left: 50%;
-            transform: translate(50%, 0%);
-            margin-bottom: 10px;
-        }
-
-        .product-name {
-            text-align: right;
-        }
-        .gesamtpreis_label{
-            display: inline-block;
-            margin-right: 0;
-        }
-        .gesamtpreis{
-            margin-left: 16.5%;
-            display: inline-block;
-
-        }
     </style>
 </head>
 <body>
