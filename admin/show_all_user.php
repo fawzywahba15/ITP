@@ -94,12 +94,12 @@ if (!isset($_SESSION)){
 
             //button zum ändern der stammdaten
             echo "<td class='text-center right_border'>";
-            echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
+            echo "<button type='button' class='button_2_round' onclick='updateRow(this) '>Update</button>";
             echo "</td>";
 
             //button um die buchungen von bestimmten benutzer anzeigen
             echo "<td class='text-center right_border'>";
-            echo "<button type='submit' class='button_2' formaction='./show_user_sales.php'>Sales anzeigen</button>";
+            echo "<button type='submit' class='button_2_round' formaction='./show_user_sales.php'>Sales anzeigen</button>";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
