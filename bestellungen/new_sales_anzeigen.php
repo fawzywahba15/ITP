@@ -142,11 +142,13 @@ include "bestellungen_main.php";
 </body>
 
 <?php
-include_once "../0include/footer.php"
+include_once "../0include/footer.php";
+include_once "../0include/popup.html";
 ?>
 
 <script>
     function delete_row(button) {
+        event.preventDefault();
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.textContent;
         var xhttp = new XMLHttpRequest();
@@ -154,9 +156,7 @@ include_once "../0include/footer.php"
 
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Erfolgreich storniert!")
-                window.location.reload();
+                showPopup('', "Erfolgreich storniert!");
             }
         };
         xhttp.open("POST", url, true);

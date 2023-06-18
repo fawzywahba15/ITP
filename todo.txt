@@ -9,4 +9,8 @@ bei Registrierung unten Kontaktdaten von Vienna Palace Hotel ändern
 
 inline css fertig
 
+pop up statt window.alert
+    bis index fertig
 
+
+account.php endless loop popup

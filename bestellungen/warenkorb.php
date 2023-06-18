@@ -130,12 +130,15 @@ $success ="";
 <?php
 echo "<div class='block'>";
 include_once "../0include/footer.php";
+include_once "../0include/popup.html";
+
 echo "<div>";
 ?>
 
 
 <script>
     function delete_from_warenkorb(button) {
+        event.preventDefault();
         var button_id = button.id;
         var person_id = <?php echo $user_id ?>;
 
@@ -146,11 +149,9 @@ echo "<div>";
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4) {
                 if (this.status == 200) {
-                    // Refresh the page after the delete request has been processed
-                    window.alert("Vom Warenkorb gelöscht!");
-                    window.location.reload();
+                    showPopup('', 'Vom Warenkorb gelöscht!');
                 } else {
-                    window.alert("etwas ist schiefgelaufen");
+                    showPopup('', 'Etwas ist schief gelaufen!');
                 }
             }
         };

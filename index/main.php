@@ -138,8 +138,6 @@ if(!isset($_SESSION))
                 if (this.status == 200) {
                     // Request was successful
                     showPopup('', 'Ihr Artikel wurde erfolgreich dem Warenkorb hinzugefügt!');
-                    //window.alert("Zum Warenkorb hinzugefügt!");
-                    //window.location.reload();
                 } else {
                     // Error handling
                     showPopup('', 'Leider ist ein fehler aufgetreten!');
@@ -157,7 +155,7 @@ if(!isset($_SESSION))
     }
 
     function sold_out_error(){
-        window.alert("This article is sold out!")
+        showPopup('Sold out!', 'This article is sold out!')
     }
 
 

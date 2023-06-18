@@ -46,6 +46,7 @@ function get_data($output){
 
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include "../0include/navbar.php";?>
+    <?php include "../0include/popup.html";?>
     <style>
 
 
@@ -84,10 +85,15 @@ function get_data($output){
 <!--    wenn es einen eingeloggten suer gibt:-->
     <?php if(isset($_SESSION["username"])) : ?>
 
-        <h5 class="login_error"><?php
-            if (isset($error)){
-                echo $error;}
-        ?></h5>
+
+        <?php
+        $error_shown = 0;
+        if (isset($error) && $error_shown === 0){
+            echo '<script> showPopup("", "' . $error . '");  event.preverntDefault(); </script>';
+            $error_shown = 1;
+        }
+
+        ?>
         <h5 class="login_success"><?php
             if (isset($success)) {
                 echo $success;
