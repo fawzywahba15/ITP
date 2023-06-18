@@ -20,10 +20,6 @@ var_dump($_POST);
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-    <style>
-
-
-    </style>
 </head>
 <body>
 <div class="container">

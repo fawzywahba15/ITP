@@ -15,7 +15,7 @@ include "bestellungen_main.php";
     <title>Meine Bestellungen</title>
 
     <style>
-        .my_tr{
+        /*.my_tr{
             border: 2px solid #824caf60;
         }
         .my_tr:hover{
@@ -118,7 +118,7 @@ include "bestellungen_main.php";
             max-height: 200px;
             max-width: 300px;
             margin: 0;
-        }
+        }*/
 
     </style>
 </head>

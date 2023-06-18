@@ -220,7 +220,7 @@ include "./admin.php";
             echo "<td><p>$row_bestellungen[id]</p></td>";
             echo "<td>$person_id</td>";
             echo "<td>$row_person_mail</td>";
-            echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen</button></td>";
+            echo "<td><button class='collapse-btn button_2_round  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen</button></td>";
 
 
             echo "<td class='text-center right_border'>" . $row_bestellungen["preis"] . "</td>";
@@ -235,7 +235,7 @@ include "./admin.php";
             echo "</td>";
 
             echo "<td>";
-            echo "<button type='submit' class='button_2 py-2 my-3 px-5' onclick='change_bestellung_data(this)'>Aktualisieren!!</button>";
+            echo "<button type='submit' class='button_2_round py-2 my-3 px-5' onclick='change_bestellung_data(this)'>Aktualisieren!!</button>";
             echo "</td>";
             echo "</tr>";
             echo "</form>";

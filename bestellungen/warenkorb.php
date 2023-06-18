@@ -10,6 +10,7 @@ include "bestellungen_main.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale</title>
+
     <style>
 
 /*        .check {
@@ -48,22 +49,13 @@ include "bestellungen_main.php";
         .label_reg{
             margin-top: 0;
         }*/
-        .res_error{
-            color: #ffffff;
-            text-align: center;
-            border: 2px solid red;
-            margin: 20px;
-            padding: 10px;
-            border-radius: 10px;
-            margin-left: 50%;
-            transform: translate(-50%, 50%);
-            width: max-content;
-        }
-        .res_error:hover{
-            background-color: #FF000040;
-        }
+
+
 
         .button_2{
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
             margin-left: 50%;
             transform: translate(-50%,+50%);
             margin-bottom: 100px;
