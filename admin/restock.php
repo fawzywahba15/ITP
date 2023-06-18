@@ -102,8 +102,6 @@ if (!isset($_SESSION)){
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 showPopup('', 'Erfolgreich geändert!');
-                /*window.alert("Erfolgreich geändert!")
-                window.location.reload();*/
             }
         };
     }

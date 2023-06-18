@@ -107,6 +107,7 @@ if (!isset($_SESSION)){
         }
     }
     mysqli_close($db_obj);
+    include_once "../0include/popup.html";
     ?>
 </table>
 
@@ -116,6 +117,7 @@ if (!isset($_SESSION)){
 <script>
     //funktion um stammdaten zu ändern
     function updateRow(button) {
+        event.preventDefault();
         var form = button.parentNode.parentNode.firstElementChild;
         var username = form.elements["username"].value;
         var first_name = form.elements["first_name"].value;
@@ -133,9 +135,8 @@ if (!isset($_SESSION)){
         //bei erfolg -> msg und refresh
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Erfolgreich geändert!")
-                window.location.reload();
+                showPopup('', 'Erfolgreich geändert!');
+
             }
         };
     }

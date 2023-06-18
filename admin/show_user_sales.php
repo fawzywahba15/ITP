@@ -172,7 +172,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         echo "</div>";
     }
     mysqli_close($db_obj);
-    //todo stornieren
+    include_once "../0include/popup.html";
     ?>
 </table>
 </body>
@@ -181,6 +181,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
 <script>
     function change_bestellung_data(button){
+        event.preventDefault();
         var form = button.parentNode.parentNode.previousSibling;
         var id = form.nextSibling.firstChild.textContent
         var status = form.elements["status"].value;
@@ -193,8 +194,8 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
         xhttp.send("id=" + id + "&status=" + status);
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
-                window.alert("Erfolgreich geändert!")
-                window.location.reload();
+                showPopup('', 'Erfolgreich geändert!');
+
             }
         };
 
