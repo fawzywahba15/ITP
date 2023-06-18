@@ -7,6 +7,6 @@ admin:
 
 konto ändern db:
 
-bis admin css gemacht
+bis index css gemacht
 
 

@@ -12,50 +12,9 @@ include "bestellungen_main.php";
     <title>Sale</title>
 
     <style>
-
-/*        .check {
-
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #eee;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            outline: none;
-            box-shadow: 0 1px 2px #2ecc71;
-        }
-        .blcok{
-            display: block;
-        }
-        .check:checked{
-            background-color: #2ecc71;
-            border: 1px solid #27ae60;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 15px rgba(46, 204, 113, 0.1);
-        }
-        .checkbox-label {
-            !* style the label for the checkbox *!
-            font-size: 16px;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-
-        .ich{
-            text-align: center;
-        }
-        .input{
-            margin-top: 0;;
-            margin-bottom: 0;
-        }
-        .label_reg{
-            margin-top: 0;
-        }*/
-
-
-
         .button_2{
             width: 200px;
             height: 50px;
-            border-radius: 5px;
             margin-left: 50%;
             transform: translate(-50%,+50%);
             margin-bottom: 100px;

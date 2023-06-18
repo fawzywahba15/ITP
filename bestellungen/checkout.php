@@ -25,7 +25,6 @@ var_dump($_POST);
             width: 200px;
             height: 50px;
             border-radius: 5px;
-
             margin-bottom: 100px;
         }
     </style>
