@@ -47,22 +47,20 @@ function get_data($output){
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include "../0include/navbar.php";?>
     <style>
-        .account_label{
-            margin-top: 20px;
-            color: white;
-            border-bottom: 2px #4CAF50 solid;
+
+
+        .login_success{
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+
         }
-        .label_value{
-            display: flex;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+
         .button{
             width: 240px;
             height: auto;
-
         }
-
         .input{
             display: block;
             margin-left: 0;
@@ -77,13 +75,6 @@ function get_data($output){
             width: 140px;
         }
 
-        .login_success{
-            color: #2ecc71;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
-
-        }
     </style>
 </head>
 <body>

@@ -526,3 +526,15 @@ td{
   text-align: center;
   transform: translate(-50%, -50%);
 }
+
+/*_____________________-account________________________________-*/
+.account_label{
+  margin-top: 20px;
+  color: white;
+  border-bottom: 2px #4CAF50 solid;
+}
+.label_value{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

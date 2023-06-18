@@ -7,6 +7,6 @@ admin:
 
 konto ändern db:
 
-bis index css gemacht
+inline css fertig
 
 
