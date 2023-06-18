@@ -12,7 +12,7 @@ include "bestellungen_main.php";
     <title>Sale</title>
     <style>
 
-        .check {
+/*        .check {
 
             appearance: none;
             width: 20px;
@@ -32,7 +32,7 @@ include "bestellungen_main.php";
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 15px rgba(46, 204, 113, 0.1);
         }
         .checkbox-label {
-            /* style the label for the checkbox */
+            !* style the label for the checkbox *!
             font-size: 16px;
             font-weight: bold;
             margin-left: 5px;
@@ -47,7 +47,7 @@ include "bestellungen_main.php";
         }
         .label_reg{
             margin-top: 0;
-        }
+        }*/
         .res_error{
             color: #ffffff;
             text-align: center;

@@ -249,16 +249,11 @@ include_once "../0include/footer.php"
 
 <script>
     function delete_row(button) {
-        // Get the values of the form elements
-
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.textContent;
-
         var xhttp = new XMLHttpRequest();
         var url = "cancel_sale.php";
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id);
+
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // Refresh the page after the delete request has been processed
@@ -266,6 +261,9 @@ include_once "../0include/footer.php"
                 window.location.reload();
             }
         };
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("id=" + id);
     }
 
 
