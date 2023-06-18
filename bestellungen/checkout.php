@@ -18,8 +18,17 @@ var_dump($_POST);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
+    <link rel="stylesheet" href="../0design/my_design.css">
+    <style>
+        .button_2{
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
+
+            margin-bottom: 100px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
