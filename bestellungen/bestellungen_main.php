@@ -25,29 +25,12 @@ if(!isset($_SESSION))
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-    <style>
-        .ka{
-            display: flex;
-            width: min-content;
-            padding: 20px;
-            margin-bottom: 75px;
-            margin-left: 50%;
-            transform: translate(-50%, 50%);
-            border: #2ecc71 2px solid;
-            border-radius: 20px;
-        }
-        .drop{
-            margin-top: 200px;
-
-        }
-    </style>
-
 </head>
 <body>
 <?php if (isset($_SESSION["username"] )) : ?>
 <div class="container ">
 
-    <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle dropdown_btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <?php if(basename($_SERVER['PHP_SELF']) == 'bestellungen_main.php')  : ?>
         Auswahl:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'new_sales_anzeigen.php'): ?>

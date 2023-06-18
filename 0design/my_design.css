@@ -391,3 +391,13 @@ td{
 }
 
 
+.dropdown_btn{
+  display: flex;
+  width: min-content;
+  padding: 20px;
+  margin-bottom: 75px;
+  margin-left: 50%;
+  transform: translate(-50%, 50%);
+  border: #2ecc71 2px solid;
+  border-radius: 20px;
+}
