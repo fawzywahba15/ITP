@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b46dd665-e4a6-46c4-b9f0-06934d62c8ac" name="Changes" comment="">
+    <list default="true" id="b46dd665-e4a6-46c4-b9f0-06934d62c8ac" name="Changes" comment="paar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0design/my_design.css" beforeDir="false" afterPath="$PROJECT_DIR$/0design/my_design.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0fusszeile/00impressum.php" beforeDir="false" afterPath="$PROJECT_DIR$/0fusszeile/00impressum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add_new_article_to_DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_new_article_to_DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/show_all_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/show_all_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00_datenbank_export_file/regestrieren (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/00_datenbank_export_file/regestrieren.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/itp/webtechnologien/admin",
+    "last_opened_file_path": "C:/xampp/htdocs/itp/webtechnologien/00_datenbank_export_file",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\itp\webtechnologien\00_datenbank_export_file" />
       <recent name="C:\xampp\htdocs\itp\webtechnologien\admin" />
       <recent name="C:\xampp\htdocs\webtechnologien\2_übung" />
       <recent name="C:\xampp\htdocs\webtechnologien\file_upload\thumbnails" />
@@ -87,7 +86,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f50925d8-306c-407c-88d3-3c6f51ac64c0" name="Changes" comment="" />
+      <changelist id="b46dd665-e4a6-46c4-b9f0-06934d62c8ac" name="Changes" comment="" />
       <created>1668598351452</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -165,6 +164,7 @@
       <workItem from="1686500988097" duration="6690000" />
       <workItem from="1686576405899" duration="666000" />
       <workItem from="1686599450625" duration="3378000" />
+      <workItem from="1687089629524" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>

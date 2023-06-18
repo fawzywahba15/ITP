@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Jun 2023 um 21:24
+-- Erstellungszeit: 18. Jun 2023 um 14:00
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -43,9 +43,10 @@ INSERT INTO `bestellungen` (`id`, `bestellung_erstellen_fk`, `person_fk`, `statu
 (16, 49, 47, 'neu', 600),
 (17, 50, 47, 'storniert', 1090),
 (22, 55, 47, 'storniert', 390),
-(23, 56, 47, 'storniert', 390),
+(23, 56, 47, 'neu', 390),
 (24, 57, 47, 'storniert', 480),
-(25, 58, 47, 'bestätigt', 450);
+(25, 58, 47, 'storniert', 450),
+(26, 59, 47, 'neu', 240);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,8 @@ INSERT INTO `bestellung_erstellen` (`id`, `person_fk`, `produkt_1`, `produkt_2`,
 (55, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (56, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (57, 47, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(58, 47, 3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(58, 47, 3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(59, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,12 +137,6 @@ CREATE TABLE `news_beiträge` (
 --
 
 INSERT INTO `news_beiträge` (`id`, `title`, `text`, `timestamp`, `file_path`, `fk_admin_id`) VALUES
-(89, 'Unser Hotel', 'So schaut unser hotel in echt aus.\nist auf der Blockchain also physisch nicht vorhanden!', '2023-01-11 10:41:45', 'thumbnails/resized_63be926998958.png', 30),
-(90, 'ich weiss nd', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?', '2023-01-11 10:53:55', 'thumbnails/resized_63be9543b4202.png', 30),
-(91, 'Für Fortnite', 'für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite für fortnite ', '2023-01-11 18:36:41', 'thumbnails/resized_63bf01b9cae51.jpg', 30),
-(100, 'Chris Bumstead Arnold Pose', 'This is cbum. 4x Mr Olympia!', '2023-01-13 14:07:10', 'thumbnails/resized_63c1658edc055.png', 30),
-(101, 'Ronnie Coleman', 'YEAAAAAAAH BUDDY!\r\nLIGHT WEIGHT!\r\nJUST BASIC STUFF..\r\nYOU GOT YOUR TEST DBOL', '2023-01-13 14:08:40', 'thumbnails/resized_63c165e85bd00.png', 30),
-(102, 'hotel test', 'test', '2023-01-15 10:29:29', 'thumbnails/resized_63c3d5897aa72.png', 31),
 (103, 'Travis Scott', 'Wir haben bald die Travis Scotts im Stock. Sind aber nur 5 Paare - schnell sein!', '2023-05-24 18:51:13', 'thumbnails/resized_646e5ca118721.jpeg', 47);
 
 -- --------------------------------------------------------
@@ -163,21 +159,21 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) VALUES
-(1, 'Jordan 1 Royal Blue', 240, '../zzz/images/download_1.jpg', 'beschreibung', 1000),
-(2, 'Jordans grey', 150, '../zzz/images/download_2.jpg', 'asdlfk', 1000),
-(3, 'jordans 3', 300, '../zzz/images/download_3.jpg', 'kasfdl', 1000),
-(4, 'jordans 4', 400, '../zzz/images/download_4.jpg', 'kasfdl', 1000),
-(5, 'article 5', 300, '../zzz/images/download_5.png', 'askdlf', 1000),
-(6, 'article 6', 300, '../zzz/images/download_6.png', 'askdlf', 1000),
-(7, 'iwas', 300, '../zzz/images/download_7.jpeg', 'askdlf', 1000),
-(8, 'iwas', 300, '../zzz/images/download_8.jpeg', 'askdlf', 1000),
-(9, 'iwas', 300, '../zzz/images/download_9.jpeg', 'askdlf', 1000),
-(11, 'iwas', 300, '../zzz/images/download_10.jpeg', 'askdlf', 1000),
-(12, 'iwas', 300, '../zzz/images/download_11.jpeg', 'askdlf', 1000),
-(13, 'iwas', 300, '../zzz/images/download_12.jpeg', 'askdlf', 1000),
-(14, 'iwas', 300, '../zzz/images/download_13.jpeg', 'askdlf', 1000),
-(15, 'iwas', 300, '../zzz/images/download_14.jpeg', 'askdlf', 1000),
-(16, 'iwas', 300, '../zzz/images/download_15.jpeg', 'askdlf', 1000);
+(1, 'Jordan 1 Royal Blue', 240, '../images/download_1.jpg', 'beschreibung', 1000),
+(2, 'Jordans grey', 150, '../images/download_2.jpg', 'asdlfk', 1000),
+(3, 'jordans 3', 300, '../images/download_3.jpg', 'kasfdl', 1000),
+(4, 'jordans 4', 400, '../images/download_4.jpg', 'kasfdl', 1000),
+(5, 'article 5', 300, '../images/download_5.png', 'askdlf', 1000),
+(6, 'article 6', 300, '../images/download_6.png', 'askdlf', 1000),
+(7, 'iwas', 300, '../images/download_7.jpeg', 'askdlf', 1000),
+(8, 'iwas', 300, '../images/download_8.jpeg', 'askdlf', 1000),
+(9, 'iwas', 300, '../images/download_9.jpeg', 'askdlf', 1000),
+(11, 'iwas', 300, '../images/download_10.jpeg', 'askdlf', 1000),
+(12, 'iwas', 300, '../images/download_11.jpeg', 'askdlf', 1000),
+(13, 'iwas', 300, '../images/download_12.jpeg', 'askdlf', 1000),
+(14, 'iwas', 300, '../images/download_13.jpeg', 'askdlf', 1000),
+(15, 'iwas', 300, '../images/download_14.jpeg', 'askdlf', 1000),
+(16, 'iwas', 300, '../images/download_15.jpeg', 'askdlf', 1000);
 
 -- --------------------------------------------------------
 
@@ -304,7 +300,8 @@ INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_
 (126, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 16:33:55', 'neu', 240),
 (127, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 16:33:55', 'neu', 240),
 (128, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-12 13:28:38', 'neu', 300),
-(129, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-12 13:28:38', 'neu', 150);
+(129, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-12 13:28:38', 'neu', 150),
+(130, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-17 20:43:41', 'neu', 240);
 
 -- --------------------------------------------------------
 
@@ -320,15 +317,6 @@ CREATE TABLE `warenkorb` (
   `produkt_name` varchar(255) NOT NULL,
   `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `warenkorb`
---
-
-INSERT INTO `warenkorb` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `produkt_preis`) VALUES
-(52, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', 150),
-(57, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', 150),
-(59, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', 240);
 
 --
 -- Indizes der exportierten Tabellen
@@ -403,13 +391,13 @@ ALTER TABLE `warenkorb`
 -- AUTO_INCREMENT für Tabelle `bestellungen`
 --
 ALTER TABLE `bestellungen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT für Tabelle `bestellung_erstellen`
 --
 ALTER TABLE `bestellung_erstellen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT für Tabelle `login`
@@ -427,13 +415,13 @@ ALTER TABLE `news_beiträge`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
 ALTER TABLE `verkaufte_produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT für Tabelle `warenkorb`
