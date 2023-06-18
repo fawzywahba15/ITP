@@ -3,10 +3,10 @@ stock logik implementieren:
 
 admin:
     artikel data ändern preis etc
-    bis admin css gemacht
 
 
-______________________________________________ NICE TO HAVE ______________________________________________________
-filte bei produkte
-design template für admin
-admin kann farbschema ändern auf der website
+konto ändern db:
+
+bis admin css gemacht
+
+

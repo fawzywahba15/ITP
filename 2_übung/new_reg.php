@@ -20,6 +20,7 @@ if (!isset($_SESSION)){
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php'; ?>
     <style>
+        .in
         .login_error{
             margin-bottom: 20px;
         }
@@ -113,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h5 class="login_error"><?php echo $error; ?></h5>
     <div>
         <label for="anrede" class="label_reg">Anrede</label> <br>
-        <select name="anrede" id="anrede" class="input" required>
+        <select name="anrede" id="anrede" class="input-block" required>
             <option value="Herr">Herr</option>
             <option value="Frau">Frau</option>
         </select>
@@ -121,32 +122,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div>
         <label for="fname" class="label_reg">First name</label>
-        <input type="text" id="fname" name="fname" placeholder="Max" class="input" required>
+        <input type="text" id="fname" name="fname" placeholder="Max" class="input-block" required>
     </div>
 
     <div>
         <label for="lname" class="label_reg">Last name</label> <!-- label is text -->
-        <input type="text" id="lname" name="lname" placeholder="Mustermann" class="input" required>
+        <input type="text" id="lname" name="lname" placeholder="Mustermann" class="input-block" required>
     </div>
 
     <div >
         <label for="email" class="label_reg">E-mail</label>
-        <input type="email" name="email" placeholder="email" id="email" class="input" required>
+        <input type="email" name="email" placeholder="email" id="email" class="input-block" required>
     </div>
 
     <div>
         <label for="password" class="label_reg">Password</label>
-        <input type="password" name="password" placeholder="password" id="password" class="input"  required>
+        <input type="password" name="password" placeholder="password" id="password" class="input-block"  required>
     </div>
 
     <div>
         <label for="password_2" class="label_reg">Repeat Password</label>
-        <input type="password" name="password_2" placeholder="confirm password" id="password_2" class="input" required>
+        <input type="password" name="password_2" placeholder="confirm password" id="password_2" class="input-block" required>
     </div>
 
     <div>
         <label for="birthdate" class="label_reg">Birthdate</label>
-        <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" class="input" required>
+        <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" class="input-block" required>
     </div>
 
 

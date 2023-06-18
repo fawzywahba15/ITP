@@ -68,24 +68,48 @@ img{border: 5px solid white;
 
 /* reg. formular */
 .input{
-  display: grid;
+
   grid-auto-rows: auto;
   grid-template-columns: 50%;
-  margin-top: 30px;
-  margin-left: 50%;
-  transform: translate(-50%,-50%);
+
   text-align: center ;
   border: 3px #824caf solid ;
-  padding: 14px 10px;
-  width: 200px;
+
   outline: none;
   border-radius: 25px;
   transition-duration: 0.4s;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  display: inline-block;
+  margin-left: 0;
+  padding: 0;
+  width: 100px;
+  transform: none;
+
 }
 .input:focus{
     width: 280px;
     border-color: #2ecc71;
 }
+
+.input-block{
+  border: 3px #824caf solid ;
+  text-align: center ;
+  outline: none;
+  border-radius: 25px;
+  transition-duration: 0.4s;
+  display: block;
+  margin-top: 30px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 60px;
+
+}
+.input-block:focus{
+  width: 220px;
+}
+
 .label_reg{
   display: grid;
   text-align: center;
@@ -291,22 +315,7 @@ img{border: 5px solid white;
   padding-right: 20px;
   border-radius: 50px;
 }
-.input{
 
-  margin-bottom: 15px;
-  margin-top: 15px;
-  display: inline-block;
-  margin-left: 0;
-  padding: 0;
-  width: 100px;
-  transform: none;
-  alignment: center;
-  border-color: #824caf;
-
-}
-.input:focus{
-  width: 110px;
-}
 .input_mail{
   text-align: center ;
   border: 3px #824caf solid ;
