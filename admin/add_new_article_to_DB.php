@@ -4,58 +4,29 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-
+include_once "./admin.php";
 ?>
-<head>
-    <?php
-    include_once "./admin.php";
-    ?>
 
-    <style>
-        .label_reg{
-            font-size: large;
-        }
 
-        .input{
-            margin-left: 50%;
-            transform: translate(-50%, 0);
-            width: 200px;
-            height: 50px;
-        }
-        .input:focus{
-            width: 220px;
-        }
-        .input_wide{
-            width: 300px;
-            padding-top: 10px;
-            padding-left: 20px;
-        }
-        .input_wide:focus{
-            width: 330px;
-        }
-        .button{
-        }
-    </style>
-</head>
 <body>
 
 
 <form method="post" action="#" enctype="multipart/form-data">
     <label for="name" class="label_reg">Name:</label>
-    <input type="text" id="name" name="name" class="input">
+    <input type="text" id="name" name="name" class="input-block">
 
     <label for="preis" class="label_reg">Preis:</label>
-    <input type="number" id="preis" name="preis" class="input">
+    <input type="number" id="preis" name="preis" class="input-block">
 
     <label for="pfad" class="label_reg">Bild:</label>
-    <input type="file" id="pfad" name="pfad" class="input input_wide">
+    <input type="file" id="pfad" name="pfad" class="input-block input_wide">
 
 
     <label for="beschreibung" class="label_reg">Beschreibung:</label>
-    <input type="text" id="beschreibung" name="beschreibung" class="input">
+    <input type="text" id="beschreibung" name="beschreibung" class="input-block">
 
     <label for="stock" class="label_reg">Stock:</label>
-    <input type="number" id="stock" name="stock" class="input">
+    <input type="number" id="stock" name="stock" class="input-block">
 
     <button type="submit" class="button label_reg my-5">Hinzufügen</button>
 

@@ -25,110 +25,9 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
 
 
     <style>
-        .my_tr{
-            border: 2px solid #824caf60;
-        }
-        .my_tr:hover{
-            background-color: #824caf60; ;
-        }
-        td{
-            border-right: #824caf60 2px solid;
-        }
-        .th{
-            width: 400px;
-            margin-left: 50px;
-            margin-right: 50px;
-            font-size: large;
-            text-align: center;
-        }
-
-        .button_2{
-            margin: 0;
-            margin-bottom: 50px;
-            padding: 5px;
-            padding-left: 20px;
-            padding-right: 20px;
-            border-radius: 50px;
-        }
-        .input{
-            margin: 0;
-            margin-bottom: 50px;
-            display: inline-block;
-            padding: 0;
-            width: 100px;
-            transform: none;
-
-            border-color: #824caf;
-        }
-        .input:focus{
-            width: 110px;
-        }
-        .warnung{
-            border-radius: 20px;
-            text-align: center;
-            width: 300px;
-            border: 2px red solid;
-            margin-bottom: 50px;
-            margin-left: 50%;
-            transform: translate(-50%, 0%);
-            transition-duration: 0.4s;
-        }
-        .warnung:hover{
-            background-color: #FF000080;
-        }
-        .dropdown_filter{
-            outline: none;
-            color: white;
-            border: 2px #824caf solid;
-            background-color: #824caf;
-            border-radius: 10px;
-        }
-        .dropdown_filter:hover{
-            border: 2px #4CAF50 solid;
-        }
-        .dropdown_submit{
-            color: white;
-            border: 2px #824caf solid;
-            background-color: #824caf;
-            border-radius: 10px;
-        }
-        .dropdown_submit:hover{
-            border: 2px #4CAF50 solid;
-        }
-        .dropdown_submit:active{
-            background-color: #4CAF50;
-        }
-        .subtable{
-            width: 90%;
-            margin: 50px;
-            border-color: #4CAF5080;
-        }
-        .subtable_td{
-            border-color: #4CAF5080;
-
-        }
-        .subtable_td:hover{
-            background-color: #4CAF5080;
-        }
-        .subtable_tr{
-            border: 2px solid #4CAF5080;
-        }
-        .subtable_tr:hover{
-            background-color: #4CAF5060;
-        }
-
-        .subtable-row{
-            border-left: #824caf60 2px solid;
-        }
-        .product_pic{
-            max-height: 200px;
-            max-width: 300px;
-        }
-        .pic_td{
-            max-height: 200px;
-            max-width: 300px;
-            margin: 0;
-        }
+    .button_2_round{
+        height: 40px;
+    }
 
     </style>
 </head>
@@ -245,7 +144,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
             echo "<td><p>$row_bestellungen[id]</p></td>";
             echo "<td>$user_id</td>";
             echo "<td>$row_person_mail</td>";
-            echo "<td><button class='collapse-btn button_2  py-2 my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen</button></td>";
+            echo "<td><button class='collapse-btn button_2_round my-3' data-product-data='" . htmlspecialchars($json, ENT_QUOTES, 'UTF-8') . "'>Produkte Anzeigen</button></td>";
 
 
             echo "<td class='text-center right_border'>" . $row_bestellungen["preis"] . "</td>";
@@ -260,7 +159,7 @@ if(isset($_POST['status_filter']) && $_POST['status_filter']){
             echo "</td>";
 
             echo "<td>";
-            echo "<button type='submit' class='button_2 py-2 my-3 px-5' onclick='change_bestellung_data(this)'>Aktualisieren!!</button>";
+            echo "<button type='submit' class='button_2_round  my-3' onclick='change_bestellung_data(this)'>Aktualisieren!!</button>";
             echo "</td>";
             echo "</tr>";
             echo "</form>";

@@ -120,13 +120,21 @@ img{border: 5px solid white;
   margin-left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  height: 60px;
+  height: 50px;
 
 }
 .input-block:focus{
   width: 220px;
 }
 
+.input_wide{
+  width: 300px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.input_wide:focus{
+  width: 330px;
+}
 .label_reg{
   display: grid;
   text-align: center;
@@ -300,7 +308,7 @@ img{border: 5px solid white;
 
 .aussuch_btn{
   display: flex;
-  width: min-content;
+  width: max-content;
   padding: 20px;
   margin-bottom: 75px;
   margin-left: 50%;
