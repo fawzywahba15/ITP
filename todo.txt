@@ -5,7 +5,7 @@ admin:
     artikel data ändern preis etc
 
 
-konto ändern db:
+bei Registrierung unten Kontaktdaten von Vienna Palace Hotel ändern
 
 inline css fertig
 

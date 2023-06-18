@@ -5,6 +5,7 @@ if(!isset($_SESSION))
     session_start();
 }
 include_once "./admin.php";
+include_once "../0include/popup.html";
 ?>
 
 
@@ -68,10 +69,7 @@ var_dump($_POST);
     if ($result == 1){
         ?>
         <script>
-            function erfolg_function(){
-                window.alert("Erfolgreich Hinzugefügt!")
-            }
-            erfolg_function();
+            showPopup('', 'Erfolgreich Hinzugefügt');
         </script>
 
 

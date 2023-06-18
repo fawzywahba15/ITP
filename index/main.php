@@ -151,8 +151,9 @@ if(!isset($_SESSION))
         xhttp.send("produkt_id=" + id + "&produkt_name=" + encodeURIComponent(produkt_name) + "&produkt_preis=" + encodeURIComponent(preis));
 
         <?php else: ?>
-        window.alert("Sie sind nicht angemeldet!");
-        <?php endif; ?>
+        showPopup('Fehlermeldung', 'Sie sind nicht angemeldet!');
+
+    <?php endif; ?>
     }
 
     function sold_out_error(){

@@ -1,6 +1,6 @@
 # webtechnologien
 
-artikel sollen nur zum warenkorb hinzugefügt werden, wenn man eingeloggt ist.
+
 
 Drop your ship Logo auf website anzeigen
 

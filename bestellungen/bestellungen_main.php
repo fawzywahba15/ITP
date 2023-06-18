@@ -48,7 +48,7 @@ if(!isset($_SESSION))
 </div>
 
 <?php else: ?>
-    <div class="container"><h3>Bitte <a href="../login/login.php">anmelden</a> oder <a href="../2_übung/new_reg.php">registrieren</a> um ein Zimmer zu buchen!</h3></div>
+    <div class="container"><h3>Bitte <a href="../login/login.php">anmelden</a> oder <a href="../2_übung/new_reg.php">registrieren</a> um etwas zu kaufen!</h3></div>
 
 <?php endif; ?>
 

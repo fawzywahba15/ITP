@@ -13,6 +13,7 @@ include "./admin.php";
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Meine Bestellungen</title>
+
 </head>
 <body>
 
@@ -146,11 +147,13 @@ include "./admin.php";
 </body>
 
 <?php
-include_once "../0include/footer.php"
+include_once "../0include/footer.php";
+include_once "../0include/popup.html";
 ?>
 
 <script>
     function change_bestellung_data(button){
+        event.preventDefault();
         var form = button.parentNode.parentNode.previousSibling;
         var id = form.nextSibling.firstChild.textContent
         var status = form.elements["status"].value;
@@ -163,8 +166,8 @@ include_once "../0include/footer.php"
         xhttp.send("id=" + id + "&status=" + status);
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
-                window.alert("Erfolgreich geändert!")
-                window.location.reload();
+                showPopup('', 'Erfolgreich geändert!');
+
             }
         };
 
