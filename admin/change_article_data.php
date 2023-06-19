@@ -10,6 +10,7 @@ include_once "../0include/popup.html";
 <style>
     .input_pfad{
         width: 130px;
+
     }
 </style>
 <body>
@@ -44,8 +45,8 @@ if (mysqli_num_rows($result) > 0){
                 echo "<td>
                           <div> $row[preis] </div>
                           </td>";
-                echo "<td>
-                          <div> $row[pfad] </div>
+                echo "<td class='pic_td'>
+                          <img class='img img-fluid product_pic' src='".  $row["pfad"] . "'>
                           </td>";
                 echo "<td>
                           <div> $row[beschreibung] </div>
@@ -63,7 +64,7 @@ if (mysqli_num_rows($result) > 0){
 
 
                 echo '<td>
-                          <input name="id" id="id" class="input" value= " ' . $row["id"] .'">
+                          <input name="id" class="input" value= " ' . $row["id"] .'">
                       </td> ';
         echo '  <td>
                           <input name="name" class="input_mail" value= " ' . $row["name"] .'">
@@ -103,22 +104,16 @@ if (mysqli_num_rows($result) > 0){
 <script>
     function change_article_data(button){
         event.preventDefault();
+
         var form = button.parentNode.parentNode.previousSibling;
-        console.log($(form).find('input[name="id"]').val());
-
-
-        var id = $(form).find('input[name="id"]');
-        var name = $(form).find('input[name="name"]').val();
-/*        var preis = form.find('input[name="preis"]').val();
-        var pfad = form.find('input[name="pfad"]').val();
-        var beschreibung = form.find('input[name="beschreibung"]').val();
-        var stock = form.find('input[name="stock"]').val();*/
-
-
-
-/*
-        var id = form.nextSibling.firstChild.textContent
-*/
+        var tr = form.nextSibling;
+        var id = tr.querySelector('input[name="id"]').value;
+        var name = tr.querySelector('input[name="name"]').value;
+        var preis = tr.querySelector('input[name="preis"]').value;
+        var pfad = tr.querySelector('input[name="pfad"]').value;
+        var beschreibung = tr.querySelector('input[name="beschreibung"]').value;
+        var stock = tr.querySelector('input[name="stock"]').value;
+        window.alert(pfad);
 
         var xhttp = new XMLHttpRequest();
         var url= "change_product_db.php"
