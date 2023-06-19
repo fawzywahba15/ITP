@@ -3,7 +3,8 @@
     <span class="close" onclick="closePopup()">&times;</span>
     <h2 id="popup-header"></h2>
     <p id="popup-content"></p>
-    <button class="ok-button" onclick="closePopup()">OK</button>
+    <button id="ok_button" class="ok-button" onclick="closePopup()">OK</button>
+    <button id="ok_button_once" class="ok-button" onclick="closepopup_once()" style="display: none">OK</button>
   </div>
 </div>
 
@@ -16,9 +17,19 @@
     document.getElementById("popup").style.display = "block";
   }
 
+
   function closePopup() {
     document.getElementById("popup").style.display = "none"; // Hide the pop-up
     window.location.reload();
   }
 
+  function showPopup_once(header, content) {
+    showPopup(header, content);
+    document.getElementById("ok_button").style.display = "none";
+    document.getElementById("ok_button_once").style.display = "block";
+
+  }
+  function closepopup_once() {
+    document.getElementById("popup").style.display = "none"; // Hide the pop-up
+  }
 </script>

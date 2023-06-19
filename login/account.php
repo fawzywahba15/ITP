@@ -84,13 +84,16 @@ function get_data($output){
 <div class="container my-5">
 <!--    wenn es einen eingeloggten suer gibt:-->
     <?php if(isset($_SESSION["username"])) : ?>
-
-
+<!--        <?php /*if (isset($error)): */?>
+        <h2>
+            <?php /*echo $error;*/?>
+        </h2>
+        --><?php /*endif;*/?>
         <?php
-        $error_shown = 0;
-        if (isset($error) && $error_shown === 0){
-            echo '<script> showPopup("", "' . $error . '");  event.preverntDefault(); </script>';
-            $error_shown = 1;
+
+        if (isset($error)){
+            echo ' <script> showPopup_once("", "' . $error . '", 0); </script>';
+
         }
 
         ?>
