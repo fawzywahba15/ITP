@@ -31,7 +31,6 @@ $result = mysqli_query($db_obj, $sql);
 if (mysqli_num_rows($result) > 0){
     while ($row = mysqli_fetch_assoc($result)){
 
-         echo "<form id='myform'>";
             echo "<tr class='my_tr text-center'>";
 
 
@@ -57,28 +56,30 @@ if (mysqli_num_rows($result) > 0){
 
 
             echo "</tr>";
-            echo "<tr class='my_tr text-center'>";
+
+        echo "<form id='myform' class='asdf'>";
+
+        echo "<tr class='my_tr text-center'>";
 
 
                 echo '<td>
-                          <input class="input" value= " ' . $row["id"] .'">
+                          <input name="id" id="id" class="input" value= " ' . $row["id"] .'">
                       </td> ';
         echo '  <td>
-                          <input class="input_mail" value= " ' . $row["name"] .'">
+                          <input name="name" class="input_mail" value= " ' . $row["name"] .'">
                       </td> ';
         echo '  <td>
-                          <input class="input" value= " ' . $row["preis"] .'">
+                          <input name="preis" class="input" value= " ' . $row["preis"] .'">
                       </td> ';
         echo '  <td>
-                          <input type="file" class=" input input_pfad" value= " ' . $row["pfad"] .'">
+                          <input name="pfad" type="file" class=" input input_pfad" value= " ' . $row["pfad"] .'">
                       </td> ';
         echo ' <td>
-                          <input class="input" value= " ' . $row["beschreibung"] .'">
+                          <input name="beschreibung" class="input" value= " ' . $row["beschreibung"] .'">
                       </td> ';
         echo ' <td>
-                          <input class="input" value= " ' . $row["stock"] .'">
+                          <input name="stock" class="input" value= " ' . $row["stock"] .'">
                       </td> ';
-
 
             echo "<td>";
             echo "<button type='submit' class='button_2_round my-3 px-5' onclick='change_article_data(this)'>Aktualisieren!</button>";
@@ -102,15 +103,35 @@ if (mysqli_num_rows($result) > 0){
 <script>
     function change_article_data(button){
         event.preventDefault();
-        var form = button.parentNode.parentNode.previousSibling.previousSibling;
+        var form = button.parentNode.parentNode.previousSibling;
+        console.log($(form).find('input[name="id"]').val());
+
+
+        var id = $(form).find('input[name="id"]');
+        var name = $(form).find('input[name="name"]').val();
+/*        var preis = form.find('input[name="preis"]').val();
+        var pfad = form.find('input[name="pfad"]').val();
+        var beschreibung = form.find('input[name="beschreibung"]').val();
+        var stock = form.find('input[name="stock"]').val();*/
+
+
+
+/*
         var id = form.nextSibling.firstChild.textContent
+*/
 
         var xhttp = new XMLHttpRequest();
-        var url= ".php"
-
+        var url= "change_product_db.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send("id=" + id + "&status=" + status);
+        xhttp.send(
+            "id=" + id +
+            "&name=" + name +
+            "&preis=" + preis +
+            "&pfad=" + pfad +
+            "&beschreibung=" + beschreibung +
+            "&stock=" + stock
+        );
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 showPopup('', 'Erfolgreich geändert!');
