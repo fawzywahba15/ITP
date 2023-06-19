@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46dd665-e4a6-46c4-b9f0-06934d62c8ac" name="Changes" comment="paar">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0include/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/0include/popup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0fusszeile/00impressum.php" beforeDir="false" afterPath="$PROJECT_DIR$/0fusszeile/00impressum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0fusszeile/01datenschutz.php" beforeDir="false" afterPath="$PROJECT_DIR$/0fusszeile/01datenschutz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bestellungen/bestellung_erfolg.php" beforeDir="false" afterPath="$PROJECT_DIR$/bestellungen/bestellung_erfolg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bestellungen/bestellungen_main.php" beforeDir="false" afterPath="$PROJECT_DIR$/bestellungen/bestellungen_main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,7 @@
       <workItem from="1686576405899" duration="666000" />
       <workItem from="1686599450625" duration="3378000" />
       <workItem from="1687089629524" duration="29000" />
-      <workItem from="1687184775722" duration="1315000" />
+      <workItem from="1687184775722" duration="1668000" />
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>
