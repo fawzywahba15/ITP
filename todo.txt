@@ -4,10 +4,6 @@ stock logik implementieren:
 admin:
     artikel data ändern preis etc
 
-
-bei Registrierung unten Kontaktdaten von Vienna Palace Hotel ändern
-
 inline css fertig
-
 pop up statt window.alert fertig
 
