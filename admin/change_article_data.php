@@ -110,23 +110,35 @@ if (mysqli_num_rows($result) > 0){
         var id = tr.querySelector('input[name="id"]').value;
         var name = tr.querySelector('input[name="name"]').value;
         var preis = tr.querySelector('input[name="preis"]').value;
-        var pfad = tr.querySelector('input[name="pfad"]').value;
+        var pfad = tr.querySelector('input[name="pfad"]').files[0];
+        var fileName = pfad ? pfad.name : null;
         var beschreibung = tr.querySelector('input[name="beschreibung"]').value;
         var stock = tr.querySelector('input[name="stock"]').value;
-        window.alert(pfad);
+
 
         var xhttp = new XMLHttpRequest();
         var url= "change_product_db.php"
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send(
-            "id=" + id +
-            "&name=" + name +
-            "&preis=" + preis +
-            "&pfad=" + pfad +
-            "&beschreibung=" + beschreibung +
-            "&stock=" + stock
-        );
+        if (fileName != null){
+            xhttp.send(
+                "id=" + id +
+                "&name=" + name +
+                "&preis=" + preis +
+                "&pfad=" + fileName +
+                "&beschreibung=" + beschreibung +
+                "&stock=" + stock
+            );
+        }else{
+            xhttp.send(
+                "id=" + id +
+                "&name=" + name +
+                "&preis=" + preis +
+                "&beschreibung=" + beschreibung +
+                "&stock=" + stock
+            );
+        }
+
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 showPopup('', 'Erfolgreich geändert!');

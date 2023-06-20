@@ -10,19 +10,31 @@ if (isset($_POST['id'])) {
     $stock = $_POST['stock'];
 
 
-    $file = $_FILES['pfad'];
-    $file_name = $file['name'];
-    // db connection
-    $base_dir = "../images/";
-    $pfad = $base_dir . $file_name;
 
-    $sql = "UPDATE produkte SET `name` = ?, `preis` = ?, `beschreibung` = ?, `pfad` = ?, `stock` =?  WHERE `id` = ?";
+    if ($_POST["pfad"] != null && $_POST["pfad"] != ""){
+        $file_name = $_POST['pfad'];
+        $base_dir = "../images/";
+        $pfad = $base_dir . $file_name;
 
-    $stmt = mysqli_prepare($db_obj, $sql);
+        $sql = "UPDATE produkte SET `name` = ?, `preis` = ?, `beschreibung` = ?, `pfad` = ?, `stock` = ?  WHERE `id` = ?";
+
+        $stmt = mysqli_prepare($db_obj, $sql);
 
 
-    mysqli_stmt_bind_param($stmt, "sissii", $name, $preis, $beschreibung, $pfad, $id);
-    mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_param($stmt, "sissii", $name, $preis, $beschreibung, $pfad, $stock, $id);
+        mysqli_stmt_execute($stmt);
+
+    }else{
+        $sql = "UPDATE produkte SET `name` = ?, `preis` = ?, `beschreibung` = ?,  `stock` = ?  WHERE `id` = ?";
+
+        $stmt = mysqli_prepare($db_obj, $sql);
+
+
+        mysqli_stmt_bind_param($stmt, "sisii", $name, $preis, $beschreibung, $stock, $id);
+        mysqli_stmt_execute($stmt);
+    }
+
+
 
     mysqli_stmt_close($stmt);
 
