@@ -210,11 +210,13 @@ img{border: 5px solid white;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
   color: black;
-  border-radius: .1875rem;
+
+  border-radius: 20px;
 }
 
 .card-img-actions {
   position: relative;
+
 }
 .card-body {
   -ms-flex: 1 1 auto;
@@ -224,10 +226,13 @@ img{border: 5px solid white;
 }
 
 .card-lower{
-  background-color: #FF6000;
+  background-color: #4CAF50;
+  border-radius: 20px;
+
 }
 
 .card-img{
+  border-radius: 20px;
   width: 350px;
   height: 200px;
   transition: transform 500ms;
@@ -237,20 +242,23 @@ img{border: 5px solid white;
   transition-duration: 500ms;
 }
 
-.star{
-  color: red;
+.schwarz{
+  color: black;
 }
 
 .bg-cart {
-  background-color: #FFA559;
-  color: #454545;
+  background-color: #824caf;
+  border: 3px #824caf solid;
+  color: white;
   font-size: larger;
 }
 
 .bg-cart:hover {
-  transition-duration: 250ms;
-  color: black;
-  background: #FFE6C7;
+  transition-duration: 300ms;
+  background-color: #4CAF50;
+  border: 3px #824caf solid;
+  color: white;
+
 }
 
 /************************************************POPUP***************************************************************/

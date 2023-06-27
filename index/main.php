@@ -51,7 +51,6 @@ if(!isset($_SESSION))
 
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
-
             <?php
             include_once "../0include/popup.html";
             include "../0include/dbaccess.php";
@@ -62,6 +61,7 @@ if(!isset($_SESSION))
                 while($row = mysqli_fetch_assoc($result)) {
 
                     ?>
+
             <div class="col-md-4 mt-2">
                 <div class="card">
                     <div class="card-body">
@@ -83,7 +83,7 @@ if(!isset($_SESSION))
                         <h5 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $row["preis"]?></h5>
 
 
-                        <div class="text-muted mb-3">Beschreibung: <?php echo $row["beschreibung"]?></div>
+                        <div class="mb-3 schwarz">Beschreibung: <?php echo $row["beschreibung"]?></div>
                         <br>
                     <?php if ($row["stock"] > 1) : ?>
 
