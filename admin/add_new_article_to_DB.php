@@ -68,7 +68,7 @@ var_dump($_POST);
     if ($result == 1){
         ?>
         <script>
-            showPopup('', 'Erfolgreich Hinzugefügt');
+            showPopup_once('', 'Erfolgreich Hinzugefügt');
         </script>
 
 

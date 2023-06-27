@@ -91,15 +91,16 @@ function get_data($output){
         --><?php /*endif;*/?>
         <?php
 
-        if (isset($error)){
+        if (isset($error) && $error != ""){
             echo ' <script> showPopup_once("", "' . $error . '", 0); </script>';
 
         }
-
         ?>
         <h5 class="login_success"><?php
             if (isset($success)) {
                 echo $success;
+                echo ' <script> showPopup_once("", "Ihre Daten wurden erfolgreich geändert!", 0); </script>';
+
             }?></h5>
 
     <!--    Nachname ändern-->
