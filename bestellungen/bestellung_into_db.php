@@ -44,7 +44,7 @@ if (empty($user_id) || empty($produkt_ids) || empty($produkt_names) || empty($pr
             // Decrement stock for the current product
             $decrementStockStmt->bind_param("i", $produkt_ids[$i]);
             $decrementStockStmt->execute();
-            
+
             include_once "bestellung_erfolg.php";
             //von warenkorb löschen
             $sql_2 = "DELETE FROM warenkorb WHERE `fk_produkt_id` = ? AND `fk_person_id` = ?";
