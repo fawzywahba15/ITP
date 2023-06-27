@@ -206,9 +206,10 @@ img{border: 5px solid white;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #454545;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
+  color: black;
   border-radius: .1875rem;
 }
 
@@ -220,6 +221,10 @@ img{border: 5px solid white;
   flex: 1 1 auto;
   padding: 1.25rem;
   text-align: center;
+}
+
+.card-lower{
+  background-color: #FF6000;
 }
 
 .card-img{
@@ -237,14 +242,15 @@ img{border: 5px solid white;
 }
 
 .bg-cart {
-  background-color: #4CAF50;
-  color:#fff;
+  background-color: #FFA559;
+  color: #454545;
+  font-size: larger;
 }
 
 .bg-cart:hover {
   transition-duration: 250ms;
-  color: white;
-  background: #824caf;
+  color: black;
+  background: #FFE6C7;
 }
 
 /************************************************POPUP***************************************************************/

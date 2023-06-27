@@ -17,9 +17,8 @@ if(!isset($_SESSION))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-
+    <link rel="stylesheet" href="../0design/my_design.css">
 
 </head>
 
@@ -73,20 +72,19 @@ if(!isset($_SESSION))
                         </div>
                     </div>
 
-                    <div class="card-body bg-light text-center">
+                    <div class="card-body card-lower text-center">
                         <div class="mb-2">
 
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true"><?php echo $row["name"]?></a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
+                            <h4 class="font-weight-semibold mb-2">
+                                <?php echo $row["name"]?>
+                            </h4>
                         </div>
 
-                        <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $row["preis"]?></h3>
+                        <h5 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $row["preis"]?></h5>
 
-                        <div class="text-muted mb-3">34 reviews</div>
+
                         <div class="text-muted mb-3">Beschreibung: <?php echo $row["beschreibung"]?></div>
+                        <br>
                     <?php if ($row["stock"] > 1) : ?>
 
                         <button type="button" onclick="add_to_cart(<?php echo $row['id']?> , <?php echo $row['preis']?>, '<?php echo $row['name']?>')" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
