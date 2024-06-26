@@ -9,8 +9,7 @@ if(!isset($_SESSION)) {
 function changne_data($data_to_change, $spalten_name){
     if (isset( $_SESSION["username"])){
         //sql conn
-    $db_obj = new mysqli('localhost', 'fawzy', 'mypassword', 'regestrieren');
-
+    include_once "../0include/dbaccess.php";
     //1. befehl: alle durchiterieren
     $sql = "select * from `login`";
     $current_user = $_SESSION["username"];

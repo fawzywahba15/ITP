@@ -19,35 +19,18 @@ if(!isset($_SESSION))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vienna Palace Hotel</title>
+    <title>Sneaker Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-    <style>
-        .ka{
-            display: flex;
-            width: min-content;
-            padding: 20px;
-            margin-bottom: 75px;
-            margin-left: 50%;
-            transform: translate(-50%, 50%);
-            border: #2ecc71 2px solid;
-            border-radius: 20px;
-        }
-        .drop{
-            margin-top: 200px;
-
-        }
-    </style>
-
 </head>
 <body>
 <?php if (isset($_SESSION["username"] )) : ?>
 <div class="container ">
 
-    <a class="nav-link dropdown-toggle ka" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle dropdown_btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <?php if(basename($_SERVER['PHP_SELF']) == 'bestellungen_main.php')  : ?>
         Auswahl:
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'new_sales_anzeigen.php'): ?>
@@ -65,7 +48,7 @@ if(!isset($_SESSION))
 </div>
 
 <?php else: ?>
-    <div class="container"><h3>Bitte <a href="../login/login.php">anmelden</a> oder <a href="../2_übung/new_reg.php">registrieren</a> um ein Zimmer zu buchen!</h3></div>
+    <div class="container"><h3>Bitte <a href="../login/login.php">anmelden</a> oder <a href="../2_übung/new_reg.php">registrieren</a> um etwas zu kaufen!</h3></div>
 
 <?php endif; ?>
 

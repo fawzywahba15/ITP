@@ -58,28 +58,7 @@ function get_all_news()
           crossorigin="anonymous">
 <?php include '../0include/navbar.php'; ?>
     <style>
-        .time_stamp{
-            color: white;
-            margin-left: 90%;
-            background-color: #4CAF50;
-            border: 2px solid #4CAF5060;
-            border-radius: 20px;
-            margin-bottom: 0;
-        }
-        .news_image{
-            border-color: #824caf;
-        }
-        .news_title{
-            width: max-content;
-            margin-left: 50%;
-            margin-top: 0;
-            transform: translate(-50%, 0);
-            border-bottom: 5px solid #824caf60;
-        }
-        .news_text{
-            font-size: large;
-            border: 5px solid #824caf60;
-        }
+
     </style>
 </head>
 <body>

@@ -10,60 +10,11 @@ include "bestellungen_main.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale</title>
+
     <style>
-
-        .check {
-
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #eee;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            outline: none;
-            box-shadow: 0 1px 2px #2ecc71;
-        }
-        .blcok{
-            display: block;
-        }
-        .check:checked{
-            background-color: #2ecc71;
-            border: 1px solid #27ae60;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 15px rgba(46, 204, 113, 0.1);
-        }
-        .checkbox-label {
-            /* style the label for the checkbox */
-            font-size: 16px;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-
-        .ich{
-            text-align: center;
-        }
-        .input{
-            margin-top: 0;;
-            margin-bottom: 0;
-        }
-        .label_reg{
-            margin-top: 0;
-        }
-        .res_error{
-            color: #ffffff;
-            text-align: center;
-            border: 2px solid red;
-            margin: 20px;
-            padding: 10px;
-            border-radius: 10px;
-            margin-left: 50%;
-            transform: translate(-50%, 50%);
-            width: max-content;
-        }
-        .res_error:hover{
-            background-color: #FF000040;
-        }
-
         .button_2{
+            width: 200px;
+            height: 50px;
             margin-left: 50%;
             transform: translate(-50%,+50%);
             margin-bottom: 100px;
@@ -179,12 +130,15 @@ $success ="";
 <?php
 echo "<div class='block'>";
 include_once "../0include/footer.php";
+include_once "../0include/popup.html";
+
 echo "<div>";
 ?>
 
 
 <script>
     function delete_from_warenkorb(button) {
+        event.preventDefault();
         var button_id = button.id;
         var person_id = <?php echo $user_id ?>;
 
@@ -195,11 +149,9 @@ echo "<div>";
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4) {
                 if (this.status == 200) {
-                    // Refresh the page after the delete request has been processed
-                    window.alert("Vom Warenkorb gelöscht!");
-                    window.location.reload();
+                    showPopup('', 'Vom Warenkorb gelöscht!');
                 } else {
-                    window.alert("etwas ist schiefgelaufen");
+                    showPopup('', 'Etwas ist schief gelaufen!');
                 }
             }
         };

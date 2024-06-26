@@ -22,29 +22,7 @@ if(!isset($_SESSION))
         ::placeholder{
             color: white;
         }
-        .article_title_input{
-            color: white;
-            outline: none;
-            background-color: #824caf;
-            border: solid 3px #824caf;
-            border-radius: 20px;
-        }
-        .article_title_input:focus{
-            border: solid 3px #4CAF50;
 
-        }
-        .article_text_input{
-            color: white;
-            outline: none;
-            background-color: #824caf;
-            border: solid 3px #824caf;
-            border-radius: 20px;
-            width: 700px;
-            height: 400px;
-        }
-        .article_text_input:focus{
-            border: solid 3px #4CAF50;
-        }
         .form-control-lg{
             background-color: #824caf;
             color: white;
@@ -73,14 +51,7 @@ if(!isset($_SESSION))
             background-color: black;
             border-color: #824caf;
         }
-        .alert{
-            width: 400px;
-            margin-left: 50%;
-            margin-top: 50px;
-            margin-bottom: 0;
-            text-align: center;
-            transform: translate(-50%, -50%);
-        }
+
 
     </style>
 

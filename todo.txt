@@ -3,10 +3,7 @@ stock logik implementieren:
 
 admin:
     artikel data ändern preis etc
-    bis admin css gemacht
 
+inline css fertig
+pop up statt window.alert fertig
 
-______________________________________________ NICE TO HAVE ______________________________________________________
-filte bei produkte
-design template für admin
-admin kann farbschema ändern auf der website

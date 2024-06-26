@@ -5,7 +5,6 @@ if(!isset($_SESSION))
 }
 var_dump($_POST);
 
-// bla
 ?>
 
 <!doctype html>

@@ -8,7 +8,7 @@ if(!isset($_SESSION)) {
 
 //funktion um eine spalte von der datenbank zu holen
 function get_data($output){
-    $db_obj = new mysqli("localhost", "fawzy", "mypassword", "regestrieren");
+    $db_obj = new mysqli("localhost", "fawzy", "mypassword", "sneaker_shop");
     $sql = "select * from `login`";
     $result = $db_obj->query($sql);
     $current_user = $_SESSION["username"];
@@ -46,23 +46,22 @@ function get_data($output){
 
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include "../0include/navbar.php";?>
+    <?php include "../0include/popup.html";?>
     <style>
-        .account_label{
-            margin-top: 20px;
-            color: white;
-            border-bottom: 2px #4CAF50 solid;
+
+
+        .login_success{
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+
         }
-        .label_value{
-            display: flex;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+
         .button{
             width: 240px;
             height: auto;
-
         }
-
         .input{
             display: block;
             margin-left: 0;
@@ -77,13 +76,6 @@ function get_data($output){
             width: 140px;
         }
 
-        .login_success{
-            color: #2ecc71;
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 50px;
-
-        }
     </style>
 </head>
 <body>
@@ -92,14 +84,23 @@ function get_data($output){
 <div class="container my-5">
 <!--    wenn es einen eingeloggten suer gibt:-->
     <?php if(isset($_SESSION["username"])) : ?>
+<!--        <?php /*if (isset($error)): */?>
+        <h2>
+            <?php /*echo $error;*/?>
+        </h2>
+        --><?php /*endif;*/?>
+        <?php
 
-        <h5 class="login_error"><?php
-            if (isset($error)){
-                echo $error;}
-        ?></h5>
+        if (isset($error) && $error != ""){
+            echo ' <script> showPopup_once("", "' . $error . '", 0); </script>';
+
+        }
+        ?>
         <h5 class="login_success"><?php
             if (isset($success)) {
                 echo $success;
+                echo ' <script> showPopup_once("", "Ihre Daten wurden erfolgreich geändert!", 0); </script>';
+
             }?></h5>
 
     <!--    Nachname ändern-->

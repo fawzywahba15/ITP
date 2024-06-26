@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 18. Jun 2023 um 14:00
+-- Erstellungszeit: 20. Jun 2023 um 21:52
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `regestrieren`
+-- Datenbank: `sneaker_shop`
 --
 
 -- --------------------------------------------------------
@@ -41,12 +41,15 @@ CREATE TABLE `bestellungen` (
 
 INSERT INTO `bestellungen` (`id`, `bestellung_erstellen_fk`, `person_fk`, `status`, `preis`) VALUES
 (16, 49, 47, 'neu', 600),
-(17, 50, 47, 'storniert', 1090),
-(22, 55, 47, 'storniert', 390),
+(17, 50, 47, 'neu', 1090),
+(22, 55, 47, 'neu', 390),
 (23, 56, 47, 'neu', 390),
-(24, 57, 47, 'storniert', 480),
-(25, 58, 47, 'storniert', 450),
-(26, 59, 47, 'neu', 240);
+(24, 57, 47, 'neu', 480),
+(25, 58, 47, 'neu', 450),
+(26, 59, 47, 'neu', 240),
+(27, 60, 47, 'storniert', 390),
+(28, 61, 47, 'storniert', 240),
+(29, 62, 47, 'neu', 240);
 
 -- --------------------------------------------------------
 
@@ -85,7 +88,10 @@ INSERT INTO `bestellung_erstellen` (`id`, `person_fk`, `produkt_1`, `produkt_2`,
 (56, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (57, 47, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (58, 47, 3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(59, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(59, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(60, 47, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(61, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(62, 47, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,13 +115,13 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `username`, `first_name`, `usermail`, `password`, `birthday`, `admin`, `status`) VALUES
-(30, 'Djokic', 'Danijela', 'danijeladjokic@gmx.at', '$2y$10$h60HyGAnnG9QdWPxd2VvW.e3tMliS.pAd8G/iBUU7VEdnLSSvHqu.', '01.05.2000', NULL, 'aktiv'),
-(31, 'Wahba', 'Fawzy', 'fawzi.wahba123@hotmail.com', '$2y$10$P2ohGf..XJkzn59jB0J96.pdTAGw1gtgbBpq9/f0rWJw/TSwqZGwK', '2022-12-28', 1, 'aktiv'),
-(32, 'Bumstead', 'Chris', 'chris.bumstead@gmail.com', '$2y$10$zHAQsLs7prFy9mSmo4GTae0DzQT.tXWQbOdGUG1EXwj0.8EnqR1pu', '2022-12-29', NULL, 'aktiv'),
-(33, 'gökmen', 'can', 'can.ok@gmx.at', '$2y$10$H2eYXQyQfrSQ6UbdvTRlauXafRmcynlfmZrJUIOHPVjSh3581Krm6', '2023-01-11', NULL, 'inaktiv'),
-(39, 'kai', 'berk', 'berkkaitan@gmail.com', '$2y$10$z3l5KujmbmlLYtIqlZ7f5O.o.LoqmhFwbchY83rBLQECDl15OLoKO', '2023-01-13', 1, 'aktiv'),
-(47, 'wahba', 'fawzy', 'fawzi.wahba@yahoo.com', '$2y$10$sqLPGN.8kCml6K1OSs0Bp.TVSQFa8dOMIIBEGX4MObMVlfVhPP0Xm', '2023-05-13', 1, 'aktiv'),
-(48, 'admin', 'admin', 'admin@admin.com', '$2y$10$5GsQHBVyefIyGINEbAo2quoPTNJY8G5Q1U7PC5cTN/5J9igN0PZ0m', '2023-03-15', 1, 'aktiv');
+(30, 'Djokic', 'Danijela', 'danijeladjokic@gmx.at', '$2y$10$JqF25RWDftABWVoZUphU9.Nkt6oyk/htimZWWO42HGIJHdxyIfg7C', '01.05.2000', NULL, 'aktiv'),
+(31, 'Wahba', 'Fawzy', 'fawzi.wahba123@hotmail.com', '$2y$10$bErbLgAcKpEtmuxDn7arE.Jw6WP8X6kAWtzBqcEM.2GFOLqYsjVTy', '2022-12-28', 1, 'aktiv'),
+(32, 'Bumstead', 'Chris', 'chris.bumstead@gmail.com', '$2y$10$IjxStf36l/WrGW2WokMALe/U1RxBFimquFWyJeMxfcFsraCaKTrMW', '2022-12-29', NULL, 'aktiv'),
+(33, 'gökmen', 'can', 'can.ok@gmx.at', '$2y$10$0UN4iyiDOcj.5IaHzejNPOPwIk5R8I/8MHpwuaKSBLqL8knKBiNSG', '2023-01-11', NULL, 'inaktiv'),
+(39, 'kai', 'berk', 'berkkaitan@gmail.com', '$2y$10$PA6.iKYwD0rsrFA76GGiU.YH5WjshHt5JmBNZ6jwbfBkx4olf0VFe', '2023-01-13', 1, 'aktiv'),
+(47, 'wahba', 'fawzy', 'fawzi.wahba@yahoo.com', '$2y$10$TxN2agZUZOJPXTBFGYNyGuE/NgDH2prjuLzSziMBT4O36iDqgLhj.', '2023-05-13', 1, 'aktiv'),
+(48, 'admin', 'admin', 'admin@admin.com', '$2y$10$I2pkd23XTvQHyfFw32yOPu9oo/d1KM4zYmGCRehjTq/q1MfMmvkTy', '2023-03-15', 1, 'aktiv');
 
 -- --------------------------------------------------------
 
@@ -159,7 +165,7 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) VALUES
-(1, 'Jordan 1 Royal Blue', 240, '../images/download_1.jpg', 'beschreibung', 1000),
+(1, '                        Jordan 1 Royal Blue', 240, '../images/Download_1.jpg', ' beschreibung', 1000),
 (2, 'Jordans grey', 150, '../images/download_2.jpg', 'asdlfk', 1000),
 (3, 'jordans 3', 300, '../images/download_3.jpg', 'kasfdl', 1000),
 (4, 'jordans 4', 400, '../images/download_4.jpg', 'kasfdl', 1000),
@@ -173,7 +179,11 @@ INSERT INTO `produkte` (`id`, `name`, `preis`, `pfad`, `beschreibung`, `stock`) 
 (13, 'iwas', 300, '../images/download_12.jpeg', 'askdlf', 1000),
 (14, 'iwas', 300, '../images/download_13.jpeg', 'askdlf', 1000),
 (15, 'iwas', 300, '../images/download_14.jpeg', 'askdlf', 1000),
-(16, 'iwas', 300, '../images/download_15.jpeg', 'askdlf', 1000);
+(16, 'iwas', 300, '../images/download_15.jpeg', 'askdlf', 1000),
+(60, 'asdf', 3000, '../images/download_24.jpeg', 'ljfad', 1000),
+(61, 'asdf', 3000, '../images/download_24.jpeg', 'ljfad', 1000),
+(62, 'asdf', 3000, '../images/download_24.jpeg', 'ljfad', 1000),
+(63, 'asdf', 3000, '../images/download_24.jpeg', 'ljfad', 1000);
 
 -- --------------------------------------------------------
 
@@ -301,7 +311,11 @@ INSERT INTO `verkaufte_produkte` (`id`, `usermail`, `fk_person_id`, `fk_produkt_
 (127, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-11 16:33:55', 'neu', 240),
 (128, 'fawzi.wahba@yahoo.com', 47, 3, 'jordans 3', '2023-06-12 13:28:38', 'neu', 300),
 (129, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-12 13:28:38', 'neu', 150),
-(130, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-17 20:43:41', 'neu', 240);
+(130, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-17 20:43:41', 'neu', 240),
+(131, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-18 12:23:02', 'neu', 240),
+(132, 'fawzi.wahba@yahoo.com', 47, 2, 'Jordans grey', '2023-06-18 12:23:02', 'neu', 150),
+(133, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-18 12:41:49', 'neu', 240),
+(134, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', '2023-06-19 14:32:11', 'neu', 240);
 
 -- --------------------------------------------------------
 
@@ -317,6 +331,14 @@ CREATE TABLE `warenkorb` (
   `produkt_name` varchar(255) NOT NULL,
   `produkt_preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `warenkorb`
+--
+
+INSERT INTO `warenkorb` (`id`, `usermail`, `fk_person_id`, `fk_produkt_id`, `produkt_name`, `produkt_preis`) VALUES
+(71, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', 240),
+(72, 'fawzi.wahba@yahoo.com', 47, 1, 'Jordan 1 Royal Blue', 240);
 
 --
 -- Indizes der exportierten Tabellen
@@ -391,13 +413,13 @@ ALTER TABLE `warenkorb`
 -- AUTO_INCREMENT für Tabelle `bestellungen`
 --
 ALTER TABLE `bestellungen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT für Tabelle `bestellung_erstellen`
 --
 ALTER TABLE `bestellung_erstellen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT für Tabelle `login`
@@ -415,19 +437,19 @@ ALTER TABLE `news_beiträge`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT für Tabelle `verkaufte_produkte`
 --
 ALTER TABLE `verkaufte_produkte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT für Tabelle `warenkorb`
 --
 ALTER TABLE `warenkorb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Constraints der exportierten Tabellen

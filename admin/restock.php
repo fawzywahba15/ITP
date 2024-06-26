@@ -18,54 +18,10 @@ if (!isset($_SESSION)){
     ?>
 
     <style>
-        .my_tr{
-            border: 2px solid #824caf60;
-            border-bottom: 0;
-
-        }
-        .my_tr:hover {
-            background-color: #824caf60;
-        }
-
-        .th{
-            width: 400px;
-            margin-left: 50px;
-            margin-right: 50px;
-            font-size: large;
-            text-align: center;
-
-        }
-
-        .button_2{
-            margin: 0;
-            margin-bottom: 15px;
-            margin-top: 15px;
-            padding: 5px;
-            padding-left: 20px;
-            padding-right: 20px;
-            border-radius: 50px;
-        }
-        .input{
-
-            margin-bottom: 15px;
-            margin-top: 15px;
-            display: inline-block;
-            margin-left: 0;
-            padding: 0;
-            width: 100px;
-            transform: none;
-            alignment: center;
-            border-color: #824caf;
-        }
-        .input:focus{
-            width: 110px;
-        }
-
-        .right_border{
-            border-right: #824caf60 2px solid;
-        }
-
-
+    .button_2_round{
+        width: 150px;
+        margin: 10px;
+    }
     </style>
 </head>
 <body>
@@ -112,7 +68,7 @@ if (!isset($_SESSION)){
             echo "</td>";
             
             echo "<td class='text-center right_border'>";
-            echo "<button type='button' class='button_2' onclick='updateRow(this) '>Update</button>";
+            echo "<button type='button' class='button_2_round' onclick='updateRow(this) '>Update</button>";
             echo "</td>";
 
             echo "</form>";
@@ -122,6 +78,7 @@ if (!isset($_SESSION)){
         }
     }
     mysqli_close($db_obj);
+    include_once "../0include/popup.html";
     ?>
 </table>
 
@@ -131,6 +88,7 @@ if (!isset($_SESSION)){
 <script>
     //funktion um stammdaten zu ändern
     function updateRow(button) {
+        event.preventDefault();
         var form = button.parentNode.parentNode.firstElementChild;
         var id = form.elements["id"].value;
         var stock = form.elements["stock"].value;
@@ -143,9 +101,7 @@ if (!isset($_SESSION)){
         xhttp.send("id=" + id +"&stock=" + stock);
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // Refresh the page after the delete request has been processed
-                window.alert("Erfolgreich geändert!")
-                window.location.reload();
+                showPopup('', 'Erfolgreich geändert!');
             }
         };
     }

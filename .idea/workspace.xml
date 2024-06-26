@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46dd665-e4a6-46c4-b9f0-06934d62c8ac" name="Changes" comment="paar">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/login/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/change_database.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/change_database.php" afterDir="false" />
+>>>>>>> a9ceb95fe473f2982fcad923fc38f374804e930b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,11 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< HEAD
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/itp/webtechnologien/00_datenbank_export_file&quot;,
+=======
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/itp&quot;,
+>>>>>>> a9ceb95fe473f2982fcad923fc38f374804e930b
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,6 +78,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webtechnologien\00_datenbank_export_file" />
       <recent name="C:\xampp\htdocs\itp\webtechnologien\00_datenbank_export_file" />
       <recent name="C:\xampp\htdocs\itp\webtechnologien\admin" />
       <recent name="C:\xampp\htdocs\webtechnologien\2_übung" />
@@ -163,8 +174,19 @@
       <workItem from="1686576405899" duration="666000" />
       <workItem from="1686599450625" duration="3378000" />
       <workItem from="1687089629524" duration="29000" />
+<<<<<<< HEAD
       <workItem from="1687285890423" duration="464000" />
       <workItem from="1710836135595" duration="8000" />
+=======
+      <workItem from="1687184775722" duration="3594000" />
+      <workItem from="1687203369600" duration="5624000" />
+      <workItem from="1687288915387" duration="1969000" />
+      <workItem from="1687291695667" duration="492000" />
+      <workItem from="1687873862139" duration="3011000" />
+      <workItem from="1687878373375" duration="18000" />
+      <workItem from="1687878411676" duration="6000" />
+      <workItem from="1687878454365" duration="1140000" />
+>>>>>>> a9ceb95fe473f2982fcad923fc38f374804e930b
     </task>
     <task id="LOCAL-00001" summary="paar">
       <created>1672402421370</created>

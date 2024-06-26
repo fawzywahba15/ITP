@@ -17,9 +17,8 @@ if(!isset($_SESSION))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php';?>
-
+    <link rel="stylesheet" href="../0design/my_design.css">
 
 </head>
 
@@ -52,7 +51,6 @@ if(!isset($_SESSION))
 
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
-
             <?php
             include_once "../0include/popup.html";
             include "../0include/dbaccess.php";
@@ -63,6 +61,7 @@ if(!isset($_SESSION))
                 while($row = mysqli_fetch_assoc($result)) {
 
                     ?>
+
             <div class="col-md-4 mt-2">
                 <div class="card">
                     <div class="card-body">
@@ -73,20 +72,19 @@ if(!isset($_SESSION))
                         </div>
                     </div>
 
-                    <div class="card-body bg-light text-center">
+                    <div class="card-body card-lower text-center">
                         <div class="mb-2">
 
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true"><?php echo $row["name"]?></a>
-                            </h6>
-
-                            <a href="#" class="text-muted" data-abc="true">Schuhe</a>
+                            <h4 class="font-weight-semibold mb-2">
+                                <?php echo $row["name"]?>
+                            </h4>
                         </div>
 
-                        <h3 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $row["preis"]?></h3>
+                        <h5 class="mb-0 font-weight-semibold text-black"><?php echo "€" . $row["preis"]?></h5>
 
-                        <div class="text-muted mb-3">34 reviews</div>
-                        <div class="text-muted mb-3">Beschreibung: <?php echo $row["beschreibung"]?></div>
+
+                        <div class="mb-3 schwarz">Beschreibung: <?php echo $row["beschreibung"]?></div>
+                        <br>
                     <?php if ($row["stock"] > 1) : ?>
 
                         <button type="button" onclick="add_to_cart(<?php echo $row['id']?> , <?php echo $row['preis']?>, '<?php echo $row['name']?>')" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
@@ -130,7 +128,7 @@ if(!isset($_SESSION))
     function add_to_cart(id, preis, produkt_name) {
         <?php if (isset($_SESSION["username"] )) : ?>
         var xhttp = new XMLHttpRequest();
-        var url = "../zimmer_reservieren/artikel_into_warenkorb.php";
+        var url = "../bestellungen/artikel_into_warenkorb.php";
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhttp.onreadystatechange = function() {
@@ -138,8 +136,6 @@ if(!isset($_SESSION))
                 if (this.status == 200) {
                     // Request was successful
                     showPopup('', 'Ihr Artikel wurde erfolgreich dem Warenkorb hinzugefügt!');
-                    //window.alert("Zum Warenkorb hinzugefügt!");
-                    //window.location.reload();
                 } else {
                     // Error handling
                     showPopup('', 'Leider ist ein fehler aufgetreten!');
@@ -151,12 +147,13 @@ if(!isset($_SESSION))
         xhttp.send("produkt_id=" + id + "&produkt_name=" + encodeURIComponent(produkt_name) + "&produkt_preis=" + encodeURIComponent(preis));
 
         <?php else: ?>
-        window.alert("Sie sind nicht angemeldet!");
-        <?php endif; ?>
+        showPopup('Fehlermeldung', 'Sie sind nicht angemeldet!');
+
+    <?php endif; ?>
     }
 
     function sold_out_error(){
-        window.alert("This article is sold out!")
+        showPopup('Sold out!', 'This article is sold out!')
     }
 
 

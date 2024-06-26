@@ -20,6 +20,7 @@ if (!isset($_SESSION)){
     <link rel="stylesheet" href="../0design/my_design.css">
     <?php include '../0include/navbar.php'; ?>
     <style>
+        .in
         .login_error{
             margin-bottom: 20px;
         }
@@ -104,16 +105,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-
+include_once "../0include/popup.html"
 
 ?>
 
 <form action="" method="POST" >
-<!--    error oder success ausgeben-->
-    <h5 class="login_error"><?php echo $error; ?></h5>
+
+    <script>
+        var ka = '<?php echo $error ?>';
+        if (ka !== ''){
+            showPopup('Fehlermeldung', ka);
+        }
+    </script>
     <div>
         <label for="anrede" class="label_reg">Anrede</label> <br>
-        <select name="anrede" id="anrede" class="input" required>
+        <select name="anrede" id="anrede" class="input-block" required>
             <option value="Herr">Herr</option>
             <option value="Frau">Frau</option>
         </select>
@@ -121,32 +127,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div>
         <label for="fname" class="label_reg">First name</label>
-        <input type="text" id="fname" name="fname" placeholder="Max" class="input" required>
+        <input type="text" id="fname" name="fname" placeholder="Max" class="input-block" required>
     </div>
 
     <div>
         <label for="lname" class="label_reg">Last name</label> <!-- label is text -->
-        <input type="text" id="lname" name="lname" placeholder="Mustermann" class="input" required>
+        <input type="text" id="lname" name="lname" placeholder="Mustermann" class="input-block" required>
     </div>
 
     <div >
         <label for="email" class="label_reg">E-mail</label>
-        <input type="email" name="email" placeholder="email" id="email" class="input" required>
+        <input type="email" name="email" placeholder="email" id="email" class="input-block" required>
     </div>
 
     <div>
         <label for="password" class="label_reg">Password</label>
-        <input type="password" name="password" placeholder="password" id="password" class="input"  required>
+        <input type="password" name="password" placeholder="password" id="password" class="input-block"  required>
     </div>
 
     <div>
         <label for="password_2" class="label_reg">Repeat Password</label>
-        <input type="password" name="password_2" placeholder="confirm password" id="password_2" class="input" required>
+        <input type="password" name="password_2" placeholder="confirm password" id="password_2" class="input-block" required>
     </div>
 
     <div>
         <label for="birthdate" class="label_reg">Birthdate</label>
-        <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" class="input" required>
+        <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" class="input-block" required>
     </div>
 
 
@@ -154,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <div class="mx-3">
         <input type="checkbox" name="Datenschutz" id="Datenschutz" class="mx-1" required>
-        <label for="Datenschutz" class="mx-3">Ich stimme den folgenden Bedingungen zu: Vienna-Palace-Hotel-Nutzungsvertrag: </label>
+        <label for="Datenschutz" class="mx-3">Ich stimme den folgenden Bedingungen zu: Sneaker-Store-Nutzungsvertrag: </label>
         <br>
         <input type="checkbox" name="Newsletter" id="Newsletter" class="mx-1">
         <label for="Newsletter" class="mx-3">Ich möchte regelmäßig Benachrichtigungen in der Form eines Newsletters erhalten.</label>
@@ -162,10 +168,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <h5><strong class="mx-3">Einwilligung:</strong></h5>
-    <h6 class="mx-4">Ich willige ein, per E-Mail personalisierte Angebote und Services zu erhalten. Dazu darf Vienna Palace GmbH
+    <h6 class="mx-4">Ich willige ein, per E-Mail personalisierte Angebote und Services zu erhalten. Dazu darf Sneaker Store GmbH
         meine Kundendaten sowie mein bisheriges und künftiges Kauf- und Klickverhalten auswerten.
         Die Abbestellung des Newsletters und ein Widerruf der Einwilligung in die Personalisierung sind jederzeit
-        möglich über den Link in jedem Newsletter oder per E-Mail an datenschutzanfrage@Viennapalace.at. Teilnahme
+        möglich über den Link in jedem Newsletter oder per E-Mail an datenschutzanfrage@Sneakerstore.at. Teilnahme
         ab 18 Jahren. Mehr zu Datenschutz <a href="../0fusszeile/01datenschutz.php">hier</a></h6>
 
 

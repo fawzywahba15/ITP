@@ -22,11 +22,7 @@ if(!isset($_SESSION)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <?php include '../0include/navbar.php'; ?>
     <link rel="stylesheet" href="../0design/my_design.css">
-    <style>
-    .aussuch_btn{
-        width: max-content;
-    }
-    </style>
+
 </head>
 
 <!--falls man einen admin ist, dann wird die website angezeigt sonst -> error-->
@@ -63,6 +59,8 @@ if(!isset($_SESSION)) {
 
         <?php elseif(basename($_SERVER['PHP_SELF']) == 'add_new_article_to_DB.php'): ?>
             Artikel hinzufügen:
+        <?php elseif(basename($_SERVER['PHP_SELF']) == 'change_article_data.php'): ?>
+            Artikel Ändern:
         <?php endif; ?>
 
     </a>
@@ -72,6 +70,7 @@ if(!isset($_SESSION)) {
             <li ><a class="dropdown-item" href="./new_show_all_bestellungen.php">Bestellungen anzeigen</a></li>
             <li ><a class="dropdown-item" href="./add_new_article_to_DB.php">Artikel hinzufügen</a></li>
             <li ><a class="dropdown-item" href="./restock.php">Stock ändern</a></li>
+            <li ><a class="dropdown-item" href="./change_article_data.php">Artikel Ändern</a></li>
 
         </ul>
     </div>

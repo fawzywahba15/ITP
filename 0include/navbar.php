@@ -47,7 +47,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid " >
-        <a class="navbar-brand"  href="../index/main.php">Startseite</a> <!--hotel name in grün-->
+        <a class="navbar-brand"  href="../index/main.php">Submarine Sales</a> <!--hotel name in grün-->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,7 +57,7 @@
 
 
                 <li class="nav-item" >
-                    <a class="nav-link active" aria-current="page"  href="../bestellungen/bestellungen_main.php">Bestellungen</a>
+                    <a class="nav-link active" aria-current="page"  href="../bestellungen/bestellungen_main.php">Mein Konto</a>
                 </li>
 
                 <li class="nav-item" >
@@ -82,11 +82,11 @@
 
                 <?php if (isset($_SESSION["admin"] ) && $_SESSION["admin"]) : ?>
                 <li class="nav-item">
-                    <a class="nav-link"  href="../file_upload/upload.php">file upload</a>
+                    <a class="nav-link"  href="../file_upload/upload.php">News Upload</a>
                 </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"  href="../admin/admin.php">admin</a>
+                        <a class="nav-link"  href="../admin/admin.php">Admin</a>
                     </li>
 
                 <?php endif; ?>

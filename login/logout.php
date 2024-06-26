@@ -31,7 +31,7 @@ header("refresh:0");
 <body>
 
 
-<h3> Sie werden in 3 sekunden weitergeleitet, falls etwas schiefläuft bitte
+<h3> Sie werden gleich weitergeleitet, falls etwas schiefläuft bitte
         <a href="../index/main.php">Hier</a> klicken!</h3>  
 
 </div>

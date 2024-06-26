@@ -1,7 +1,6 @@
 # webtechnologien
+All unsere benutzer haben das passwort: ichweissnd1
 
-artikel sollen nur zum warenkorb hinzugefügt werden, wenn man eingeloggt ist.
-
-Drop your ship Logo auf website anzeigen
-
-bei Registrierung unten Kontaktdaten von Vienna Palace Hotel ändern
+die folgenden emails sind admin:
+fawzi.wahba123@hotmail.com
+admin@admin.com
